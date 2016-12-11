@@ -53,6 +53,7 @@
         ChatListViewController *chatListViewController = [[ChatListViewController alloc]init];
             
 /*
+ *
  *  之前我在官方的demo基础上添加tab bar controller，但是总是打不开消息列表界面，在connect的回调函数中出现login error status:-1000错误
  *  其实这不算错误，谨记，因为我一个劲点击按钮，多次调用了connect函数，所以就报这个错误，
  *  最终找到问题所在了，第一次其实连接成功啦，只是我把navigationController删除了，但是呢，程序中页面跳转代码都使用了navigationController，
