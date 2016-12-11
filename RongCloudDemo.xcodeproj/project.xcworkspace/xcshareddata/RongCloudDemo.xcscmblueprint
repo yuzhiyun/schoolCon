@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "1A18DCCBECC7573DACC19A2954C359E786A57B76+++86FEBC6",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "1A18DCCBECC7573DACC19A2954C359E786A57B76+++86FEBC6" : 0,
+    "1A18DCCBECC7573DACC19A2954C359E786A57B76+++CEA46D2" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "C48F8AE2-F00F-4F35-A549-54E69916AB95",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "1A18DCCBECC7573DACC19A2954C359E786A57B76+++86FEBC6" : "demo-app-ios-quick-start",
+    "1A18DCCBECC7573DACC19A2954C359E786A57B76+++CEA46D2" : ""
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "RongCloudDemo",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "RongCloudDemo.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/rongcloud\/demo-app-ios-quick-start.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "1A18DCCBECC7573DACC19A2954C359E786A57B76+++86FEBC6"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/rongcloud\/demo-app-ios-quick-start.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "1A18DCCBECC7573DACC19A2954C359E786A57B76+++CEA46D2"
+    }
+  ]
+}
