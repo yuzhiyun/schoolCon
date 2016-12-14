@@ -6,14 +6,14 @@
 //  Copyright (c) 2015年 dlz. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "ConnectRongyunViewController.h"
 #import "ChatListViewController.h"
 #import <RongIMKit/RCConversationViewController.h>
-@interface ViewController ()
+@interface ConnectRongyunViewController ()
 
 @end
 
-@implementation ViewController
+@implementation ConnectRongyunViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -44,7 +44,8 @@
 -(void)loginRongCloud
 {
     //登录融云服务器,开始阶段可以先从融云API调试网站获取，之后token需要通过服务器到融云服务器取。
-    NSString*token=@"1Cv7TsY7T7wW4kksjL6p8UmcbyeYIrXSDa0nFvL2mH/U5nPXuaB+12S6/5HoVCjf2GXR/ibrED8=";
+    NSString*token=@"J0CpaUdo1MG+j57xWHh7Ah7iozBA2NK8M4ntPTJeFk4G5N1/m+10v6kSFcRGYeYkmsxMAm3kGX4RTYsqa9iIHg==";
+
     [[RCIM sharedRCIM] connectWithToken:token success:^(NSString *userId) {
         //设置用户信息提供者,页面展现的用户头像及昵称都会从此代理取
         [[RCIM sharedRCIM] setUserInfoDataSource:self];

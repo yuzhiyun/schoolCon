@@ -14,7 +14,7 @@
 		46973E091AE698CA007BE79E /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46973E081AE698C9007BE79E /* AssetsLibrary.framework */; };
 		4698CBA21AE22FCA0006330E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4698CBA11AE22FCA0006330E /* main.m */; };
 		4698CBA51AE22FCA0006330E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4698CBA41AE22FCA0006330E /* AppDelegate.m */; };
-		4698CBA81AE22FCA0006330E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4698CBA71AE22FCA0006330E /* ViewController.m */; };
+		4698CBA81AE22FCA0006330E /* ConnectRongyunViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4698CBA71AE22FCA0006330E /* ConnectRongyunViewController.m */; };
 		4698CBAB1AE22FCA0006330E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4698CBA91AE22FCA0006330E /* Main.storyboard */; };
 		4698CBAD1AE22FCA0006330E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4698CBAC1AE22FCA0006330E /* Images.xcassets */; };
 		4698CBB01AE22FCA0006330E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4698CBAE1AE22FCA0006330E /* LaunchScreen.xib */; };
@@ -41,6 +41,18 @@
 		4698CBFB1AE236EA0006330E /* RongIMKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4698CBFA1AE236EA0006330E /* RongIMKit.framework */; };
 		4698CBFD1AE237AB0006330E /* RongIMLib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4698CBFC1AE237AB0006330E /* RongIMLib.framework */; };
 		4698CC041AE245940006330E /* ChatListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4698CC031AE245940006330E /* ChatListViewController.m */; };
+		CD2DCAF01DFD9051000C03E1 /* list.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CD2DCAE91DFD9051000C03E1 /* list.jpg */; };
+		CD2DCAF11DFD9051000C03E1 /* avarta.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CD2DCAEA1DFD9051000C03E1 /* avarta.jpg */; };
+		CD2DCAF21DFD9051000C03E1 /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CD2DCAEB1DFD9051000C03E1 /* 1.jpg */; };
+		CD2DCAF31DFD9051000C03E1 /* 2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CD2DCAEC1DFD9051000C03E1 /* 2.jpg */; };
+		CD2DCAF41DFD9051000C03E1 /* 3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CD2DCAED1DFD9051000C03E1 /* 3.jpg */; };
+		CD2DCAF51DFD9051000C03E1 /* 4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CD2DCAEE1DFD9051000C03E1 /* 4.jpg */; };
+		CD2DCAF61DFD9051000C03E1 /* 5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CD2DCAEF1DFD9051000C03E1 /* 5.jpg */; };
+		CD2DCB071E014FBC000C03E1 /* home_page.png in Resources */ = {isa = PBXBuildFile; fileRef = CD2DCB061E014FBC000C03E1 /* home_page.png */; };
+		CD2DCB0A1E015132000C03E1 /* me.png in Resources */ = {isa = PBXBuildFile; fileRef = CD2DCB081E015132000C03E1 /* me.png */; };
+		CD2DCB0B1E015132000C03E1 /* shalong.png in Resources */ = {isa = PBXBuildFile; fileRef = CD2DCB091E015132000C03E1 /* shalong.png */; };
+		CD2DCB0D1E018787000C03E1 /* contact.png in Resources */ = {isa = PBXBuildFile; fileRef = CD2DCB0C1E018787000C03E1 /* contact.png */; };
+		CD2DCB0F1E018793000C03E1 /* reading.png in Resources */ = {isa = PBXBuildFile; fileRef = CD2DCB0E1E018793000C03E1 /* reading.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,8 +77,8 @@
 		4698CBA11AE22FCA0006330E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		4698CBA31AE22FCA0006330E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		4698CBA41AE22FCA0006330E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		4698CBA61AE22FCA0006330E /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		4698CBA71AE22FCA0006330E /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		4698CBA61AE22FCA0006330E /* ConnectRongyunViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConnectRongyunViewController.h; sourceTree = "<group>"; };
+		4698CBA71AE22FCA0006330E /* ConnectRongyunViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ConnectRongyunViewController.m; sourceTree = "<group>"; };
 		4698CBAA1AE22FCA0006330E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4698CBAC1AE22FCA0006330E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		4698CBAF1AE22FCA0006330E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -96,6 +108,18 @@
 		4698CBFC1AE237AB0006330E /* RongIMLib.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RongIMLib.framework; path = framework/RongIMLib.framework; sourceTree = "<group>"; };
 		4698CC021AE245940006330E /* ChatListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatListViewController.h; sourceTree = "<group>"; };
 		4698CC031AE245940006330E /* ChatListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatListViewController.m; sourceTree = "<group>"; };
+		CD2DCAE91DFD9051000C03E1 /* list.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = list.jpg; sourceTree = "<group>"; };
+		CD2DCAEA1DFD9051000C03E1 /* avarta.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = avarta.jpg; sourceTree = "<group>"; };
+		CD2DCAEB1DFD9051000C03E1 /* 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpg; sourceTree = "<group>"; };
+		CD2DCAEC1DFD9051000C03E1 /* 2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 2.jpg; sourceTree = "<group>"; };
+		CD2DCAED1DFD9051000C03E1 /* 3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 3.jpg; sourceTree = "<group>"; };
+		CD2DCAEE1DFD9051000C03E1 /* 4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 4.jpg; sourceTree = "<group>"; };
+		CD2DCAEF1DFD9051000C03E1 /* 5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 5.jpg; sourceTree = "<group>"; };
+		CD2DCB061E014FBC000C03E1 /* home_page.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home_page.png; sourceTree = "<group>"; };
+		CD2DCB081E015132000C03E1 /* me.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = me.png; sourceTree = "<group>"; };
+		CD2DCB091E015132000C03E1 /* shalong.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shalong.png; sourceTree = "<group>"; };
+		CD2DCB0C1E018787000C03E1 /* contact.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = contact.png; sourceTree = "<group>"; };
+		CD2DCB0E1E018793000C03E1 /* reading.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = reading.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +166,7 @@
 		4698CB931AE22FCA0006330E = {
 			isa = PBXGroup;
 			children = (
+				CD2DCAE81DFD9043000C03E1 /* img */,
 				461B27831B82DD7D00107001 /* Emoji.plist */,
 				461B27841B82DD7D00107001 /* RongCloud.bundle */,
 				4698CBCD1AE232FF0006330E /* Frameworks */,
@@ -164,10 +189,11 @@
 		4698CB9E1AE22FCA0006330E /* RongCloudDemo */ = {
 			isa = PBXGroup;
 			children = (
+				CD2DCAFE1DFD9102000C03E1 /* yuelushalong */,
 				4698CBA31AE22FCA0006330E /* AppDelegate.h */,
 				4698CBA41AE22FCA0006330E /* AppDelegate.m */,
-				4698CBA61AE22FCA0006330E /* ViewController.h */,
-				4698CBA71AE22FCA0006330E /* ViewController.m */,
+				4698CBA61AE22FCA0006330E /* ConnectRongyunViewController.h */,
+				4698CBA71AE22FCA0006330E /* ConnectRongyunViewController.m */,
 				4698CBA91AE22FCA0006330E /* Main.storyboard */,
 				4698CBAC1AE22FCA0006330E /* Images.xcassets */,
 				4698CBAE1AE22FCA0006330E /* LaunchScreen.xib */,
@@ -240,6 +266,41 @@
 				4698CBD01AE233D60006330E /* ImageIO.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CD2DCAE81DFD9043000C03E1 /* img */ = {
+			isa = PBXGroup;
+			children = (
+				CD2DCB051E014F7E000C03E1 /* icon */,
+				CD2DCAE91DFD9051000C03E1 /* list.jpg */,
+				CD2DCAEA1DFD9051000C03E1 /* avarta.jpg */,
+				CD2DCAEB1DFD9051000C03E1 /* 1.jpg */,
+				CD2DCAEC1DFD9051000C03E1 /* 2.jpg */,
+				CD2DCAED1DFD9051000C03E1 /* 3.jpg */,
+				CD2DCAEE1DFD9051000C03E1 /* 4.jpg */,
+				CD2DCAEF1DFD9051000C03E1 /* 5.jpg */,
+			);
+			name = img;
+			sourceTree = "<group>";
+		};
+		CD2DCAFE1DFD9102000C03E1 /* yuelushalong */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = yuelushalong;
+			path = ../../IOSProjects/FrameForSchoolCon/FrameForSchoolCon;
+			sourceTree = "<group>";
+		};
+		CD2DCB051E014F7E000C03E1 /* icon */ = {
+			isa = PBXGroup;
+			children = (
+				CD2DCB0E1E018793000C03E1 /* reading.png */,
+				CD2DCB0C1E018787000C03E1 /* contact.png */,
+				CD2DCB081E015132000C03E1 /* me.png */,
+				CD2DCB091E015132000C03E1 /* shalong.png */,
+				CD2DCB061E014FBC000C03E1 /* home_page.png */,
+			);
+			name = icon;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -325,10 +386,22 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CD2DCB0A1E015132000C03E1 /* me.png in Resources */,
+				CD2DCAF51DFD9051000C03E1 /* 4.jpg in Resources */,
+				CD2DCB0D1E018787000C03E1 /* contact.png in Resources */,
+				CD2DCAF41DFD9051000C03E1 /* 3.jpg in Resources */,
+				CD2DCB0F1E018793000C03E1 /* reading.png in Resources */,
+				CD2DCAF11DFD9051000C03E1 /* avarta.jpg in Resources */,
+				CD2DCB071E014FBC000C03E1 /* home_page.png in Resources */,
+				CD2DCAF01DFD9051000C03E1 /* list.jpg in Resources */,
+				CD2DCAF31DFD9051000C03E1 /* 2.jpg in Resources */,
 				461B27851B82DD7D00107001 /* Emoji.plist in Resources */,
 				461B27861B82DD7D00107001 /* RongCloud.bundle in Resources */,
+				CD2DCAF61DFD9051000C03E1 /* 5.jpg in Resources */,
+				CD2DCB0B1E015132000C03E1 /* shalong.png in Resources */,
 				4698CBAB1AE22FCA0006330E /* Main.storyboard in Resources */,
 				461B27891B82DDA000107001 /* RongCloudKit.strings in Resources */,
+				CD2DCAF21DFD9051000C03E1 /* 1.jpg in Resources */,
 				4698CBB01AE22FCA0006330E /* LaunchScreen.xib in Resources */,
 				4698CBAD1AE22FCA0006330E /* Images.xcassets in Resources */,
 			);
@@ -348,7 +421,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4698CBA81AE22FCA0006330E /* ViewController.m in Sources */,
+				4698CBA81AE22FCA0006330E /* ConnectRongyunViewController.m in Sources */,
 				4698CBA51AE22FCA0006330E /* AppDelegate.m in Sources */,
 				4698CC041AE245940006330E /* ChatListViewController.m in Sources */,
 				4698CBA21AE22FCA0006330E /* main.m in Sources */,

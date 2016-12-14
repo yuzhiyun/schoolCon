@@ -10,10 +10,10 @@
 
 #import <UIKit/UIKit.h>
 #import <RongIMLib/RongIMLib.h>
-#import "ViewController.h"
+#import "ConnectRongyunViewController.h"
 #import <RongIMKit/RongIMKit.h>
 
-#define RONGCLOUD_IM_APPKEY @"z3v5yqkbv8v30" //请换成您的appkey 
+#define RONGCLOUD_IM_APPKEY @"qd46yzrf47sjf" //请换成您的appkey
 @interface AppDelegate ()
 
 @end
@@ -114,7 +114,7 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
                               cancelButtonTitle:@"知道了"
                               otherButtonTitles:nil, nil];
         [alert show];
-        ViewController *loginVC = [[ViewController alloc] init];
+        ConnectRongyunViewController *loginVC = [[ConnectRongyunViewController alloc] init];
         UINavigationController *_navi =
         [[UINavigationController alloc] initWithRootViewController:loginVC];
         self.window.rootViewController = _navi;

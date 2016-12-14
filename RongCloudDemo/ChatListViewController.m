@@ -84,7 +84,7 @@
 {
     RCConversationViewController *conversationVC = [[RCConversationViewController alloc]init];
     conversationVC.conversationType =ConversationType_PRIVATE;
-    conversationVC.targetId = @"1"; //这里模拟自己给自己发消息，您可以替换成其他登录的用户的UserId
+    conversationVC.targetId = @"321"; //这里模拟自己给自己发消息，您可以替换成其他登录的用户的UserId
     conversationVC.userName = @"测试1";
     conversationVC.title = @"自问自答";
     [self.navigationController pushViewController:conversationVC animated:YES];
