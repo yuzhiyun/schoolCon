@@ -63,6 +63,8 @@
 		CD2DCB801E03C7E7000C03E1 /* grades_inquire.png in Resources */ = {isa = PBXBuildFile; fileRef = CD2DCB7D1E03C7E7000C03E1 /* grades_inquire.png */; };
 		CD2DCB831E03CAB3000C03E1 /* MeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD2DCB821E03CAB3000C03E1 /* MeViewController.m */; };
 		CD2DCB861E03CC6C000C03E1 /* MeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CD2DCB851E03CC6C000C03E1 /* MeTableViewCell.m */; };
+		CD2DCB891E03E7BE000C03E1 /* ArticleDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD2DCB881E03E7BE000C03E1 /* ArticleDetailViewController.m */; };
+		CD2DCB8D1E03E837000C03E1 /* CommentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CD2DCB8C1E03E837000C03E1 /* CommentTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -146,6 +148,10 @@
 		CD2DCB821E03CAB3000C03E1 /* MeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeViewController.m; sourceTree = "<group>"; };
 		CD2DCB841E03CC6C000C03E1 /* MeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeTableViewCell.h; sourceTree = "<group>"; };
 		CD2DCB851E03CC6C000C03E1 /* MeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeTableViewCell.m; sourceTree = "<group>"; };
+		CD2DCB871E03E7BE000C03E1 /* ArticleDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArticleDetailViewController.h; sourceTree = "<group>"; };
+		CD2DCB881E03E7BE000C03E1 /* ArticleDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArticleDetailViewController.m; sourceTree = "<group>"; };
+		CD2DCB8B1E03E837000C03E1 /* CommentTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentTableViewCell.h; sourceTree = "<group>"; };
+		CD2DCB8C1E03E837000C03E1 /* CommentTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -362,6 +368,9 @@
 		CD2DCB121E025B62000C03E1 /* online_learning */ = {
 			isa = PBXGroup;
 			children = (
+				CD2DCB8A1E03E815000C03E1 /* commentCell */,
+				CD2DCB871E03E7BE000C03E1 /* ArticleDetailViewController.h */,
+				CD2DCB881E03E7BE000C03E1 /* ArticleDetailViewController.m */,
 			);
 			name = online_learning;
 			sourceTree = "<group>";
@@ -375,6 +384,15 @@
 				CD2DCB851E03CC6C000C03E1 /* MeTableViewCell.m */,
 			);
 			name = me;
+			sourceTree = "<group>";
+		};
+		CD2DCB8A1E03E815000C03E1 /* commentCell */ = {
+			isa = PBXGroup;
+			children = (
+				CD2DCB8B1E03E837000C03E1 /* CommentTableViewCell.h */,
+				CD2DCB8C1E03E837000C03E1 /* CommentTableViewCell.m */,
+			);
+			name = commentCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -503,8 +521,10 @@
 				4698CBA51AE22FCA0006330E /* AppDelegate.m in Sources */,
 				CD2DCB671E02DFE8000C03E1 /* HomePageViewController.m in Sources */,
 				4698CC041AE245940006330E /* ChatListViewController.m in Sources */,
+				CD2DCB891E03E7BE000C03E1 /* ArticleDetailViewController.m in Sources */,
 				CD2DCB831E03CAB3000C03E1 /* MeViewController.m in Sources */,
 				CD2DCB861E03CC6C000C03E1 /* MeTableViewCell.m in Sources */,
+				CD2DCB8D1E03E837000C03E1 /* CommentTableViewCell.m in Sources */,
 				CD2DCB191E02CC41000C03E1 /* shalongTableViewCell.m in Sources */,
 				4698CBA21AE22FCA0006330E /* main.m in Sources */,
 				CD2DCB641E02DF4A000C03E1 /* NotificationTableViewController.m in Sources */,
