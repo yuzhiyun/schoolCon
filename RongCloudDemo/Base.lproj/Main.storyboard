@@ -94,7 +94,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Pf-Dt-LUb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-512.79999999999995" y="83.208395802098963"/>
+            <point key="canvasLocation" x="-500" y="107"/>
         </scene>
         <!--首页-->
         <scene sceneID="l6A-BC-gYV">
@@ -136,19 +136,19 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HU5-Jt-zvJ">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="consults.png" translatesAutoresizingMaskIntoConstraints="NO" id="HU5-Jt-zvJ">
                                 <rect key="frame" x="56" y="320" width="90" height="67"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="d7O-pB-4sV">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="grades_inquire.png" translatesAutoresizingMaskIntoConstraints="NO" id="d7O-pB-4sV">
                                 <rect key="frame" x="204" y="320" width="86" height="67"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6Hd-Ap-WRK">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="contacts_us.png" translatesAutoresizingMaskIntoConstraints="NO" id="6Hd-Ap-WRK">
                                 <rect key="frame" x="56" y="430" width="95" height="74"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3p5-h1-l9h">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="favorites.png" translatesAutoresizingMaskIntoConstraints="NO" id="3p5-h1-l9h">
                                 <rect key="frame" x="204" y="430" width="72" height="74"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -162,7 +162,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="cKL-hV-ihW">
-                                <rect key="frame" x="16" y="79" width="349" height="166"/>
+                                <rect key="frame" x="10" y="91" width="349" height="166"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
@@ -606,7 +606,11 @@
     </scenes>
     <resources>
         <image name="2.jpg" width="270" height="187"/>
+        <image name="consults.png" width="64" height="64"/>
         <image name="contact.png" width="32" height="32"/>
+        <image name="contacts_us.png" width="64" height="64"/>
+        <image name="favorites.png" width="64" height="64"/>
+        <image name="grades_inquire.png" width="64" height="64"/>
         <image name="home_page.png" width="32" height="32"/>
         <image name="me.png" width="32" height="32"/>
         <image name="shalong.png" width="32" height="32"/>

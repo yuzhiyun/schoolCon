@@ -58,6 +58,10 @@
 		CD2DCB1F1E02D2B4000C03E1 /* shalongTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD2DCB1E1E02D2B4000C03E1 /* shalongTableViewController.m */; };
 		CD2DCB641E02DF4A000C03E1 /* NotificationTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD2DCB631E02DF4A000C03E1 /* NotificationTableViewController.m */; };
 		CD2DCB671E02DFE8000C03E1 /* HomePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD2DCB661E02DFE8000C03E1 /* HomePageViewController.m */; };
+		CD2DCB7A1E03C7DC000C03E1 /* consults.png in Resources */ = {isa = PBXBuildFile; fileRef = CD2DCB791E03C7DC000C03E1 /* consults.png */; };
+		CD2DCB7E1E03C7E7000C03E1 /* contacts_us.png in Resources */ = {isa = PBXBuildFile; fileRef = CD2DCB7B1E03C7E7000C03E1 /* contacts_us.png */; };
+		CD2DCB7F1E03C7E7000C03E1 /* favorites.png in Resources */ = {isa = PBXBuildFile; fileRef = CD2DCB7C1E03C7E7000C03E1 /* favorites.png */; };
+		CD2DCB801E03C7E7000C03E1 /* grades_inquire.png in Resources */ = {isa = PBXBuildFile; fileRef = CD2DCB7D1E03C7E7000C03E1 /* grades_inquire.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -135,6 +139,10 @@
 		CD2DCB631E02DF4A000C03E1 /* NotificationTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationTableViewController.m; sourceTree = "<group>"; };
 		CD2DCB651E02DFE8000C03E1 /* HomePageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomePageViewController.h; sourceTree = "<group>"; };
 		CD2DCB661E02DFE8000C03E1 /* HomePageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomePageViewController.m; sourceTree = "<group>"; };
+		CD2DCB791E03C7DC000C03E1 /* consults.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = consults.png; sourceTree = "<group>"; };
+		CD2DCB7B1E03C7E7000C03E1 /* contacts_us.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = contacts_us.png; sourceTree = "<group>"; };
+		CD2DCB7C1E03C7E7000C03E1 /* favorites.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = favorites.png; sourceTree = "<group>"; };
+		CD2DCB7D1E03C7E7000C03E1 /* grades_inquire.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = grades_inquire.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -317,6 +325,10 @@
 		CD2DCB051E014F7E000C03E1 /* icon */ = {
 			isa = PBXGroup;
 			children = (
+				CD2DCB7B1E03C7E7000C03E1 /* contacts_us.png */,
+				CD2DCB7C1E03C7E7000C03E1 /* favorites.png */,
+				CD2DCB7D1E03C7E7000C03E1 /* grades_inquire.png */,
+				CD2DCB791E03C7DC000C03E1 /* consults.png */,
 				CD2DCB0E1E018793000C03E1 /* reading.png */,
 				CD2DCB0C1E018787000C03E1 /* contact.png */,
 				CD2DCB081E015132000C03E1 /* me.png */,
@@ -444,16 +456,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				CD2DCB0A1E015132000C03E1 /* me.png in Resources */,
+				CD2DCB801E03C7E7000C03E1 /* grades_inquire.png in Resources */,
+				CD2DCB7A1E03C7DC000C03E1 /* consults.png in Resources */,
 				CD2DCAF51DFD9051000C03E1 /* 4.jpg in Resources */,
 				CD2DCB0D1E018787000C03E1 /* contact.png in Resources */,
 				CD2DCAF41DFD9051000C03E1 /* 3.jpg in Resources */,
 				CD2DCB0F1E018793000C03E1 /* reading.png in Resources */,
 				CD2DCAF11DFD9051000C03E1 /* avarta.jpg in Resources */,
 				CD2DCB071E014FBC000C03E1 /* home_page.png in Resources */,
+				CD2DCB7E1E03C7E7000C03E1 /* contacts_us.png in Resources */,
 				CD2DCAF01DFD9051000C03E1 /* list.jpg in Resources */,
 				CD2DCAF31DFD9051000C03E1 /* 2.jpg in Resources */,
 				461B27851B82DD7D00107001 /* Emoji.plist in Resources */,
 				461B27861B82DD7D00107001 /* RongCloud.bundle in Resources */,
+				CD2DCB7F1E03C7E7000C03E1 /* favorites.png in Resources */,
 				CD2DCAF61DFD9051000C03E1 /* 5.jpg in Resources */,
 				CD2DCB0B1E015132000C03E1 /* shalong.png in Resources */,
 				4698CBAB1AE22FCA0006330E /* Main.storyboard in Resources */,
