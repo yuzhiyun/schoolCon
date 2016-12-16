@@ -14,13 +14,17 @@
 
 @implementation HomePageViewController{
 
-    NSArray *recipes;
+    NSMutableArray *recipes;
     
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    recipes = [NSArray arrayWithObjects:@"Egg Benedict",@"Ham and Cheese Panini","yuzhiyun",nil];
+    recipes=[[NSMutableArray alloc]init];
+    [recipes addObject:@"通知1：由于下大雪，今晚不用上课"];
+    [recipes addObject:@"通知2：由于下大雪，今晚不用上课"];
+    [recipes addObject:@"通知3：由于下大雪，今晚不用上课"];
+//    recipes = [NSArray arrayWithObjects:@"Egg Benedict",@"Ham and Cheese Panini","yuzhiyun",nil];
     // Do any additional setup after loading the view.
 }
 
