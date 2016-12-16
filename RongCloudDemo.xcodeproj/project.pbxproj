@@ -53,7 +53,6 @@
 		CD2DCB0B1E015132000C03E1 /* shalong.png in Resources */ = {isa = PBXBuildFile; fileRef = CD2DCB091E015132000C03E1 /* shalong.png */; };
 		CD2DCB0D1E018787000C03E1 /* contact.png in Resources */ = {isa = PBXBuildFile; fileRef = CD2DCB0C1E018787000C03E1 /* contact.png */; };
 		CD2DCB0F1E018793000C03E1 /* reading.png in Resources */ = {isa = PBXBuildFile; fileRef = CD2DCB0E1E018793000C03E1 /* reading.png */; };
-		CD2DCB161E02C7B3000C03E1 /* MeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD2DCB151E02C7B3000C03E1 /* MeTableViewController.m */; };
 		CD2DCB191E02CC41000C03E1 /* shalongTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CD2DCB181E02CC41000C03E1 /* shalongTableViewCell.m */; };
 		CD2DCB1F1E02D2B4000C03E1 /* shalongTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD2DCB1E1E02D2B4000C03E1 /* shalongTableViewController.m */; };
 		CD2DCB641E02DF4A000C03E1 /* NotificationTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD2DCB631E02DF4A000C03E1 /* NotificationTableViewController.m */; };
@@ -62,6 +61,8 @@
 		CD2DCB7E1E03C7E7000C03E1 /* contacts_us.png in Resources */ = {isa = PBXBuildFile; fileRef = CD2DCB7B1E03C7E7000C03E1 /* contacts_us.png */; };
 		CD2DCB7F1E03C7E7000C03E1 /* favorites.png in Resources */ = {isa = PBXBuildFile; fileRef = CD2DCB7C1E03C7E7000C03E1 /* favorites.png */; };
 		CD2DCB801E03C7E7000C03E1 /* grades_inquire.png in Resources */ = {isa = PBXBuildFile; fileRef = CD2DCB7D1E03C7E7000C03E1 /* grades_inquire.png */; };
+		CD2DCB831E03CAB3000C03E1 /* MeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD2DCB821E03CAB3000C03E1 /* MeViewController.m */; };
+		CD2DCB861E03CC6C000C03E1 /* MeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CD2DCB851E03CC6C000C03E1 /* MeTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -129,8 +130,6 @@
 		CD2DCB091E015132000C03E1 /* shalong.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shalong.png; sourceTree = "<group>"; };
 		CD2DCB0C1E018787000C03E1 /* contact.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = contact.png; sourceTree = "<group>"; };
 		CD2DCB0E1E018793000C03E1 /* reading.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = reading.png; sourceTree = "<group>"; };
-		CD2DCB141E02C7B3000C03E1 /* MeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeTableViewController.h; sourceTree = "<group>"; };
-		CD2DCB151E02C7B3000C03E1 /* MeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeTableViewController.m; sourceTree = "<group>"; };
 		CD2DCB171E02CC41000C03E1 /* shalongTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = shalongTableViewCell.h; sourceTree = "<group>"; };
 		CD2DCB181E02CC41000C03E1 /* shalongTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = shalongTableViewCell.m; sourceTree = "<group>"; };
 		CD2DCB1D1E02D2B4000C03E1 /* shalongTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = shalongTableViewController.h; sourceTree = "<group>"; };
@@ -143,6 +142,10 @@
 		CD2DCB7B1E03C7E7000C03E1 /* contacts_us.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = contacts_us.png; sourceTree = "<group>"; };
 		CD2DCB7C1E03C7E7000C03E1 /* favorites.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = favorites.png; sourceTree = "<group>"; };
 		CD2DCB7D1E03C7E7000C03E1 /* grades_inquire.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = grades_inquire.png; sourceTree = "<group>"; };
+		CD2DCB811E03CAB3000C03E1 /* MeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeViewController.h; sourceTree = "<group>"; };
+		CD2DCB821E03CAB3000C03E1 /* MeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeViewController.m; sourceTree = "<group>"; };
+		CD2DCB841E03CC6C000C03E1 /* MeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeTableViewCell.h; sourceTree = "<group>"; };
+		CD2DCB851E03CC6C000C03E1 /* MeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -366,8 +369,10 @@
 		CD2DCB131E025B7D000C03E1 /* me */ = {
 			isa = PBXGroup;
 			children = (
-				CD2DCB141E02C7B3000C03E1 /* MeTableViewController.h */,
-				CD2DCB151E02C7B3000C03E1 /* MeTableViewController.m */,
+				CD2DCB811E03CAB3000C03E1 /* MeViewController.h */,
+				CD2DCB821E03CAB3000C03E1 /* MeViewController.m */,
+				CD2DCB841E03CC6C000C03E1 /* MeTableViewCell.h */,
+				CD2DCB851E03CC6C000C03E1 /* MeTableViewCell.m */,
 			);
 			name = me;
 			sourceTree = "<group>";
@@ -498,7 +503,8 @@
 				4698CBA51AE22FCA0006330E /* AppDelegate.m in Sources */,
 				CD2DCB671E02DFE8000C03E1 /* HomePageViewController.m in Sources */,
 				4698CC041AE245940006330E /* ChatListViewController.m in Sources */,
-				CD2DCB161E02C7B3000C03E1 /* MeTableViewController.m in Sources */,
+				CD2DCB831E03CAB3000C03E1 /* MeViewController.m in Sources */,
+				CD2DCB861E03CC6C000C03E1 /* MeTableViewCell.m in Sources */,
 				CD2DCB191E02CC41000C03E1 /* shalongTableViewCell.m in Sources */,
 				4698CBA21AE22FCA0006330E /* main.m in Sources */,
 				CD2DCB641E02DF4A000C03E1 /* NotificationTableViewController.m in Sources */,

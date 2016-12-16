@@ -7,13 +7,14 @@
 //
 
 #import "MeViewController.h"
-//#import "MeInforTableViewCell.h"
+#import "MeTableViewCell.h"
 @interface MeViewController (){
     
-    NSMutableArray *mKeyInfor;
-    NSMutableArray *mValueInfor;
+    NSMutableArray *mDataKey;
+     NSMutableArray *mDataValue;
     
 }
+
 
 @end
 
@@ -21,49 +22,50 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    mKeyInfor=[[NSMutableArray alloc]init];
-    [mKeyInfor addObject:@"孩子"];
-    [mKeyInfor addObject:@"学校"];
-    [mKeyInfor addObject:@"班级"];
-    [mKeyInfor addObject:@"班主任姓名"];
-    [mKeyInfor addObject:@"修改电话"];
-
-    mValueInfor=[[NSMutableArray alloc]init];
-    [mValueInfor addObject:@"俞志云"];
-    [mValueInfor addObject:@"中南大学"];
-    [mValueInfor addObject:@"1404班"];
-    [mValueInfor addObject:@"刘名阳"];
-    [mValueInfor addObject:@">>>>>"];
+    mDataKey=[[NSMutableArray alloc]init];
+    [mDataKey addObject:@"孩子姓名（老师端不显示）"];
+    [mDataKey addObject:@"学校"];
+    [mDataKey addObject:@"班级"];
+    [mDataKey addObject:@"班主任姓名（老师端不显示）"];
+    [mDataKey addObject:@"修改电话"];
+    
+    mDataValue=[[NSMutableArray alloc]init];
+    [mDataValue addObject:@"俞志云"];
+    [mDataValue addObject:@"中南大学"];
+    [mDataValue addObject:@"1404"];
+    [mDataValue addObject:@"刘名阳"];
+    [mDataValue addObject:@"》》》》"];
 
     // Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    
-         // Dispose of any resources that can be recreated.
-}
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete implementation, return the number of rows
-    return [mValueInfor count];
+    // Dispose of any resources that can be recreated.
 }
 
+-(NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    
+    return [mDataKey count];
+}
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
     
-    static NSString *simpleTableIdentifier = @"cell";
-  
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier forIndexPath:indexPath];
+    static NSString *simpleTableIdentifier = @"inforCell";
     
-    // Configure the cell...
+    MeTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
+    
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
+        cell = [[MeTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
     }
-    cell.textLabel.text=[mValueInfor objectAtIndex:indexPath.row];
-//    cell.keyUILabel.text=[mKeyInfor objectAtIndex:indexPath.row];
-//    cell.valueUILabel.text=[mValueInfor objectAtIndex:indexPath.row];
+    cell.UILabelKey.text=[mDataKey objectAtIndex:indexPath.row];
+    cell.UILabelValue.text=[mDataValue objectAtIndex:indexPath.row];
+//
+//    cell.textLabel.text =     return cell;
     return cell;
 }
+
 /*
 #pragma mark - Navigation
 
