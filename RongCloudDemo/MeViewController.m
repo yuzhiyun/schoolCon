@@ -28,6 +28,9 @@
     [mDataKey addObject:@"班级"];
     [mDataKey addObject:@"班主任姓名（老师端不显示）"];
     [mDataKey addObject:@"修改电话"];
+    [mDataKey addObject:@"我的活动"];
+    [mDataKey addObject:@"我的心理测评"];
+    [mDataKey addObject:@"我的会员"];
     
     mDataValue=[[NSMutableArray alloc]init];
     [mDataValue addObject:@"俞志云"];
@@ -35,6 +38,10 @@
     [mDataValue addObject:@"1404"];
     [mDataValue addObject:@"刘名阳"];
     [mDataValue addObject:@"》》》》"];
+    [mDataValue addObject:@"》》》》"];
+    [mDataValue addObject:@"》》》》"];
+    [mDataValue addObject:@"》》》》"];
+
 
     // Do any additional setup after loading the view.
 }
