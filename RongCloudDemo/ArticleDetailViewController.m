@@ -56,7 +56,7 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     
-    self.title=pubString;
+//    self.title=pubString;
     // Dispose of any resources that can be recreated.
 }
 -(NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{

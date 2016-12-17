@@ -79,6 +79,8 @@
 		CD2DCC121E054051000C03E1 /* Vp2TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CD2DCC111E054051000C03E1 /* Vp2TableViewCell.m */; };
 		CD2DCC151E05507C000C03E1 /* ContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD2DCC141E05507C000C03E1 /* ContactViewController.m */; };
 		CD2DCC191E0553A8000C03E1 /* MessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD2DCC181E0553A8000C03E1 /* MessageViewController.m */; };
+		CD2DCC1C1E056587000C03E1 /* LinkmanTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD2DCC1B1E056587000C03E1 /* LinkmanTableViewController.m */; };
+		CD2DCC211E0565D7000C03E1 /* LinkmanTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CD2DCC201E0565D7000C03E1 /* LinkmanTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -194,6 +196,10 @@
 		CD2DCC141E05507C000C03E1 /* ContactViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactViewController.m; sourceTree = "<group>"; };
 		CD2DCC171E0553A8000C03E1 /* MessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageViewController.h; sourceTree = "<group>"; };
 		CD2DCC181E0553A8000C03E1 /* MessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageViewController.m; sourceTree = "<group>"; };
+		CD2DCC1A1E056587000C03E1 /* LinkmanTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LinkmanTableViewController.h; sourceTree = "<group>"; };
+		CD2DCC1B1E056587000C03E1 /* LinkmanTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LinkmanTableViewController.m; sourceTree = "<group>"; };
+		CD2DCC1F1E0565D7000C03E1 /* LinkmanTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LinkmanTableViewCell.h; sourceTree = "<group>"; };
+		CD2DCC201E0565D7000C03E1 /* LinkmanTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LinkmanTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -406,6 +412,7 @@
 		CD2DCB111E025B37000C03E1 /* contact */ = {
 			isa = PBXGroup;
 			children = (
+				CD2DCC1D1E0565A7000C03E1 /* linkman */,
 				CD2DCC161E055390000C03E1 /* message */,
 				CD2DCC131E05507C000C03E1 /* ContactViewController.h */,
 				CD2DCC141E05507C000C03E1 /* ContactViewController.m */,
@@ -537,6 +544,25 @@
 			name = message;
 			sourceTree = "<group>";
 		};
+		CD2DCC1D1E0565A7000C03E1 /* linkman */ = {
+			isa = PBXGroup;
+			children = (
+				CD2DCC1E1E0565BA000C03E1 /* cell */,
+				CD2DCC1A1E056587000C03E1 /* LinkmanTableViewController.h */,
+				CD2DCC1B1E056587000C03E1 /* LinkmanTableViewController.m */,
+			);
+			name = linkman;
+			sourceTree = "<group>";
+		};
+		CD2DCC1E1E0565BA000C03E1 /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				CD2DCC1F1E0565D7000C03E1 /* LinkmanTableViewCell.h */,
+				CD2DCC201E0565D7000C03E1 /* LinkmanTableViewCell.m */,
+			);
+			name = cell;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -665,6 +691,7 @@
 				CD2DCB941E04ED7B000C03E1 /* DetailNotificationViewController.m in Sources */,
 				4698CBA81AE22FCA0006330E /* ConnectRongyunViewController.m in Sources */,
 				CD2DCBFB1E052BB8000C03E1 /* WMScrollView.m in Sources */,
+				CD2DCC211E0565D7000C03E1 /* LinkmanTableViewCell.m in Sources */,
 				CD2DCC0E1E0537C3000C03E1 /* Vp1TableViewCell.m in Sources */,
 				CD2DCBFA1E052BB8000C03E1 /* WMProgressView.m in Sources */,
 				CD2DCB981E0506EC000C03E1 /* DetailYueluViewController.m in Sources */,
@@ -685,6 +712,7 @@
 				CD2DCB641E02DF4A000C03E1 /* NotificationTableViewController.m in Sources */,
 				CD2DCB1F1E02D2B4000C03E1 /* shalongTableViewController.m in Sources */,
 				CD2DCBF81E052BB8000C03E1 /* WMMenuItem.m in Sources */,
+				CD2DCC1C1E056587000C03E1 /* LinkmanTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -825,7 +853,7 @@
 					"$(PROJECT_DIR)/framework",
 				);
 				INFOPLIST_FILE = RongCloudDemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -851,7 +879,7 @@
 					"$(PROJECT_DIR)/framework",
 				);
 				INFOPLIST_FILE = RongCloudDemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",

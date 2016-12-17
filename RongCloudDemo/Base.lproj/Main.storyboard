@@ -366,24 +366,49 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OFD-ea-pd6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2540" y="1738"/>
+            <point key="canvasLocation" x="2481" y="1748"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Linkman Table View Controller-->
         <scene sceneID="eed-3O-9UX">
             <objects>
-                <tableViewController storyboardIdentifier="vp2_contact" id="Fp2-nt-vMX" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="j3k-TF-pFp">
+                <tableViewController storyboardIdentifier="vp2_contact" id="Fp2-nt-vMX" customClass="LinkmanTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="67" sectionHeaderHeight="28" sectionFooterHeight="28" id="j3k-TF-pFp">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KxX-Gk-hrp">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="67" id="KxX-Gk-hrp" customClass="LinkmanTableViewCell">
+                                <rect key="frame" x="0.0" y="28" width="375" height="67"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KxX-Gk-hrp" id="H4U-Ld-DrD">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="66"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="avarta.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="rYa-hd-IEi">
+                                            <rect key="frame" x="24" y="8" width="57" height="54"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="备注" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nfd-gX-L3k">
+                                            <rect key="frame" x="262" y="41" width="87" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.57996680700000003" green="0.57996680700000003" blue="0.57996680700000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="姓名" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OOS-7R-xBA">
+                                            <rect key="frame" x="127" y="18" width="153" height="15"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="UIImgAvatar" destination="rYa-hd-IEi" id="Gg7-BJ-8nV"/>
+                                    <outlet property="UILabelName" destination="OOS-7R-xBA" id="AXG-2c-1FG"/>
+                                    <outlet property="UILabelRemark" destination="nfd-gX-L3k" id="S2M-9P-N5m"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -394,7 +419,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JcY-Fp-KtF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2854" y="1738"/>
+            <point key="canvasLocation" x="2804" y="1746.4767616191905"/>
         </scene>
         <!--Table View Controller-->
         <scene sceneID="xVQ-Yc-mO9">
@@ -422,7 +447,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lHb-se-Nsn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3217" y="1738"/>
+            <point key="canvasLocation" x="3212" y="1747"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="81o-Bh-vCD">
