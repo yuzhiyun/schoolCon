@@ -1,14 +1,7 @@
-//
-//  ViewController.m
-//  RongCloudDemo
-//
-//  Created by 杜立召 on 15/4/18.
-//  Copyright (c) 2015年 dlz. All rights reserved.
-//
 
 #import "ConnectRongyunViewController.h"
 #import "ChatListViewController.h"
-#import <RongIMKit/RCConversationViewController.h>
+//#import <RongIMKit/RCConversationViewController.h>
 @interface ConnectRongyunViewController ()
 
 @end
@@ -71,27 +64,27 @@
     }];
 
 }
-/*
- *此方法中要提供给融云用户的信息，建议缓存到本地，然后改方法每次从您的缓存返回
- */
-- (void)getUserInfoWithUserId:(NSString *)userId completion:(void(^)(RCUserInfo* userInfo))completion
-{
-    //此处为了演示写了一个用户信息
-    if ([@"1" isEqual:userId]) {
-        RCUserInfo *user = [[RCUserInfo alloc]init];
-        user.userId = @"1";
-        user.name = @"测试1";
-        user.portraitUri = @"https://ss0.baidu.com/73t1bjeh1BF3odCf/it/u=1756054607,4047938258&fm=96&s=94D712D20AA1875519EB37BE0300C008";
-        
-        return completion(user);
-    }else if([@"2" isEqual:userId]) {
-        RCUserInfo *user = [[RCUserInfo alloc]init];
-        user.userId = @"2";
-        user.name = @"测试2";
-        user.portraitUri = @"https://ss0.baidu.com/73t1bjeh1BF3odCf/it/u=1756054607,4047938258&fm=96&s=94D712D20AA1875519EB37BE0300C008";
-        return completion(user);
-    }
-}
+///*
+// *此方法中要提供给融云用户的信息，建议缓存到本地，然后改方法每次从您的缓存返回
+// */
+//- (void)getUserInfoWithUserId:(NSString *)userId completion:(void(^)(RCUserInfo* userInfo))completion
+//{
+//    //此处为了演示写了一个用户信息
+//    if ([@"1" isEqual:userId]) {
+//        RCUserInfo *user = [[RCUserInfo alloc]init];
+//        user.userId = @"1";
+//        user.name = @"测试1";
+//        user.portraitUri = @"https://ss0.baidu.com/73t1bjeh1BF3odCf/it/u=1756054607,4047938258&fm=96&s=94D712D20AA1875519EB37BE0300C008";
+//        
+//        return completion(user);
+//    }else if([@"2" isEqual:userId]) {
+//        RCUserInfo *user = [[RCUserInfo alloc]init];
+//        user.userId = @"2";
+//        user.name = @"测试2";
+//        user.portraitUri = @"https://ss0.baidu.com/73t1bjeh1BF3odCf/it/u=1756054607,4047938258&fm=96&s=94D712D20AA1875519EB37BE0300C008";
+//        return completion(user);
+//    }
+//}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
