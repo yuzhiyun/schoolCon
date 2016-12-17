@@ -81,6 +81,8 @@
 		CD2DCC191E0553A8000C03E1 /* MessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD2DCC181E0553A8000C03E1 /* MessageViewController.m */; };
 		CD2DCC1C1E056587000C03E1 /* LinkmanTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD2DCC1B1E056587000C03E1 /* LinkmanTableViewController.m */; };
 		CD2DCC211E0565D7000C03E1 /* LinkmanTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CD2DCC201E0565D7000C03E1 /* LinkmanTableViewCell.m */; };
+		CD2DCC291E056D3C000C03E1 /* GroupSendTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CD2DCC281E056D3C000C03E1 /* GroupSendTableViewCell.m */; };
+		CD2DCC2C1E0573EF000C03E1 /* GroupSendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD2DCC2B1E0573EF000C03E1 /* GroupSendViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -200,6 +202,10 @@
 		CD2DCC1B1E056587000C03E1 /* LinkmanTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LinkmanTableViewController.m; sourceTree = "<group>"; };
 		CD2DCC1F1E0565D7000C03E1 /* LinkmanTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LinkmanTableViewCell.h; sourceTree = "<group>"; };
 		CD2DCC201E0565D7000C03E1 /* LinkmanTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LinkmanTableViewCell.m; sourceTree = "<group>"; };
+		CD2DCC271E056D3C000C03E1 /* GroupSendTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupSendTableViewCell.h; sourceTree = "<group>"; };
+		CD2DCC281E056D3C000C03E1 /* GroupSendTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupSendTableViewCell.m; sourceTree = "<group>"; };
+		CD2DCC2A1E0573EF000C03E1 /* GroupSendViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupSendViewController.h; sourceTree = "<group>"; };
+		CD2DCC2B1E0573EF000C03E1 /* GroupSendViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupSendViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -412,6 +418,7 @@
 		CD2DCB111E025B37000C03E1 /* contact */ = {
 			isa = PBXGroup;
 			children = (
+				CD2DCC221E056CE3000C03E1 /* groupSend */,
 				CD2DCC1D1E0565A7000C03E1 /* linkman */,
 				CD2DCC161E055390000C03E1 /* message */,
 				CD2DCC131E05507C000C03E1 /* ContactViewController.h */,
@@ -563,6 +570,25 @@
 			name = cell;
 			sourceTree = "<group>";
 		};
+		CD2DCC221E056CE3000C03E1 /* groupSend */ = {
+			isa = PBXGroup;
+			children = (
+				CD2DCC261E056D1B000C03E1 /* cell */,
+				CD2DCC2A1E0573EF000C03E1 /* GroupSendViewController.h */,
+				CD2DCC2B1E0573EF000C03E1 /* GroupSendViewController.m */,
+			);
+			name = groupSend;
+			sourceTree = "<group>";
+		};
+		CD2DCC261E056D1B000C03E1 /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				CD2DCC271E056D3C000C03E1 /* GroupSendTableViewCell.h */,
+				CD2DCC281E056D3C000C03E1 /* GroupSendTableViewCell.m */,
+			);
+			name = cell;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -694,6 +720,7 @@
 				CD2DCC211E0565D7000C03E1 /* LinkmanTableViewCell.m in Sources */,
 				CD2DCC0E1E0537C3000C03E1 /* Vp1TableViewCell.m in Sources */,
 				CD2DCBFA1E052BB8000C03E1 /* WMProgressView.m in Sources */,
+				CD2DCC291E056D3C000C03E1 /* GroupSendTableViewCell.m in Sources */,
 				CD2DCB981E0506EC000C03E1 /* DetailYueluViewController.m in Sources */,
 				4698CBA51AE22FCA0006330E /* AppDelegate.m in Sources */,
 				CD2DCB901E04E832000C03E1 /* OnlineReadingViewController.m in Sources */,
@@ -708,6 +735,7 @@
 				CD2DCB8D1E03E837000C03E1 /* CommentTableViewCell.m in Sources */,
 				CD2DCB191E02CC41000C03E1 /* shalongTableViewCell.m in Sources */,
 				CD2DCC151E05507C000C03E1 /* ContactViewController.m in Sources */,
+				CD2DCC2C1E0573EF000C03E1 /* GroupSendViewController.m in Sources */,
 				4698CBA21AE22FCA0006330E /* main.m in Sources */,
 				CD2DCB641E02DF4A000C03E1 /* NotificationTableViewController.m in Sources */,
 				CD2DCB1F1E02D2B4000C03E1 /* shalongTableViewController.m in Sources */,
