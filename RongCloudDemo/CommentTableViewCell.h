@@ -9,17 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @interface CommentTableViewCell : UITableViewCell
-//@property (weak, nonatomic) IBOutlet UIImageView *UIImgAvarta;
-//@property (weak, nonatomic) IBOutlet UILabel *UILabelUsername;
-//@property (weak, nonatomic) IBOutlet UILabel *UILabelDate;
-//@property (weak, nonatomic) IBOutlet UILabel *UILabelCommentContent;
-//@property (weak, nonatomic) IBOutlet UIImageView *UIImgAvarta;
-//@property (weak, nonatomic) IBOutlet UILabel *UILabelUsername;
-//@property (weak, nonatomic) IBOutlet UILabel *UILabelDate;
-//@property (weak, nonatomic) IBOutlet UILabel *UILabelCommentContent;
-@property (weak, nonatomic) IBOutlet UILabel *UILabelUsername;
+
 @property (weak, nonatomic) IBOutlet UILabel *UILabelDate;
 @property (weak, nonatomic) IBOutlet UIImageView *UIImgAvarta;
 @property (weak, nonatomic) IBOutlet UILabel *UILabelCommentContent;
+@property (weak, nonatomic) IBOutlet UILabel *UILabelUsername;
 
 @end

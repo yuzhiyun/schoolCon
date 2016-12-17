@@ -7,7 +7,7 @@
 //
 
 #import "HomePageViewController.h"
-
+#import "NotificationTableViewController.h"
 @interface HomePageViewController ()
 
 @end
@@ -28,9 +28,30 @@
     // Do any additional setup after loading the view.
 }
 
+
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+//跳转到所有通知页面
+- (IBAction)btnEnterAllNotifications:(id)sender {
+    //根据storyboard id来获取目标页面
+    NotificationTableViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"NotificationTableViewController"];
+    
+    
+//    传值
+    //UITabBarController和的UINavigationController结合使用,进入新的页面的时候，隐藏主页tabbarController的底部栏
+    nextPage.hidesBottomBarWhenPushed=YES;
+
+    //跳转
+        [self.navigationController pushViewController:nextPage animated:YES];
+    
+    
+    
+    
+    
 }
 
 -(NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -51,6 +72,8 @@
     cell.textLabel.text = [recipes objectAtIndex:indexPath.row];
     return cell;
 }
+
+
 /*
 #pragma mark - Navigation
 

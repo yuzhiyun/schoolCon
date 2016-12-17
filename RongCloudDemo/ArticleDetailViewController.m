@@ -15,22 +15,24 @@
 @implementation ArticleDetailViewController{
     
     NSMutableArray *mDataUsername;
-//    NSMutableArray *mDataDate;
+    //    NSMutableArray *mDataDate;
     NSMutableArray *mDataCommentContent;
-
-
+    
+    
     
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    
     mDataUsername=[[NSMutableArray alloc]init];
     [mDataUsername addObject:@"俞志云"];
     [mDataUsername addObject:@"马小龙"];
     [mDataUsername addObject:@"孙萌"];
     [mDataUsername addObject:@"吴晓茎"];
     [mDataUsername addObject:@"秦启飞"];
-
+    
     mDataCommentContent=[[NSMutableArray alloc]init];
     [mDataCommentContent addObject:@"哇塞，这个叼"];
     [mDataCommentContent addObject:@"楼上是傻逼"];
@@ -39,13 +41,13 @@
     [mDataCommentContent addObject:@"我就静静的看着你们装逼"];
     
     
-//    mDataUsername=[[NSMutableArray alloc]init];
-//    [mDataUsername addObject:@"俞志云"];
-//    [mDataUsername addObject:@"马小龙"];
-//    [mDataUsername addObject:@"孙萌"];
-//    [mDataUsername addObject:@"吴晓茎"];
-//    [mDataUsername addObject:@"秦启飞"];
-
+    //    mDataUsername=[[NSMutableArray alloc]init];
+    //    [mDataUsername addObject:@"俞志云"];
+    //    [mDataUsername addObject:@"马小龙"];
+    //    [mDataUsername addObject:@"孙萌"];
+    //    [mDataUsername addObject:@"吴晓茎"];
+    //    [mDataUsername addObject:@"秦启飞"];
+    
     
     //    recipes = [NSArray arrayWithObjects:@"Egg Benedict",@"Ham and Cheese Panini","yuzhiyun",nil];
     // Do any additional setup after loading the view.
@@ -71,22 +73,21 @@
     }
     
     cell.UILabelUsername.text = [mDataUsername objectAtIndex:indexPath.row];
-     cell.UILabelCommentContent.text = [mDataCommentContent objectAtIndex:indexPath.row];
-     cell.UILabelUsername.text = @"2016/12/23";
-
+    cell.UILabelCommentContent.text = [mDataCommentContent objectAtIndex:indexPath.row];
+    cell.UILabelDate.text = @"2016/12/23";
     cell.UIImgAvarta.image=[UIImage imageNamed:@"avarta.jpg"];
-
-
+    
+    
     return cell;
 }
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 @end
