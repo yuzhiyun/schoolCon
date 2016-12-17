@@ -8,6 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ArticleDetailViewController : UIViewController<UITableViewDelegate, UITableViewDataSource>
+@interface ArticleDetailViewController : UIViewController<UITableViewDelegate, UITableViewDataSource>{
+    
+    
+@public
+    NSString *pubString;
+    
+}
 
 @end

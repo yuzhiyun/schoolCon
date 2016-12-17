@@ -8,6 +8,7 @@
 
 #import "Vp1TableViewController.h"
 #import "Vp1TableViewCell.h"
+#import "ArticleDetailViewController.h"
 @interface Vp1TableViewController ()
 
 @end
@@ -80,6 +81,27 @@
     return cell;
 }
 
+-(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    
+    
+    //根据storyboard id来获取目标页面
+    ArticleDetailViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"ArticleDetailViewController"];
+    
+    
+    //    传值
+    nextPage->pubString=[mData objectAtIndex:indexPath.row];
+    //UITabBarController和的UINavigationController结合使用,进入新的页面的时候，隐藏主页tabbarController的底部栏
+    nextPage.hidesBottomBarWhenPushed=YES;
+    
+    //跳转
+    [self.navigationController pushViewController:nextPage animated:YES];
+    
+    
+    
+    
+    
+}
 /*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {

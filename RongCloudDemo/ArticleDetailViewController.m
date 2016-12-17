@@ -24,7 +24,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    self.title=pubString;
     
     mDataUsername=[[NSMutableArray alloc]init];
     [mDataUsername addObject:@"俞志云"];
@@ -55,6 +55,8 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
+    
+    self.title=pubString;
     // Dispose of any resources that can be recreated.
 }
 -(NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{

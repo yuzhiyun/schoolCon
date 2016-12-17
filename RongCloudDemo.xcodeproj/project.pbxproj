@@ -76,6 +76,7 @@
 		CD2DCC071E0536A7000C03E1 /* Vp1TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD2DCC061E0536A7000C03E1 /* Vp1TableViewController.m */; };
 		CD2DCC0A1E0536B6000C03E1 /* Vp2TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD2DCC091E0536B6000C03E1 /* Vp2TableViewController.m */; };
 		CD2DCC0E1E0537C3000C03E1 /* Vp1TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CD2DCC0D1E0537C3000C03E1 /* Vp1TableViewCell.m */; };
+		CD2DCC121E054051000C03E1 /* Vp2TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CD2DCC111E054051000C03E1 /* Vp2TableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -185,6 +186,8 @@
 		CD2DCC091E0536B6000C03E1 /* Vp2TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Vp2TableViewController.m; sourceTree = "<group>"; };
 		CD2DCC0C1E0537C3000C03E1 /* Vp1TableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Vp1TableViewCell.h; sourceTree = "<group>"; };
 		CD2DCC0D1E0537C3000C03E1 /* Vp1TableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Vp1TableViewCell.m; sourceTree = "<group>"; };
+		CD2DCC101E054051000C03E1 /* Vp2TableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Vp2TableViewCell.h; sourceTree = "<group>"; };
+		CD2DCC111E054051000C03E1 /* Vp2TableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Vp2TableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -491,6 +494,7 @@
 		CD2DCC041E053648000C03E1 /* vp2_education_wisdom */ = {
 			isa = PBXGroup;
 			children = (
+				CD2DCC0F1E05403E000C03E1 /* cell */,
 				CD2DCC081E0536B6000C03E1 /* Vp2TableViewController.h */,
 				CD2DCC091E0536B6000C03E1 /* Vp2TableViewController.m */,
 			);
@@ -502,6 +506,15 @@
 			children = (
 				CD2DCC0C1E0537C3000C03E1 /* Vp1TableViewCell.h */,
 				CD2DCC0D1E0537C3000C03E1 /* Vp1TableViewCell.m */,
+			);
+			name = cell;
+			sourceTree = "<group>";
+		};
+		CD2DCC0F1E05403E000C03E1 /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				CD2DCC101E054051000C03E1 /* Vp2TableViewCell.h */,
+				CD2DCC111E054051000C03E1 /* Vp2TableViewCell.m */,
 			);
 			name = cell;
 			sourceTree = "<group>";
@@ -628,6 +641,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CD2DCC121E054051000C03E1 /* Vp2TableViewCell.m in Sources */,
 				CD2DCBF91E052BB8000C03E1 /* WMMenuView.m in Sources */,
 				CD2DCB941E04ED7B000C03E1 /* DetailNotificationViewController.m in Sources */,
 				4698CBA81AE22FCA0006330E /* ConnectRongyunViewController.m in Sources */,

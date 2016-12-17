@@ -7,15 +7,35 @@
 //
 
 #import "Vp2TableViewController.h"
-
+#import "Vp2TableViewCell.h"
+#import "ArticleDetailViewController.h"
 @interface Vp2TableViewController ()
 
 @end
 
 @implementation Vp2TableViewController
 
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    //防止与顶部重叠
+    self.tableView.contentInset=UIEdgeInsetsMake(20.0f, 0.0f, 0.0f, 0.0f);
+    
+    //指定大标题
+    mData=[[NSMutableArray alloc]init];
+    [mData addObject:@"你微笑过的地方"];
+    [mData addObject:@"便是最美的风景"];
+    [mData addObject:@"唯我独不敬亭"];
+    [mData addObject:@"嗨，你还在那里吗"];
+    [mData addObject:@"愿风带着我的思念来到你的窗前"];
+    //指定封面
+    mImg=[[NSMutableArray alloc]init];
+    [mImg addObject:@"3.jpg"];
+    [mImg addObject:@"4.jpg"];
+    [mImg addObject:@"5.jpg"];
+    [mImg addObject:@"1.jpg"];
+    [mImg addObject:@"2.jpg"];
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -31,16 +51,61 @@
 
 #pragma mark - Table view data source
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Incomplete implementation, return the number of sections
-    return 0;
-}
+//- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+//#warning Incomplete implementation, return the number of sections
+//    return 0;
+//}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 #warning Incomplete implementation, return the number of rows
-    return 0;
+    return [mData count];
 }
 
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    
+    
+    Vp2TableViewCell *cell = (Vp2TableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
+    if(cell==nil){
+        
+        cell=[[Vp2TableViewCell init] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
+        
+    }
+    
+    
+    NSString *t1=[mData objectAtIndex:indexPath.row];
+    
+    cell.UILabelTitle.text=t1;
+    cell.UILabelDate.text=@"2016-12-27";
+    cell.UIImgCover.image=[UIImage imageNamed:[mImg objectAtIndex:indexPath.row]];
+    
+    
+    // Configure the cell...
+    
+    return cell;
+}
+
+-(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    
+    
+    //根据storyboard id来获取目标页面
+    ArticleDetailViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"ArticleDetailViewController"];
+    
+    
+    //    传值
+    nextPage->pubString=[mData objectAtIndex:indexPath.row];
+    //UITabBarController和的UINavigationController结合使用,进入新的页面的时候，隐藏主页tabbarController的底部栏
+    nextPage.hidesBottomBarWhenPushed=YES;
+    
+    //跳转
+    [self.navigationController pushViewController:nextPage animated:YES];
+    
+    
+    
+    
+    
+}
 /*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];

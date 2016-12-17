@@ -8,6 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@interface Vp2TableViewController : UITableViewController
+@interface Vp2TableViewController : UITableViewController{
+    
+    
+    NSMutableArray *mData;
+    NSMutableArray *mImg;
+    
+}
+
 
 @end
