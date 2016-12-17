@@ -22,6 +22,8 @@
         self.menuItemWidth = 100;
         self.menuViewStyle = WMMenuViewStyleLine;
         self.titles = [NSArray arrayWithObjects:@"读文说史", @"教育智慧", nil];
+        self.titleColorSelected = [UIColor colorWithRed:0 green:0 blue:200 alpha:1];
+        
     }
     return self;
 }

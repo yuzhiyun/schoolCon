@@ -22,6 +22,8 @@
         self.menuItemWidth = 100;
         self.menuViewStyle = WMMenuViewStyleLine;
         self.titles = [NSArray arrayWithObjects:@"消息", @"联系人",@"群发", nil];
+        //修改WMPageController 的title颜色为蓝色
+         self.titleColorSelected = [UIColor colorWithRed:0 green:0 blue:200 alpha:1];
     }
     return self;
 }
