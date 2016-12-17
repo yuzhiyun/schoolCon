@@ -68,6 +68,11 @@
 		CD2DCB901E04E832000C03E1 /* OnlineReadingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD2DCB8F1E04E832000C03E1 /* OnlineReadingViewController.m */; };
 		CD2DCB941E04ED7B000C03E1 /* DetailNotificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD2DCB931E04ED7B000C03E1 /* DetailNotificationViewController.m */; };
 		CD2DCB981E0506EC000C03E1 /* DetailYueluViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD2DCB971E0506EC000C03E1 /* DetailYueluViewController.m */; };
+		CD2DCBF81E052BB8000C03E1 /* WMMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = CD2DCBE71E052BB8000C03E1 /* WMMenuItem.m */; };
+		CD2DCBF91E052BB8000C03E1 /* WMMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = CD2DCBE91E052BB8000C03E1 /* WMMenuView.m */; };
+		CD2DCBFA1E052BB8000C03E1 /* WMProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = CD2DCBEB1E052BB8000C03E1 /* WMProgressView.m */; };
+		CD2DCBFB1E052BB8000C03E1 /* WMScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = CD2DCBED1E052BB8000C03E1 /* WMScrollView.m */; };
+		CD2DCC001E052BB8000C03E1 /* WMPageController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD2DCBF71E052BB8000C03E1 /* WMPageController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -161,6 +166,16 @@
 		CD2DCB931E04ED7B000C03E1 /* DetailNotificationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailNotificationViewController.m; sourceTree = "<group>"; };
 		CD2DCB961E0506EC000C03E1 /* DetailYueluViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailYueluViewController.h; sourceTree = "<group>"; };
 		CD2DCB971E0506EC000C03E1 /* DetailYueluViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailYueluViewController.m; sourceTree = "<group>"; };
+		CD2DCBE61E052BB8000C03E1 /* WMMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMMenuItem.h; sourceTree = "<group>"; };
+		CD2DCBE71E052BB8000C03E1 /* WMMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMMenuItem.m; sourceTree = "<group>"; };
+		CD2DCBE81E052BB8000C03E1 /* WMMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMMenuView.h; sourceTree = "<group>"; };
+		CD2DCBE91E052BB8000C03E1 /* WMMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMMenuView.m; sourceTree = "<group>"; };
+		CD2DCBEA1E052BB8000C03E1 /* WMProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMProgressView.h; sourceTree = "<group>"; };
+		CD2DCBEB1E052BB8000C03E1 /* WMProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMProgressView.m; sourceTree = "<group>"; };
+		CD2DCBEC1E052BB8000C03E1 /* WMScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMScrollView.h; sourceTree = "<group>"; };
+		CD2DCBED1E052BB8000C03E1 /* WMScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMScrollView.m; sourceTree = "<group>"; };
+		CD2DCBF61E052BB8000C03E1 /* WMPageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMPageController.h; sourceTree = "<group>"; };
+		CD2DCBF71E052BB8000C03E1 /* WMPageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMPageController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -230,6 +245,7 @@
 		4698CB9E1AE22FCA0006330E /* RongCloudDemo */ = {
 			isa = PBXGroup;
 			children = (
+				CD2DCBE41E052BA1000C03E1 /* WMPageController  */,
 				CD2DCB131E025B7D000C03E1 /* me */,
 				CD2DCB121E025B62000C03E1 /* online_learning */,
 				CD2DCB111E025B37000C03E1 /* contact */,
@@ -426,6 +442,31 @@
 			name = detailYuelushalong;
 			sourceTree = "<group>";
 		};
+		CD2DCBE41E052BA1000C03E1 /* WMPageController  */ = {
+			isa = PBXGroup;
+			children = (
+				CD2DCBE51E052BB8000C03E1 /* WMMenuView */,
+				CD2DCBF61E052BB8000C03E1 /* WMPageController.h */,
+				CD2DCBF71E052BB8000C03E1 /* WMPageController.m */,
+			);
+			name = "WMPageController ";
+			sourceTree = "<group>";
+		};
+		CD2DCBE51E052BB8000C03E1 /* WMMenuView */ = {
+			isa = PBXGroup;
+			children = (
+				CD2DCBE61E052BB8000C03E1 /* WMMenuItem.h */,
+				CD2DCBE71E052BB8000C03E1 /* WMMenuItem.m */,
+				CD2DCBE81E052BB8000C03E1 /* WMMenuView.h */,
+				CD2DCBE91E052BB8000C03E1 /* WMMenuView.m */,
+				CD2DCBEA1E052BB8000C03E1 /* WMProgressView.h */,
+				CD2DCBEB1E052BB8000C03E1 /* WMProgressView.m */,
+				CD2DCBEC1E052BB8000C03E1 /* WMScrollView.h */,
+				CD2DCBED1E052BB8000C03E1 /* WMScrollView.m */,
+			);
+			path = WMMenuView;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -548,11 +589,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CD2DCBF91E052BB8000C03E1 /* WMMenuView.m in Sources */,
 				CD2DCB941E04ED7B000C03E1 /* DetailNotificationViewController.m in Sources */,
 				4698CBA81AE22FCA0006330E /* ConnectRongyunViewController.m in Sources */,
+				CD2DCBFB1E052BB8000C03E1 /* WMScrollView.m in Sources */,
+				CD2DCBFA1E052BB8000C03E1 /* WMProgressView.m in Sources */,
 				CD2DCB981E0506EC000C03E1 /* DetailYueluViewController.m in Sources */,
 				4698CBA51AE22FCA0006330E /* AppDelegate.m in Sources */,
 				CD2DCB901E04E832000C03E1 /* OnlineReadingViewController.m in Sources */,
+				CD2DCC001E052BB8000C03E1 /* WMPageController.m in Sources */,
 				CD2DCB671E02DFE8000C03E1 /* HomePageViewController.m in Sources */,
 				4698CC041AE245940006330E /* ChatListViewController.m in Sources */,
 				CD2DCB891E03E7BE000C03E1 /* ArticleDetailViewController.m in Sources */,
@@ -563,6 +608,7 @@
 				4698CBA21AE22FCA0006330E /* main.m in Sources */,
 				CD2DCB641E02DF4A000C03E1 /* NotificationTableViewController.m in Sources */,
 				CD2DCB1F1E02D2B4000C03E1 /* shalongTableViewController.m in Sources */,
+				CD2DCBF81E052BB8000C03E1 /* WMMenuItem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
