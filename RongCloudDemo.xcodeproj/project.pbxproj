@@ -65,6 +65,9 @@
 		CD2DCB861E03CC6C000C03E1 /* MeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CD2DCB851E03CC6C000C03E1 /* MeTableViewCell.m */; };
 		CD2DCB891E03E7BE000C03E1 /* ArticleDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD2DCB881E03E7BE000C03E1 /* ArticleDetailViewController.m */; };
 		CD2DCB8D1E03E837000C03E1 /* CommentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CD2DCB8C1E03E837000C03E1 /* CommentTableViewCell.m */; };
+		CD2DCB901E04E832000C03E1 /* OnlineReadingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD2DCB8F1E04E832000C03E1 /* OnlineReadingViewController.m */; };
+		CD2DCB941E04ED7B000C03E1 /* DetailNotificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD2DCB931E04ED7B000C03E1 /* DetailNotificationViewController.m */; };
+		CD2DCB981E0506EC000C03E1 /* DetailYueluViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD2DCB971E0506EC000C03E1 /* DetailYueluViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -152,6 +155,12 @@
 		CD2DCB881E03E7BE000C03E1 /* ArticleDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArticleDetailViewController.m; sourceTree = "<group>"; };
 		CD2DCB8B1E03E837000C03E1 /* CommentTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentTableViewCell.h; sourceTree = "<group>"; };
 		CD2DCB8C1E03E837000C03E1 /* CommentTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentTableViewCell.m; sourceTree = "<group>"; };
+		CD2DCB8E1E04E831000C03E1 /* OnlineReadingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OnlineReadingViewController.h; sourceTree = "<group>"; };
+		CD2DCB8F1E04E832000C03E1 /* OnlineReadingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OnlineReadingViewController.m; sourceTree = "<group>"; };
+		CD2DCB921E04ED7B000C03E1 /* DetailNotificationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailNotificationViewController.h; sourceTree = "<group>"; };
+		CD2DCB931E04ED7B000C03E1 /* DetailNotificationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailNotificationViewController.m; sourceTree = "<group>"; };
+		CD2DCB961E0506EC000C03E1 /* DetailYueluViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailYueluViewController.h; sourceTree = "<group>"; };
+		CD2DCB971E0506EC000C03E1 /* DetailYueluViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailYueluViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -322,6 +331,7 @@
 		CD2DCAFE1DFD9102000C03E1 /* yuelushalong */ = {
 			isa = PBXGroup;
 			children = (
+				CD2DCB951E0506C5000C03E1 /* detailYuelushalong */,
 				CD2DCB171E02CC41000C03E1 /* shalongTableViewCell.h */,
 				CD2DCB181E02CC41000C03E1 /* shalongTableViewCell.m */,
 				CD2DCB1D1E02D2B4000C03E1 /* shalongTableViewController.h */,
@@ -350,6 +360,7 @@
 		CD2DCB101E025B23000C03E1 /* home_page */ = {
 			isa = PBXGroup;
 			children = (
+				CD2DCB911E04ED55000C03E1 /* detailNotification */,
 				CD2DCB621E02DF4A000C03E1 /* NotificationTableViewController.h */,
 				CD2DCB631E02DF4A000C03E1 /* NotificationTableViewController.m */,
 				CD2DCB651E02DFE8000C03E1 /* HomePageViewController.h */,
@@ -371,6 +382,8 @@
 				CD2DCB8A1E03E815000C03E1 /* commentCell */,
 				CD2DCB871E03E7BE000C03E1 /* ArticleDetailViewController.h */,
 				CD2DCB881E03E7BE000C03E1 /* ArticleDetailViewController.m */,
+				CD2DCB8E1E04E831000C03E1 /* OnlineReadingViewController.h */,
+				CD2DCB8F1E04E832000C03E1 /* OnlineReadingViewController.m */,
 			);
 			name = online_learning;
 			sourceTree = "<group>";
@@ -393,6 +406,24 @@
 				CD2DCB8C1E03E837000C03E1 /* CommentTableViewCell.m */,
 			);
 			name = commentCell;
+			sourceTree = "<group>";
+		};
+		CD2DCB911E04ED55000C03E1 /* detailNotification */ = {
+			isa = PBXGroup;
+			children = (
+				CD2DCB921E04ED7B000C03E1 /* DetailNotificationViewController.h */,
+				CD2DCB931E04ED7B000C03E1 /* DetailNotificationViewController.m */,
+			);
+			name = detailNotification;
+			sourceTree = "<group>";
+		};
+		CD2DCB951E0506C5000C03E1 /* detailYuelushalong */ = {
+			isa = PBXGroup;
+			children = (
+				CD2DCB961E0506EC000C03E1 /* DetailYueluViewController.h */,
+				CD2DCB971E0506EC000C03E1 /* DetailYueluViewController.m */,
+			);
+			name = detailYuelushalong;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -517,8 +548,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CD2DCB941E04ED7B000C03E1 /* DetailNotificationViewController.m in Sources */,
 				4698CBA81AE22FCA0006330E /* ConnectRongyunViewController.m in Sources */,
+				CD2DCB981E0506EC000C03E1 /* DetailYueluViewController.m in Sources */,
 				4698CBA51AE22FCA0006330E /* AppDelegate.m in Sources */,
+				CD2DCB901E04E832000C03E1 /* OnlineReadingViewController.m in Sources */,
 				CD2DCB671E02DFE8000C03E1 /* HomePageViewController.m in Sources */,
 				4698CC041AE245940006330E /* ChatListViewController.m in Sources */,
 				CD2DCB891E03E7BE000C03E1 /* ArticleDetailViewController.m in Sources */,

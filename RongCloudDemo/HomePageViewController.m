@@ -8,6 +8,8 @@
 
 #import "HomePageViewController.h"
 #import "NotificationTableViewController.h"
+#import "DetailNotificationViewController.h"
+//#import "DetailNotificationViewController.h"
 @interface HomePageViewController ()
 
 @end
@@ -72,6 +74,44 @@
     cell.textLabel.text = [recipes objectAtIndex:indexPath.row];
     return cell;
 }
+-(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    
+    
+    //根据storyboard id来获取目标页面
+    DetailNotificationViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"DetailNotificationViewController"];
+    
+    
+    //    传值
+    nextPage->pubString=[recipes objectAtIndex:indexPath.row];
+    //UITabBarController和的UINavigationController结合使用,进入新的页面的时候，隐藏主页tabbarController的底部栏
+    nextPage.hidesBottomBarWhenPushed=YES;
+    
+    //跳转
+    [self.navigationController pushViewController:nextPage animated:YES];
+    
+    
+    
+    
+    
+}
+
+//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+//    
+//    
+//    
+//    [[segue destinationViewController] setMDetailString: @"传值过去"];
+//    
+//    NSLog(@"能跳转吗？prepareForSegue");
+//    
+//    
+//    
+//    
+//    
+//    // Get the new view controller using [segue destinationViewController].
+//    // Pass the selected object to the new view controller.
+//}
+
 
 
 /*

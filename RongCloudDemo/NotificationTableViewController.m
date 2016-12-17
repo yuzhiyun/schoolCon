@@ -7,7 +7,7 @@
 //
 
 #import "NotificationTableViewController.h"
-
+#import "DetailNotificationViewController.h"
 @interface NotificationTableViewController ()
 
 @end
@@ -21,9 +21,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     mDataNotification=[[NSMutableArray alloc]init];
-    [mDataNotification addObject:@"通知1：由于下大雪，今晚不用上课"];
+    [mDataNotification addObject:@"通知1：明天开运动会"];
     [mDataNotification addObject:@"通知2：由于下大雪，今晚不用上课"];
-    [mDataNotification addObject:@"通知3：由于下大雪，今晚不用上课"];
+    [mDataNotification addObject:@"通知3：明天开运动会"];
+    [mDataNotification addObject:@"通知4：由于下大雪，今晚不用上课"];
+    [mDataNotification addObject:@"通知5：明天开运动会"];
+    [mDataNotification addObject:@"通知6：由于下大雪，今晚不用上课"];
     //    recipes = [NSArray arrayWithObjects:@"Egg Benedict",@"Ham and Cheese Panini","yuzhiyun",nil];
     // Do any additional setup after loading the view.
 }
@@ -63,7 +66,27 @@
     cell.textLabel.text = [mDataNotification objectAtIndex:indexPath.row];
     return cell;
 }
-
+-(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    
+    
+    //根据storyboard id来获取目标页面
+    DetailNotificationViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"DetailNotificationViewController"];
+    
+    
+    //    传值
+    nextPage->pubString=[mDataNotification objectAtIndex:indexPath.row];
+    //UITabBarController和的UINavigationController结合使用,进入新的页面的时候，隐藏主页tabbarController的底部栏
+    nextPage.hidesBottomBarWhenPushed=YES;
+    
+    //跳转
+    [self.navigationController pushViewController:nextPage animated:YES];
+    
+    
+    
+    
+    
+}
 
 /*
 // Override to support conditional editing of the table view.
@@ -99,14 +122,25 @@
 }
 */
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+//    
+//    
+//    
+//    [[segue destinationViewController] setMDetailString: @"传值过去"];
+//    
+//    NSLog(@"能跳转吗？prepareForSegue");
+//    
+//    
+//    
+//    
+//    
+//    // Get the new view controller using [segue destinationViewController].
+//    // Pass the selected object to the new view controller.
+//}
+
 
 @end

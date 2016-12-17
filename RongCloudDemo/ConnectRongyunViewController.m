@@ -60,6 +60,7 @@
  *  最终找到问题所在了，第一次其实连接成功啦，只是我把navigationController删除了，但是呢，程序中页面跳转代码都使用了navigationController，
  *  这就导致这些页面跳转代码下一行代码无法执行，所以只要在main.storyboard中给起始页面添加一个*UINavigationController即可，一切搞定，
  */
+            chatListViewController.hidesBottomBarWhenPushed=YES;
         [self.navigationController pushViewController:chatListViewController animated:YES];
         });
 
