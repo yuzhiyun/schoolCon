@@ -73,6 +73,9 @@
 		CD2DCBFA1E052BB8000C03E1 /* WMProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = CD2DCBEB1E052BB8000C03E1 /* WMProgressView.m */; };
 		CD2DCBFB1E052BB8000C03E1 /* WMScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = CD2DCBED1E052BB8000C03E1 /* WMScrollView.m */; };
 		CD2DCC001E052BB8000C03E1 /* WMPageController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD2DCBF71E052BB8000C03E1 /* WMPageController.m */; };
+		CD2DCC071E0536A7000C03E1 /* Vp1TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD2DCC061E0536A7000C03E1 /* Vp1TableViewController.m */; };
+		CD2DCC0A1E0536B6000C03E1 /* Vp2TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD2DCC091E0536B6000C03E1 /* Vp2TableViewController.m */; };
+		CD2DCC0E1E0537C3000C03E1 /* Vp1TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CD2DCC0D1E0537C3000C03E1 /* Vp1TableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -176,6 +179,12 @@
 		CD2DCBED1E052BB8000C03E1 /* WMScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMScrollView.m; sourceTree = "<group>"; };
 		CD2DCBF61E052BB8000C03E1 /* WMPageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMPageController.h; sourceTree = "<group>"; };
 		CD2DCBF71E052BB8000C03E1 /* WMPageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMPageController.m; sourceTree = "<group>"; };
+		CD2DCC051E0536A7000C03E1 /* Vp1TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Vp1TableViewController.h; sourceTree = "<group>"; };
+		CD2DCC061E0536A7000C03E1 /* Vp1TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Vp1TableViewController.m; sourceTree = "<group>"; };
+		CD2DCC081E0536B6000C03E1 /* Vp2TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Vp2TableViewController.h; sourceTree = "<group>"; };
+		CD2DCC091E0536B6000C03E1 /* Vp2TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Vp2TableViewController.m; sourceTree = "<group>"; };
+		CD2DCC0C1E0537C3000C03E1 /* Vp1TableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Vp1TableViewCell.h; sourceTree = "<group>"; };
+		CD2DCC0D1E0537C3000C03E1 /* Vp1TableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Vp1TableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -395,6 +404,8 @@
 		CD2DCB121E025B62000C03E1 /* online_learning */ = {
 			isa = PBXGroup;
 			children = (
+				CD2DCC041E053648000C03E1 /* vp2_education_wisdom */,
+				CD2DCC031E053627000C03E1 /* vp1_reading_speaking */,
 				CD2DCB8A1E03E815000C03E1 /* commentCell */,
 				CD2DCB871E03E7BE000C03E1 /* ArticleDetailViewController.h */,
 				CD2DCB881E03E7BE000C03E1 /* ArticleDetailViewController.m */,
@@ -465,6 +476,34 @@
 				CD2DCBED1E052BB8000C03E1 /* WMScrollView.m */,
 			);
 			path = WMMenuView;
+			sourceTree = "<group>";
+		};
+		CD2DCC031E053627000C03E1 /* vp1_reading_speaking */ = {
+			isa = PBXGroup;
+			children = (
+				CD2DCC0B1E0537A2000C03E1 /* cell */,
+				CD2DCC051E0536A7000C03E1 /* Vp1TableViewController.h */,
+				CD2DCC061E0536A7000C03E1 /* Vp1TableViewController.m */,
+			);
+			name = vp1_reading_speaking;
+			sourceTree = "<group>";
+		};
+		CD2DCC041E053648000C03E1 /* vp2_education_wisdom */ = {
+			isa = PBXGroup;
+			children = (
+				CD2DCC081E0536B6000C03E1 /* Vp2TableViewController.h */,
+				CD2DCC091E0536B6000C03E1 /* Vp2TableViewController.m */,
+			);
+			name = vp2_education_wisdom;
+			sourceTree = "<group>";
+		};
+		CD2DCC0B1E0537A2000C03E1 /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				CD2DCC0C1E0537C3000C03E1 /* Vp1TableViewCell.h */,
+				CD2DCC0D1E0537C3000C03E1 /* Vp1TableViewCell.m */,
+			);
+			name = cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -593,6 +632,7 @@
 				CD2DCB941E04ED7B000C03E1 /* DetailNotificationViewController.m in Sources */,
 				4698CBA81AE22FCA0006330E /* ConnectRongyunViewController.m in Sources */,
 				CD2DCBFB1E052BB8000C03E1 /* WMScrollView.m in Sources */,
+				CD2DCC0E1E0537C3000C03E1 /* Vp1TableViewCell.m in Sources */,
 				CD2DCBFA1E052BB8000C03E1 /* WMProgressView.m in Sources */,
 				CD2DCB981E0506EC000C03E1 /* DetailYueluViewController.m in Sources */,
 				4698CBA51AE22FCA0006330E /* AppDelegate.m in Sources */,
@@ -601,7 +641,9 @@
 				CD2DCB671E02DFE8000C03E1 /* HomePageViewController.m in Sources */,
 				4698CC041AE245940006330E /* ChatListViewController.m in Sources */,
 				CD2DCB891E03E7BE000C03E1 /* ArticleDetailViewController.m in Sources */,
+				CD2DCC0A1E0536B6000C03E1 /* Vp2TableViewController.m in Sources */,
 				CD2DCB831E03CAB3000C03E1 /* MeViewController.m in Sources */,
+				CD2DCC071E0536A7000C03E1 /* Vp1TableViewController.m in Sources */,
 				CD2DCB861E03CC6C000C03E1 /* MeTableViewCell.m in Sources */,
 				CD2DCB8D1E03E837000C03E1 /* CommentTableViewCell.m in Sources */,
 				CD2DCB191E02CC41000C03E1 /* shalongTableViewCell.m in Sources */,

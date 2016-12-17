@@ -21,7 +21,7 @@
         self.menuHeight = 35;
         self.menuItemWidth = 100;
         self.menuViewStyle = WMMenuViewStyleLine;
-        self.titles = [NSArray arrayWithObjects:@"娱乐新闻", @"体育新闻", nil];
+        self.titles = [NSArray arrayWithObjects:@"读文说史", @"教育智慧", nil];
     }
     return self;
 }
