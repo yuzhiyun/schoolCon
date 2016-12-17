@@ -77,6 +77,8 @@
 		CD2DCC0A1E0536B6000C03E1 /* Vp2TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD2DCC091E0536B6000C03E1 /* Vp2TableViewController.m */; };
 		CD2DCC0E1E0537C3000C03E1 /* Vp1TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CD2DCC0D1E0537C3000C03E1 /* Vp1TableViewCell.m */; };
 		CD2DCC121E054051000C03E1 /* Vp2TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CD2DCC111E054051000C03E1 /* Vp2TableViewCell.m */; };
+		CD2DCC151E05507C000C03E1 /* ContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD2DCC141E05507C000C03E1 /* ContactViewController.m */; };
+		CD2DCC191E0553A8000C03E1 /* MessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD2DCC181E0553A8000C03E1 /* MessageViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -188,6 +190,10 @@
 		CD2DCC0D1E0537C3000C03E1 /* Vp1TableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Vp1TableViewCell.m; sourceTree = "<group>"; };
 		CD2DCC101E054051000C03E1 /* Vp2TableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Vp2TableViewCell.h; sourceTree = "<group>"; };
 		CD2DCC111E054051000C03E1 /* Vp2TableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Vp2TableViewCell.m; sourceTree = "<group>"; };
+		CD2DCC131E05507C000C03E1 /* ContactViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactViewController.h; sourceTree = "<group>"; };
+		CD2DCC141E05507C000C03E1 /* ContactViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactViewController.m; sourceTree = "<group>"; };
+		CD2DCC171E0553A8000C03E1 /* MessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageViewController.h; sourceTree = "<group>"; };
+		CD2DCC181E0553A8000C03E1 /* MessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -400,6 +406,9 @@
 		CD2DCB111E025B37000C03E1 /* contact */ = {
 			isa = PBXGroup;
 			children = (
+				CD2DCC161E055390000C03E1 /* message */,
+				CD2DCC131E05507C000C03E1 /* ContactViewController.h */,
+				CD2DCC141E05507C000C03E1 /* ContactViewController.m */,
 			);
 			name = contact;
 			sourceTree = "<group>";
@@ -517,6 +526,15 @@
 				CD2DCC111E054051000C03E1 /* Vp2TableViewCell.m */,
 			);
 			name = cell;
+			sourceTree = "<group>";
+		};
+		CD2DCC161E055390000C03E1 /* message */ = {
+			isa = PBXGroup;
+			children = (
+				CD2DCC171E0553A8000C03E1 /* MessageViewController.h */,
+				CD2DCC181E0553A8000C03E1 /* MessageViewController.m */,
+			);
+			name = message;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -643,6 +661,7 @@
 			files = (
 				CD2DCC121E054051000C03E1 /* Vp2TableViewCell.m in Sources */,
 				CD2DCBF91E052BB8000C03E1 /* WMMenuView.m in Sources */,
+				CD2DCC191E0553A8000C03E1 /* MessageViewController.m in Sources */,
 				CD2DCB941E04ED7B000C03E1 /* DetailNotificationViewController.m in Sources */,
 				4698CBA81AE22FCA0006330E /* ConnectRongyunViewController.m in Sources */,
 				CD2DCBFB1E052BB8000C03E1 /* WMScrollView.m in Sources */,
@@ -661,6 +680,7 @@
 				CD2DCB861E03CC6C000C03E1 /* MeTableViewCell.m in Sources */,
 				CD2DCB8D1E03E837000C03E1 /* CommentTableViewCell.m in Sources */,
 				CD2DCB191E02CC41000C03E1 /* shalongTableViewCell.m in Sources */,
+				CD2DCC151E05507C000C03E1 /* ContactViewController.m in Sources */,
 				4698CBA21AE22FCA0006330E /* main.m in Sources */,
 				CD2DCB641E02DF4A000C03E1 /* NotificationTableViewController.m in Sources */,
 				CD2DCB1F1E02D2B4000C03E1 /* shalongTableViewController.m in Sources */,
