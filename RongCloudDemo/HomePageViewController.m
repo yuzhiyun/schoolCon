@@ -9,6 +9,7 @@
 #import "HomePageViewController.h"
 #import "NotificationTableViewController.h"
 #import "DetailNotificationViewController.h"
+#import "PsychologyViewController.h"
 //#import "DetailNotificationViewController.h"
 @interface HomePageViewController ()
 
@@ -54,6 +55,24 @@
     
     
     
+}
+//跳转到心理测评
+- (IBAction)btnEnterPsychology:(id)sender {
+    //根据storyboard id来获取目标页面
+    PsychologyViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"PsychologyViewController"];
+    
+    
+ 
+    //UITabBarController和的UINavigationController结合使用,进入新的页面的时候，隐藏主页tabbarController的底部栏
+    nextPage.hidesBottomBarWhenPushed=YES;
+    
+    //跳转
+    [self.navigationController pushViewController:nextPage animated:YES];
+    
+    
+    
+    
+
 }
 
 -(NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{

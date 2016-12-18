@@ -96,6 +96,107 @@
             </objects>
             <point key="canvasLocation" x="-94" y="1600"/>
         </scene>
+        <!--Psychology View Controller-->
+        <scene sceneID="cLD-y0-Ped">
+            <objects>
+                <viewController storyboardIdentifier="PsychologyViewController" id="oke-h6-pkD" customClass="PsychologyViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="lzm-Jg-IIv"/>
+                        <viewControllerLayoutGuide type="bottom" id="D0Q-W3-1Cu"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="c3e-lf-3Lt">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1fq-1C-Bfq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="569" y="1701"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="77j-Wo-pIA">
+            <objects>
+                <viewController storyboardIdentifier="vp1_psychology" id="ENL-nX-Sdm" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="IfD-KJ-bbX"/>
+                        <viewControllerLayoutGuide type="bottom" id="ym0-eZ-Zdo"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="2fD-CZ-mnP">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gpL-Lo-mGi">
+                                <rect key="frame" x="131" y="253" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PPE-T4-NfS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="529" y="2376"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="kdb-z1-Vbu">
+            <objects>
+                <viewController storyboardIdentifier="vp2_psychology" id="DO9-id-W6t" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="QXr-Xb-J5p"/>
+                        <viewControllerLayoutGuide type="bottom" id="zVh-0W-2pn"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="uZN-i2-RJW">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Q2n-zu-6Gv">
+                                <rect key="frame" x="78" y="292" width="121" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="First"/>
+                                    <segment title="Second"/>
+                                </segments>
+                            </segmentedControl>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FC8-UM-4QR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1276" y="2375"/>
+        </scene>
+        <!--Template Table View Controller-->
+        <scene sceneID="aH7-cE-tha">
+            <objects>
+                <tableViewController id="q9y-J6-L5Y" customClass="TemplateTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="DFo-uT-gpX">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="qiR-OB-zkI">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qiR-OB-zkI" id="UMI-WJ-1FK">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="q9y-J6-L5Y" id="hCW-8M-oTg"/>
+                            <outlet property="delegate" destination="q9y-J6-L5Y" id="sBR-aL-TS5"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Upq-sx-cbQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1276" y="1701"/>
+        </scene>
         <!--Home Page View Controller-->
         <scene sceneID="l6A-BC-gYV">
             <objects>
@@ -168,6 +269,9 @@
                                 <rect key="frame" x="71" y="320" width="69" height="73"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" backgroundImage="consults.png"/>
+                                <connections>
+                                    <action selector="btnEnterPsychology:" destination="AzU-z8-ena" eventType="touchUpInside" id="meZ-Yl-V0f"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rf1-hK-403">
                                 <rect key="frame" x="80" y="446" width="64" height="67"/>
@@ -320,7 +424,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AAI-jq-b7C" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1852" y="1757"/>
+            <point key="canvasLocation" x="1951" y="1702"/>
         </scene>
         <!--Contact View Controller-->
         <scene sceneID="XHQ-uV-cSH">

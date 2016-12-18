@@ -83,6 +83,8 @@
 		CD2DCC321E065B98000C03E1 /* ShalongTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CD2DCC311E065B98000C03E1 /* ShalongTableViewCell.m */; };
 		CD2DCC351E065CE6000C03E1 /* ShalongTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD2DCC341E065CE6000C03E1 /* ShalongTableViewController.m */; };
 		CD2DCC391E066137000C03E1 /* DetailYuluViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD2DCC381E066137000C03E1 /* DetailYuluViewController.m */; };
+		CD2DCC3D1E066AFB000C03E1 /* PsychologyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD2DCC3C1E066AFB000C03E1 /* PsychologyViewController.m */; };
+		CD2DCC441E066F58000C03E1 /* TemplateTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD2DCC431E066F58000C03E1 /* TemplateTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -206,6 +208,10 @@
 		CD2DCC341E065CE6000C03E1 /* ShalongTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ShalongTableViewController.m; path = RongCloudDemo/ShalongTableViewController.m; sourceTree = SOURCE_ROOT; };
 		CD2DCC371E066137000C03E1 /* DetailYuluViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DetailYuluViewController.h; path = RongCloudDemo/DetailYuluViewController.h; sourceTree = SOURCE_ROOT; };
 		CD2DCC381E066137000C03E1 /* DetailYuluViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DetailYuluViewController.m; path = RongCloudDemo/DetailYuluViewController.m; sourceTree = SOURCE_ROOT; };
+		CD2DCC3B1E066AFB000C03E1 /* PsychologyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PsychologyViewController.h; sourceTree = "<group>"; };
+		CD2DCC3C1E066AFB000C03E1 /* PsychologyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PsychologyViewController.m; sourceTree = "<group>"; };
+		CD2DCC421E066F58000C03E1 /* TemplateTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TemplateTableViewController.h; sourceTree = "<group>"; };
+		CD2DCC431E066F58000C03E1 /* TemplateTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TemplateTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -275,6 +281,7 @@
 		4698CB9E1AE22FCA0006330E /* RongCloudDemo */ = {
 			isa = PBXGroup;
 			children = (
+				CD2DCC3A1E066ACA000C03E1 /* psychology */,
 				CD2DCBE41E052BA1000C03E1 /* WMPageController  */,
 				CD2DCB131E025B7D000C03E1 /* me */,
 				CD2DCB121E025B62000C03E1 /* online_learning */,
@@ -597,6 +604,25 @@
 			name = cell;
 			sourceTree = "<group>";
 		};
+		CD2DCC3A1E066ACA000C03E1 /* psychology */ = {
+			isa = PBXGroup;
+			children = (
+				CD2DCC3E1E066D5C000C03E1 /* template */,
+				CD2DCC3B1E066AFB000C03E1 /* PsychologyViewController.h */,
+				CD2DCC3C1E066AFB000C03E1 /* PsychologyViewController.m */,
+			);
+			name = psychology;
+			sourceTree = "<group>";
+		};
+		CD2DCC3E1E066D5C000C03E1 /* template */ = {
+			isa = PBXGroup;
+			children = (
+				CD2DCC421E066F58000C03E1 /* TemplateTableViewController.h */,
+				CD2DCC431E066F58000C03E1 /* TemplateTableViewController.m */,
+			);
+			name = template;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -737,6 +763,7 @@
 				4698CC041AE245940006330E /* ChatListViewController.m in Sources */,
 				CD2DCB891E03E7BE000C03E1 /* ArticleDetailViewController.m in Sources */,
 				CD2DCC0A1E0536B6000C03E1 /* Vp2TableViewController.m in Sources */,
+				CD2DCC3D1E066AFB000C03E1 /* PsychologyViewController.m in Sources */,
 				CD2DCB831E03CAB3000C03E1 /* MeViewController.m in Sources */,
 				CD2DCC071E0536A7000C03E1 /* Vp1TableViewController.m in Sources */,
 				CD2DCB861E03CC6C000C03E1 /* MeTableViewCell.m in Sources */,
@@ -745,6 +772,7 @@
 				CD2DCC351E065CE6000C03E1 /* ShalongTableViewController.m in Sources */,
 				CD2DCC2C1E0573EF000C03E1 /* GroupSendViewController.m in Sources */,
 				4698CBA21AE22FCA0006330E /* main.m in Sources */,
+				CD2DCC441E066F58000C03E1 /* TemplateTableViewController.m in Sources */,
 				CD2DCB641E02DF4A000C03E1 /* NotificationTableViewController.m in Sources */,
 				CD2DCBF81E052BB8000C03E1 /* WMMenuItem.m in Sources */,
 				CD2DCC391E066137000C03E1 /* DetailYuluViewController.m in Sources */,
