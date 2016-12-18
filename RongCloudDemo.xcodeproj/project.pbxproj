@@ -283,8 +283,6 @@
 				CD2DCAFE1DFD9102000C03E1 /* yuelushalong */,
 				4698CBA31AE22FCA0006330E /* AppDelegate.h */,
 				4698CBA41AE22FCA0006330E /* AppDelegate.m */,
-				4698CBA61AE22FCA0006330E /* ConnectRongyunViewController.h */,
-				4698CBA71AE22FCA0006330E /* ConnectRongyunViewController.m */,
 				4698CBA91AE22FCA0006330E /* Main.storyboard */,
 				4698CBAC1AE22FCA0006330E /* Images.xcassets */,
 				4698CBAE1AE22FCA0006330E /* LaunchScreen.xib */,
@@ -417,6 +415,8 @@
 		CD2DCB111E025B37000C03E1 /* contact */ = {
 			isa = PBXGroup;
 			children = (
+				4698CBA61AE22FCA0006330E /* ConnectRongyunViewController.h */,
+				4698CBA71AE22FCA0006330E /* ConnectRongyunViewController.m */,
 				CD2DCC221E056CE3000C03E1 /* groupSend */,
 				CD2DCC1D1E0565A7000C03E1 /* linkman */,
 				CD2DCC161E055390000C03E1 /* message */,
