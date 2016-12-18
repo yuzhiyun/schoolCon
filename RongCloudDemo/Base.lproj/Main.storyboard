@@ -252,13 +252,13 @@
         <!--Shalong Table View Controller-->
         <scene sceneID="2OQ-O6-9Fo">
             <objects>
-                <tableViewController id="fVt-Fh-Dak" customClass="shalongTableViewController" sceneMemberID="viewController">
+                <tableViewController id="fVt-Fh-Dak" customClass="ShalongTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="102" sectionHeaderHeight="28" sectionFooterHeight="28" id="B9R-tc-viF">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="cell" rowHeight="102" id="5IZ-Ij-PLP" customClass="shalongTableViewCell">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="cell" rowHeight="102" id="5IZ-Ij-PLP" customClass="ShalongTableViewCell">
                                 <rect key="frame" x="0.0" y="28" width="375" height="102"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5IZ-Ij-PLP" id="UeQ-BN-nj2">
@@ -286,9 +286,9 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="UIImageView" destination="Fhj-MJ-ARx" id="Rv5-IX-7to"/>
-                                    <outlet property="UILableTime" destination="zvh-jb-xd0" id="lHU-hb-Imv"/>
-                                    <outlet property="UILableTitle" destination="8Sh-Jg-5sM" id="enn-1k-xUh"/>
+                                    <outlet property="UIImgCover" destination="Fhj-MJ-ARx" id="2Fm-iB-VXG"/>
+                                    <outlet property="UILabelDate" destination="zvh-jb-xd0" id="B7w-cI-c4g"/>
+                                    <outlet property="UILabelTitle" destination="8Sh-Jg-5sM" id="rhW-zP-kJ8"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
