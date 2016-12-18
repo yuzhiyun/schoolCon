@@ -85,6 +85,9 @@
 		CD2DCC391E066137000C03E1 /* DetailYuluViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD2DCC381E066137000C03E1 /* DetailYuluViewController.m */; };
 		CD2DCC3D1E066AFB000C03E1 /* PsychologyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD2DCC3C1E066AFB000C03E1 /* PsychologyViewController.m */; };
 		CD2DCC441E066F58000C03E1 /* TemplateTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD2DCC431E066F58000C03E1 /* TemplateTableViewController.m */; };
+		CD2DCC481E067694000C03E1 /* VP1ViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CD2DCC471E067694000C03E1 /* VP1ViewCell.m */; };
+		CD2DCC4B1E0676A7000C03E1 /* VP2ViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CD2DCC4A1E0676A7000C03E1 /* VP2ViewCell.m */; };
+		CD2DCC4F1E067CD3000C03E1 /* TemplateTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CD2DCC4E1E067CD3000C03E1 /* TemplateTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -212,6 +215,12 @@
 		CD2DCC3C1E066AFB000C03E1 /* PsychologyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PsychologyViewController.m; sourceTree = "<group>"; };
 		CD2DCC421E066F58000C03E1 /* TemplateTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TemplateTableViewController.h; sourceTree = "<group>"; };
 		CD2DCC431E066F58000C03E1 /* TemplateTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TemplateTableViewController.m; sourceTree = "<group>"; };
+		CD2DCC461E067694000C03E1 /* VP1ViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VP1ViewCell.h; sourceTree = "<group>"; };
+		CD2DCC471E067694000C03E1 /* VP1ViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VP1ViewCell.m; sourceTree = "<group>"; };
+		CD2DCC491E0676A7000C03E1 /* VP2ViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VP2ViewCell.h; sourceTree = "<group>"; };
+		CD2DCC4A1E0676A7000C03E1 /* VP2ViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VP2ViewCell.m; sourceTree = "<group>"; };
+		CD2DCC4D1E067CD3000C03E1 /* TemplateTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TemplateTableViewCell.h; sourceTree = "<group>"; };
+		CD2DCC4E1E067CD3000C03E1 /* TemplateTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TemplateTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -607,6 +616,7 @@
 		CD2DCC3A1E066ACA000C03E1 /* psychology */ = {
 			isa = PBXGroup;
 			children = (
+				CD2DCC451E067662000C03E1 /* concreteTest */,
 				CD2DCC3E1E066D5C000C03E1 /* template */,
 				CD2DCC3B1E066AFB000C03E1 /* PsychologyViewController.h */,
 				CD2DCC3C1E066AFB000C03E1 /* PsychologyViewController.m */,
@@ -617,10 +627,31 @@
 		CD2DCC3E1E066D5C000C03E1 /* template */ = {
 			isa = PBXGroup;
 			children = (
+				CD2DCC4C1E067CB9000C03E1 /* cell */,
 				CD2DCC421E066F58000C03E1 /* TemplateTableViewController.h */,
 				CD2DCC431E066F58000C03E1 /* TemplateTableViewController.m */,
 			);
 			name = template;
+			sourceTree = "<group>";
+		};
+		CD2DCC451E067662000C03E1 /* concreteTest */ = {
+			isa = PBXGroup;
+			children = (
+				CD2DCC461E067694000C03E1 /* VP1ViewCell.h */,
+				CD2DCC471E067694000C03E1 /* VP1ViewCell.m */,
+				CD2DCC491E0676A7000C03E1 /* VP2ViewCell.h */,
+				CD2DCC4A1E0676A7000C03E1 /* VP2ViewCell.m */,
+			);
+			name = concreteTest;
+			sourceTree = "<group>";
+		};
+		CD2DCC4C1E067CB9000C03E1 /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				CD2DCC4D1E067CD3000C03E1 /* TemplateTableViewCell.h */,
+				CD2DCC4E1E067CD3000C03E1 /* TemplateTableViewCell.m */,
+			);
+			name = cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -672,7 +703,7 @@
 				TargetAttributes = {
 					4698CB9B1AE22FCA0006330E = {
 						CreatedOnToolsVersion = 6.2;
-						DevelopmentTeam = F36KV5ER57;
+						DevelopmentTeam = 8TXX9HLM2Y;
 						ProvisioningStyle = Automatic;
 					};
 					4698CBB41AE22FCA0006330E = {
@@ -770,8 +801,11 @@
 				CD2DCB8D1E03E837000C03E1 /* CommentTableViewCell.m in Sources */,
 				CD2DCC151E05507C000C03E1 /* ContactViewController.m in Sources */,
 				CD2DCC351E065CE6000C03E1 /* ShalongTableViewController.m in Sources */,
+				CD2DCC4B1E0676A7000C03E1 /* VP2ViewCell.m in Sources */,
 				CD2DCC2C1E0573EF000C03E1 /* GroupSendViewController.m in Sources */,
 				4698CBA21AE22FCA0006330E /* main.m in Sources */,
+				CD2DCC481E067694000C03E1 /* VP1ViewCell.m in Sources */,
+				CD2DCC4F1E067CD3000C03E1 /* TemplateTableViewCell.m in Sources */,
 				CD2DCC441E066F58000C03E1 /* TemplateTableViewController.m in Sources */,
 				CD2DCB641E02DF4A000C03E1 /* NotificationTableViewController.m in Sources */,
 				CD2DCBF81E052BB8000C03E1 /* WMMenuItem.m in Sources */,
@@ -908,7 +942,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = F36KV5ER57;
+				DEVELOPMENT_TEAM = 8TXX9HLM2Y;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -924,7 +958,7 @@
 					"$(PROJECT_DIR)/framework",
 				);
 				OTHER_LDFLAGS = "";
-				PRODUCT_BUNDLE_IDENTIFIER = com.dlz.RongCloudDemo9;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dlz.RongCloudDemo10;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -934,7 +968,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = F36KV5ER57;
+				DEVELOPMENT_TEAM = 8TXX9HLM2Y;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -950,7 +984,7 @@
 					"$(PROJECT_DIR)/framework",
 				);
 				OTHER_LDFLAGS = "";
-				PRODUCT_BUNDLE_IDENTIFIER = com.dlz.RongCloudDemo9;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dlz.RongCloudDemo10;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

@@ -7,7 +7,7 @@
 //
 
 #import "TemplateTableViewController.h"
-
+#import "TemplateTableViewCell.h"
 @interface TemplateTableViewController ()
 
 @end
@@ -16,6 +16,24 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    //防止与顶部重叠
+    self.tableView.contentInset=UIEdgeInsetsMake(20.0f, 0.0f, 0.0f, 0.0f);
+    
+    //指定大标题
+    mData=[[NSMutableArray alloc]init];
+    [mData addObject:@"你微笑过的地方"];
+    [mData addObject:@"便是最美的风景"];
+    [mData addObject:@"唯我独不敬亭"];
+    [mData addObject:@"嗨，你还在那里吗"];
+    [mData addObject:@"愿风带着我的思念来到你的窗前"];
+    //指定封面
+    mImg=[[NSMutableArray alloc]init];
+    [mImg addObject:@"1.jpg"];
+    [mImg addObject:@"2.jpg"];
+    [mImg addObject:@"3.jpg"];
+    [mImg addObject:@"4.jpg"];
+    [mImg addObject:@"5.jpg"];
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -31,14 +49,37 @@
 
 #pragma mark - Table view data source
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Incomplete implementation, return the number of sections
-    return 0;
-}
+//- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+//#warning Incomplete implementation, return the number of sections
+//    return 0;
+//}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 #warning Incomplete implementation, return the number of rows
-    return 0;
+    return [mData count];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    TemplateTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
+    if(cell==nil){
+        
+        cell=[[TemplateTableViewCell init] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
+        
+    }
+    
+    
+    NSString *t1=[mData objectAtIndex:indexPath.row];
+    
+    cell.UILabelTitle.text=t1;
+    cell.UILabelPrice.text=@"¥600";
+    cell.UILabelNumOfTest=@"3900";
+
+    cell.UIImageViewCover.image=[UIImage imageNamed:[mImg objectAtIndex:indexPath.row]];
+    
+    
+    // Configure the cell...
+    
+    return cell;
 }
 
 /*

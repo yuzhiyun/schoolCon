@@ -46,15 +46,19 @@
 #pragma mark 返回某个index对应的页面，该页面从Storyboard中获取
 - (UIViewController *)pageController:(WMPageController *)pageController viewControllerAtIndex:(NSInteger)index {
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    UIViewController *controller1 = [storyboard instantiateViewControllerWithIdentifier:@"vp1_psychology"]; //这里的identifer是我们之前设置的StoryboardID
     
-    UIViewController *controlle2 = [storyboard instantiateViewControllerWithIdentifier:@"vp2_psychology"]; //这里的identifer是我们之前设置的StoryboardID
     
-    if(index==1)
-        
+    
+       UITableViewController *controller1 = [storyboard instantiateViewControllerWithIdentifier:@"TemplateTableViewController"]; //这里的identifer是我们之前设置的
+//    UITableViewController *controller1 = [storyboard instantiateViewControllerWithIdentifier:@"vp1_psychology"]; //这里的identifer是我们之前设置的StoryboardID
+    
+//    UITableViewController *controlle2 = [storyboard instantiateViewControllerWithIdentifier:@"vp2_psychology"]; //这里的identifer是我们之前设置的StoryboardID
+//    
+//    if(index==1)
+    
         return controller1;
-    else
-        return controlle2;
+//    else
+//        return controlle2;
 }
 
 - (void)didReceiveMemoryWarning {

@@ -8,6 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TemplateTableViewController : UITableViewController
+@interface TemplateTableViewController : UITableViewController{
+    
+    
+    NSMutableArray *mData;
+    NSMutableArray *mImg;
+    
+}
 
 @end
