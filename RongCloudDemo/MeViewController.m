@@ -8,18 +8,24 @@
 
 #import "MeViewController.h"
 #import "MeTableViewCell.h"
+#import "UIImageView+WebCache.h"
 @interface MeViewController (){
     
     NSMutableArray *mDataKey;
      NSMutableArray *mDataValue;
     
 }
+@property (weak, nonatomic) IBOutlet UIImageView *UIImageViewAvatar;
 
 
 @end
 
 @implementation MeViewController
 
+
+//-(void) touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+//   
+//}
 - (void)viewDidLoad {
     [super viewDidLoad];
     mDataKey=[[NSMutableArray alloc]init];
@@ -42,7 +48,9 @@
     [mDataValue addObject:@"》》》》"];
     [mDataValue addObject:@"》》》》"];
 
-
+    
+//    加载图片,如果加载不到图片，就显示favorites.png
+ [self.UIImageViewAvatar sd_setImageWithURL:@"http://img05.tooopen.com/images/20150202/sy_80219211654.jpg" placeholderImage:[UIImage imageNamed:@"favorites.png"]];
     // Do any additional setup after loading the view.
 }
 

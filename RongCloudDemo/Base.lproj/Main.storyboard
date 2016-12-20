@@ -981,6 +981,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="我的" image="me.png" id="IIn-yW-4XF"/>
+                    <connections>
+                        <outlet property="UIImageViewAvatar" destination="FGW-J7-pM0" id="hfG-Rt-IBJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yEC-X0-3bx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
