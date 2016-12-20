@@ -59,7 +59,7 @@
 //跳转到心理测评
 - (IBAction)btnEnterPsychology:(id)sender {
     //根据storyboard id来获取目标页面
-    PsychologyViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"PsychologyViewController"];
+    PsychologyViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"PsychologyListTableViewController"];
     
     
  

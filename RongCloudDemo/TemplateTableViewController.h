@@ -14,6 +14,11 @@
     NSMutableArray *mData;
     NSMutableArray *mImg;
     
+        
+    @public
+        NSString *pubString;
+    
+    
 }
 
 @end

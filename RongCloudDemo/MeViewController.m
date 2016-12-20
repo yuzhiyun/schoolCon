@@ -48,7 +48,7 @@
     [mDataValue addObject:@"》》》》"];
     [mDataValue addObject:@"》》》》"];
 
-    
+//    #import "UIImageView+WebCache.h"
 //    加载图片,如果加载不到图片，就显示favorites.png
  [self.UIImageViewAvatar sd_setImageWithURL:@"http://img05.tooopen.com/images/20150202/sy_80219211654.jpg" placeholderImage:[UIImage imageNamed:@"favorites.png"]];
     // Do any additional setup after loading the view.
