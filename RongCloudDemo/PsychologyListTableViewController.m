@@ -7,7 +7,7 @@
 //
 
 #import "PsychologyListTableViewController.h"
-#import "TemplateTableViewController.h"
+#import "PsychologyTableViewController.h"
 @interface PsychologyListTableViewController ()
 
 @end
@@ -72,7 +72,7 @@
     
     
     //根据storyboard id来获取目标页面
-    TemplateTableViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"TemplateTableViewController"];
+    PsychologyTableViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"PsychologyTableViewController"];
     
     
     //    传值

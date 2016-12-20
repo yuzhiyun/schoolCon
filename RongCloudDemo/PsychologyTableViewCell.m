@@ -6,9 +6,9 @@
 //  Copyright © 2016年 dlz. All rights reserved.
 //
 
-#import "TemplateTableViewCell.h"
+#import "PsychologyTableViewCell.h"
 
-@implementation TemplateTableViewCell
+@implementation PsychologyTableViewCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];

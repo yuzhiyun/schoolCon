@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TemplateTableViewController : UITableViewController{
+@interface PsychologyTableViewController : UITableViewController{
     
     
     NSMutableArray *mData;

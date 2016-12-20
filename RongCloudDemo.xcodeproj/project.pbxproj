@@ -83,11 +83,8 @@
 		CD2DCC321E065B98000C03E1 /* ShalongTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CD2DCC311E065B98000C03E1 /* ShalongTableViewCell.m */; };
 		CD2DCC351E065CE6000C03E1 /* ShalongTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD2DCC341E065CE6000C03E1 /* ShalongTableViewController.m */; };
 		CD2DCC391E066137000C03E1 /* DetailYuluViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD2DCC381E066137000C03E1 /* DetailYuluViewController.m */; };
-		CD2DCC3D1E066AFB000C03E1 /* PsychologyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD2DCC3C1E066AFB000C03E1 /* PsychologyViewController.m */; };
-		CD2DCC441E066F58000C03E1 /* TemplateTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD2DCC431E066F58000C03E1 /* TemplateTableViewController.m */; };
-		CD2DCC481E067694000C03E1 /* VP1ViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CD2DCC471E067694000C03E1 /* VP1ViewCell.m */; };
-		CD2DCC4B1E0676A7000C03E1 /* VP2ViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CD2DCC4A1E0676A7000C03E1 /* VP2ViewCell.m */; };
-		CD2DCC4F1E067CD3000C03E1 /* TemplateTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CD2DCC4E1E067CD3000C03E1 /* TemplateTableViewCell.m */; };
+		CD2DCC441E066F58000C03E1 /* PsychologyTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD2DCC431E066F58000C03E1 /* PsychologyTableViewController.m */; };
+		CD2DCC4F1E067CD3000C03E1 /* PsychologyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CD2DCC4E1E067CD3000C03E1 /* PsychologyTableViewCell.m */; };
 		CD2DCC7B1E09305D000C03E1 /* FLAnimatedImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = CD2DCC531E09305D000C03E1 /* FLAnimatedImageView+WebCache.m */; };
 		CD2DCC7C1E09305D000C03E1 /* MKAnnotationView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = CD2DCC551E09305D000C03E1 /* MKAnnotationView+WebCache.m */; };
 		CD2DCC7D1E09305D000C03E1 /* NSData+ImageContentType.m in Sources */ = {isa = PBXBuildFile; fileRef = CD2DCC571E09305D000C03E1 /* NSData+ImageContentType.m */; };
@@ -234,16 +231,10 @@
 		CD2DCC341E065CE6000C03E1 /* ShalongTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ShalongTableViewController.m; path = RongCloudDemo/ShalongTableViewController.m; sourceTree = SOURCE_ROOT; };
 		CD2DCC371E066137000C03E1 /* DetailYuluViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DetailYuluViewController.h; path = RongCloudDemo/DetailYuluViewController.h; sourceTree = SOURCE_ROOT; };
 		CD2DCC381E066137000C03E1 /* DetailYuluViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DetailYuluViewController.m; path = RongCloudDemo/DetailYuluViewController.m; sourceTree = SOURCE_ROOT; };
-		CD2DCC3B1E066AFB000C03E1 /* PsychologyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PsychologyViewController.h; sourceTree = "<group>"; };
-		CD2DCC3C1E066AFB000C03E1 /* PsychologyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PsychologyViewController.m; sourceTree = "<group>"; };
-		CD2DCC421E066F58000C03E1 /* TemplateTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TemplateTableViewController.h; sourceTree = "<group>"; };
-		CD2DCC431E066F58000C03E1 /* TemplateTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TemplateTableViewController.m; sourceTree = "<group>"; };
-		CD2DCC461E067694000C03E1 /* VP1ViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VP1ViewCell.h; sourceTree = "<group>"; };
-		CD2DCC471E067694000C03E1 /* VP1ViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VP1ViewCell.m; sourceTree = "<group>"; };
-		CD2DCC491E0676A7000C03E1 /* VP2ViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VP2ViewCell.h; sourceTree = "<group>"; };
-		CD2DCC4A1E0676A7000C03E1 /* VP2ViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VP2ViewCell.m; sourceTree = "<group>"; };
-		CD2DCC4D1E067CD3000C03E1 /* TemplateTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TemplateTableViewCell.h; sourceTree = "<group>"; };
-		CD2DCC4E1E067CD3000C03E1 /* TemplateTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TemplateTableViewCell.m; sourceTree = "<group>"; };
+		CD2DCC421E066F58000C03E1 /* PsychologyTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PsychologyTableViewController.h; sourceTree = "<group>"; };
+		CD2DCC431E066F58000C03E1 /* PsychologyTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PsychologyTableViewController.m; sourceTree = "<group>"; };
+		CD2DCC4D1E067CD3000C03E1 /* PsychologyTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PsychologyTableViewCell.h; sourceTree = "<group>"; };
+		CD2DCC4E1E067CD3000C03E1 /* PsychologyTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PsychologyTableViewCell.m; sourceTree = "<group>"; };
 		CD2DCC521E09305D000C03E1 /* FLAnimatedImageView+WebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FLAnimatedImageView+WebCache.h"; sourceTree = "<group>"; };
 		CD2DCC531E09305D000C03E1 /* FLAnimatedImageView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "FLAnimatedImageView+WebCache.m"; sourceTree = "<group>"; };
 		CD2DCC541E09305D000C03E1 /* MKAnnotationView+WebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MKAnnotationView+WebCache.h"; sourceTree = "<group>"; };
@@ -687,10 +678,7 @@
 		CD2DCC3A1E066ACA000C03E1 /* psychology */ = {
 			isa = PBXGroup;
 			children = (
-				CD2DCC451E067662000C03E1 /* concreteTest */,
 				CD2DCC3E1E066D5C000C03E1 /* template */,
-				CD2DCC3B1E066AFB000C03E1 /* PsychologyViewController.h */,
-				CD2DCC3C1E066AFB000C03E1 /* PsychologyViewController.m */,
 				CD2DCC981E09668D000C03E1 /* PsychologyListTableViewController.h */,
 				CD2DCC991E09668D000C03E1 /* PsychologyListTableViewController.m */,
 			);
@@ -701,28 +689,17 @@
 			isa = PBXGroup;
 			children = (
 				CD2DCC4C1E067CB9000C03E1 /* cell */,
-				CD2DCC421E066F58000C03E1 /* TemplateTableViewController.h */,
-				CD2DCC431E066F58000C03E1 /* TemplateTableViewController.m */,
+				CD2DCC421E066F58000C03E1 /* PsychologyTableViewController.h */,
+				CD2DCC431E066F58000C03E1 /* PsychologyTableViewController.m */,
 			);
 			name = template;
-			sourceTree = "<group>";
-		};
-		CD2DCC451E067662000C03E1 /* concreteTest */ = {
-			isa = PBXGroup;
-			children = (
-				CD2DCC461E067694000C03E1 /* VP1ViewCell.h */,
-				CD2DCC471E067694000C03E1 /* VP1ViewCell.m */,
-				CD2DCC491E0676A7000C03E1 /* VP2ViewCell.h */,
-				CD2DCC4A1E0676A7000C03E1 /* VP2ViewCell.m */,
-			);
-			name = concreteTest;
 			sourceTree = "<group>";
 		};
 		CD2DCC4C1E067CB9000C03E1 /* cell */ = {
 			isa = PBXGroup;
 			children = (
-				CD2DCC4D1E067CD3000C03E1 /* TemplateTableViewCell.h */,
-				CD2DCC4E1E067CD3000C03E1 /* TemplateTableViewCell.m */,
+				CD2DCC4D1E067CD3000C03E1 /* PsychologyTableViewCell.h */,
+				CD2DCC4E1E067CD3000C03E1 /* PsychologyTableViewCell.m */,
 			);
 			name = cell;
 			sourceTree = "<group>";
@@ -937,7 +914,6 @@
 				CD2DCC8A1E09305D000C03E1 /* UIImage+WebP.m in Sources */,
 				CD2DCC851E09305D000C03E1 /* SDWebImageManager.m in Sources */,
 				CD2DCC0A1E0536B6000C03E1 /* Vp2TableViewController.m in Sources */,
-				CD2DCC3D1E066AFB000C03E1 /* PsychologyViewController.m in Sources */,
 				CD2DCC861E09305D000C03E1 /* SDWebImagePrefetcher.m in Sources */,
 				CD2DCB831E03CAB3000C03E1 /* MeViewController.m in Sources */,
 				CD2DCC071E0536A7000C03E1 /* Vp1TableViewController.m in Sources */,
@@ -950,18 +926,16 @@
 				CD2DCC941E0938AE000C03E1 /* FLAnimatedImageView.m in Sources */,
 				CD2DCC8E1E09305D000C03E1 /* UIView+WebCacheOperation.m in Sources */,
 				CD2DCC821E09305D000C03E1 /* SDWebImageDecoder.m in Sources */,
-				CD2DCC4B1E0676A7000C03E1 /* VP2ViewCell.m in Sources */,
 				CD2DCC8B1E09305D000C03E1 /* UIImageView+HighlightedWebCache.m in Sources */,
 				CD2DCC2C1E0573EF000C03E1 /* GroupSendViewController.m in Sources */,
 				4698CBA21AE22FCA0006330E /* main.m in Sources */,
 				CD2DCC871E09305D000C03E1 /* UIButton+WebCache.m in Sources */,
-				CD2DCC481E067694000C03E1 /* VP1ViewCell.m in Sources */,
 				CD2DCC8C1E09305D000C03E1 /* UIImageView+WebCache.m in Sources */,
-				CD2DCC4F1E067CD3000C03E1 /* TemplateTableViewCell.m in Sources */,
+				CD2DCC4F1E067CD3000C03E1 /* PsychologyTableViewCell.m in Sources */,
 				CD2DCC831E09305D000C03E1 /* SDWebImageDownloader.m in Sources */,
 				CD2DCC9A1E09668D000C03E1 /* PsychologyListTableViewController.m in Sources */,
 				CD2DCC7D1E09305D000C03E1 /* NSData+ImageContentType.m in Sources */,
-				CD2DCC441E066F58000C03E1 /* TemplateTableViewController.m in Sources */,
+				CD2DCC441E066F58000C03E1 /* PsychologyTableViewController.m in Sources */,
 				CD2DCB641E02DF4A000C03E1 /* NotificationTableViewController.m in Sources */,
 				CD2DCBF81E052BB8000C03E1 /* WMMenuItem.m in Sources */,
 				CD2DCC391E066137000C03E1 /* DetailYuluViewController.m in Sources */,

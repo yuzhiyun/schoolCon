@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TemplateTableViewCell : UITableViewCell
+@interface PsychologyTableViewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *UILabelTitle;
 @property (weak, nonatomic) IBOutlet UILabel *UILabelPrice;
 @property (weak, nonatomic) IBOutlet UILabel *UILabelNumOfTest;

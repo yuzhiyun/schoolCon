@@ -6,13 +6,13 @@
 //  Copyright © 2016年 dlz. All rights reserved.
 //
 
-#import "TemplateTableViewController.h"
-#import "TemplateTableViewCell.h"
-@interface TemplateTableViewController ()
+#import "PsychologyTableViewController.h"
+#import "PsychologyTableViewCell.h"
+@interface PsychologyTableViewController ()
 
 @end
 
-@implementation TemplateTableViewController
+@implementation PsychologyTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -62,10 +62,10 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    TemplateTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
+    PsychologyTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
     if(cell==nil){
         
-        cell=[[TemplateTableViewCell init] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
+        cell=[[PsychologyTableViewCell init] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
         
     }
     
