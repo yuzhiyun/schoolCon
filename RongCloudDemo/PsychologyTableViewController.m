@@ -8,6 +8,7 @@
 
 #import "PsychologyTableViewController.h"
 #import "PsychologyTableViewCell.h"
+#import "TestViewController.h"
 @interface PsychologyTableViewController ()
 
 @end
@@ -84,15 +85,29 @@
     return cell;
 }
 
-/*
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+
+
+-(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    // Configure the cell...
     
-    return cell;
+    
+    //根据storyboard id来获取目标页面
+    TestViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"TestViewController"];
+    
+    
+//    //    传值
+//    nextPage->pubString=[mDataNotification objectAtIndex:indexPath.row];
+    //UITabBarController和的UINavigationController结合使用,进入新的页面的时候，隐藏主页tabbarController的底部栏
+    nextPage.hidesBottomBarWhenPushed=YES;
+    
+    //跳转
+    [self.navigationController pushViewController:nextPage animated:YES];
+    
+    
+    
+    
+    
 }
-*/
 
 /*
 // Override to support conditional editing of the table view.
