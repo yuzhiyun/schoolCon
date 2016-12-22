@@ -37,8 +37,9 @@
 //    [mDataKey addObject:@"班主任姓名"];
     [mDataKey addObject:@"修改电话"];
     [mDataKey addObject:@"我的活动"];
-    [mDataKey addObject:@"我的心理测评"];
+    [mDataKey addObject:@"我的测试"];
     [mDataKey addObject:@"我的会员"];
+    [mDataKey addObject:@"我的收藏"];
     [mDataKey addObject:@"退出登录"];
     
     mDataValue=[[NSMutableArray alloc]init];
@@ -53,8 +54,8 @@
 
 //    #import "UIImageView+WebCache.h"
 //    加载图片,如果加载不到图片，就显示favorites.png
- [self.UIImageViewAvatar sd_setImageWithURL:@"http://img05.tooopen.com/images/20150202/sy_80219211654.jpg" placeholderImage:[UIImage imageNamed:@"favorites.png"]];
-    // Do any additional setup after loading the view.
+// [self.UIImageViewAvatar sd_setImageWithURL:@"http://img05.tooopen.com/images/20150202/sy_80219211654.jpg" placeholderImage:[UIImage imageNamed:@"favorites.png"]];
+//    // Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning {
@@ -78,9 +79,28 @@
         cell = [[MeTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
     }
     cell.UILabelKey.text=[mDataKey objectAtIndex:indexPath.row];
+//    [mDataKey addObject:@"修改电话"];
+//    [mDataKey addObject:@"我的活动"];
+//    [mDataKey addObject:@"我的测试"];
+//    [mDataKey addObject:@"我的会员"];
+//    [mDataKey addObject:@"退出登录"];
+    if(0==indexPath.row)
+    cell.imageView.image=[UIImage imageNamed:@"phone.png"];
+    if(1==indexPath.row)
+        cell.imageView.image=[UIImage imageNamed:@"phone.png"];
+    if(2==indexPath.row)
+        cell.imageView.image=[UIImage imageNamed:@"phone.png"];
+    if(3==indexPath.row)
+        cell.imageView.image=[UIImage imageNamed:@"vip.png"];
+    if(4==indexPath.row)
+        cell.imageView.image=[UIImage imageNamed:@"callect.png"];
+    if(5==indexPath.row)
+        cell.imageView.image=[UIImage imageNamed:@"exit.png"];
 //    cell.UILabelValue.text=[mDataValue objectAtIndex:indexPath.row];
 //
 //    cell.textLabel.text =     return cell;
+    
+    
     return cell;
 }
 
