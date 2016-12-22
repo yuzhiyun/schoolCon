@@ -76,8 +76,20 @@
     cell.UILabelRemark.text = [mDataRemark objectAtIndex:indexPath.row];
     cell.UIImgAvatar.image=[UIImage imageNamed:@"avarta.jpg"];
     
-    
+//    cell.UIImageViewCheckbox.image=[UIImage imageNamed:@"selected2.png"];
+
     return cell;
+}
+
+//把checkbox的图标改成被选中的
+-(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    
+    GroupSendTableViewCell *cell=[self tableView:tableView cellForRowAtIndexPath:indexPath];
+    //    cell.UIButtonCheckbox.
+    cell.UIImageViewCheckbox.image=[UIImage imageNamed:@"1.jpg"];
+    NSLog(@"点击事件");
+    
 }
 
 

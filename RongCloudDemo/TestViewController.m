@@ -18,30 +18,35 @@
     [super viewDidLoad];
     
     self.title=pubString;
-    
 
-    //指定大标题
-    mData=[[NSMutableArray alloc]init];
-    [mData addObject:@"你微笑过的地方"];
-    [mData addObject:@"便是最美的风景"];
-    [mData addObject:@"唯我独不敬亭"];
-    [mData addObject:@"嗨，你还在那里吗"];
-    [mData addObject:@"愿风带着我的思念来到你的窗前"];
-    //指定封面
-    mImg=[[NSMutableArray alloc]init];
-    [mImg addObject:@"1.jpg"];
-    [mImg addObject:@"2.jpg"];
-    [mImg addObject:@"3.jpg"];
-    [mImg addObject:@"4.jpg"];
-    [mImg addObject:@"5.jpg"];
+   
+//    默认显示第一个题目
+    indexOfExercise=0;
+//    填充题目
+     mAllData=[[NSMutableArray alloc]init];
+
+    for(int i=0;i<5;i++){
+         NSMutableArray *mEntity=[[NSMutableArray alloc]init];
+        
+        [mEntity addObject:[NSString stringWithFormat:@"标题%d",i+1]];
+        
+        
+          [mEntity addObject:[NSString stringWithFormat:@"第%d题item1",i+1]];
+         [mEntity addObject:[NSString stringWithFormat:@"第%d题item2",i+1]];
+         [mEntity addObject:[NSString stringWithFormat:@"第%d题item3",i+1]];
+        [mEntity addObject:[NSString stringWithFormat:@"第%d题item4",i+1]];
+        
+        [mAllData addObject:mEntity];
+        
+    }
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
+    [self setTitle];
     
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
+-(void) setTitle{
+    UILabelTitle.text=[[mAllData objectAtIndex:indexOfExercise] objectAtIndex:0];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -55,8 +60,11 @@
 //}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    
+//    此处存储一下这个tableView，以便在切换到下一个题目的时候，reload数据
+    mTableView=tableView;
 #warning Incomplete implementation, return the number of rows
-    return [mData count];
+    return 4;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -66,23 +74,54 @@
         cell=[[TestTableViewCell init] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
         
     }
+    NSMutableArray *mEntity=[mAllData objectAtIndex:indexOfExercise];
     
     
-    NSString *t1=[mData objectAtIndex:indexPath.row];
-    
-//    cell.UILabelTitle.text=t1;
-//    cell.UILabelPrice.text=@"¥600";
-//    cell.UILabelNumOfTest=@"3900";
-//    
-//    cell.UIImageViewCover.image=[UIImage imageNamed:[mImg objectAtIndex:indexPath.row]];
-//    
-    cell.UILabelExerciseItem.text=t1;
-    // Configure the cell...
-    
+//    NSString *t1=[mTitle objectAtIndex:indexPath.row];
+//    [mItem1 objectAtIndex:indexOfExercise]
+
+    cell.UILabelExerciseItem.text=[mEntity objectAtIndex:indexPath.row+1];
+
     return cell;
 }
+//切换到下一个题目
+- (IBAction)nextExercise:(id)sender {
+    
+    indexOfExercise++;
+    if(indexOfExercise<[mAllData count]){
+     [self setTitle];
+//        [UITableView.self reload];
+//        [self.tableView reload];
+        [mTableView reloadData];
+    }
+    else{
+    
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示"
+                                                        message:@"已经是最后一题了，请提交答案"
+                                                       delegate:self
+                                              cancelButtonTitle:@"确定"
+                                              otherButtonTitles:nil];
+        [alert show];
+    }
+        
+   
+    
+    
+}
 
-
+//把checkbox的图标改成被选中的
+-(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    
+    TestTableViewCell *cell=(TestTableViewCell*)[self tableView:tableView cellForRowAtIndexPath:indexPath];
+    
+//    self tableView:<#(nonnull UITableView *)#> cellForRowAtIndexPath:<#(nonnull NSIndexPath *)#>
+    
+    
+//    cell.UIButtonCheckbox.
+    cell.UIImageViewCheckbox.image=[UIImage imageNamed:@"selected2.png"];
+    
+}
 /*
 #pragma mark - Navigation
 

@@ -10,5 +10,7 @@
 
 @interface TestTableViewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *UILabelExerciseItem;
+//@property (weak, nonatomic) IBOutlet UIButton *UIButtonCheckbox;
+@property (weak, nonatomic) IBOutlet UIImageView *UIImageViewCheckbox;
 
 @end

@@ -110,6 +110,11 @@
 		CD2DCC9A1E09668D000C03E1 /* PsychologyListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD2DCC991E09668D000C03E1 /* PsychologyListTableViewController.m */; };
 		CD2DCC9E1E0A2092000C03E1 /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD2DCC9D1E0A2092000C03E1 /* TestViewController.m */; };
 		CD2DCCA21E0A20D5000C03E1 /* TestTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CD2DCCA11E0A20D5000C03E1 /* TestTableViewCell.m */; };
+		CD2DCCA91E0A4BF9000C03E1 /* un_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = CD2DCCA81E0A4BF9000C03E1 /* un_selected.png */; };
+		CD2DCCAB1E0A4CD8000C03E1 /* selected2.png in Resources */ = {isa = PBXBuildFile; fileRef = CD2DCCAA1E0A4CD8000C03E1 /* selected2.png */; };
+		CD2DCCAF1E0A6FF9000C03E1 /* QueryGradeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD2DCCAE1E0A6FF9000C03E1 /* QueryGradeTableViewController.m */; };
+		CD2DCCB31E0A72AF000C03E1 /* TeacherViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD2DCCB21E0A72AF000C03E1 /* TeacherViewController.m */; };
+		CD2DCCB71E0A84CA000C03E1 /* OptionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD2DCCB61E0A84CA000C03E1 /* OptionViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -288,6 +293,14 @@
 		CD2DCC9D1E0A2092000C03E1 /* TestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestViewController.m; sourceTree = "<group>"; };
 		CD2DCCA01E0A20D5000C03E1 /* TestTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestTableViewCell.h; sourceTree = "<group>"; };
 		CD2DCCA11E0A20D5000C03E1 /* TestTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestTableViewCell.m; sourceTree = "<group>"; };
+		CD2DCCA81E0A4BF9000C03E1 /* un_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = un_selected.png; sourceTree = "<group>"; };
+		CD2DCCAA1E0A4CD8000C03E1 /* selected2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = selected2.png; sourceTree = "<group>"; };
+		CD2DCCAD1E0A6FF9000C03E1 /* QueryGradeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QueryGradeTableViewController.h; sourceTree = "<group>"; };
+		CD2DCCAE1E0A6FF9000C03E1 /* QueryGradeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QueryGradeTableViewController.m; sourceTree = "<group>"; };
+		CD2DCCB11E0A72AF000C03E1 /* TeacherViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeacherViewController.h; sourceTree = "<group>"; };
+		CD2DCCB21E0A72AF000C03E1 /* TeacherViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeacherViewController.m; sourceTree = "<group>"; };
+		CD2DCCB51E0A84CA000C03E1 /* OptionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OptionViewController.h; sourceTree = "<group>"; };
+		CD2DCCB61E0A84CA000C03E1 /* OptionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OptionViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -358,6 +371,7 @@
 		4698CB9E1AE22FCA0006330E /* RongCloudDemo */ = {
 			isa = PBXGroup;
 			children = (
+				CD2DCCAC1E0A6F86000C03E1 /* queryGrade */,
 				CD2DCC3A1E066ACA000C03E1 /* psychology */,
 				CD2DCBE41E052BA1000C03E1 /* WMPageController  */,
 				CD2DCB131E025B7D000C03E1 /* me */,
@@ -444,6 +458,7 @@
 		CD2DCAE81DFD9043000C03E1 /* img */ = {
 			isa = PBXGroup;
 			children = (
+				CD2DCCA31E0A4AA7000C03E1 /* checkbox */,
 				CD2DCB051E014F7E000C03E1 /* icon */,
 				CD2DCAE91DFD9051000C03E1 /* list.jpg */,
 				CD2DCAEA1DFD9051000C03E1 /* avarta.jpg */,
@@ -790,6 +805,44 @@
 			name = cell;
 			sourceTree = "<group>";
 		};
+		CD2DCCA31E0A4AA7000C03E1 /* checkbox */ = {
+			isa = PBXGroup;
+			children = (
+				CD2DCCAA1E0A4CD8000C03E1 /* selected2.png */,
+				CD2DCCA81E0A4BF9000C03E1 /* un_selected.png */,
+			);
+			name = checkbox;
+			sourceTree = "<group>";
+		};
+		CD2DCCAC1E0A6F86000C03E1 /* queryGrade */ = {
+			isa = PBXGroup;
+			children = (
+				CD2DCCB01E0A728D000C03E1 /* teacher */,
+				CD2DCCAD1E0A6FF9000C03E1 /* QueryGradeTableViewController.h */,
+				CD2DCCAE1E0A6FF9000C03E1 /* QueryGradeTableViewController.m */,
+			);
+			name = queryGrade;
+			sourceTree = "<group>";
+		};
+		CD2DCCB01E0A728D000C03E1 /* teacher */ = {
+			isa = PBXGroup;
+			children = (
+				CD2DCCB41E0A84B3000C03E1 /* option */,
+				CD2DCCB11E0A72AF000C03E1 /* TeacherViewController.h */,
+				CD2DCCB21E0A72AF000C03E1 /* TeacherViewController.m */,
+			);
+			name = teacher;
+			sourceTree = "<group>";
+		};
+		CD2DCCB41E0A84B3000C03E1 /* option */ = {
+			isa = PBXGroup;
+			children = (
+				CD2DCCB51E0A84CA000C03E1 /* OptionViewController.h */,
+				CD2DCCB61E0A84CA000C03E1 /* OptionViewController.m */,
+			);
+			name = option;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -885,6 +938,7 @@
 				CD2DCB7E1E03C7E7000C03E1 /* contacts_us.png in Resources */,
 				CD2DCAF01DFD9051000C03E1 /* list.jpg in Resources */,
 				CD2DCAF31DFD9051000C03E1 /* 2.jpg in Resources */,
+				CD2DCCA91E0A4BF9000C03E1 /* un_selected.png in Resources */,
 				461B27851B82DD7D00107001 /* Emoji.plist in Resources */,
 				461B27861B82DD7D00107001 /* RongCloud.bundle in Resources */,
 				CD2DCB7F1E03C7E7000C03E1 /* favorites.png in Resources */,
@@ -894,6 +948,7 @@
 				461B27891B82DDA000107001 /* RongCloudKit.strings in Resources */,
 				CD2DCAF21DFD9051000C03E1 /* 1.jpg in Resources */,
 				4698CBB01AE22FCA0006330E /* LaunchScreen.xib in Resources */,
+				CD2DCCAB1E0A4CD8000C03E1 /* selected2.png in Resources */,
 				4698CBAD1AE22FCA0006330E /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -921,6 +976,7 @@
 				CD2DCB941E04ED7B000C03E1 /* DetailNotificationViewController.m in Sources */,
 				CD2DCC841E09305D000C03E1 /* SDWebImageDownloaderOperation.m in Sources */,
 				CD2DCC7E1E09305D000C03E1 /* NSImage+WebCache.m in Sources */,
+				CD2DCCB71E0A84CA000C03E1 /* OptionViewController.m in Sources */,
 				CD2DCC7B1E09305D000C03E1 /* FLAnimatedImageView+WebCache.m in Sources */,
 				CD2DCC7C1E09305D000C03E1 /* MKAnnotationView+WebCache.m in Sources */,
 				4698CBA81AE22FCA0006330E /* ConnectRongyunViewController.m in Sources */,
@@ -949,6 +1005,7 @@
 				CD2DCB861E03CC6C000C03E1 /* MeTableViewCell.m in Sources */,
 				CD2DCB8D1E03E837000C03E1 /* CommentTableViewCell.m in Sources */,
 				CD2DCC151E05507C000C03E1 /* ContactViewController.m in Sources */,
+				CD2DCCB31E0A72AF000C03E1 /* TeacherViewController.m in Sources */,
 				CD2DCC931E0938AE000C03E1 /* FLAnimatedImage.m in Sources */,
 				CD2DCC351E065CE6000C03E1 /* ShalongTableViewController.m in Sources */,
 				CD2DCC941E0938AE000C03E1 /* FLAnimatedImageView.m in Sources */,
@@ -966,6 +1023,7 @@
 				CD2DCC441E066F58000C03E1 /* PsychologyTableViewController.m in Sources */,
 				CD2DCB641E02DF4A000C03E1 /* NotificationTableViewController.m in Sources */,
 				CD2DCBF81E052BB8000C03E1 /* WMMenuItem.m in Sources */,
+				CD2DCCAF1E0A6FF9000C03E1 /* QueryGradeTableViewController.m in Sources */,
 				CD2DCC391E066137000C03E1 /* DetailYuluViewController.m in Sources */,
 				CD2DCC1C1E056587000C03E1 /* LinkmanTableViewController.m in Sources */,
 				CD2DCC7F1E09305D000C03E1 /* SDImageCache.m in Sources */,

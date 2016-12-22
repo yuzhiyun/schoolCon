@@ -10,9 +10,14 @@
 #import <RongIMKit/RongIMKit.h>
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate,RCIMConnectionStatusDelegate>
+{
+//   全局变量  在线学习的viewpager的上部导航栏title
+    NSMutableArray *onlineReadinngTitle;
 
+}
 @property (strong, nonatomic) UIWindow *window;
 
-
+/** 设置全局变量的属性. */
+@property (nonatomic, strong)NSMutableArray *onlineReadinngTitle;
 @end
 

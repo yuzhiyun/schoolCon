@@ -9,13 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @interface GroupSendTableViewCell : UITableViewCell
-//@property (weak, nonatomic) IBOutlet UIImageView *UIImgAvatar;
-//@property (weak, nonatomic) IBOutlet UILabel *UILabelName;
-//@property (weak, nonatomic) IBOutlet UILabel *UILabelRemark;
-//@property (weak, nonatomic) IBOutlet UISwitch *UISwitchIsSelected;
+@property (weak, nonatomic) IBOutlet UIImageView *UIImageViewCheckbox;
 @property (weak, nonatomic) IBOutlet UIImageView *UIImgAvatar;
 @property (weak, nonatomic) IBOutlet UILabel *UILabelName;
 @property (weak, nonatomic) IBOutlet UILabel *UILabelRemark;
-@property (weak, nonatomic) IBOutlet UISwitch *UISwitchIsSelected;
+//@property (weak, nonatomic) IBOutlet UISwitch *UISwitchIsSelected;
 
 @end

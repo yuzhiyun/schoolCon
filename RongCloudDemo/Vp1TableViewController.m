@@ -9,6 +9,7 @@
 #import "Vp1TableViewController.h"
 #import "Vp1TableViewCell.h"
 #import "ArticleDetailViewController.h"
+#import "AppDelegate.h"
 @interface Vp1TableViewController ()
 
 @end
@@ -68,11 +69,16 @@
         
     }
     
-    
+    AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
+    ;
     NSString *t1=[mData objectAtIndex:indexPath.row];
+//    NSString *t1=[myDelegate.title objectAtIndex:indexPath.row];
     
+    int a=[myDelegate.onlineReadinngTitle count];
+    NSLog(@"title的大小为**************%i",a);
     cell.UILabelTitle.text=t1;
     cell.UILabelDate.text=@"2016-12-27";
+//    cell.UILabelDate.text=[title count];
     cell.UIImgCover.image=[UIImage imageNamed:[mImg objectAtIndex:indexPath.row]];
     
     

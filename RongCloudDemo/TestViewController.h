@@ -11,9 +11,18 @@
 @interface TestViewController : UIViewController<UITableViewDelegate, UITableViewDataSource>{
     
     
-    NSMutableArray *mData;
-    NSMutableArray *mImg;
+    __weak IBOutlet UILabel *UILabelTitle;
+//    NSMutableArray *mData;
+    int indexOfExercise;
     
+//    NSMutableArray *mTitle;
+//    NSMutableArray *mItem1;
+//    NSMutableArray *mItem2;
+//    NSMutableArray *mItem3;
+//    NSMutableArray *mItem4;
+//    
+    NSMutableArray *mAllData;
+    UITableView *mTableView;
     
 @public
     NSString *pubString;

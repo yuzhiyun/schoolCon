@@ -8,6 +8,8 @@
 
 #import "OnlineReadingViewController.h"
 #import "ArticleDetailViewController.h"
+#import "Vp1TableViewController.h"
+#import "AppDelegate.h"
 @interface OnlineReadingViewController ()
 
 @end
@@ -17,14 +19,36 @@
 #pragma mark 初始化代码
 - (instancetype)initWithCoder:(NSCoder *)aDecoder {
     self = [super initWithCoder:aDecoder];
+    
+    NSMutableArray *title=[[NSMutableArray alloc]init];
+     [title addObject:@"读文说史"];
+    [title addObject:@"教育智慧"];
+    [title addObject:@"分类3"];
+    [title addObject:@"分类4"];
+    [title addObject:@"分类5"];
+
+
     if(self) {
         self.menuHeight = 35;
         self.menuItemWidth = 100;
         self.menuViewStyle = WMMenuViewStyleLine;
-        self.titles = [NSArray arrayWithObjects:@"读文说史", @"教育智慧", nil];
+//        self.titles = [NSArray arrayWithObjects:@"读文说史", @"教育智慧",@"分类3",@"分类4",@"分类5", nil];
+        self.titles=title;
         self.titleColorSelected = [UIColor colorWithRed:0 green:0 blue:200 alpha:1];
         
     }
+    AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
+    myDelegate.onlineReadinngTitle=title;
+    /*
+     *传值
+     */
+    //根据storyboard id来获取目标页面
+//    Vp1TableViewController *nextPage= (Vp1TableViewController*)[self.storyboard instantiateViewControllerWithIdentifier:@"vp1"];
+//    
+//    
+    //    传值
+//    nextPage.title=[title];
+//    nextPage->title=title;
     return self;
 }
 
@@ -48,13 +72,16 @@
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     UIViewController *controller1 = [storyboard instantiateViewControllerWithIdentifier:@"vp1"]; //这里的identifer是我们之前设置的StoryboardID
     
-    UIViewController *controlle2 = [storyboard instantiateViewControllerWithIdentifier:@"vp2"]; //这里的identifer是我们之前设置的StoryboardID
+//    UIViewController *controlle2 = [storyboard instantiateViewControllerWithIdentifier:@"vp2"]; //这里的identifer是我们之前设置的StoryboardID
+//    
+//    if(index==1)
+//        
+//        return controller1;
+//    else
+//        return controlle2;
     
-    if(index==1)
-        
-        return controller1;
-    else
-        return controlle2;
+    return controller1;
+    
 }
 
 - (void)didReceiveMemoryWarning {

@@ -13,6 +13,8 @@
     
     NSMutableArray *mData;
     NSMutableArray *mImg;
+    @public 
+    NSMutableArray *title;
 
 }
 

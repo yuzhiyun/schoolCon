@@ -10,6 +10,7 @@
 #import "NotificationTableViewController.h"
 #import "DetailNotificationViewController.h"
 #import "PsychologyListTableViewController.h"
+#import "QueryGradeTableViewController.h"
 //#import "DetailNotificationViewController.h"
 @interface HomePageViewController ()
 
@@ -47,14 +48,8 @@
 //    传值
     //UITabBarController和的UINavigationController结合使用,进入新的页面的时候，隐藏主页tabbarController的底部栏
     nextPage.hidesBottomBarWhenPushed=YES;
-
     //跳转
         [self.navigationController pushViewController:nextPage animated:YES];
-    
-    
-    
-    
-    
 }
 //跳转到心理测评
 - (IBAction)btnEnterPsychology:(id)sender {
@@ -74,6 +69,19 @@
     
 
 }
+- (IBAction)enterQueryGrade:(id)sender {
+    //根据storyboard id来获取目标页面
+    QueryGradeTableViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"QueryGradeTableViewController"];
+    
+    //UITabBarController和的UINavigationController结合使用,进入新的页面的时候，隐藏主页tabbarController的底部栏
+    nextPage.hidesBottomBarWhenPushed=YES;
+    
+    //跳转
+    [self.navigationController pushViewController:nextPage animated:YES];
+    
+    
+}
+
 
 -(NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
 
