@@ -26,6 +26,12 @@
     
     //初始化全局变量
     onlineReadinngTitle=[[NSMutableArray alloc]init];
+    indexOnlineReadinng=0;
+    
+    
+    
+    
+    
 //    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     

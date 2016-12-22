@@ -10,6 +10,7 @@
 #import "Vp1TableViewCell.h"
 #import "ArticleDetailViewController.h"
 #import "AppDelegate.h"
+#import "WMPageController.h"
 @interface Vp1TableViewController ()
 
 @end
@@ -19,6 +20,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    
+    WMPageController *pageController = (WMPageController *)self.parentViewController;
+    NSLog(@"WMPageController当前页面%d",pageController.selectIndex);
     //防止与顶部重叠
     self.tableView.contentInset=UIEdgeInsetsMake(20.0f, 0.0f, 0.0f, 0.0f);
     
@@ -74,8 +78,8 @@
     NSString *t1=[mData objectAtIndex:indexPath.row];
 //    NSString *t1=[myDelegate.title objectAtIndex:indexPath.row];
     
-    int a=[myDelegate.onlineReadinngTitle count];
-    NSLog(@"title的大小为**************%i",a);
+//    int a=[myDelegate.onlineReadinngTitle count];
+//    NSLog(@"title的大小为**************%i",a);
     cell.UILabelTitle.text=t1;
     cell.UILabelDate.text=@"2016-12-27";
 //    cell.UILabelDate.text=[title count];

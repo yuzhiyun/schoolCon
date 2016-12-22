@@ -27,7 +27,6 @@
     [title addObject:@"分类4"];
     [title addObject:@"分类5"];
 
-
     if(self) {
         self.menuHeight = 35;
         self.menuItemWidth = 100;
@@ -69,6 +68,10 @@
 
 #pragma mark 返回某个index对应的页面，该页面从Storyboard中获取
 - (UIViewController *)pageController:(WMPageController *)pageController viewControllerAtIndex:(NSInteger)index {
+    
+    
+//    NSLog(@"pageController的当前页面索引是**************%i",index);
+    
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     UIViewController *controller1 = [storyboard instantiateViewControllerWithIdentifier:@"vp1"]; //这里的identifer是我们之前设置的StoryboardID
     
