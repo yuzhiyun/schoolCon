@@ -146,27 +146,26 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
     [[RCIMClient sharedRCIMClient] setDeviceToken:token];
 }
 
-
 /**
  *  网络状态变化。
  *
  *  @param status 网络状态。
  */
 - (void)onRCIMConnectionStatusChanged:(RCConnectionStatus)status {
-    if (status == ConnectionStatus_KICKED_OFFLINE_BY_OTHER_CLIENT) {
-        UIAlertView *alert = [[UIAlertView alloc]
-                              initWithTitle:@"提示"
-                              message:@"您"
-                              @"的帐号在别的设备上登录，您被迫下线！"
-                              delegate:nil
-                              cancelButtonTitle:@"知道了"
-                              otherButtonTitles:nil, nil];
-        [alert show];
-        ConnectRongyunViewController *loginVC = [[ConnectRongyunViewController alloc] init];
-        UINavigationController *_navi =
-        [[UINavigationController alloc] initWithRootViewController:loginVC];
-        self.window.rootViewController = _navi;
-    }
+//    if (status == ConnectionStatus_KICKED_OFFLINE_BY_OTHER_CLIENT) {
+//        UIAlertView *alert = [[UIAlertView alloc]
+//                              initWithTitle:@"提示"
+//                              message:@"您"
+//                              @"的帐号在别的设备上登录，您被迫下线！"
+//                              delegate:nil
+//                              cancelButtonTitle:@"知道了"
+//                              otherButtonTitles:nil, nil];
+//        [alert show];
+//        ConnectRongyunViewController *loginVC = [[ConnectRongyunViewController alloc] init];
+//        UINavigationController *_navi =
+//        [[UINavigationController alloc] initWithRootViewController:loginVC];
+//        self.window.rootViewController = _navi;
+//    }
 }
 
 - (void)didReceiveMessageNotification:(NSNotification *)notification {

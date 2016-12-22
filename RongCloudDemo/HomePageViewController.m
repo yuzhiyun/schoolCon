@@ -9,8 +9,9 @@
 #import "HomePageViewController.h"
 #import "NotificationTableViewController.h"
 #import "DetailNotificationViewController.h"
-#import "PsychologyListTableViewController.h"
+//#import "PsychologyListTableViewController.h"
 #import "QueryGradeTableViewController.h"
+#import "PhysicalViewController.h"
 //#import "DetailNotificationViewController.h"
 @interface HomePageViewController ()
 
@@ -25,9 +26,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     recipes=[[NSMutableArray alloc]init];
-    [recipes addObject:@"通知1：由于下大雪，今晚不用上课"];
-    [recipes addObject:@"通知2：由于下大雪，今晚不用上课"];
-    [recipes addObject:@"通知3：由于下大雪，今晚不用上课"];
+    [recipes addObject:@"由于下大雪，今晚不用上课"];
+    [recipes addObject:@"由于下大雪，今晚不用上课"];
+    [recipes addObject:@"由于下大雪，今晚不用上课"];
 //    recipes = [NSArray arrayWithObjects:@"Egg Benedict",@"Ham and Cheese Panini","yuzhiyun",nil];
     // Do any additional setup after loading the view.
 }
@@ -54,7 +55,7 @@
 //跳转到心理测评
 - (IBAction)btnEnterPsychology:(id)sender {
     //根据storyboard id来获取目标页面
-    PsychologyListTableViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"PsychologyListTableViewController"];
+    PhysicalViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"PhysicalViewController"];
     
     
  
@@ -97,6 +98,8 @@
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
     }
+    
+    cell.imageView.image=[UIImage imageNamed:@"notice1.png"];
     
     cell.textLabel.text = [recipes objectAtIndex:indexPath.row];
     return cell;

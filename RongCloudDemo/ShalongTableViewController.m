@@ -72,7 +72,8 @@
     
     NSString *t1=[mData objectAtIndex:indexPath.row];
     
-    cell.UILabelTitle.text=t1;
+//    cell.UILabelTitle.text=t1;
+    cell.UILabelTitle.text=@"长沙第一次岳麓活动";
     cell.UILabelDate.text=@"2016-12-27";
 //    cell.UIImgCover.image=[UIImage imageNamed:[mImg objectAtIndex:indexPath.row]];
     //

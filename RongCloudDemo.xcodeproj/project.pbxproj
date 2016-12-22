@@ -41,6 +41,8 @@
 		4698CBFB1AE236EA0006330E /* RongIMKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4698CBFA1AE236EA0006330E /* RongIMKit.framework */; };
 		4698CBFD1AE237AB0006330E /* RongIMLib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4698CBFC1AE237AB0006330E /* RongIMLib.framework */; };
 		4698CC041AE245940006330E /* ChatListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4698CC031AE245940006330E /* ChatListViewController.m */; };
+		CD1A47981E0B925100B8EF35 /* PhysicalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD1A47971E0B925100B8EF35 /* PhysicalViewController.m */; };
+		CD1A479A1E0BFBB700B8EF35 /* notice1.png in Resources */ = {isa = PBXBuildFile; fileRef = CD1A47991E0BFBB700B8EF35 /* notice1.png */; };
 		CD2DCAF01DFD9051000C03E1 /* list.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CD2DCAE91DFD9051000C03E1 /* list.jpg */; };
 		CD2DCAF11DFD9051000C03E1 /* avarta.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CD2DCAEA1DFD9051000C03E1 /* avarta.jpg */; };
 		CD2DCAF21DFD9051000C03E1 /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CD2DCAEB1DFD9051000C03E1 /* 1.jpg */; };
@@ -170,6 +172,9 @@
 		4698CBFC1AE237AB0006330E /* RongIMLib.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RongIMLib.framework; path = framework/RongIMLib.framework; sourceTree = "<group>"; };
 		4698CC021AE245940006330E /* ChatListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatListViewController.h; sourceTree = "<group>"; };
 		4698CC031AE245940006330E /* ChatListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatListViewController.m; sourceTree = "<group>"; };
+		CD1A47961E0B925100B8EF35 /* PhysicalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhysicalViewController.h; sourceTree = "<group>"; };
+		CD1A47971E0B925100B8EF35 /* PhysicalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhysicalViewController.m; sourceTree = "<group>"; };
+		CD1A47991E0BFBB700B8EF35 /* notice1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = notice1.png; sourceTree = "<group>"; };
 		CD2DCAE91DFD9051000C03E1 /* list.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = list.jpg; sourceTree = "<group>"; };
 		CD2DCAEA1DFD9051000C03E1 /* avarta.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = avarta.jpg; sourceTree = "<group>"; };
 		CD2DCAEB1DFD9051000C03E1 /* 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpg; sourceTree = "<group>"; };
@@ -486,6 +491,7 @@
 		CD2DCB051E014F7E000C03E1 /* icon */ = {
 			isa = PBXGroup;
 			children = (
+				CD1A47991E0BFBB700B8EF35 /* notice1.png */,
 				CD2DCB7B1E03C7E7000C03E1 /* contacts_us.png */,
 				CD2DCB7C1E03C7E7000C03E1 /* favorites.png */,
 				CD2DCB7D1E03C7E7000C03E1 /* grades_inquire.png */,
@@ -703,6 +709,8 @@
 				CD2DCC3E1E066D5C000C03E1 /* template */,
 				CD2DCC981E09668D000C03E1 /* PsychologyListTableViewController.h */,
 				CD2DCC991E09668D000C03E1 /* PsychologyListTableViewController.m */,
+				CD1A47961E0B925100B8EF35 /* PhysicalViewController.h */,
+				CD1A47971E0B925100B8EF35 /* PhysicalViewController.m */,
 			);
 			name = psychology;
 			sourceTree = "<group>";
@@ -940,6 +948,7 @@
 				CD2DCAF31DFD9051000C03E1 /* 2.jpg in Resources */,
 				CD2DCCA91E0A4BF9000C03E1 /* un_selected.png in Resources */,
 				461B27851B82DD7D00107001 /* Emoji.plist in Resources */,
+				CD1A479A1E0BFBB700B8EF35 /* notice1.png in Resources */,
 				461B27861B82DD7D00107001 /* RongCloud.bundle in Resources */,
 				CD2DCB7F1E03C7E7000C03E1 /* favorites.png in Resources */,
 				CD2DCAF61DFD9051000C03E1 /* 5.jpg in Resources */,
@@ -973,6 +982,7 @@
 				CD2DCC191E0553A8000C03E1 /* MessageViewController.m in Sources */,
 				CD2DCC321E065B98000C03E1 /* ShalongTableViewCell.m in Sources */,
 				CD2DCC881E09305D000C03E1 /* UIImage+GIF.m in Sources */,
+				CD1A47981E0B925100B8EF35 /* PhysicalViewController.m in Sources */,
 				CD2DCB941E04ED7B000C03E1 /* DetailNotificationViewController.m in Sources */,
 				CD2DCC841E09305D000C03E1 /* SDWebImageDownloaderOperation.m in Sources */,
 				CD2DCC7E1E09305D000C03E1 /* NSImage+WebCache.m in Sources */,

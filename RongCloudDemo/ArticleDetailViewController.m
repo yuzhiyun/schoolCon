@@ -34,11 +34,11 @@
     [mDataUsername addObject:@"秦启飞"];
     
     mDataCommentContent=[[NSMutableArray alloc]init];
-    [mDataCommentContent addObject:@"哇塞，这个叼"];
-    [mDataCommentContent addObject:@"楼上是傻逼"];
-    [mDataCommentContent addObject:@"哈哈哈哈哈，笑死我了"];
-    [mDataCommentContent addObject:@"走开，我来啦"];
-    [mDataCommentContent addObject:@"我就静静的看着你们装逼"];
+    [mDataCommentContent addObject:@"这篇文章写的非常不错"];
+    [mDataCommentContent addObject:@"作者很有文化底蕴"];
+    [mDataCommentContent addObject:@"我知道，这是一位北大的知名学者"];
+    [mDataCommentContent addObject:@"很好的解决了我的困惑"];
+    [mDataCommentContent addObject:@"文章说出了我的心里话"];
     
     
     //    mDataUsername=[[NSMutableArray alloc]init];

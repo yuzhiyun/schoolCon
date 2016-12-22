@@ -29,24 +29,27 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     mDataKey=[[NSMutableArray alloc]init];
-    [mDataKey addObject:@"孩子姓名（老师端不显示）"];
-    [mDataKey addObject:@"学校"];
-    [mDataKey addObject:@"班级"];
-    [mDataKey addObject:@"班主任姓名（老师端不显示）"];
+//    （老师端不显示）
+//    [mDataKey addObject:@"孩子姓名"];
+//    [mDataKey addObject:@"学校"];
+//    [mDataKey addObject:@"班级"];
+    //    （老师端不显示）
+//    [mDataKey addObject:@"班主任姓名"];
     [mDataKey addObject:@"修改电话"];
     [mDataKey addObject:@"我的活动"];
     [mDataKey addObject:@"我的心理测评"];
     [mDataKey addObject:@"我的会员"];
+    [mDataKey addObject:@"退出登录"];
     
     mDataValue=[[NSMutableArray alloc]init];
-    [mDataValue addObject:@"俞志云"];
-    [mDataValue addObject:@"中南大学"];
-    [mDataValue addObject:@"1404"];
-    [mDataValue addObject:@"刘名阳"];
-    [mDataValue addObject:@"》》》》"];
-    [mDataValue addObject:@"》》》》"];
-    [mDataValue addObject:@"》》》》"];
-    [mDataValue addObject:@"》》》》"];
+//    [mDataValue addObject:@"俞志云"];
+//    [mDataValue addObject:@"中南大学"];
+//    [mDataValue addObject:@"1404"];
+//    [mDataValue addObject:@"刘名阳"];
+//    [mDataValue addObject:@">"];
+//    [mDataValue addObject:@">"];
+//    [mDataValue addObject:@">"];
+//    [mDataValue addObject:@">"];
 
 //    #import "UIImageView+WebCache.h"
 //    加载图片,如果加载不到图片，就显示favorites.png
@@ -75,7 +78,7 @@
         cell = [[MeTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
     }
     cell.UILabelKey.text=[mDataKey objectAtIndex:indexPath.row];
-    cell.UILabelValue.text=[mDataValue objectAtIndex:indexPath.row];
+//    cell.UILabelValue.text=[mDataValue objectAtIndex:indexPath.row];
 //
 //    cell.textLabel.text =     return cell;
     return cell;

@@ -20,7 +20,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    
+    /**
+      *
+      *获取当前页面在WMPageController中的index，有一点bug,获取到的index不准确，再等等吧。
+      */
     WMPageController *pageController = (WMPageController *)self.parentViewController;
     NSLog(@"WMPageController当前页面%d",pageController.selectIndex);
     //防止与顶部重叠
@@ -28,7 +31,7 @@
     
     //指定大标题
     mData=[[NSMutableArray alloc]init];
-    [mData addObject:@"你微笑过的地方"];
+    [mData addObject:[NSString stringWithFormat:@"当前页面%d, 你是最美的",pageController.selectIndex]];
     [mData addObject:@"便是最美的风景"];
     [mData addObject:@"唯我独不敬亭"];
     [mData addObject:@"嗨，你还在那里吗"];
@@ -40,12 +43,7 @@
     [mImg addObject:@"3.jpg"];
     [mImg addObject:@"4.jpg"];
     [mImg addObject:@"5.jpg"];
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -55,10 +53,6 @@
 
 #pragma mark - Table view data source
 
-//- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-//#warning Incomplete implementation, return the number of sections
-//    return 0;
-//}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 #warning Incomplete implementation, return the number of rows
@@ -80,9 +74,10 @@
     
 //    int a=[myDelegate.onlineReadinngTitle count];
 //    NSLog(@"title的大小为**************%i",a);
+    
+    
     cell.UILabelTitle.text=t1;
     cell.UILabelDate.text=@"2016-12-27";
-//    cell.UILabelDate.text=[title count];
     cell.UIImgCover.image=[UIImage imageNamed:[mImg objectAtIndex:indexPath.row]];
     
     
