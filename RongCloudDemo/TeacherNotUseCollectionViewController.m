@@ -49,6 +49,8 @@
     //        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
     //    }
     if (cell == nil) {
+        
+        
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:simpleTableIdentifier];
     }
     
@@ -61,10 +63,9 @@
     UILabel *mUILabelsubject=(UILabel *)[cell viewWithTag:1];
     mUILabelsubject.text=@"学科";
 
+    
     UILabel *mUILabelsubject2=(UILabel *)[cell viewWithTag:2];
     mUILabelsubject.text=@"成绩";
-    UILabel *mUILabelsubject3=(UILabel *)[cell viewWithTag:3];
-    mUILabelsubject.text=@"分数";
 
     return cell;
 }
