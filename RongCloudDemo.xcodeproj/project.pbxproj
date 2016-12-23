@@ -131,6 +131,7 @@
 		CD3CF69D1E0D000E003599F5 /* check_grade.png in Resources */ = {isa = PBXBuildFile; fileRef = CD3CF69A1E0D000E003599F5 /* check_grade.png */; };
 		CD3CF69E1E0D000E003599F5 /* emotion_activity.png in Resources */ = {isa = PBXBuildFile; fileRef = CD3CF69B1E0D000E003599F5 /* emotion_activity.png */; };
 		CD3CF69F1E0D000E003599F5 /* emotion_test.png in Resources */ = {isa = PBXBuildFile; fileRef = CD3CF69C1E0D000E003599F5 /* emotion_test.png */; };
+		CD3CF6A21E0D6788003599F5 /* TeacherNotUseCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD3CF6A11E0D6788003599F5 /* TeacherNotUseCollectionViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -334,6 +335,8 @@
 		CD3CF69A1E0D000E003599F5 /* check_grade.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = check_grade.png; sourceTree = "<group>"; };
 		CD3CF69B1E0D000E003599F5 /* emotion_activity.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = emotion_activity.png; sourceTree = "<group>"; };
 		CD3CF69C1E0D000E003599F5 /* emotion_test.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = emotion_test.png; sourceTree = "<group>"; };
+		CD3CF6A01E0D6788003599F5 /* TeacherNotUseCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeacherNotUseCollectionViewController.h; sourceTree = "<group>"; };
+		CD3CF6A11E0D6788003599F5 /* TeacherNotUseCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeacherNotUseCollectionViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -880,6 +883,8 @@
 				CD2DCCB41E0A84B3000C03E1 /* option */,
 				CD2DCCB11E0A72AF000C03E1 /* TeacherViewController.h */,
 				CD2DCCB21E0A72AF000C03E1 /* TeacherViewController.m */,
+				CD3CF6A01E0D6788003599F5 /* TeacherNotUseCollectionViewController.h */,
+				CD3CF6A11E0D6788003599F5 /* TeacherNotUseCollectionViewController.m */,
 			);
 			name = teacher;
 			sourceTree = "<group>";
@@ -1059,6 +1064,7 @@
 				CD2DCC891E09305D000C03E1 /* UIImage+MultiFormat.m in Sources */,
 				4698CC041AE245940006330E /* ChatListViewController.m in Sources */,
 				CD2DCB891E03E7BE000C03E1 /* ArticleDetailViewController.m in Sources */,
+				CD3CF6A21E0D6788003599F5 /* TeacherNotUseCollectionViewController.m in Sources */,
 				CD2DCC8A1E09305D000C03E1 /* UIImage+WebP.m in Sources */,
 				CD2DCC851E09305D000C03E1 /* SDWebImageManager.m in Sources */,
 				CD2DCC0A1E0536B6000C03E1 /* Vp2TableViewController.m in Sources */,

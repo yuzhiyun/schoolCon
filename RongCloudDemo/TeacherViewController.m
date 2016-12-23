@@ -51,9 +51,10 @@
 //    if(nil==cell)
 //        cell=[[UICollectionViewCell alloc]init];
     
-    if (cell.layer.cornerRadius!=8){
-        cell.layer.cornerRadius=8;
+    if (cell.layer.cornerRadius!=0){
+        cell.layer.cornerRadius=0;
         cell.layer.masksToBounds=YES;
+        cell.layer.borderWidth = 0.05;
         
     }
     
