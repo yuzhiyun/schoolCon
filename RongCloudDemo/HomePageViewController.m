@@ -89,11 +89,16 @@
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
     
+//    if (cell == nil) {
+//        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
+//    }
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:simpleTableIdentifier];
     }
     
     cell.imageView.image=[UIImage imageNamed:@"notice1.png"];
+    cell.detailTextLabel.text=@"2017/12/21";
+//    cell.tes
     
     cell.textLabel.text = [recipes objectAtIndex:indexPath.row];
     return cell;

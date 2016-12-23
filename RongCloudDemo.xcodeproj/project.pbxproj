@@ -128,6 +128,9 @@
 		CD3CF6971E0C1502003599F5 /* notice.png in Resources */ = {isa = PBXBuildFile; fileRef = CD3CF6901E0C1502003599F5 /* notice.png */; };
 		CD3CF6981E0C1502003599F5 /* phone.png in Resources */ = {isa = PBXBuildFile; fileRef = CD3CF6911E0C1502003599F5 /* phone.png */; };
 		CD3CF6991E0C1502003599F5 /* vip.png in Resources */ = {isa = PBXBuildFile; fileRef = CD3CF6921E0C1502003599F5 /* vip.png */; };
+		CD3CF69D1E0D000E003599F5 /* check_grade.png in Resources */ = {isa = PBXBuildFile; fileRef = CD3CF69A1E0D000E003599F5 /* check_grade.png */; };
+		CD3CF69E1E0D000E003599F5 /* emotion_activity.png in Resources */ = {isa = PBXBuildFile; fileRef = CD3CF69B1E0D000E003599F5 /* emotion_activity.png */; };
+		CD3CF69F1E0D000E003599F5 /* emotion_test.png in Resources */ = {isa = PBXBuildFile; fileRef = CD3CF69C1E0D000E003599F5 /* emotion_test.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -328,6 +331,9 @@
 		CD3CF6901E0C1502003599F5 /* notice.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = notice.png; sourceTree = "<group>"; };
 		CD3CF6911E0C1502003599F5 /* phone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = phone.png; sourceTree = "<group>"; };
 		CD3CF6921E0C1502003599F5 /* vip.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = vip.png; sourceTree = "<group>"; };
+		CD3CF69A1E0D000E003599F5 /* check_grade.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = check_grade.png; sourceTree = "<group>"; };
+		CD3CF69B1E0D000E003599F5 /* emotion_activity.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = emotion_activity.png; sourceTree = "<group>"; };
+		CD3CF69C1E0D000E003599F5 /* emotion_test.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = emotion_test.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -513,6 +519,9 @@
 		CD2DCB051E014F7E000C03E1 /* icon */ = {
 			isa = PBXGroup;
 			children = (
+				CD3CF69A1E0D000E003599F5 /* check_grade.png */,
+				CD3CF69B1E0D000E003599F5 /* emotion_activity.png */,
+				CD3CF69C1E0D000E003599F5 /* emotion_test.png */,
 				CD3CF68C1E0C1502003599F5 /* callect.png */,
 				CD3CF68D1E0C1502003599F5 /* contact.png */,
 				CD3CF68E1E0C1502003599F5 /* exit.png */,
@@ -981,6 +990,7 @@
 				CD3CF68B1E0C1412003599F5 /* chat.png in Resources */,
 				CD2DCB7E1E03C7E7000C03E1 /* contacts_us.png in Resources */,
 				CD2DCAF01DFD9051000C03E1 /* list.jpg in Resources */,
+				CD3CF69E1E0D000E003599F5 /* emotion_activity.png in Resources */,
 				CD3CF6961E0C1502003599F5 /* info.png in Resources */,
 				CD2DCAF31DFD9051000C03E1 /* 2.jpg in Resources */,
 				CD2DCCA91E0A4BF9000C03E1 /* un_selected.png in Resources */,
@@ -989,6 +999,7 @@
 				461B27851B82DD7D00107001 /* Emoji.plist in Resources */,
 				CD1A479A1E0BFBB700B8EF35 /* notice1.png in Resources */,
 				CD3CF6991E0C1502003599F5 /* vip.png in Resources */,
+				CD3CF69D1E0D000E003599F5 /* check_grade.png in Resources */,
 				461B27861B82DD7D00107001 /* RongCloud.bundle in Resources */,
 				CD2DCB7F1E03C7E7000C03E1 /* favorites.png in Resources */,
 				CD3CF6951E0C1502003599F5 /* exit.png in Resources */,
@@ -999,6 +1010,7 @@
 				461B27891B82DDA000107001 /* RongCloudKit.strings in Resources */,
 				CD3CF6851E0C13F0003599F5 /* coffee.png in Resources */,
 				CD2DCAF21DFD9051000C03E1 /* 1.jpg in Resources */,
+				CD3CF69F1E0D000E003599F5 /* emotion_test.png in Resources */,
 				4698CBB01AE22FCA0006330E /* LaunchScreen.xib in Resources */,
 				CD2DCCAB1E0A4CD8000C03E1 /* selected2.png in Resources */,
 				4698CBAD1AE22FCA0006330E /* Images.xcassets in Resources */,
