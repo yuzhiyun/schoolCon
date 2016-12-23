@@ -17,15 +17,21 @@
     NSMutableArray *mDataUsername;
     //    NSMutableArray *mDataDate;
     NSMutableArray *mDataCommentContent;
-    
-    
-    
 }
+
+@synthesize UIWebViewArticle;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title=pubString;
+    /**
+     * 显示网页
+     */
+    NSString *url=@"http://mp.weixin.qq.com/s/m3y2dvyWLxHoFskyX5aWPQ";
+    NSURL *nsUrl=[NSURL URLWithString:url];
+    NSURLRequest *request=[NSURLRequest requestWithURL:nsUrl];
     
+    [UIWebViewArticle loadRequest:request];
     mDataUsername=[[NSMutableArray alloc]init];
     [mDataUsername addObject:@"俞志云"];
     [mDataUsername addObject:@"马小龙"];
@@ -40,17 +46,7 @@
     [mDataCommentContent addObject:@"很好的解决了我的困惑"];
     [mDataCommentContent addObject:@"文章说出了我的心里话"];
     
-    
-    //    mDataUsername=[[NSMutableArray alloc]init];
-    //    [mDataUsername addObject:@"俞志云"];
-    //    [mDataUsername addObject:@"马小龙"];
-    //    [mDataUsername addObject:@"孙萌"];
-    //    [mDataUsername addObject:@"吴晓茎"];
-    //    [mDataUsername addObject:@"秦启飞"];
-    
-    
-    //    recipes = [NSArray arrayWithObjects:@"Egg Benedict",@"Ham and Cheese Panini","yuzhiyun",nil];
-    // Do any additional setup after loading the view.
+
 }
 
 - (void)didReceiveMemoryWarning {

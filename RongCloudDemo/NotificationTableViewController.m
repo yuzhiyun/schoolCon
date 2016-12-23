@@ -21,12 +21,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     mDataNotification=[[NSMutableArray alloc]init];
-    [mDataNotification addObject:@"通知1：明天开运动会"];
-    [mDataNotification addObject:@"通知2：由于下大雪，今晚不用上课"];
-    [mDataNotification addObject:@"通知3：明天开运动会"];
-    [mDataNotification addObject:@"通知4：由于下大雪，今晚不用上课"];
-    [mDataNotification addObject:@"通知5：明天开运动会"];
-    [mDataNotification addObject:@"通知6：由于下大雪，今晚不用上课"];
+    [mDataNotification addObject:@"明天开运动会"];
+    [mDataNotification addObject:@"由于下大雪，今晚不用上课"];
+    [mDataNotification addObject:@"明天开运动会"];
+    [mDataNotification addObject:@"由于下大雪，今晚不用上课"];
+    [mDataNotification addObject:@"明天开运动会"];
+    [mDataNotification addObject:@"由于下大雪，今晚不用上课"];
     //    recipes = [NSArray arrayWithObjects:@"Egg Benedict",@"Ham and Cheese Panini","yuzhiyun",nil];
     // Do any additional setup after loading the view.
 }
@@ -60,10 +60,12 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
     
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:simpleTableIdentifier];
     }
     
     cell.textLabel.text = [mDataNotification objectAtIndex:indexPath.row];
+    cell.imageView.image=[UIImage imageNamed:@"notice1.png"];
+    cell.detailTextLabel.text=@"2017/12/21";
     return cell;
 }
 -(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
