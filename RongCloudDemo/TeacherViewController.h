@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TeacherViewController : UIViewController{
+@interface TeacherViewController : UIViewController<UICollectionViewDelegate,UICollectionViewDelegate>{
 
 @public NSString *pubString;
 }

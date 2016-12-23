@@ -13,6 +13,7 @@
 #import "QueryGradeTableViewController.h"
 #import "PhysicalViewController.h"
 //#import "DetailNotificationViewController.h"
+#import "TeacherViewController.h"
 @interface HomePageViewController ()
 
 @end
@@ -66,7 +67,8 @@
 }
 - (IBAction)enterQueryGrade:(id)sender {
     //根据storyboard id来获取目标页面
-    QueryGradeTableViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"QueryGradeTableViewController"];
+//    QueryGradeTableViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"QueryGradeTableViewController"];
+    TeacherViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"TeacherViewController"];
     
     //UITabBarController和的UINavigationController结合使用,进入新的页面的时候，隐藏主页tabbarController的底部栏
     nextPage.hidesBottomBarWhenPushed=YES;
