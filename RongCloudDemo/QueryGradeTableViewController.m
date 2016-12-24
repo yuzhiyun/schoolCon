@@ -9,6 +9,7 @@
 #import "QueryGradeTableViewController.h"
 #import "TeacherViewController.h"
 #import "OptionViewController.h"
+#import "TeacherNotUseCollectionViewController.h"
 @interface QueryGradeTableViewController ()
 
 @end
@@ -17,18 +18,22 @@
     
     NSMutableArray *mDataNotification;
     
+    
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
 //    self.title=@"请勾选测试类别";
     mDataNotification=[[NSMutableArray alloc]init];
-    [mDataNotification addObject:@"高一期末考试"];
-    [mDataNotification addObject:@"高二期中考试"];
+    
+  
+    [mDataNotification addObject:@"高一第一次月考"];
+    [mDataNotification addObject:@"高一第二次考试"];
     [mDataNotification addObject:@"第三次全市联考"];
-    [mDataNotification addObject:@"第五次模拟考"];
-    [mDataNotification addObject:@"高二期中考试"];
-    [mDataNotification addObject:@"高三第一次月考"];
+//    [mDataNotification addObject:@"第五次模拟考"];
+    [mDataNotification addObject:@"高一期中考试"];
+    [mDataNotification addObject:@"高一期末考试"];
+
     //    recipes = [NSArray arrayWithObjects:@"Egg Benedict",@"Ham and Cheese Panini","yuzhiyun",nil];
     // Do any additional setup after loading the view.
 }
@@ -73,7 +78,7 @@
     
     
     //根据storyboard id来获取目标页面
-    OptionViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"OptionViewController"];
+    TeacherNotUseCollectionViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"TeacherNotUseCollectionViewController"];
     
     
     //    传值

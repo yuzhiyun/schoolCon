@@ -23,6 +23,7 @@
 
     NSMutableArray *recipes;
     
+    
 }
 
 - (void)viewDidLoad {
@@ -70,18 +71,41 @@
     //根据storyboard id来获取目标页面
 //    QueryGradeTableViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"QueryGradeTableViewController"];
 //    TeacherViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"TeacherViewController"];
-    TeacherNotUseCollectionViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"TeacherNotUseCollectionViewController"];
+//    TeacherNotUseCollectionViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"TeacherNotUseCollectionViewController"];
+//    
+//    //UITabBarController和的UINavigationController结合使用,进入新的页面的时候，隐藏主页tabbarController的底部栏
+//    nextPage.hidesBottomBarWhenPushed=YES;
+//    
+//    //跳转
+//    [self.navigationController pushViewController:nextPage animated:YES];
+//    
+//    
+//
     
-    //UITabBarController和的UINavigationController结合使用,进入新的页面的时候，隐藏主页tabbarController的底部栏
-    nextPage.hidesBottomBarWhenPushed=YES;
-    
-    //跳转
-    [self.navigationController pushViewController:nextPage animated:YES];
-    
-    
+//    弹出对话框选择年级
+    UIActionSheet *actionSheet = [[UIActionSheet alloc]
+                                  initWithTitle:@"请选择年级"
+                                  delegate:self
+                                  cancelButtonTitle:@"取消"
+                                  destructiveButtonTitle:nil
+                                  otherButtonTitles:@"高一", @"高二",@"高三",nil];
+    actionSheet.actionSheetStyle = UIBarStyleDefault;
+    [actionSheet showInView:self.view];
 }
 
-
+//UIActionSheet对话框选择监听事件
+-(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    NSLog(@"选择年级对话框监听事件,您选择了%i",buttonIndex);
+        QueryGradeTableViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"QueryGradeTableViewController"];
+    
+        //UITabBarController和的UINavigationController结合使用,进入新的页面的时候，隐藏主页tabbarController的底部栏
+        nextPage.hidesBottomBarWhenPushed=YES;
+    
+        //跳转
+        [self.navigationController pushViewController:nextPage animated:YES];
+    
+}
 -(NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
 
     return [recipes count];

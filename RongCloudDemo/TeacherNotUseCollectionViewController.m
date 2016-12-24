@@ -28,12 +28,14 @@
     dataInOnerow=[[NSMutableArray alloc]init];
     [dataInOnerow addObject:@"数学"];
     [dataInOnerow addObject:@"98"];
-    [dataInOnerow addObject:@"02"];
+    [dataInOnerow addObject:@"90分/2"];
+    [dataInOnerow addObject:@"86分/30"];
     
     dataInOnerow2=[[NSMutableArray alloc]init];
     [dataInOnerow2 addObject:@"英语"];
     [dataInOnerow2 addObject:@"80"];
-    [dataInOnerow2 addObject:@"35"];
+    [dataInOnerow2 addObject:@"90分/3"];
+    [dataInOnerow2 addObject:@"86分/20"];
     
     [allData addObject:dataInOnerow];
     [allData addObject:dataInOnerow2];
@@ -73,27 +75,36 @@
    
     UILabel *mUILabelsubject=(UILabel *)[cell viewWithTag:1];
     UILabel *mUILabelScore=(UILabel *)[cell viewWithTag:2];
-    UILabel *mUILabelRank=(UILabel *)[cell viewWithTag:3];
+    //班级排名
+    UILabel *mUILabelClass=(UILabel *)[cell viewWithTag:3];
+    //年级排名
+     UILabel *mUILabelSchool=(UILabel *)[cell viewWithTag:4];
     
     if(0==indexPath.row){
         mUILabelsubject.text=@"学科";
          mUILabelScore.text=@"成绩";
-         mUILabelRank.text=@"排名";
+         mUILabelClass.text=@"班均分/班排名";
+        mUILabelSchool.text=@"校均分/校排名";
         
-        mUILabelsubject.font=[UIFont systemFontOfSize:20];
+        
+        mUILabelsubject.font=[UIFont systemFontOfSize:17];
         [mUILabelsubject setTextColor:[UIColor blackColor]];
         
-        mUILabelScore.font=[UIFont systemFontOfSize:20];
+        mUILabelScore.font=[UIFont systemFontOfSize:17];
         [mUILabelScore setTextColor:[UIColor blackColor]];
 
-        mUILabelRank.font=[UIFont systemFontOfSize:20];
-        [mUILabelRank setTextColor:[UIColor blackColor]];
-
-
+        mUILabelClass.font=[UIFont systemFontOfSize:16];
+        [mUILabelClass setTextColor:[UIColor blackColor]];
+        
+        mUILabelSchool.font=[UIFont systemFontOfSize:16];
+        [mUILabelSchool setTextColor:[UIColor blackColor]];
+        
     }else{
         mUILabelsubject.text=[[allData objectAtIndex:indexPath.row-1] objectAtIndex:0];
         mUILabelScore.text=[[allData objectAtIndex:indexPath.row-1] objectAtIndex:1];
-    mUILabelRank.text=[[allData objectAtIndex:indexPath.row-1] objectAtIndex:2];
+    mUILabelClass.text=[[allData objectAtIndex:indexPath.row-1] objectAtIndex:2];
+        mUILabelSchool.text=[[allData objectAtIndex:indexPath.row-1] objectAtIndex:3];
+
     }
     
     
