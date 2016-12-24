@@ -551,8 +551,8 @@
                                     <action selector="enterQueryGrade:" destination="AzU-z8-ena" eventType="touchUpInside" id="fcX-YT-WLO"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="3.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="ya6-t2-Bg2">
-                                <rect key="frame" x="-10" y="64" width="385" height="190"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="broadcast1.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="ya6-t2-Bg2">
+                                <rect key="frame" x="-10" y="68" width="385" height="190"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="心理活动" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X2d-6f-GEz">
@@ -1469,6 +1469,7 @@
         <image name="3.jpg" width="263" height="191"/>
         <image name="4.jpg" width="290" height="174"/>
         <image name="avarta.jpg" width="121" height="121"/>
+        <image name="broadcast1.jpg" width="191" height="92"/>
         <image name="chat.png" width="32" height="32"/>
         <image name="check_grade.png" width="64" height="64"/>
         <image name="coffee.png" width="32" height="32"/>

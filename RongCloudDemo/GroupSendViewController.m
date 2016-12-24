@@ -29,6 +29,7 @@
     
     //自定义导航左右按钮
     UIBarButtonItem *rightButton = [[UIBarButtonItem alloc]initWithTitle:@"确定" style:UIBarButtonItemStylePlain target:self action:@selector(rightBarButtonItemPressed:)];
+    [rightButton setTitleTextAttributes: [NSDictionary dictionaryWithObjectsAndKeys:[UIFont systemFontOfSize:17], UITextAttributeFont, [UIColor whiteColor], UITextAttributeTextColor, nil] forState:UIControlStateNormal];
     self.navigationItem.rightBarButtonItem=rightButton;
     
     mDataUsername=[[NSMutableArray alloc]init];
@@ -44,11 +45,7 @@
     [mDataRemark addObject:@"小萌的妈妈"];
     [mDataRemark addObject:@"晓茎的爸爸"];
     [mDataRemark addObject:@"小飞的爸爸"];
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -99,15 +96,20 @@
 }
 
 
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+/**
+ *  重载右边导航按钮的事件
+ *
+ *  @param sender <#sender description#>
+ */
+-(void)rightBarButtonItemPressed:(id)sender
+{
+    
+    NSLog(@"点击确定");
+//    //根据storyboard id来获取目标页面
+//    GroupSendViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"GroupSendViewController"];
+//    //UITabBarController和的UINavigationController结合使用,进入新的页面的时候，隐藏主页tabbarController的底部栏
+//    nextPage.hidesBottomBarWhenPushed=YES;
+//    //跳转
+//    [self.navigationController pushViewController:nextPage animated:YES];
 }
-*/
-
 @end

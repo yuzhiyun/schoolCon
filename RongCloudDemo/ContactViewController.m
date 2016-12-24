@@ -24,7 +24,8 @@
 //        self.titles = [NSArray arrayWithObjects:@"消息", @"联系人",@"群发", nil];
         self.titles = [NSArray arrayWithObjects:@"消息", @"联系人",nil];
         //修改WMPageController 的title颜色为蓝色
-         self.titleColorSelected = [UIColor colorWithRed:0 green:0 blue:200 alpha:1];
+        self.titleColorSelected = [UIColor colorWithRed:3/255.0 green:121/255.0 blue:251/255.0 alpha:1.0];
+
     }
     
     
@@ -37,7 +38,20 @@
     // Do any additional setup after loading the view.
     //自定义导航左右按钮
     UIBarButtonItem *rightButton = [[UIBarButtonItem alloc]initWithTitle:@"群聊" style:UIBarButtonItemStylePlain target:self action:@selector(rightBarButtonItemPressed:)];
+    
+    [rightButton setTitleTextAttributes: [NSDictionary dictionaryWithObjectsAndKeys:[UIFont systemFontOfSize:17], UITextAttributeFont, [UIColor whiteColor], UITextAttributeTextColor, nil] forState:UIControlStateNormal];
     self.navigationItem.rightBarButtonItem=rightButton;
+    
+    //背景色
+    [self.navigationController.navigationBar setBarTintColor:[UIColor colorWithRed:3/255.0 green:121/255.0 blue:251/255.0 alpha:1.0]];
+    //title颜色
+    [self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor],UITextAttributeTextColor,nil]];
+    
+    
+//    返回按钮文字、颜色 、大小
+    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:@"<返回" style:UIBarButtonItemStylePlain target:nil action:nil];
+    [item setTitleTextAttributes: [NSDictionary dictionaryWithObjectsAndKeys:[UIFont systemFontOfSize:17], UITextAttributeFont, [UIColor whiteColor], UITextAttributeTextColor, nil] forState:UIControlStateNormal];
+    self.navigationItem.backBarButtonItem = item;
 }
 
 #pragma mark 返回index对应的标题

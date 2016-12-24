@@ -42,6 +42,8 @@
 		4698CBFD1AE237AB0006330E /* RongIMLib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4698CBFC1AE237AB0006330E /* RongIMLib.framework */; };
 		4698CC041AE245940006330E /* ChatListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4698CC031AE245940006330E /* ChatListViewController.m */; };
 		CD112A741E0E1CB5004519B9 /* exam1.png in Resources */ = {isa = PBXBuildFile; fileRef = CD112A731E0E1CB5004519B9 /* exam1.png */; };
+		CD112A761E0E4A5A004519B9 /* broadcast1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CD112A751E0E4A5A004519B9 /* broadcast1.jpg */; };
+		CD112A781E0E4B02004519B9 /* study.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CD112A771E0E4B02004519B9 /* study.jpg */; };
 		CD1A47981E0B925100B8EF35 /* PhysicalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD1A47971E0B925100B8EF35 /* PhysicalViewController.m */; };
 		CD1A479A1E0BFBB700B8EF35 /* notice1.png in Resources */ = {isa = PBXBuildFile; fileRef = CD1A47991E0BFBB700B8EF35 /* notice1.png */; };
 		CD2DCAF01DFD9051000C03E1 /* list.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CD2DCAE91DFD9051000C03E1 /* list.jpg */; };
@@ -190,6 +192,8 @@
 		4698CC021AE245940006330E /* ChatListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatListViewController.h; sourceTree = "<group>"; };
 		4698CC031AE245940006330E /* ChatListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatListViewController.m; sourceTree = "<group>"; };
 		CD112A731E0E1CB5004519B9 /* exam1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = exam1.png; sourceTree = "<group>"; };
+		CD112A751E0E4A5A004519B9 /* broadcast1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = broadcast1.jpg; sourceTree = "<group>"; };
+		CD112A771E0E4B02004519B9 /* study.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = study.jpg; sourceTree = "<group>"; };
 		CD1A47961E0B925100B8EF35 /* PhysicalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhysicalViewController.h; sourceTree = "<group>"; };
 		CD1A47971E0B925100B8EF35 /* PhysicalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhysicalViewController.m; sourceTree = "<group>"; };
 		CD1A47991E0BFBB700B8EF35 /* notice1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = notice1.png; sourceTree = "<group>"; };
@@ -498,6 +502,8 @@
 		CD2DCAE81DFD9043000C03E1 /* img */ = {
 			isa = PBXGroup;
 			children = (
+				CD112A771E0E4B02004519B9 /* study.jpg */,
+				CD112A751E0E4A5A004519B9 /* broadcast1.jpg */,
 				CD112A731E0E1CB5004519B9 /* exam1.png */,
 				CD2DCCA31E0A4AA7000C03E1 /* checkbox */,
 				CD2DCB051E014F7E000C03E1 /* icon */,
@@ -996,6 +1002,7 @@
 				CD2DCAF41DFD9051000C03E1 /* 3.jpg in Resources */,
 				CD2DCB0F1E018793000C03E1 /* reading.png in Resources */,
 				CD2DCAF11DFD9051000C03E1 /* avarta.jpg in Resources */,
+				CD112A761E0E4A5A004519B9 /* broadcast1.jpg in Resources */,
 				CD3CF6891E0C140A003599F5 /* study.png in Resources */,
 				CD2DCB071E014FBC000C03E1 /* home_page.png in Resources */,
 				CD3CF68B1E0C1412003599F5 /* chat.png in Resources */,
@@ -1012,6 +1019,7 @@
 				461B27851B82DD7D00107001 /* Emoji.plist in Resources */,
 				CD1A479A1E0BFBB700B8EF35 /* notice1.png in Resources */,
 				CD3CF6991E0C1502003599F5 /* vip.png in Resources */,
+				CD112A781E0E4B02004519B9 /* study.jpg in Resources */,
 				CD3CF69D1E0D000E003599F5 /* check_grade.png in Resources */,
 				461B27861B82DD7D00107001 /* RongCloud.bundle in Resources */,
 				CD2DCB7F1E03C7E7000C03E1 /* favorites.png in Resources */,

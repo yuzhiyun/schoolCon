@@ -29,7 +29,7 @@
         self.menuViewStyle = WMMenuViewStyleLine;
         //        self.titles = [NSArray arrayWithObjects:@"读文说史", @"教育智慧",@"分类3",@"分类4",@"分类5", nil];
         self.titles=title;
-        self.titleColorSelected = [UIColor colorWithRed:0 green:0 blue:200 alpha:1];
+        self.titleColorSelected = [UIColor colorWithRed:3/255.0 green:121/255.0 blue:251/255.0 alpha:1.0];
         
     }
 //    /*

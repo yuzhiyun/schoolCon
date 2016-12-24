@@ -33,7 +33,7 @@
         self.menuViewStyle = WMMenuViewStyleLine;
 //        self.titles = [NSArray arrayWithObjects:@"读文说史", @"教育智慧",@"分类3",@"分类4",@"分类5", nil];
         self.titles=title;
-        self.titleColorSelected = [UIColor colorWithRed:0 green:0 blue:200 alpha:1];
+        self.titleColorSelected = [UIColor colorWithRed:3/255.0 green:121/255.0 blue:251/255.0 alpha:1.0];
         
     }
     /*
@@ -47,7 +47,16 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title=@"在线学习";
+    
+    [self.navigationController.navigationBar setBarTintColor:[UIColor colorWithRed:3/255.0 green:121/255.0 blue:251/255.0 alpha:1.0]];
+    
+    [self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor],UITextAttributeTextColor,nil]];
+
     // Do any additional setup after loading the view, typically from a nib.
+//    //返回按钮的文字设置为 返回，否则默认会显示上一个页面的title
+//    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:nil action:nil];
+//    self.navigationItem.backBarButtonItem = item;
 }
 
 #pragma mark 返回index对应的标题

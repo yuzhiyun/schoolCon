@@ -62,9 +62,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     Vp1TableViewCell *cell = (Vp1TableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
     if(cell==nil){
-        
         cell=[[Vp1TableViewCell init] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
-        
     }
     
     AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
@@ -76,9 +74,10 @@
 //    NSLog(@"title的大小为**************%i",a);
     
     
-    cell.UILabelTitle.text=t1;
+    cell.UILabelTitle.text=@"科学家证实：“3岁看大”确有科学依据";
     cell.UILabelDate.text=@"2016-12-27";
-    cell.UIImgCover.image=[UIImage imageNamed:[mImg objectAtIndex:indexPath.row]];
+//    cell.UIImgCover.image=[UIImage imageNamed:[mImg objectAtIndex:indexPath.row]];
+    cell.UIImgCover.image=[UIImage imageNamed:@"study.jpg"];
     
     
     // Configure the cell...

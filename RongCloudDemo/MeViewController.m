@@ -28,6 +28,8 @@
 //}
 - (void)viewDidLoad {
     [super viewDidLoad];
+    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:nil action:nil];
+    self.navigationItem.backBarButtonItem = item;
     mDataKey=[[NSMutableArray alloc]init];
 
     [mDataKey addObject:@"修改电话"];
@@ -48,10 +50,12 @@
     [mDataImg addObject:@"exit.png"];
 
 
-//    #import "UIImageView+WebCache.h"
+
 //    加载图片,如果加载不到图片，就显示favorites.png
-// [self.UIImageViewAvatar sd_setImageWithURL:@"http://img05.tooopen.com/images/20150202/sy_80219211654.jpg" placeholderImage:[UIImage imageNamed:@"favorites.png"]];
-//    // Do any additional setup after loading the view.
+ [self.UIImageViewAvatar sd_setImageWithURL:@"http://img05.tooopen.com/images/20150202/sy_80219211654.jpg" placeholderImage:[UIImage imageNamed:@"favorites.png"]];
+    //设置图片为圆形
+    self.UIImageViewAvatar.layer.masksToBounds = YES;
+    self.UIImageViewAvatar.layer.cornerRadius = self.UIImageViewAvatar.frame.size.height / 2 ;
 }
 
 - (void)didReceiveMemoryWarning {
