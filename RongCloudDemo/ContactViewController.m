@@ -7,7 +7,7 @@
 //
 
 #import "ContactViewController.h"
-
+#import "GroupSendViewController.h"
 @interface ContactViewController ()
 
 @end
@@ -21,16 +21,23 @@
         self.menuHeight = 35;
         self.menuItemWidth = 100;
         self.menuViewStyle = WMMenuViewStyleLine;
-        self.titles = [NSArray arrayWithObjects:@"消息", @"联系人",@"群发", nil];
+//        self.titles = [NSArray arrayWithObjects:@"消息", @"联系人",@"群发", nil];
+        self.titles = [NSArray arrayWithObjects:@"消息", @"联系人",nil];
         //修改WMPageController 的title颜色为蓝色
          self.titleColorSelected = [UIColor colorWithRed:0 green:0 blue:200 alpha:1];
     }
+    
+    
+   
     return self;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    //自定义导航左右按钮
+    UIBarButtonItem *rightButton = [[UIBarButtonItem alloc]initWithTitle:@"群聊" style:UIBarButtonItemStylePlain target:self action:@selector(rightBarButtonItemPressed:)];
+    self.navigationItem.rightBarButtonItem=rightButton;
 }
 
 #pragma mark 返回index对应的标题
@@ -43,20 +50,35 @@
     return [self.titles count];
 }
 
+/**
+ *  重载右边导航按钮的事件
+ *
+ *  @param sender <#sender description#>
+ */
+-(void)rightBarButtonItemPressed:(id)sender
+{
+    //根据storyboard id来获取目标页面
+    GroupSendViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"GroupSendViewController"];
+    //UITabBarController和的UINavigationController结合使用,进入新的页面的时候，隐藏主页tabbarController的底部栏
+    nextPage.hidesBottomBarWhenPushed=YES;
+    //跳转
+    [self.navigationController pushViewController:nextPage animated:YES];
+}
+
 #pragma mark 返回某个index对应的页面，该页面从Storyboard中获取
 - (UIViewController *)pageController:(WMPageController *)pageController viewControllerAtIndex:(NSInteger)index {
     
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     UIViewController *controller1 = [storyboard instantiateViewControllerWithIdentifier:@"vp1_contact"]; //这里的identifer是我们之前设置的StoryboardID
     UIViewController *controller2 = [storyboard instantiateViewControllerWithIdentifier:@"vp2_contact"]; //这里的identifer是我们之前设置的StoryboardID
-    UIViewController *controller3 = [storyboard instantiateViewControllerWithIdentifier:@"vp3_contact"]; //这里的identifer是我们之前设置的StoryboardID
+//    UIViewController *controller3 = [storyboard instantiateViewControllerWithIdentifier:@"vp3_contact"]; //这里的identifer是我们之前设置的StoryboardID
     
     if(0==index)
         return controller1;
-    else if(1==index)
-        return controller2;
+//    else if(1==index)
+//        return controller2;
     else
-        return controller3;
+        return controller2;
     
 }
 - (void)didReceiveMemoryWarning {

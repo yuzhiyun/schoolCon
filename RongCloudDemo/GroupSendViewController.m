@@ -25,6 +25,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.title=@"群发";
+    
+    //自定义导航左右按钮
+    UIBarButtonItem *rightButton = [[UIBarButtonItem alloc]initWithTitle:@"确定" style:UIBarButtonItemStylePlain target:self action:@selector(rightBarButtonItemPressed:)];
+    self.navigationItem.rightBarButtonItem=rightButton;
+    
     mDataUsername=[[NSMutableArray alloc]init];
     [mDataUsername addObject:@"俞志云"];
     [mDataUsername addObject:@"马小龙"];

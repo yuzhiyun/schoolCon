@@ -41,6 +41,7 @@
 		4698CBFB1AE236EA0006330E /* RongIMKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4698CBFA1AE236EA0006330E /* RongIMKit.framework */; };
 		4698CBFD1AE237AB0006330E /* RongIMLib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4698CBFC1AE237AB0006330E /* RongIMLib.framework */; };
 		4698CC041AE245940006330E /* ChatListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4698CC031AE245940006330E /* ChatListViewController.m */; };
+		CD112A741E0E1CB5004519B9 /* exam1.png in Resources */ = {isa = PBXBuildFile; fileRef = CD112A731E0E1CB5004519B9 /* exam1.png */; };
 		CD1A47981E0B925100B8EF35 /* PhysicalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD1A47971E0B925100B8EF35 /* PhysicalViewController.m */; };
 		CD1A479A1E0BFBB700B8EF35 /* notice1.png in Resources */ = {isa = PBXBuildFile; fileRef = CD1A47991E0BFBB700B8EF35 /* notice1.png */; };
 		CD2DCAF01DFD9051000C03E1 /* list.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CD2DCAE91DFD9051000C03E1 /* list.jpg */; };
@@ -188,6 +189,7 @@
 		4698CBFC1AE237AB0006330E /* RongIMLib.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RongIMLib.framework; path = framework/RongIMLib.framework; sourceTree = "<group>"; };
 		4698CC021AE245940006330E /* ChatListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatListViewController.h; sourceTree = "<group>"; };
 		4698CC031AE245940006330E /* ChatListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatListViewController.m; sourceTree = "<group>"; };
+		CD112A731E0E1CB5004519B9 /* exam1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = exam1.png; sourceTree = "<group>"; };
 		CD1A47961E0B925100B8EF35 /* PhysicalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhysicalViewController.h; sourceTree = "<group>"; };
 		CD1A47971E0B925100B8EF35 /* PhysicalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhysicalViewController.m; sourceTree = "<group>"; };
 		CD1A47991E0BFBB700B8EF35 /* notice1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = notice1.png; sourceTree = "<group>"; };
@@ -496,6 +498,7 @@
 		CD2DCAE81DFD9043000C03E1 /* img */ = {
 			isa = PBXGroup;
 			children = (
+				CD112A731E0E1CB5004519B9 /* exam1.png */,
 				CD2DCCA31E0A4AA7000C03E1 /* checkbox */,
 				CD2DCB051E014F7E000C03E1 /* icon */,
 				CD2DCAE91DFD9051000C03E1 /* list.jpg */,
@@ -999,6 +1002,7 @@
 				CD2DCB7E1E03C7E7000C03E1 /* contacts_us.png in Resources */,
 				CD2DCAF01DFD9051000C03E1 /* list.jpg in Resources */,
 				CD3CF69E1E0D000E003599F5 /* emotion_activity.png in Resources */,
+				CD112A741E0E1CB5004519B9 /* exam1.png in Resources */,
 				CD3CF6961E0C1502003599F5 /* info.png in Resources */,
 				CD2DCAF31DFD9051000C03E1 /* 2.jpg in Resources */,
 				CD2DCCA91E0A4BF9000C03E1 /* un_selected.png in Resources */,

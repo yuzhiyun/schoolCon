@@ -59,9 +59,6 @@
 - (IBAction)btnEnterPsychology:(id)sender {
     //根据storyboard id来获取目标页面
     PhysicalViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"PhysicalViewController"];
-    
-    
- 
     //UITabBarController和的UINavigationController结合使用,进入新的页面的时候，隐藏主页tabbarController的底部栏
     nextPage.hidesBottomBarWhenPushed=YES;
     //跳转
