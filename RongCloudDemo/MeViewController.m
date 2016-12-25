@@ -54,6 +54,12 @@
 //    加载图片,如果加载不到图片，就显示favorites.png
  [self.UIImageViewAvatar sd_setImageWithURL:@"http://img05.tooopen.com/images/20150202/sy_80219211654.jpg" placeholderImage:[UIImage imageNamed:@"favorites.png"]];
     //设置图片为圆形
+    /*
+     *View都有一个layer的属性，我们正是通过layer的一些设置来达到圆角的目的，因此诸如UIImageView、UIButton
+     *UILabel等view都可以设置相应的圆角。对于圆形的头像，要制作正圆，我们需要首先设置UIImageView的高宽的一致
+     *的，然后我们设置其圆角角度为高度除以2即可，相当于90度
+     * http://blog.csdn.net/cloudox_/article/details/50511531
+     */
     self.UIImageViewAvatar.layer.masksToBounds = YES;
     self.UIImageViewAvatar.layer.cornerRadius = self.UIImageViewAvatar.frame.size.height / 2 ;
 }

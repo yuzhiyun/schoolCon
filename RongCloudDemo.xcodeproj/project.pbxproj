@@ -44,6 +44,8 @@
 		CD112A741E0E1CB5004519B9 /* exam1.png in Resources */ = {isa = PBXBuildFile; fileRef = CD112A731E0E1CB5004519B9 /* exam1.png */; };
 		CD112A761E0E4A5A004519B9 /* broadcast1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CD112A751E0E4A5A004519B9 /* broadcast1.jpg */; };
 		CD112A781E0E4B02004519B9 /* study.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CD112A771E0E4B02004519B9 /* study.jpg */; };
+		CD112A7A1E0E969F004519B9 /* test.png in Resources */ = {isa = PBXBuildFile; fileRef = CD112A791E0E969F004519B9 /* test.png */; };
+		CD112A7E1E0E99AD004519B9 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD112A7D1E0E99AD004519B9 /* LoginViewController.m */; };
 		CD1A47981E0B925100B8EF35 /* PhysicalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD1A47971E0B925100B8EF35 /* PhysicalViewController.m */; };
 		CD1A479A1E0BFBB700B8EF35 /* notice1.png in Resources */ = {isa = PBXBuildFile; fileRef = CD1A47991E0BFBB700B8EF35 /* notice1.png */; };
 		CD2DCAF01DFD9051000C03E1 /* list.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CD2DCAE91DFD9051000C03E1 /* list.jpg */; };
@@ -136,6 +138,7 @@
 		CD3CF69F1E0D000E003599F5 /* emotion_test.png in Resources */ = {isa = PBXBuildFile; fileRef = CD3CF69C1E0D000E003599F5 /* emotion_test.png */; };
 		CD3CF6A21E0D6788003599F5 /* TeacherNotUseCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD3CF6A11E0D6788003599F5 /* TeacherNotUseCollectionViewController.m */; };
 		CD3CF6A61E0E176C003599F5 /* rank2.png in Resources */ = {isa = PBXBuildFile; fileRef = CD3CF6A51E0E176C003599F5 /* rank2.png */; };
+		CDE5AEB21E1009670059D310 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDE5AEB11E1009670059D310 /* MainViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -194,6 +197,9 @@
 		CD112A731E0E1CB5004519B9 /* exam1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = exam1.png; sourceTree = "<group>"; };
 		CD112A751E0E4A5A004519B9 /* broadcast1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = broadcast1.jpg; sourceTree = "<group>"; };
 		CD112A771E0E4B02004519B9 /* study.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = study.jpg; sourceTree = "<group>"; };
+		CD112A791E0E969F004519B9 /* test.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = test.png; sourceTree = "<group>"; };
+		CD112A7C1E0E99AD004519B9 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		CD112A7D1E0E99AD004519B9 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		CD1A47961E0B925100B8EF35 /* PhysicalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhysicalViewController.h; sourceTree = "<group>"; };
 		CD1A47971E0B925100B8EF35 /* PhysicalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhysicalViewController.m; sourceTree = "<group>"; };
 		CD1A47991E0BFBB700B8EF35 /* notice1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = notice1.png; sourceTree = "<group>"; };
@@ -345,6 +351,8 @@
 		CD3CF6A01E0D6788003599F5 /* TeacherNotUseCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeacherNotUseCollectionViewController.h; sourceTree = "<group>"; };
 		CD3CF6A11E0D6788003599F5 /* TeacherNotUseCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeacherNotUseCollectionViewController.m; sourceTree = "<group>"; };
 		CD3CF6A51E0E176C003599F5 /* rank2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rank2.png; sourceTree = "<group>"; };
+		CDE5AEB01E1009670059D310 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		CDE5AEB11E1009670059D310 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -415,6 +423,8 @@
 		4698CB9E1AE22FCA0006330E /* RongCloudDemo */ = {
 			isa = PBXGroup;
 			children = (
+				CDE5AEAC1E1008E50059D310 /* main */,
+				CD112A7B1E0E9990004519B9 /* login */,
 				CD2DCCAC1E0A6F86000C03E1 /* queryGrade */,
 				CD2DCC3A1E066ACA000C03E1 /* psychology */,
 				CD2DCBE41E052BA1000C03E1 /* WMPageController  */,
@@ -499,6 +509,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		CD112A7B1E0E9990004519B9 /* login */ = {
+			isa = PBXGroup;
+			children = (
+				CD112A7C1E0E99AD004519B9 /* LoginViewController.h */,
+				CD112A7D1E0E99AD004519B9 /* LoginViewController.m */,
+			);
+			name = login;
+			sourceTree = "<group>";
+		};
 		CD2DCAE81DFD9043000C03E1 /* img */ = {
 			isa = PBXGroup;
 			children = (
@@ -533,6 +552,7 @@
 		CD2DCB051E014F7E000C03E1 /* icon */ = {
 			isa = PBXGroup;
 			children = (
+				CD112A791E0E969F004519B9 /* test.png */,
 				CD3CF6A51E0E176C003599F5 /* rank2.png */,
 				CD3CF69A1E0D000E003599F5 /* check_grade.png */,
 				CD3CF69B1E0D000E003599F5 /* emotion_activity.png */,
@@ -910,6 +930,15 @@
 			name = option;
 			sourceTree = "<group>";
 		};
+		CDE5AEAC1E1008E50059D310 /* main */ = {
+			isa = PBXGroup;
+			children = (
+				CDE5AEB01E1009670059D310 /* MainViewController.h */,
+				CDE5AEB11E1009670059D310 /* MainViewController.m */,
+			);
+			name = main;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -959,7 +988,7 @@
 				TargetAttributes = {
 					4698CB9B1AE22FCA0006330E = {
 						CreatedOnToolsVersion = 6.2;
-						DevelopmentTeam = 8TXX9HLM2Y;
+						DevelopmentTeam = F36KV5ER57;
 						ProvisioningStyle = Automatic;
 					};
 					4698CBB41AE22FCA0006330E = {
@@ -1036,6 +1065,7 @@
 				CD2DCCAB1E0A4CD8000C03E1 /* selected2.png in Resources */,
 				4698CBAD1AE22FCA0006330E /* Images.xcassets in Resources */,
 				CD3CF6971E0C1502003599F5 /* notice.png in Resources */,
+				CD112A7A1E0E969F004519B9 /* test.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1085,6 +1115,7 @@
 				CD2DCC851E09305D000C03E1 /* SDWebImageManager.m in Sources */,
 				CD2DCC0A1E0536B6000C03E1 /* Vp2TableViewController.m in Sources */,
 				CD2DCC861E09305D000C03E1 /* SDWebImagePrefetcher.m in Sources */,
+				CD112A7E1E0E99AD004519B9 /* LoginViewController.m in Sources */,
 				CD2DCB831E03CAB3000C03E1 /* MeViewController.m in Sources */,
 				CD2DCC9E1E0A2092000C03E1 /* TestViewController.m in Sources */,
 				CD2DCCA21E0A20D5000C03E1 /* TestTableViewCell.m in Sources */,
@@ -1103,6 +1134,7 @@
 				CD2DCC2C1E0573EF000C03E1 /* GroupSendViewController.m in Sources */,
 				4698CBA21AE22FCA0006330E /* main.m in Sources */,
 				CD2DCC871E09305D000C03E1 /* UIButton+WebCache.m in Sources */,
+				CDE5AEB21E1009670059D310 /* MainViewController.m in Sources */,
 				CD2DCC8C1E09305D000C03E1 /* UIImageView+WebCache.m in Sources */,
 				CD2DCC4F1E067CD3000C03E1 /* PsychologyTableViewCell.m in Sources */,
 				CD2DCC831E09305D000C03E1 /* SDWebImageDownloader.m in Sources */,
@@ -1246,7 +1278,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 8TXX9HLM2Y;
+				DEVELOPMENT_TEAM = F36KV5ER57;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1262,7 +1294,7 @@
 					"$(PROJECT_DIR)/framework",
 				);
 				OTHER_LDFLAGS = "";
-				PRODUCT_BUNDLE_IDENTIFIER = com.dlz.RongCloudDemo10;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dlz.RongCloudDemo12;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -1272,7 +1304,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 8TXX9HLM2Y;
+				DEVELOPMENT_TEAM = F36KV5ER57;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1288,7 +1320,7 @@
 					"$(PROJECT_DIR)/framework",
 				);
 				OTHER_LDFLAGS = "";
-				PRODUCT_BUNDLE_IDENTIFIER = com.dlz.RongCloudDemo10;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dlz.RongCloudDemo12;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
