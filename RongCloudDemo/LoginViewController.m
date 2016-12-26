@@ -23,7 +23,7 @@
     self.UIImageViewAvatar.layer.cornerRadius = self.UIImageViewAvatar.frame.size.height / 2 ;
     
 //    隐藏返回按钮navigationController的navigationBar
-    self.navigationController.navigationBarHidden=YES;
+//    self.navigationController.navigationBarHidden=YES;
     
 }
 

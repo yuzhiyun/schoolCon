@@ -56,7 +56,7 @@
     
     cell.textLabel.text = [mDataNotification objectAtIndex:indexPath.row];
     cell.imageView.image=[UIImage imageNamed:@"notice1.png"];
-    cell.detailTextLabel.text=@"2017/12/21";
+//    cell.detailTextLabel.text=@"2017/12/21";
     return cell;
     
 }
@@ -66,8 +66,6 @@
     LoginViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
     //跳转
     [self.navigationController pushViewController:nextPage animated:YES];
-    
-    NSLog(@"跳转");
 }
 
 @end

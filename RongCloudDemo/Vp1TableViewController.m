@@ -75,6 +75,7 @@
     
     
     cell.UILabelTitle.text=@"科学家证实：“3岁看大”确有科学依据";
+    cell.UILabelTitle.numberOfLines=2;
     cell.UILabelDate.text=@"2016-12-27";
 //    cell.UIImgCover.image=[UIImage imageNamed:[mImg objectAtIndex:indexPath.row]];
     cell.UIImgCover.image=[UIImage imageNamed:@"study.jpg"];

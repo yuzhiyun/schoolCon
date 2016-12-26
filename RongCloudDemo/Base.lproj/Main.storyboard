@@ -586,7 +586,7 @@
         <!--Entrance View Controller-->
         <scene sceneID="iyK-1f-5wA">
             <objects>
-                <viewController id="MgX-kz-2PI" customClass="EntranceViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="EntranceViewController" id="MgX-kz-2PI" customClass="EntranceViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Bgu-gl-AHr"/>
                         <viewControllerLayoutGuide type="bottom" id="tPe-Al-L9V"/>
@@ -1083,17 +1083,24 @@
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mHt-xG-Ikj">
-                                            <rect key="frame" x="121" y="10" width="232" height="26"/>
+                                            <rect key="frame" x="121" y="10" width="232" height="49"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="80k-QP-QqJ">
-                                            <rect key="frame" x="266" y="49" width="109" height="21"/>
+                                            <rect key="frame" x="266" y="61" width="109" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <color key="textColor" red="0.57996680700000003" green="0.57996680700000003" blue="0.57996680700000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="余秋雨" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xuO-Y3-Dmi">
+                                            <rect key="frame" x="121" y="61" width="89" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -1113,7 +1120,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TtE-Ai-Iiz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4103" y="1746"/>
+            <point key="canvasLocation" x="4101.6000000000004" y="1745.577211394303"/>
         </scene>
         <!--Vp2 Table View Controller-->
         <scene sceneID="Of6-aB-bGn">
@@ -1166,7 +1173,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hZh-5u-ROZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4841" y="1023"/>
+            <point key="canvasLocation" x="4878" y="1746"/>
         </scene>
         <!--Article Detail View Controller-->
         <scene sceneID="dQ6-x0-V20">
@@ -1264,7 +1271,7 @@
             </objects>
             <point key="canvasLocation" x="3888.8000000000002" y="2580.3598200899551"/>
         </scene>
-        <!--我的-->
+        <!--Me View Controller-->
         <scene sceneID="RbQ-Z5-Yur">
             <objects>
                 <viewController id="m9v-rO-Gyc" customClass="MeViewController" sceneMemberID="viewController">
@@ -1408,14 +1415,14 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="我的" image="mine.png" id="IIn-yW-4XF"/>
+                    <navigationItem key="navigationItem" id="oN2-Do-1y0"/>
                     <connections>
                         <outlet property="UIImageViewAvatar" destination="FGW-J7-pM0" id="hfG-Rt-IBJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yEC-X0-3bx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4840.8000000000002" y="296.40179910044981"/>
+            <point key="canvasLocation" x="4841" y="1048"/>
         </scene>
         <!--Choose School Table View Controller-->
         <scene sceneID="79S-aL-V2Y">
@@ -1557,7 +1564,7 @@
                         <segue destination="EzN-9J-Foq" kind="relationship" relationship="viewControllers" id="Iaa-yb-U0U"/>
                         <segue destination="7iO-1b-oOm" kind="relationship" relationship="viewControllers" id="pf8-50-JX4"/>
                         <segue destination="eWY-IG-kwp" kind="relationship" relationship="viewControllers" id="gHG-IO-TKs"/>
-                        <segue destination="m9v-rO-Gyc" kind="relationship" relationship="viewControllers" id="uTq-1p-VS7"/>
+                        <segue destination="AWL-cY-jFM" kind="relationship" relationship="viewControllers" id="uTq-1p-VS7"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SgT-Ym-CEw" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1659,6 +1666,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bh4-p9-hfH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="517.60000000000002" y="-1085.3073463268368"/>
+        </scene>
+        <!--我的-->
+        <scene sceneID="nIZ-Wt-pTu">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="AWL-cY-jFM" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="我的" image="mine.png" id="IIn-yW-4XF"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="aqW-Of-5yy">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="m9v-rO-Gyc" kind="relationship" relationship="rootViewController" id="gM1-f3-Zbe"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zUq-LI-sRR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4840.8000000000002" y="296.40179910044981"/>
         </scene>
     </scenes>
     <resources>

@@ -141,6 +141,8 @@
 		CDE5AEB21E1009670059D310 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDE5AEB11E1009670059D310 /* MainViewController.m */; };
 		CDE5AEB61E1014F70059D310 /* ChooseSchoolTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDE5AEB51E1014F70059D310 /* ChooseSchoolTableViewController.m */; };
 		CDE5AEBA1E1101F60059D310 /* EntranceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDE5AEB91E1101F60059D310 /* EntranceViewController.m */; };
+		CDE5AEBC1E110A750059D310 /* coffee_little.png in Resources */ = {isa = PBXBuildFile; fileRef = CDE5AEBB1E110A750059D310 /* coffee_little.png */; };
+		CDE5AEBE1E110AF50059D310 /* test_litttle.png in Resources */ = {isa = PBXBuildFile; fileRef = CDE5AEBD1E110AF50059D310 /* test_litttle.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -359,6 +361,8 @@
 		CDE5AEB51E1014F70059D310 /* ChooseSchoolTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChooseSchoolTableViewController.m; sourceTree = "<group>"; };
 		CDE5AEB81E1101F60059D310 /* EntranceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntranceViewController.h; sourceTree = "<group>"; };
 		CDE5AEB91E1101F60059D310 /* EntranceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntranceViewController.m; sourceTree = "<group>"; };
+		CDE5AEBB1E110A750059D310 /* coffee_little.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = coffee_little.png; sourceTree = "<group>"; };
+		CDE5AEBD1E110AF50059D310 /* test_litttle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = test_litttle.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -529,6 +533,8 @@
 		CD2DCAE81DFD9043000C03E1 /* img */ = {
 			isa = PBXGroup;
 			children = (
+				CDE5AEBD1E110AF50059D310 /* test_litttle.png */,
+				CDE5AEBB1E110A750059D310 /* coffee_little.png */,
 				CD112A771E0E4B02004519B9 /* study.jpg */,
 				CD112A751E0E4A5A004519B9 /* broadcast1.jpg */,
 				CD112A731E0E1CB5004519B9 /* exam1.png */,
@@ -1052,6 +1058,7 @@
 				CD3CF6941E0C1502003599F5 /* contact.png in Resources */,
 				CD2DCB801E03C7E7000C03E1 /* grades_inquire.png in Resources */,
 				CD2DCB7A1E03C7DC000C03E1 /* consults.png in Resources */,
+				CDE5AEBE1E110AF50059D310 /* test_litttle.png in Resources */,
 				CD2DCAF51DFD9051000C03E1 /* 4.jpg in Resources */,
 				CD3CF6871E0C1402003599F5 /* mine.png in Resources */,
 				CD2DCAF41DFD9051000C03E1 /* 3.jpg in Resources */,
@@ -1083,6 +1090,7 @@
 				CD2DCB0B1E015132000C03E1 /* shalong.png in Resources */,
 				CD3CF6931E0C1502003599F5 /* callect.png in Resources */,
 				4698CBAB1AE22FCA0006330E /* Main.storyboard in Resources */,
+				CDE5AEBC1E110A750059D310 /* coffee_little.png in Resources */,
 				461B27891B82DDA000107001 /* RongCloudKit.strings in Resources */,
 				CD3CF6851E0C13F0003599F5 /* coffee.png in Resources */,
 				CD2DCAF21DFD9051000C03E1 /* 1.jpg in Resources */,
