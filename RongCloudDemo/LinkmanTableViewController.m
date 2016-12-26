@@ -33,11 +33,11 @@
     [mDataUsername addObject:@"秦启飞"];
     
     mDataRemark=[[NSMutableArray alloc]init];
-    [mDataRemark addObject:@"小鱼的爸爸"];
-    [mDataRemark addObject:@"小龙的爸爸"];
-    [mDataRemark addObject:@"小萌的妈妈"];
-    [mDataRemark addObject:@"晓茎的爸爸"];
-    [mDataRemark addObject:@"小飞的爸爸"];
+    [mDataRemark addObject:@"化学教师"];
+    [mDataRemark addObject:@"数学教师"];
+    [mDataRemark addObject:@"英语教师"];
+    [mDataRemark addObject:@"语文教师"];
+    [mDataRemark addObject:@"生物教师"];
     
     mDataAvatar=[[NSMutableArray alloc]init];
     [mDataAvatar addObject:@"1.jpg"];

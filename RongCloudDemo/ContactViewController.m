@@ -37,7 +37,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     //自定义导航左右按钮
-    UIBarButtonItem *rightButton = [[UIBarButtonItem alloc]initWithTitle:@"群聊" style:UIBarButtonItemStylePlain target:self action:@selector(rightBarButtonItemPressed:)];
+    UIBarButtonItem *rightButton = [[UIBarButtonItem alloc]initWithTitle:@"群发" style:UIBarButtonItemStylePlain target:self action:@selector(rightBarButtonItemPressed:)];
     
     [rightButton setTitleTextAttributes: [NSDictionary dictionaryWithObjectsAndKeys:[UIFont systemFontOfSize:17], UITextAttributeFont, [UIColor whiteColor], UITextAttributeTextColor, nil] forState:UIControlStateNormal];
     self.navigationItem.rightBarButtonItem=rightButton;

@@ -46,8 +46,8 @@
     self.navigationItem.backBarButtonItem = item;
     recipes=[[NSMutableArray alloc]init];
     [recipes addObject:@"由于下大雪，今晚不用上课"];
-    [recipes addObject:@"由于下大雪，今晚不用上课"];
-    [recipes addObject:@"由于下大雪，今晚不用上课"];
+    [recipes addObject:@"明天开运动会"];
+    [recipes addObject:@"系统升级中，明早恢复"];
 //    recipes = [NSArray arrayWithObjects:@"Egg Benedict",@"Ham and Cheese Panini","yuzhiyun",nil];
     // Do any additional setup after loading the view.
 }

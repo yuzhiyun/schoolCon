@@ -27,9 +27,9 @@
     mData=[[NSMutableArray alloc]init];
     [mData addObject:@"MBTI职业性格测试"];
     [mData addObject:@"霍兰德职业倾向测试"];
-    [mData addObject:@"MBTI职业性格测试"];
-    [mData addObject:@"MBTI职业性格测试"];
-    [mData addObject:@"MBTI职业性格测试"];
+    [mData addObject:@"爱情测试：你内心有多相信爱情"];
+    [mData addObject:@"事业测试：你该去什么样的公司"];
+    [mData addObject:@"个性测试：你了解自己百分之多少"];
     //指定封面
     mImg=[[NSMutableArray alloc]init];
     [mImg addObject:@"1.jpg"];

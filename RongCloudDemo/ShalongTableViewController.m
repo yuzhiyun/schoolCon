@@ -30,19 +30,18 @@
     
     //指定大标题
     mData=[[NSMutableArray alloc]init];
-    [mData addObject:@"你微笑过的地方"];
-    [mData addObject:@"便是最美的风景"];
-    [mData addObject:@"唯我独不敬亭"];
-    [mData addObject:@"嗨，你还在那里吗"];
-    [mData addObject:@"愿风带着我的思念来到你的窗前"];
+    [mData addObject:@"长沙第一次岳麓活动"];
+    [mData addObject:@"亲子军营模拟活动"];
+    [mData addObject:@"第一届读书交流会"];
+    [mData addObject:@"第五届高校马拉松比赛"];
+    [mData addObject:@"2016年度百里毅行活动"];
     //指定封面
     mImg=[[NSMutableArray alloc]init];
-    [mImg addObject:@"1.jpg"];
-    [mImg addObject:@"2.jpg"];
-    [mImg addObject:@"3.jpg"];
-    [mImg addObject:@"4.jpg"];
-    [mImg addObject:@"5.jpg"];
-    
+    [mImg addObject:@"a1.png"];
+    [mImg addObject:@"a2.jpg"];
+    [mImg addObject:@"a3.jpg"];
+    [mImg addObject:@"a4.jpg"];
+    [mImg addObject:@"a5.jpg"];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -79,15 +78,15 @@
     NSString *t1=[mData objectAtIndex:indexPath.row];
     
 //    cell.UILabelTitle.text=t1;
-    cell.UILabelTitle.text=@"长沙第一次岳麓活动";
+    cell.UILabelTitle.text=[mData objectAtIndex:indexPath.row];
     cell.UILabelDate.text=@"2016-12-27";
-//    cell.UIImgCover.image=[UIImage imageNamed:[mImg objectAtIndex:indexPath.row]];
+    cell.UIImgCover.image=[UIImage imageNamed:[mImg objectAtIndex:indexPath.row]];
     //
     //    加载图片,如果加载不到图片，就显示favorites.png
-    [cell.UIImgCover sd_setImageWithURL:@"http://img05.tooopen.com/images/20150202/sy_80219211654.jpg" placeholderImage:[UIImage imageNamed:@"favorites.png"]];
-    
-    // Configure the cell...
-    
+//    [cell.UIImgCover sd_setImageWithURL:[mImg objectAtIndex:indexPath.row] placeholderImage:[UIImage imageNamed:@"favorites.png"]];
+//
+//    // Configure the cell...
+//    
     return cell;
 }
 
