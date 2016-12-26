@@ -56,7 +56,7 @@
     
     cell.textLabel.text = [mDataNotification objectAtIndex:indexPath.row];
     cell.imageView.image=[UIImage imageNamed:@"notice1.png"];
-//    cell.detailTextLabel.text=@"2017/12/21";
+    cell.detailTextLabel.text=nil;
     return cell;
     
 }

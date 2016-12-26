@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface EntranceViewController : UIViewController
-@property (weak, nonatomic) IBOutlet UIImageView *UIImageViewAvatar;
+//@property (weak, nonatomic) IBOutlet UIImageView *UIImageViewAvatar;
+@property (weak, nonatomic) IBOutlet UIButton *UIButtonLogin;
+@property (weak, nonatomic) IBOutlet UIButton *UIButtonActive;
 
 @end

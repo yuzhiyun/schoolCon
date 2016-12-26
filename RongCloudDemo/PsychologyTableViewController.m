@@ -25,11 +25,11 @@
     
     //指定大标题
     mData=[[NSMutableArray alloc]init];
-    [mData addObject:@"你微笑过的地方"];
-    [mData addObject:@"便是最美的风景"];
-    [mData addObject:@"唯我独不敬亭"];
-    [mData addObject:@"嗨，你还在那里吗"];
-    [mData addObject:@"愿风带着我的思念来到你的窗前"];
+    [mData addObject:@"MBTI职业性格测试"];
+    [mData addObject:@"霍兰德职业倾向测试"];
+    [mData addObject:@"MBTI职业性格测试"];
+    [mData addObject:@"MBTI职业性格测试"];
+    [mData addObject:@"MBTI职业性格测试"];
     //指定封面
     mImg=[[NSMutableArray alloc]init];
     [mImg addObject:@"1.jpg"];

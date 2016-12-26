@@ -17,9 +17,21 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    //    隐藏返回按钮navigationController的navigationBar
+        self.navigationController.navigationBarHidden=YES;
+    [self.UIButtonLogin.layer setMasksToBounds:YES];
+    [self.UIButtonActive.layer setMasksToBounds:YES];
+    
+    [self.UIButtonLogin.layer setCornerRadius:4.0]; //设置圆角，数学不好，数值越小越不明显，自己找一个合适的值
+    [self.UIButtonActive.layer setCornerRadius:4.0];
+    
+    [self.UIButtonLogin.layer setBorderWidth:0.5];//设置边框的宽度
+    
+    [self.UIButtonLogin.layer setBorderColor:[[UIColor colorWithRed:3/255.0 green:121/255.0 blue:251/255.0 alpha:1.0] CGColor]];//设置颜色
     //    头像圆形
-    self.UIImageViewAvatar.layer.masksToBounds = YES;
-    self.UIImageViewAvatar.layer.cornerRadius = self.UIImageViewAvatar.frame.size.height / 2 ;
+//    self.UIImageViewAvatar.layer.masksToBounds = YES;
+//    self.UIImageViewAvatar.layer.cornerRadius = self.UIImageViewAvatar.frame.size.height / 2 ;
     
     // Do any additional setup after loading the view.
     
