@@ -20,6 +20,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     mDataNotification=[[NSMutableArray alloc]init];
     [mDataNotification addObject:@"明天开运动会"];
     [mDataNotification addObject:@"由于下大雪，今晚不用上课"];

@@ -63,8 +63,6 @@
 - (IBAction)btnEnterAllNotifications:(id)sender {
     //根据storyboard id来获取目标页面
     NotificationTableViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"NotificationTableViewController"];
-    
-    
 //    传值
     //UITabBarController和的UINavigationController结合使用,进入新的页面的时候，隐藏主页tabbarController的底部栏
     nextPage.hidesBottomBarWhenPushed=YES;

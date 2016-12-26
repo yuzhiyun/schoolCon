@@ -139,6 +139,8 @@
 		CD3CF6A21E0D6788003599F5 /* TeacherNotUseCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD3CF6A11E0D6788003599F5 /* TeacherNotUseCollectionViewController.m */; };
 		CD3CF6A61E0E176C003599F5 /* rank2.png in Resources */ = {isa = PBXBuildFile; fileRef = CD3CF6A51E0E176C003599F5 /* rank2.png */; };
 		CDE5AEB21E1009670059D310 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDE5AEB11E1009670059D310 /* MainViewController.m */; };
+		CDE5AEB61E1014F70059D310 /* ChooseSchoolTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDE5AEB51E1014F70059D310 /* ChooseSchoolTableViewController.m */; };
+		CDE5AEBA1E1101F60059D310 /* EntranceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDE5AEB91E1101F60059D310 /* EntranceViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -353,6 +355,10 @@
 		CD3CF6A51E0E176C003599F5 /* rank2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rank2.png; sourceTree = "<group>"; };
 		CDE5AEB01E1009670059D310 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		CDE5AEB11E1009670059D310 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		CDE5AEB41E1014F70059D310 /* ChooseSchoolTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChooseSchoolTableViewController.h; sourceTree = "<group>"; };
+		CDE5AEB51E1014F70059D310 /* ChooseSchoolTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChooseSchoolTableViewController.m; sourceTree = "<group>"; };
+		CDE5AEB81E1101F60059D310 /* EntranceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntranceViewController.h; sourceTree = "<group>"; };
+		CDE5AEB91E1101F60059D310 /* EntranceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntranceViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -512,6 +518,8 @@
 		CD112A7B1E0E9990004519B9 /* login */ = {
 			isa = PBXGroup;
 			children = (
+				CDE5AEB71E1101A50059D310 /* entrance */,
+				CDE5AEB31E1014D70059D310 /* chooseSchool */,
 				CD112A7C1E0E99AD004519B9 /* LoginViewController.h */,
 				CD112A7D1E0E99AD004519B9 /* LoginViewController.m */,
 			);
@@ -939,6 +947,24 @@
 			name = main;
 			sourceTree = "<group>";
 		};
+		CDE5AEB31E1014D70059D310 /* chooseSchool */ = {
+			isa = PBXGroup;
+			children = (
+				CDE5AEB41E1014F70059D310 /* ChooseSchoolTableViewController.h */,
+				CDE5AEB51E1014F70059D310 /* ChooseSchoolTableViewController.m */,
+			);
+			name = chooseSchool;
+			sourceTree = "<group>";
+		};
+		CDE5AEB71E1101A50059D310 /* entrance */ = {
+			isa = PBXGroup;
+			children = (
+				CDE5AEB81E1101F60059D310 /* EntranceViewController.h */,
+				CDE5AEB91E1101F60059D310 /* EntranceViewController.m */,
+			);
+			name = entrance;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1097,6 +1123,7 @@
 				CD2DCC7B1E09305D000C03E1 /* FLAnimatedImageView+WebCache.m in Sources */,
 				CD2DCC7C1E09305D000C03E1 /* MKAnnotationView+WebCache.m in Sources */,
 				4698CBA81AE22FCA0006330E /* ConnectRongyunViewController.m in Sources */,
+				CDE5AEBA1E1101F60059D310 /* EntranceViewController.m in Sources */,
 				CD2DCBFB1E052BB8000C03E1 /* WMScrollView.m in Sources */,
 				CD2DCC211E0565D7000C03E1 /* LinkmanTableViewCell.m in Sources */,
 				CD2DCC0E1E0537C3000C03E1 /* Vp1TableViewCell.m in Sources */,
@@ -1142,6 +1169,7 @@
 				CD2DCC7D1E09305D000C03E1 /* NSData+ImageContentType.m in Sources */,
 				CD2DCC441E066F58000C03E1 /* PsychologyTableViewController.m in Sources */,
 				CD2DCB641E02DF4A000C03E1 /* NotificationTableViewController.m in Sources */,
+				CDE5AEB61E1014F70059D310 /* ChooseSchoolTableViewController.m in Sources */,
 				CD2DCBF81E052BB8000C03E1 /* WMMenuItem.m in Sources */,
 				CD2DCCAF1E0A6FF9000C03E1 /* QueryGradeTableViewController.m in Sources */,
 				CD2DCC391E066137000C03E1 /* DetailYuluViewController.m in Sources */,
