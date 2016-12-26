@@ -31,11 +31,12 @@
     
     //指定大标题
     mData=[[NSMutableArray alloc]init];
-    [mData addObject:[NSString stringWithFormat:@"当前页面%d, 你是最美的",pageController.selectIndex]];
-    [mData addObject:@"便是最美的风景"];
-    [mData addObject:@"唯我独不敬亭"];
-    [mData addObject:@"嗨，你还在那里吗"];
-    [mData addObject:@"愿风带着我的思念来到你的窗前"];
+//    [mData addObject:[NSString stringWithFormat:@"当前页面%d, 你是最美的",pageController.selectIndex]];
+    [mData addObject:@"心灵的憩息之地"];
+    [mData addObject:@"优雅，是一种岁月"];
+    [mData addObject:@"科学家证实：“3岁看大”确有科学依据"];
+    [mData addObject:@"人生处世心态好，看淡尘世品行高"];
+    [mData addObject:@"人生十二最"];
     //指定封面
     mImg=[[NSMutableArray alloc]init];
     [mImg addObject:@"1.jpg"];
@@ -43,6 +44,14 @@
     [mImg addObject:@"3.jpg"];
     [mImg addObject:@"4.jpg"];
     [mImg addObject:@"5.jpg"];
+    
+    //指定作者
+    mDataAuthor=[[NSMutableArray alloc]init];
+    [mDataAuthor addObject:@"余秋雨"];
+    [mDataAuthor addObject:@"老舍"];
+    [mDataAuthor addObject:@"张凯景"];
+    [mDataAuthor addObject:@"李非"];
+    [mDataAuthor addObject:@"张晓静"];
 
 }
 
@@ -73,12 +82,15 @@
 //    int a=[myDelegate.onlineReadinngTitle count];
 //    NSLog(@"title的大小为**************%i",a);
     
-    
-    cell.UILabelTitle.text=@"科学家证实：“3岁看大”确有科学依据";
+        cell.UILabelTitle.text=t1;
     cell.UILabelTitle.numberOfLines=2;
+    
     cell.UILabelDate.text=@"2016-12-27";
-//    cell.UIImgCover.image=[UIImage imageNamed:[mImg objectAtIndex:indexPath.row]];
-    cell.UIImgCover.image=[UIImage imageNamed:@"study.jpg"];
+    
+    cell.UILabelAuthor.text=[mDataAuthor objectAtIndex:indexPath.row];
+
+    cell.UIImgCover.image=[UIImage imageNamed:[mImg objectAtIndex:indexPath.row]];
+//    cell.UIImgCover.image=[UIImage imageNamed:@"study.jpg"];
     
     
     // Configure the cell...
@@ -92,7 +104,6 @@
     
     //根据storyboard id来获取目标页面
     ArticleDetailViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"ArticleDetailViewController"];
-    
     
     //    传值
     nextPage->pubString=[mData objectAtIndex:indexPath.row];

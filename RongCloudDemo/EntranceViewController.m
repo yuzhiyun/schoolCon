@@ -18,8 +18,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+//    修改下一个界面返回按钮的title，注意这行代码每个页面都要写一遍，不是全局的
+    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:nil action:nil];
+    
     //    隐藏返回按钮navigationController的navigationBar
-        self.navigationController.navigationBarHidden=YES;
+    self.navigationController.navigationBarHidden=YES;
+    
+
+//    按钮设置边框
     [self.UIButtonLogin.layer setMasksToBounds:YES];
     [self.UIButtonActive.layer setMasksToBounds:YES];
     
@@ -30,8 +36,8 @@
     
     [self.UIButtonLogin.layer setBorderColor:[[UIColor colorWithRed:3/255.0 green:121/255.0 blue:251/255.0 alpha:1.0] CGColor]];//设置颜色
     //    头像圆形
-//    self.UIImageViewAvatar.layer.masksToBounds = YES;
-//    self.UIImageViewAvatar.layer.cornerRadius = self.UIImageViewAvatar.frame.size.height / 2 ;
+    //    self.UIImageViewAvatar.layer.masksToBounds = YES;
+    //    self.UIImageViewAvatar.layer.cornerRadius = self.UIImageViewAvatar.frame.size.height / 2 ;
     
     // Do any additional setup after loading the view.
     
@@ -41,6 +47,8 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
+    
+    
     // Dispose of any resources that can be recreated.
 }
 
@@ -49,7 +57,7 @@
     ChooseSchoolTableViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"ChooseSchoolTableViewController"];
     //    传值
     //UITabBarController和的UINavigationController结合使用,进入新的页面的时候，隐藏主页tabbarController的底部栏
-//    nextPage.hidesBottomBarWhenPushed=YES;
+    //    nextPage.hidesBottomBarWhenPushed=YES;
     //跳转
     [self.navigationController pushViewController:nextPage animated:YES];
     
@@ -58,6 +66,11 @@
 - (IBAction)active:(id)sender {
     
     
+}
+//虽然viewDidLoad已经设置了隐藏，但是在进入下一个页面并返回此页面的时候，还是会出现，所以在这里再次隐藏
+-(void) viewDidAppear:(BOOL)animated{
+    //    隐藏返回按钮navigationController的navigationBar
+    self.navigationController.navigationBarHidden=YES;
 }
 
 @end

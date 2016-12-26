@@ -20,7 +20,17 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title=@"选择学校";
+    //    navigationBar背景颜色
+    [self.navigationController.navigationBar setBarTintColor:[UIColor colorWithRed:3/255.0 green:121/255.0 blue:251/255.0 alpha:1.0]];
+    //      navigationBar标题颜色
+    [self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor],UITextAttributeTextColor,nil]];
     
+//    返回箭头和文字的颜色，只要写一次就行了，是全局的
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+    //    修改下一个界面返回按钮的title，注意这行代码每个页面都要写一遍，不是全局的
+    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:nil action:nil];
+
     
     //    显示返回按钮navigationController的navigationBar
     self.navigationController.navigationBarHidden=NO;

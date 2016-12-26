@@ -23,9 +23,9 @@
     NSMutableArray *title=[[NSMutableArray alloc]init];
      [title addObject:@"读文说史"];
     [title addObject:@"教育智慧"];
-    [title addObject:@"分类3"];
-    [title addObject:@"分类4"];
-    [title addObject:@"分类5"];
+    [title addObject:@"人生感悟"];
+//    [title addObject:@"分类4"];
+//    [title addObject:@"分类5"];
 
     if(self) {
         self.menuHeight = 35;

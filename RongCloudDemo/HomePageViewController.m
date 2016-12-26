@@ -39,15 +39,16 @@
     [self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor],UITextAttributeTextColor,nil]];
 
     //    返回按钮文字、颜色 、大小
-    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:@"<返回" style:UIBarButtonItemStylePlain target:self action:nil];
+    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:self action:nil];
     
     [item setTitleTextAttributes: [NSDictionary dictionaryWithObjectsAndKeys:[UIFont systemFontOfSize:17], UITextAttributeFont, [UIColor whiteColor], UITextAttributeTextColor, nil] forState:UIControlStateNormal];
     
     self.navigationItem.backBarButtonItem = item;
     recipes=[[NSMutableArray alloc]init];
-    [recipes addObject:@"由于下大雪，今晚不用上课"];
+    
     [recipes addObject:@"明天开运动会"];
     [recipes addObject:@"系统升级中，明早恢复"];
+    [recipes addObject:@"由于下大雪，今晚不用上课"];
 //    recipes = [NSArray arrayWithObjects:@"Egg Benedict",@"Ham and Cheese Panini","yuzhiyun",nil];
     // Do any additional setup after loading the view.
 }

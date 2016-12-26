@@ -18,5 +18,6 @@
 @property (weak, nonatomic) IBOutlet UIImageView *UIImgCover;
 @property (weak, nonatomic) IBOutlet UILabel *UILabelTitle;
 @property (weak, nonatomic) IBOutlet UILabel *UILabelDate;
+@property (weak, nonatomic) IBOutlet UILabel *UILabelAuthor;
 
 @end
