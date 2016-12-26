@@ -36,12 +36,12 @@
     self.navigationController.navigationBarHidden=NO;
     
     mDataNotification=[[NSMutableArray alloc]init];
-    [mDataNotification addObject:@"中南大学"];
-    [mDataNotification addObject:@"长沙理工大学"];
-    [mDataNotification addObject:@"湖南女子学院"];
-    [mDataNotification addObject:@"长沙大学"];
-    [mDataNotification addObject:@"湖南大学"];
-    [mDataNotification addObject:@"武汉大学"];
+    [mDataNotification addObject:@"长郡中学"];
+    [mDataNotification addObject:@"长沙第一中学"];
+    [mDataNotification addObject:@"长沙师大附中"];
+    [mDataNotification addObject:@"铁道小学"];
+    [mDataNotification addObject:@"湖南第一中学"];
+    [mDataNotification addObject:@"长沙市第一中学"];
 }
 
 - (void)didReceiveMemoryWarning {

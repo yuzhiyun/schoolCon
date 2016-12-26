@@ -20,9 +20,14 @@
     [super viewDidLoad];
     self.title=@"岳麓沙龙";
     
+    
+    
     [self.navigationController.navigationBar setBarTintColor:[UIColor colorWithRed:3/255.0 green:121/255.0 blue:251/255.0 alpha:1.0]];
     
     [self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor],UITextAttributeTextColor,nil]];
+
+    //    修改下一个界面返回按钮的title，注意这行代码每个页面都要写一遍，不是全局的
+    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:nil action:nil];
 
     
     //防止与顶部重叠

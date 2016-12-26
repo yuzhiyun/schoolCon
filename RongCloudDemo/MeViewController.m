@@ -34,8 +34,10 @@
     //    隐藏返回按钮navigationController的navigationBar
     self.navigationController.navigationBarHidden=YES;
     
-    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:nil action:nil];
-    self.navigationItem.backBarButtonItem = item;
+    //    返回箭头和文字的颜色，只要写一次就行了，是全局的
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+    //    修改下一个界面返回按钮的title，注意这行代码每个页面都要写一遍，不是全局的
+    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:nil action:nil];
     mDataKey=[[NSMutableArray alloc]init];
     
     [mDataKey addObject:@"修改电话"];

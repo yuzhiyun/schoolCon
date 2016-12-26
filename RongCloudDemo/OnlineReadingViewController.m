@@ -52,10 +52,10 @@
     
     [self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor],UITextAttributeTextColor,nil]];
 
-    // Do any additional setup after loading the view, typically from a nib.
-//    //返回按钮的文字设置为 返回，否则默认会显示上一个页面的title
-//    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:nil action:nil];
-//    self.navigationItem.backBarButtonItem = item;
+    //    返回箭头和文字的颜色，只要写一次就行了，是全局的
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+    //    修改下一个界面返回按钮的title，注意这行代码每个页面都要写一遍，不是全局的
+    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:nil action:nil];
 }
 
 #pragma mark 返回index对应的标题

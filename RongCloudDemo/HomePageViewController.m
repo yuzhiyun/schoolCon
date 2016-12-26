@@ -38,12 +38,11 @@
 //      navigationBar标题颜色
     [self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor],UITextAttributeTextColor,nil]];
 
-    //    返回按钮文字、颜色 、大小
-    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:self action:nil];
-    
-    [item setTitleTextAttributes: [NSDictionary dictionaryWithObjectsAndKeys:[UIFont systemFontOfSize:17], UITextAttributeFont, [UIColor whiteColor], UITextAttributeTextColor, nil] forState:UIControlStateNormal];
-    
-    self.navigationItem.backBarButtonItem = item;
+    //    返回箭头和文字的颜色，只要写一次就行了，是全局的
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+    //    修改下一个界面返回按钮的title，注意这行代码每个页面都要写一遍，不是全局的
+    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:nil action:nil];
+
     recipes=[[NSMutableArray alloc]init];
     
     [recipes addObject:@"明天开运动会"];

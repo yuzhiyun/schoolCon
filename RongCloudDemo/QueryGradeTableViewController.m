@@ -23,7 +23,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    self.title=@"请勾选测试类别";
+    
+    //    修改下一个界面返回按钮的title，注意这行代码每个页面都要写一遍，不是全局的
+    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:nil action:nil];
+
+    self.title=@"选择考试";
     mDataNotification=[[NSMutableArray alloc]init];
     
   
