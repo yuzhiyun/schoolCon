@@ -55,10 +55,9 @@
     }
     
     cell.textLabel.text = [mDataNotification objectAtIndex:indexPath.row];
-    cell.imageView.image=[UIImage imageNamed:@"notice1.png"];
+    cell.imageView.image=[UIImage imageNamed:@"school.png"];
     cell.detailTextLabel.text=nil;
     return cell;
-    
 }
 -(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     

@@ -19,9 +19,7 @@
     NSMutableArray *mDataUsername;
     //    NSMutableArray *mDataDate;
     NSMutableArray *mDataRemark;
-    
-    
-    
+    NSMutableArray *mDataAvatar;
 }
 
 - (void)viewDidLoad {
@@ -40,6 +38,13 @@
     [mDataRemark addObject:@"小萌的妈妈"];
     [mDataRemark addObject:@"晓茎的爸爸"];
     [mDataRemark addObject:@"小飞的爸爸"];
+    
+    mDataAvatar=[[NSMutableArray alloc]init];
+    [mDataAvatar addObject:@"1.jpg"];
+    [mDataAvatar addObject:@"2.jpg"];
+    [mDataAvatar addObject:@"3.jpg"];
+    [mDataAvatar addObject:@"4.jpg"];
+    [mDataAvatar addObject:@"5.jpg"];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -76,8 +81,9 @@
     
     cell.UILabelName.text = [mDataUsername objectAtIndex:indexPath.row];
     cell.UILabelRemark.text = [mDataRemark objectAtIndex:indexPath.row];
-    cell.UIImgAvatar.image=[UIImage imageNamed:@"avarta.jpg"];
-    
+    cell.UIImgAvatar.image=[UIImage imageNamed:[mDataAvatar objectAtIndex:indexPath.row]];
+    cell.UIImgAvatar.layer.masksToBounds = YES;
+    cell.UIImgAvatar.layer.cornerRadius = cell.UIImgAvatar.frame.size.height / 2 ;
     
     return cell;
 }
