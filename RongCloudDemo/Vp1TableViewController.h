@@ -16,7 +16,10 @@
     NSMutableArray *mImg;
     @public 
     NSMutableArray *title;
-
+    
+    @public NSInteger index;
+        
+    
 }
 
 @end

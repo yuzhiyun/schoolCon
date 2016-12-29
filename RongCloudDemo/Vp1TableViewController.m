@@ -24,8 +24,9 @@
       *
       *获取当前页面在WMPageController中的index，有一点bug,获取到的index不准确，再等等吧。
       */
-    WMPageController *pageController = (WMPageController *)self.parentViewController;
-    NSLog(@"WMPageController当前页面%d",pageController.selectIndex);
+//    WMPageController *pageController = (WMPageController *)self.parentViewController;
+//    NSLog(@"WMPageController当前页面%d",pageController.selectIndex);
+//        NSLog(@"WMPageController当前页面%d",pageController.selectIndex);
     //防止与顶部重叠
     self.tableView.contentInset=UIEdgeInsetsMake(20.0f, 0.0f, 0.0f, 0.0f);
     
@@ -85,7 +86,9 @@
         cell.UILabelTitle.text=t1;
     cell.UILabelTitle.numberOfLines=2;
     
-    cell.UILabelDate.text=@"2016-12-27";
+//    cell.UILabelDate.text=@"2016-12-27，页面index";
+    int a=index;
+    cell.UILabelDate.text=[NSString stringWithFormat:@"页索引=%d",a];
     
     cell.UILabelAuthor.text=[mDataAuthor objectAtIndex:indexPath.row];
 

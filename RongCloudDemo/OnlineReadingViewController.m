@@ -73,12 +73,10 @@
     
 
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    UIViewController *controller1 = [storyboard instantiateViewControllerWithIdentifier:@"vp1"]; //这里的identifer是我们之前设置的StoryboardID
-    
-
-    
+    Vp1TableViewController *controller1 = (Vp1TableViewController *)[storyboard instantiateViewControllerWithIdentifier:@"vp1"]; //这里的identifer是我们之前设置的StoryboardID
+    //index这个参数需要定义在Vp1TableViewController中，注意写在.h文件中，写在.m文件就访问不到，不知为什么，以后研究吧
+    controller1->index=index;
     return controller1;
-    
 }
 
 - (void)didReceiveMemoryWarning {
