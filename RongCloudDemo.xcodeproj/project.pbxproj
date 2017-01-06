@@ -151,6 +151,7 @@
 		CDE5AECC1E1147D30059D310 /* a3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CDE5AEC71E1147D30059D310 /* a3.jpg */; };
 		CDE5AECD1E1147D30059D310 /* a2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CDE5AEC81E1147D30059D310 /* a2.jpg */; };
 		CDE5AECE1E1147D30059D310 /* a1.png in Resources */ = {isa = PBXBuildFile; fileRef = CDE5AEC91E1147D30059D310 /* a1.png */; };
+		CDE5AED21E1FC2330059D310 /* EducationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDE5AED11E1FC2330059D310 /* EducationViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -379,6 +380,8 @@
 		CDE5AEC71E1147D30059D310 /* a3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = a3.jpg; sourceTree = "<group>"; };
 		CDE5AEC81E1147D30059D310 /* a2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = a2.jpg; sourceTree = "<group>"; };
 		CDE5AEC91E1147D30059D310 /* a1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = a1.png; sourceTree = "<group>"; };
+		CDE5AED01E1FC2330059D310 /* EducationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EducationViewController.h; sourceTree = SOURCE_ROOT; };
+		CDE5AED11E1FC2330059D310 /* EducationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EducationViewController.m; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -458,7 +461,7 @@
 				CD2DCB121E025B62000C03E1 /* online_learning */,
 				CD2DCB111E025B37000C03E1 /* contact */,
 				CD2DCB101E025B23000C03E1 /* home_page */,
-				CD2DCAFE1DFD9102000C03E1 /* yuelushalong */,
+				CD2DCAFE1DFD9102000C03E1 /* education */,
 				4698CBA31AE22FCA0006330E /* AppDelegate.h */,
 				4698CBA41AE22FCA0006330E /* AppDelegate.m */,
 				4698CBA91AE22FCA0006330E /* Main.storyboard */,
@@ -575,15 +578,16 @@
 			name = img;
 			sourceTree = "<group>";
 		};
-		CD2DCAFE1DFD9102000C03E1 /* yuelushalong */ = {
+		CD2DCAFE1DFD9102000C03E1 /* education */ = {
 			isa = PBXGroup;
 			children = (
+				CDE5AECF1E1FC2060059D310 /* main */,
 				CD2DCC361E066105000C03E1 /* cell */,
 				CD2DCB951E0506C5000C03E1 /* detailYuelushalong */,
 				CD2DCC331E065CE6000C03E1 /* ShalongTableViewController.h */,
 				CD2DCC341E065CE6000C03E1 /* ShalongTableViewController.m */,
 			);
-			name = yuelushalong;
+			name = education;
 			path = ../../IOSProjects/FrameForSchoolCon/FrameForSchoolCon;
 			sourceTree = "<group>";
 		};
@@ -995,6 +999,15 @@
 			name = entrance;
 			sourceTree = "<group>";
 		};
+		CDE5AECF1E1FC2060059D310 /* main */ = {
+			isa = PBXGroup;
+			children = (
+				CDE5AED01E1FC2330059D310 /* EducationViewController.h */,
+				CDE5AED11E1FC2330059D310 /* EducationViewController.m */,
+			);
+			name = main;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1044,7 +1057,7 @@
 				TargetAttributes = {
 					4698CB9B1AE22FCA0006330E = {
 						CreatedOnToolsVersion = 6.2;
-						DevelopmentTeam = F36KV5ER57;
+						DevelopmentTeam = 8TXX9HLM2Y;
 						ProvisioningStyle = Automatic;
 					};
 					4698CBB41AE22FCA0006330E = {
@@ -1157,6 +1170,7 @@
 				CD2DCC881E09305D000C03E1 /* UIImage+GIF.m in Sources */,
 				CD1A47981E0B925100B8EF35 /* PhysicalViewController.m in Sources */,
 				CD2DCB941E04ED7B000C03E1 /* DetailNotificationViewController.m in Sources */,
+				CDE5AED21E1FC2330059D310 /* EducationViewController.m in Sources */,
 				CD2DCC841E09305D000C03E1 /* SDWebImageDownloaderOperation.m in Sources */,
 				CD2DCC7E1E09305D000C03E1 /* NSImage+WebCache.m in Sources */,
 				CD2DCCB71E0A84CA000C03E1 /* OptionViewController.m in Sources */,
@@ -1346,7 +1360,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = F36KV5ER57;
+				DEVELOPMENT_TEAM = 8TXX9HLM2Y;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1362,7 +1376,7 @@
 					"$(PROJECT_DIR)/framework",
 				);
 				OTHER_LDFLAGS = "";
-				PRODUCT_BUNDLE_IDENTIFIER = com.dlz.RongCloudDemo12;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dlz.RongCloudDemo13;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -1372,7 +1386,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = F36KV5ER57;
+				DEVELOPMENT_TEAM = 8TXX9HLM2Y;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1388,7 +1402,7 @@
 					"$(PROJECT_DIR)/framework",
 				);
 				OTHER_LDFLAGS = "";
-				PRODUCT_BUNDLE_IDENTIFIER = com.dlz.RongCloudDemo12;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dlz.RongCloudDemo13;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

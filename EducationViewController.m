@@ -1,31 +1,31 @@
 //
-//  OnlineReadingViewController.m
+//  EducationViewController.m
 //  RongCloudDemo
 //
-//  Created by 秦启飞 on 2016/12/17.
-//  Copyright © 2016年 dlz. All rights reserved.
+//  Created by 秦启飞 on 2017/1/6.
+//  Copyright © 2017年 dlz. All rights reserved.
 //
 
-#import "OnlineReadingViewController.h"
-#import "ArticleDetailViewController.h"
+#import "EducationViewController.h"
 #import "Vp1TableViewController.h"
-#import "AppDelegate.h"
-#import "PsychologyTableViewController.h"
+
 #import "ShalongTableViewController.h"
-@interface OnlineReadingViewController ()
+
+@interface EducationViewController ()
 
 @end
 
-@implementation OnlineReadingViewController
+@implementation EducationViewController
+
 
 #pragma mark 初始化代码
 - (instancetype)initWithCoder:(NSCoder *)aDecoder {
     self = [super initWithCoder:aDecoder];
     
     NSMutableArray *title=[[NSMutableArray alloc]init];
-    [title addObject:@"测试"];
-    [title addObject:@"知识"];
-    [title addObject:@"活动"];
+    [title addObject:@"岳麓沙龙"];
+    [title addObject:@"在线学习"];
+    // [title addObject:@"活动"];
     //    [title addObject:@"分类4"];
     //    [title addObject:@"分类5"];
     
@@ -37,19 +37,13 @@
         self.titles=title;
         self.titleColorSelected = [UIColor colorWithRed:3/255.0 green:121/255.0 blue:251/255.0 alpha:1.0];
     }
-    /*
-     *传值,全局变量，但是其实根本不需要传，子页面无需知道自己页面的title，只要知道自己的index　就可以了
-     */
-    AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
-    myDelegate.onlineReadinngTitle=title;
     
     return self;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title=@"在线学习";
-    
+    self.title=@"教育天地";
     [self.navigationController.navigationBar setBarTintColor:[UIColor colorWithRed:3/255.0 green:121/255.0 blue:251/255.0 alpha:1.0]];
     
     [self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor],UITextAttributeTextColor,nil]];
@@ -76,21 +70,17 @@
     
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     
-    
-    PsychologyTableViewController *controller0 = (PsychologyTableViewController *)[storyboard instantiateViewControllerWithIdentifier:@"PsychologyTableViewController"];//这里的identifer是我们之前设置的StoryboardID
+    ShalongTableViewController *controller0 = (ShalongTableViewController *)[storyboard instantiateViewControllerWithIdentifier:@"ShalongTableViewController"];
     
     Vp1TableViewController *controller1 = (Vp1TableViewController *)[storyboard instantiateViewControllerWithIdentifier:@"vp1"];
-    ShalongTableViewController *controller2 = (ShalongTableViewController *)[storyboard instantiateViewControllerWithIdentifier:@"ShalongTableViewController"];
-    //index这个参数需要定义在Vp1TableViewController中，注意写在.h文件中，写在.m文件就访问不到，不知为什么，以后研究吧
-    controller1->index=index;
+    
     if(index==0)
         
         
         return controller0;
-    else if(index==1)
-        return controller1;
     else
-        return controller2;
+        return controller1;
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -99,3 +89,4 @@
 }
 
 @end
+

@@ -741,7 +741,7 @@
         <!--Shalong Table View Controller-->
         <scene sceneID="2OQ-O6-9Fo">
             <objects>
-                <tableViewController id="fVt-Fh-Dak" customClass="ShalongTableViewController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="ShalongTableViewController" id="fVt-Fh-Dak" customClass="ShalongTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="104" sectionHeaderHeight="28" sectionFooterHeight="28" id="B9R-tc-viF">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -825,7 +825,26 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6cL-pf-4bc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1852" y="1023.2383808095952"/>
+            <point key="canvasLocation" x="1945" y="1321"/>
+        </scene>
+        <!--Education View Controller-->
+        <scene sceneID="gek-cR-cBP">
+            <objects>
+                <viewController storyboardIdentifier="EducationViewController" id="Jhv-ea-01g" customClass="EducationViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="wyc-lM-j6o"/>
+                        <viewControllerLayoutGuide type="bottom" id="Hlm-5R-iCW"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="xdT-U2-bzQ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="fxV-im-7IZ"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="w49-CH-YhS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1945" y="555"/>
         </scene>
         <!--Detail Yuelu View Controller-->
         <scene sceneID="1EJ-3g-n3Q">
@@ -844,7 +863,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AAI-jq-b7C" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1961" y="1701"/>
+            <point key="canvasLocation" x="1852" y="1857"/>
         </scene>
         <!--Contact View Controller-->
         <scene sceneID="XHQ-uV-cSH">
@@ -863,7 +882,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6DH-M8-GKe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2753" y="1022"/>
+            <point key="canvasLocation" x="2825" y="555"/>
         </scene>
         <!--Message View Controller-->
         <scene sceneID="PwO-CV-2jz">
@@ -1565,10 +1584,10 @@
                     </tabBar>
                     <connections>
                         <segue destination="JeT-1i-hec" kind="relationship" relationship="viewControllers" id="Ivo-Rx-sot"/>
-                        <segue destination="EzN-9J-Foq" kind="relationship" relationship="viewControllers" id="Iaa-yb-U0U"/>
-                        <segue destination="7iO-1b-oOm" kind="relationship" relationship="viewControllers" id="pf8-50-JX4"/>
-                        <segue destination="eWY-IG-kwp" kind="relationship" relationship="viewControllers" id="gHG-IO-TKs"/>
-                        <segue destination="AWL-cY-jFM" kind="relationship" relationship="viewControllers" id="uTq-1p-VS7"/>
+                        <segue destination="0wT-o4-7qk" kind="relationship" relationship="viewControllers" id="XUg-LI-nPm"/>
+                        <segue destination="7iO-1b-oOm" kind="relationship" relationship="viewControllers" id="rVd-Z3-rxY"/>
+                        <segue destination="eWY-IG-kwp" kind="relationship" relationship="viewControllers" id="dRr-36-0dI"/>
+                        <segue destination="AWL-cY-jFM" kind="relationship" relationship="viewControllers" id="2Zy-fC-x72"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SgT-Ym-CEw" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1592,13 +1611,13 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fTP-7a-w7U" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2753" y="296"/>
+            <point key="canvasLocation" x="2825" y="296"/>
         </scene>
-        <!--在线学习-->
+        <!--心理专区-->
         <scene sceneID="xZx-3J-YxM">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="eWY-IG-kwp" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="在线学习" image="study.png" id="FJi-jZ-LL0"/>
+                    <tabBarItem key="tabBarItem" title="心理专区" image="study.png" id="FJi-jZ-LL0"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="2Xp-JV-Aj8">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -1611,7 +1630,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CqS-qE-SMh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3889" y="296"/>
+            <point key="canvasLocation" x="4828" y="295.50224887556226"/>
         </scene>
         <!--首页-->
         <scene sceneID="2sl-Un-lXG">
@@ -1633,25 +1652,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6NF-ug-bEp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1007" y="297"/>
-        </scene>
-        <!--岳麓沙龙-->
-        <scene sceneID="sSI-L6-h2r">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="EzN-9J-Foq" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="岳麓沙龙" image="coffee.png" id="ytp-aQ-RLY"/>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="As6-vk-DbV">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="fVt-Fh-Dak" kind="relationship" relationship="rootViewController" id="yxb-rw-Iyt"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="EgK-sE-NVn" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1852" y="298"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="xVf-hv-a8o">
@@ -1688,7 +1688,26 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zUq-LI-sRR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4840.8000000000002" y="296.40179910044981"/>
+            <point key="canvasLocation" x="5780" y="296.40179910044981"/>
+        </scene>
+        <!--教育天地-->
+        <scene sceneID="dXs-gp-vvF">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="0wT-o4-7qk" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="教育天地" image="study.png" id="Xaj-ZW-vc2"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="0Co-9F-HXC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Jhv-ea-01g" kind="relationship" relationship="rootViewController" id="PzZ-0f-HgQ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7eX-p1-DBj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1944.8" y="295.50224887556226"/>
         </scene>
     </scenes>
     <resources>
@@ -1699,7 +1718,6 @@
         <image name="broadcast1.jpg" width="191" height="92"/>
         <image name="chat.png" width="32" height="32"/>
         <image name="check_grade.png" width="64" height="64"/>
-        <image name="coffee.png" width="32" height="32"/>
         <image name="door.png" width="32" height="32"/>
         <image name="emotion_activity.png" width="64" height="64"/>
         <image name="emotion_test.png" width="64" height="64"/>

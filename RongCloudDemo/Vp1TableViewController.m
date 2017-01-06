@@ -88,8 +88,8 @@
     
 //    cell.UILabelDate.text=@"2016-12-27，页面index";
     int a=index;
-    cell.UILabelDate.text=[NSString stringWithFormat:@"页索引=%d",a];
-    
+    //cell.UILabelDate.text=[NSString stringWithFormat:@"页索引=%d",a];
+    cell.UILabelDate.text=@"2016-12-27";
     cell.UILabelAuthor.text=[mDataAuthor objectAtIndex:indexPath.row];
 
     cell.UIImgCover.image=[UIImage imageNamed:[mImg objectAtIndex:indexPath.row]];
