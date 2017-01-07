@@ -9,7 +9,8 @@
 #import "LoginViewController.h"
 #import "HomePageViewController.h"
 #import "MainViewController.h"
-
+#import "ChooseSchoolTableViewController.h"
+#import "ForgetPwdViewController.h"
 @interface LoginViewController ()
 
 @end
@@ -25,7 +26,6 @@
     
 //    隐藏返回按钮navigationController的navigationBar
 //    self.navigationController.navigationBarHidden=YES;
-    
 }
 
 
@@ -38,4 +38,28 @@
     nextPage.hidesBottomBarWhenPushed=YES;
     [self.navigationController pushViewController:nextPage animated:YES];
 }
+
+
+- (IBAction)forgetPwd:(id)sender {
+    ChooseSchoolTableViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"ChooseSchoolTableViewController"];
+    nextPage->index=3;
+    [self.navigationController pushViewController:nextPage animated:YES];
+}
+
+- (IBAction)active:(id)sender {
+    ChooseSchoolTableViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"ChooseSchoolTableViewController"];
+    nextPage->index=2;
+    [self.navigationController pushViewController:nextPage animated:YES];
+}
+
+
+
+
+
+
+
+
+
+
+
 @end

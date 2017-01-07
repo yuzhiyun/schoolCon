@@ -138,6 +138,11 @@
 		CD3CF69F1E0D000E003599F5 /* emotion_test.png in Resources */ = {isa = PBXBuildFile; fileRef = CD3CF69C1E0D000E003599F5 /* emotion_test.png */; };
 		CD3CF6A21E0D6788003599F5 /* TeacherNotUseCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD3CF6A11E0D6788003599F5 /* TeacherNotUseCollectionViewController.m */; };
 		CD3CF6A61E0E176C003599F5 /* rank2.png in Resources */ = {isa = PBXBuildFile; fileRef = CD3CF6A51E0E176C003599F5 /* rank2.png */; };
+		CDDE85371E20973800E5F03B /* ConsultTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDDE85361E20973800E5F03B /* ConsultTableViewController.m */; };
+		CDDE853B1E20B9C500E5F03B /* ActiveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDDE853A1E20B9C500E5F03B /* ActiveViewController.m */; };
+		CDDE853F1E20BA0200E5F03B /* ForgetPwdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDDE853E1E20BA0200E5F03B /* ForgetPwdViewController.m */; };
+		CDDE85431E20C49B00E5F03B /* SetPwdAfterActiveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDDE85421E20C49B00E5F03B /* SetPwdAfterActiveViewController.m */; };
+		CDDE85471E20C52800E5F03B /* SetNewPwdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDDE85461E20C52800E5F03B /* SetNewPwdViewController.m */; };
 		CDE5AEB21E1009670059D310 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDE5AEB11E1009670059D310 /* MainViewController.m */; };
 		CDE5AEB61E1014F70059D310 /* ChooseSchoolTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDE5AEB51E1014F70059D310 /* ChooseSchoolTableViewController.m */; };
 		CDE5AEBA1E1101F60059D310 /* EntranceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDE5AEB91E1101F60059D310 /* EntranceViewController.m */; };
@@ -152,6 +157,7 @@
 		CDE5AECD1E1147D30059D310 /* a2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CDE5AEC81E1147D30059D310 /* a2.jpg */; };
 		CDE5AECE1E1147D30059D310 /* a1.png in Resources */ = {isa = PBXBuildFile; fileRef = CDE5AEC91E1147D30059D310 /* a1.png */; };
 		CDE5AED21E1FC2330059D310 /* EducationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDE5AED11E1FC2330059D310 /* EducationViewController.m */; };
+		CDE5AED61E1FCC990059D310 /* ParentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDE5AED51E1FCC990059D310 /* ParentsViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -364,6 +370,16 @@
 		CD3CF6A01E0D6788003599F5 /* TeacherNotUseCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeacherNotUseCollectionViewController.h; sourceTree = "<group>"; };
 		CD3CF6A11E0D6788003599F5 /* TeacherNotUseCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeacherNotUseCollectionViewController.m; sourceTree = "<group>"; };
 		CD3CF6A51E0E176C003599F5 /* rank2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rank2.png; sourceTree = "<group>"; };
+		CDDE85351E20973800E5F03B /* ConsultTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConsultTableViewController.h; sourceTree = "<group>"; };
+		CDDE85361E20973800E5F03B /* ConsultTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConsultTableViewController.m; sourceTree = "<group>"; };
+		CDDE85391E20B9C500E5F03B /* ActiveViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActiveViewController.h; sourceTree = "<group>"; };
+		CDDE853A1E20B9C500E5F03B /* ActiveViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActiveViewController.m; sourceTree = "<group>"; };
+		CDDE853D1E20BA0200E5F03B /* ForgetPwdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForgetPwdViewController.h; sourceTree = "<group>"; };
+		CDDE853E1E20BA0200E5F03B /* ForgetPwdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForgetPwdViewController.m; sourceTree = "<group>"; };
+		CDDE85411E20C49B00E5F03B /* SetPwdAfterActiveViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetPwdAfterActiveViewController.h; sourceTree = "<group>"; };
+		CDDE85421E20C49B00E5F03B /* SetPwdAfterActiveViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetPwdAfterActiveViewController.m; sourceTree = "<group>"; };
+		CDDE85451E20C52800E5F03B /* SetNewPwdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetNewPwdViewController.h; sourceTree = "<group>"; };
+		CDDE85461E20C52800E5F03B /* SetNewPwdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetNewPwdViewController.m; sourceTree = "<group>"; };
 		CDE5AEB01E1009670059D310 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		CDE5AEB11E1009670059D310 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		CDE5AEB41E1014F70059D310 /* ChooseSchoolTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChooseSchoolTableViewController.h; sourceTree = "<group>"; };
@@ -382,6 +398,8 @@
 		CDE5AEC91E1147D30059D310 /* a1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = a1.png; sourceTree = "<group>"; };
 		CDE5AED01E1FC2330059D310 /* EducationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EducationViewController.h; sourceTree = SOURCE_ROOT; };
 		CDE5AED11E1FC2330059D310 /* EducationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EducationViewController.m; sourceTree = SOURCE_ROOT; };
+		CDE5AED41E1FCC990059D310 /* ParentsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParentsViewController.h; sourceTree = "<group>"; };
+		CDE5AED51E1FCC990059D310 /* ParentsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParentsViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -455,10 +473,10 @@
 				CDE5AEAC1E1008E50059D310 /* main */,
 				CD112A7B1E0E9990004519B9 /* login */,
 				CD2DCCAC1E0A6F86000C03E1 /* queryGrade */,
-				CD2DCC3A1E066ACA000C03E1 /* psychology */,
+				CD2DCC3A1E066ACA000C03E1 /* psychologyTest */,
 				CD2DCBE41E052BA1000C03E1 /* WMPageController  */,
 				CD2DCB131E025B7D000C03E1 /* me */,
-				CD2DCB121E025B62000C03E1 /* online_learning */,
+				CD2DCB121E025B62000C03E1 /* psychology */,
 				CD2DCB111E025B37000C03E1 /* contact */,
 				CD2DCB101E025B23000C03E1 /* home_page */,
 				CD2DCAFE1DFD9102000C03E1 /* education */,
@@ -541,6 +559,8 @@
 		CD112A7B1E0E9990004519B9 /* login */ = {
 			isa = PBXGroup;
 			children = (
+				CDDE853C1E20B9EC00E5F03B /* forgetPwd */,
+				CDDE85381E20B9A400E5F03B /* active */,
 				CDE5AEB71E1101A50059D310 /* entrance */,
 				CDE5AEB31E1014D70059D310 /* chooseSchool */,
 				CD112A7C1E0E99AD004519B9 /* LoginViewController.h */,
@@ -650,9 +670,10 @@
 			name = contact;
 			sourceTree = "<group>";
 		};
-		CD2DCB121E025B62000C03E1 /* online_learning */ = {
+		CD2DCB121E025B62000C03E1 /* psychology */ = {
 			isa = PBXGroup;
 			children = (
+				CDDE85341E20971700E5F03B /* consult */,
 				CD2DCC041E053648000C03E1 /* vp2_education_wisdom */,
 				CD2DCC031E053627000C03E1 /* vp1_reading_speaking */,
 				CD2DCB8A1E03E815000C03E1 /* commentCell */,
@@ -661,7 +682,7 @@
 				CD2DCB8E1E04E831000C03E1 /* OnlineReadingViewController.h */,
 				CD2DCB8F1E04E832000C03E1 /* OnlineReadingViewController.m */,
 			);
-			name = online_learning;
+			name = psychology;
 			sourceTree = "<group>";
 		};
 		CD2DCB131E025B7D000C03E1 /* me */ = {
@@ -821,7 +842,7 @@
 			name = cell;
 			sourceTree = "<group>";
 		};
-		CD2DCC3A1E066ACA000C03E1 /* psychology */ = {
+		CD2DCC3A1E066ACA000C03E1 /* psychologyTest */ = {
 			isa = PBXGroup;
 			children = (
 				CD2DCC9B1E0A2074000C03E1 /* test */,
@@ -831,7 +852,7 @@
 				CD1A47961E0B925100B8EF35 /* PhysicalViewController.h */,
 				CD1A47971E0B925100B8EF35 /* PhysicalViewController.m */,
 			);
-			name = psychology;
+			name = psychologyTest;
 			sourceTree = "<group>";
 		};
 		CD2DCC3E1E066D5C000C03E1 /* template */ = {
@@ -944,6 +965,7 @@
 		CD2DCCAC1E0A6F86000C03E1 /* queryGrade */ = {
 			isa = PBXGroup;
 			children = (
+				CDE5AED31E1FCC7C0059D310 /* parents */,
 				CD2DCCB01E0A728D000C03E1 /* teacher */,
 				CD2DCCAD1E0A6FF9000C03E1 /* QueryGradeTableViewController.h */,
 				CD2DCCAE1E0A6FF9000C03E1 /* QueryGradeTableViewController.m */,
@@ -970,6 +992,53 @@
 				CD2DCCB61E0A84CA000C03E1 /* OptionViewController.m */,
 			);
 			name = option;
+			sourceTree = "<group>";
+		};
+		CDDE85341E20971700E5F03B /* consult */ = {
+			isa = PBXGroup;
+			children = (
+				CDDE85351E20973800E5F03B /* ConsultTableViewController.h */,
+				CDDE85361E20973800E5F03B /* ConsultTableViewController.m */,
+			);
+			name = consult;
+			sourceTree = "<group>";
+		};
+		CDDE85381E20B9A400E5F03B /* active */ = {
+			isa = PBXGroup;
+			children = (
+				CDDE85401E20C47C00E5F03B /* setPwd */,
+				CDDE85391E20B9C500E5F03B /* ActiveViewController.h */,
+				CDDE853A1E20B9C500E5F03B /* ActiveViewController.m */,
+			);
+			name = active;
+			sourceTree = "<group>";
+		};
+		CDDE853C1E20B9EC00E5F03B /* forgetPwd */ = {
+			isa = PBXGroup;
+			children = (
+				CDDE85441E20C50300E5F03B /* setPwd */,
+				CDDE853D1E20BA0200E5F03B /* ForgetPwdViewController.h */,
+				CDDE853E1E20BA0200E5F03B /* ForgetPwdViewController.m */,
+			);
+			name = forgetPwd;
+			sourceTree = "<group>";
+		};
+		CDDE85401E20C47C00E5F03B /* setPwd */ = {
+			isa = PBXGroup;
+			children = (
+				CDDE85411E20C49B00E5F03B /* SetPwdAfterActiveViewController.h */,
+				CDDE85421E20C49B00E5F03B /* SetPwdAfterActiveViewController.m */,
+			);
+			name = setPwd;
+			sourceTree = "<group>";
+		};
+		CDDE85441E20C50300E5F03B /* setPwd */ = {
+			isa = PBXGroup;
+			children = (
+				CDDE85451E20C52800E5F03B /* SetNewPwdViewController.h */,
+				CDDE85461E20C52800E5F03B /* SetNewPwdViewController.m */,
+			);
+			name = setPwd;
 			sourceTree = "<group>";
 		};
 		CDE5AEAC1E1008E50059D310 /* main */ = {
@@ -1006,6 +1075,15 @@
 				CDE5AED11E1FC2330059D310 /* EducationViewController.m */,
 			);
 			name = main;
+			sourceTree = "<group>";
+		};
+		CDE5AED31E1FCC7C0059D310 /* parents */ = {
+			isa = PBXGroup;
+			children = (
+				CDE5AED41E1FCC990059D310 /* ParentsViewController.h */,
+				CDE5AED51E1FCC990059D310 /* ParentsViewController.m */,
+			);
+			name = parents;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1193,9 +1271,11 @@
 				CD2DCB891E03E7BE000C03E1 /* ArticleDetailViewController.m in Sources */,
 				CD3CF6A21E0D6788003599F5 /* TeacherNotUseCollectionViewController.m in Sources */,
 				CD2DCC8A1E09305D000C03E1 /* UIImage+WebP.m in Sources */,
+				CDDE85371E20973800E5F03B /* ConsultTableViewController.m in Sources */,
 				CD2DCC851E09305D000C03E1 /* SDWebImageManager.m in Sources */,
 				CD2DCC0A1E0536B6000C03E1 /* Vp2TableViewController.m in Sources */,
 				CD2DCC861E09305D000C03E1 /* SDWebImagePrefetcher.m in Sources */,
+				CDDE85471E20C52800E5F03B /* SetNewPwdViewController.m in Sources */,
 				CD112A7E1E0E99AD004519B9 /* LoginViewController.m in Sources */,
 				CD2DCB831E03CAB3000C03E1 /* MeViewController.m in Sources */,
 				CD2DCC9E1E0A2092000C03E1 /* TestViewController.m in Sources */,
@@ -1212,9 +1292,11 @@
 				CD2DCC8E1E09305D000C03E1 /* UIView+WebCacheOperation.m in Sources */,
 				CD2DCC821E09305D000C03E1 /* SDWebImageDecoder.m in Sources */,
 				CD2DCC8B1E09305D000C03E1 /* UIImageView+HighlightedWebCache.m in Sources */,
+				CDDE853F1E20BA0200E5F03B /* ForgetPwdViewController.m in Sources */,
 				CD2DCC2C1E0573EF000C03E1 /* GroupSendViewController.m in Sources */,
 				4698CBA21AE22FCA0006330E /* main.m in Sources */,
 				CD2DCC871E09305D000C03E1 /* UIButton+WebCache.m in Sources */,
+				CDDE853B1E20B9C500E5F03B /* ActiveViewController.m in Sources */,
 				CDE5AEB21E1009670059D310 /* MainViewController.m in Sources */,
 				CD2DCC8C1E09305D000C03E1 /* UIImageView+WebCache.m in Sources */,
 				CD2DCC4F1E067CD3000C03E1 /* PsychologyTableViewCell.m in Sources */,
@@ -1223,11 +1305,13 @@
 				CD2DCC7D1E09305D000C03E1 /* NSData+ImageContentType.m in Sources */,
 				CD2DCC441E066F58000C03E1 /* PsychologyTableViewController.m in Sources */,
 				CD2DCB641E02DF4A000C03E1 /* NotificationTableViewController.m in Sources */,
+				CDDE85431E20C49B00E5F03B /* SetPwdAfterActiveViewController.m in Sources */,
 				CDE5AEB61E1014F70059D310 /* ChooseSchoolTableViewController.m in Sources */,
 				CD2DCBF81E052BB8000C03E1 /* WMMenuItem.m in Sources */,
 				CD2DCCAF1E0A6FF9000C03E1 /* QueryGradeTableViewController.m in Sources */,
 				CD2DCC391E066137000C03E1 /* DetailYuluViewController.m in Sources */,
 				CD2DCC1C1E056587000C03E1 /* LinkmanTableViewController.m in Sources */,
+				CDE5AED61E1FCC990059D310 /* ParentsViewController.m in Sources */,
 				CD2DCC7F1E09305D000C03E1 /* SDImageCache.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

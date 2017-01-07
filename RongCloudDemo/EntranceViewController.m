@@ -47,15 +47,19 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    
-    
-    // Dispose of any resources that can be recreated.
 }
 
 - (IBAction)login:(id)sender {
+    
+    
     //根据storyboard id来获取目标页面
     ChooseSchoolTableViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"ChooseSchoolTableViewController"];
     //    传值
+    /**
+     *根据index判断选择学校之后是登录还是激活还是修改密码
+     */
+    nextPage->index=1;
+    
     //UITabBarController和的UINavigationController结合使用,进入新的页面的时候，隐藏主页tabbarController的底部栏
     //    nextPage.hidesBottomBarWhenPushed=YES;
     //跳转
@@ -64,8 +68,9 @@
 }
 
 - (IBAction)active:(id)sender {
-    
-    
+    ChooseSchoolTableViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"ChooseSchoolTableViewController"];
+    nextPage->index=2;
+    [self.navigationController pushViewController:nextPage animated:YES];
 }
 //虽然viewDidLoad已经设置了隐藏，但是在进入下一个页面并返回此页面的时候，还是会出现，所以在这里再次隐藏
 -(void) viewDidAppear:(BOOL)animated{

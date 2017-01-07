@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ChooseSchoolTableViewController : UITableViewController
+@interface ChooseSchoolTableViewController : UITableViewController{
+
+    @public NSInteger index;
+
+}
 
 @end

@@ -12,6 +12,7 @@
 #import "AppDelegate.h"
 #import "PsychologyTableViewController.h"
 #import "ShalongTableViewController.h"
+#import "ConsultTableViewController.h"
 @interface OnlineReadingViewController ()
 
 @end
@@ -26,9 +27,11 @@
     [title addObject:@"测试"];
     [title addObject:@"知识"];
     [title addObject:@"活动"];
+    [title addObject:@"咨询"];
+    
     //    [title addObject:@"分类4"];
     //    [title addObject:@"分类5"];
-    
+
     if(self) {
         self.menuHeight = 35;
         self.menuItemWidth = 100;
@@ -81,16 +84,21 @@
     
     Vp1TableViewController *controller1 = (Vp1TableViewController *)[storyboard instantiateViewControllerWithIdentifier:@"vp1"];
     ShalongTableViewController *controller2 = (ShalongTableViewController *)[storyboard instantiateViewControllerWithIdentifier:@"ShalongTableViewController"];
+    
+    
+    ConsultTableViewController *controller3 = (ConsultTableViewController *)[storyboard instantiateViewControllerWithIdentifier:@"ConsultTableViewController"];
+    
+
     //index这个参数需要定义在Vp1TableViewController中，注意写在.h文件中，写在.m文件就访问不到，不知为什么，以后研究吧
     controller1->index=index;
     if(index==0)
-        
-        
         return controller0;
     else if(index==1)
         return controller1;
-    else
+    else if(index==2)
         return controller2;
+    else
+        return controller3;
 }
 
 - (void)didReceiveMemoryWarning {

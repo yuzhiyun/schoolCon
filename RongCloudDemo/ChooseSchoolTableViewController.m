@@ -8,6 +8,8 @@
 
 #import "ChooseSchoolTableViewController.h"
 #import "LoginViewController.h"
+#import "ForgetPwdViewController.h"
+#import "ActiveViewController.h"
 @interface ChooseSchoolTableViewController ()
 
 @end
@@ -26,11 +28,11 @@
     //      navigationBar标题颜色
     [self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor],UITextAttributeTextColor,nil]];
     
-//    返回箭头和文字的颜色，只要写一次就行了，是全局的
+    //    返回箭头和文字的颜色，只要写一次就行了，是全局的
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     //    修改下一个界面返回按钮的title，注意这行代码每个页面都要写一遍，不是全局的
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:nil action:nil];
-
+    
     
     //    显示返回按钮navigationController的navigationBar
     self.navigationController.navigationBarHidden=NO;
@@ -70,11 +72,24 @@
     return cell;
 }
 -(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    //登录
+    if(1==self->index){
+        //根据storyboard id来获取目标页面
+        LoginViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
+        //跳转
+        [self.navigationController pushViewController:nextPage animated:YES];
+    }
+    //激活
+    else if(2==self->index){
+        ActiveViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"ActiveViewController"];
+        [self.navigationController pushViewController:nextPage animated:YES];
+    }
+    //忘记密码
+    else if(3==self->index){
+        ForgetPwdViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"ForgetPwdViewController"];
+        [self.navigationController pushViewController:nextPage animated:YES];
+    }
     
-    //根据storyboard id来获取目标页面
-    LoginViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
-    //跳转
-    [self.navigationController pushViewController:nextPage animated:YES];
 }
 
 @end
