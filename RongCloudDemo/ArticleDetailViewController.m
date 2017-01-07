@@ -24,6 +24,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title=pubString;
+    
+    //自定义导航左右按钮
+    UIBarButtonItem *rightButton = [[UIBarButtonItem alloc]initWithTitle:@"收藏" style:UIBarButtonItemStylePlain target:self action:@selector(rightBarButtonItemPressed:)];
+    
+    [rightButton setTitleTextAttributes: [NSDictionary dictionaryWithObjectsAndKeys:[UIFont systemFontOfSize:17], UITextAttributeFont, [UIColor whiteColor], UITextAttributeTextColor, nil] forState:UIControlStateNormal];
+    self.navigationItem.rightBarButtonItem=rightButton;
+
     /**
      * 显示网页
      */
@@ -47,6 +54,16 @@
     [mDataCommentContent addObject:@"文章说出了我的心里话"];
     
 
+}
+/**
+ *  重载右边导航按钮的事件
+ *
+ *  @param sender <#sender description#>
+ */
+-(void)rightBarButtonItemPressed:(id)sender
+{
+    
+    NSLog(@"收藏");
 }
 
 - (void)didReceiveMemoryWarning {
