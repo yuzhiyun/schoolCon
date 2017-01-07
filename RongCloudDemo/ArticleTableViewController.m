@@ -6,16 +6,16 @@
 //  Copyright © 2016年 dlz. All rights reserved.
 //
 
-#import "Vp1TableViewController.h"
+#import "ArticleTableViewController.h"
 #import "Vp1TableViewCell.h"
 #import "ArticleDetailViewController.h"
 #import "AppDelegate.h"
 #import "WMPageController.h"
-@interface Vp1TableViewController ()
+@interface ArticleTableViewController ()
 
 @end
 
-@implementation Vp1TableViewController
+@implementation ArticleTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

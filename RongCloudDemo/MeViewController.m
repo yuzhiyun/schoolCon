@@ -135,8 +135,15 @@
         
         
     }
+    //我的收藏
     
+   /* if(4==indexPath.row){
+        DetailNotificationViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"DetailNotificationViewController"];
+        [self.navigationController pushViewController:nextPage animated:YES];
+        
+    }
     
+    */
     
 }
 

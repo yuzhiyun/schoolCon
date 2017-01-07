@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface Vp1TableViewController : UITableViewController{
+@interface ArticleTableViewController : UITableViewController{
 
     
     NSMutableArray *mData;

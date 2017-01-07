@@ -7,7 +7,7 @@
 //
 
 #import "EducationViewController.h"
-#import "Vp1TableViewController.h"
+#import "ArticleTableViewController.h"
 
 #import "ShalongTableViewController.h"
 
@@ -72,7 +72,7 @@
     
     ShalongTableViewController *controller0 = (ShalongTableViewController *)[storyboard instantiateViewControllerWithIdentifier:@"ShalongTableViewController"];
     
-    Vp1TableViewController *controller1 = (Vp1TableViewController *)[storyboard instantiateViewControllerWithIdentifier:@"vp1"];
+    ArticleTableViewController *controller1 = (ArticleTableViewController *)[storyboard instantiateViewControllerWithIdentifier:@"ArticleTableViewController"];
     
     if(index==0)
         

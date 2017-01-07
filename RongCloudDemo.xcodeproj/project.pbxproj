@@ -76,7 +76,7 @@
 		CD2DCBFA1E052BB8000C03E1 /* WMProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = CD2DCBEB1E052BB8000C03E1 /* WMProgressView.m */; };
 		CD2DCBFB1E052BB8000C03E1 /* WMScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = CD2DCBED1E052BB8000C03E1 /* WMScrollView.m */; };
 		CD2DCC001E052BB8000C03E1 /* WMPageController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD2DCBF71E052BB8000C03E1 /* WMPageController.m */; };
-		CD2DCC071E0536A7000C03E1 /* Vp1TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD2DCC061E0536A7000C03E1 /* Vp1TableViewController.m */; };
+		CD2DCC071E0536A7000C03E1 /* ArticleTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD2DCC061E0536A7000C03E1 /* ArticleTableViewController.m */; };
 		CD2DCC0A1E0536B6000C03E1 /* Vp2TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD2DCC091E0536B6000C03E1 /* Vp2TableViewController.m */; };
 		CD2DCC0E1E0537C3000C03E1 /* Vp1TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CD2DCC0D1E0537C3000C03E1 /* Vp1TableViewCell.m */; };
 		CD2DCC121E054051000C03E1 /* Vp2TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CD2DCC111E054051000C03E1 /* Vp2TableViewCell.m */; };
@@ -264,8 +264,8 @@
 		CD2DCBED1E052BB8000C03E1 /* WMScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMScrollView.m; sourceTree = "<group>"; };
 		CD2DCBF61E052BB8000C03E1 /* WMPageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMPageController.h; sourceTree = "<group>"; };
 		CD2DCBF71E052BB8000C03E1 /* WMPageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMPageController.m; sourceTree = "<group>"; };
-		CD2DCC051E0536A7000C03E1 /* Vp1TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Vp1TableViewController.h; sourceTree = "<group>"; };
-		CD2DCC061E0536A7000C03E1 /* Vp1TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Vp1TableViewController.m; sourceTree = "<group>"; };
+		CD2DCC051E0536A7000C03E1 /* ArticleTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArticleTableViewController.h; sourceTree = "<group>"; };
+		CD2DCC061E0536A7000C03E1 /* ArticleTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArticleTableViewController.m; sourceTree = "<group>"; };
 		CD2DCC081E0536B6000C03E1 /* Vp2TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Vp2TableViewController.h; sourceTree = "<group>"; };
 		CD2DCC091E0536B6000C03E1 /* Vp2TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Vp2TableViewController.m; sourceTree = "<group>"; };
 		CD2DCC0C1E0537C3000C03E1 /* Vp1TableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Vp1TableViewCell.h; sourceTree = "<group>"; };
@@ -691,6 +691,7 @@
 		CD2DCB131E025B7D000C03E1 /* me */ = {
 			isa = PBXGroup;
 			children = (
+				CDDE85511E20E3BA00E5F03B /* myFavorite */,
 				CD2DCB811E03CAB3000C03E1 /* MeViewController.h */,
 				CD2DCB821E03CAB3000C03E1 /* MeViewController.m */,
 				CD2DCB841E03CC6C000C03E1 /* MeTableViewCell.h */,
@@ -756,8 +757,8 @@
 			isa = PBXGroup;
 			children = (
 				CD2DCC0B1E0537A2000C03E1 /* cell */,
-				CD2DCC051E0536A7000C03E1 /* Vp1TableViewController.h */,
-				CD2DCC061E0536A7000C03E1 /* Vp1TableViewController.m */,
+				CD2DCC051E0536A7000C03E1 /* ArticleTableViewController.h */,
+				CD2DCC061E0536A7000C03E1 /* ArticleTableViewController.m */,
 			);
 			name = vp1_reading_speaking;
 			sourceTree = "<group>";
@@ -1054,6 +1055,13 @@
 			name = join;
 			sourceTree = "<group>";
 		};
+		CDDE85511E20E3BA00E5F03B /* myFavorite */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = myFavorite;
+			sourceTree = "<group>";
+		};
 		CDE5AEAC1E1008E50059D310 /* main */ = {
 			isa = PBXGroup;
 			children = (
@@ -1294,7 +1302,7 @@
 				CD2DCB831E03CAB3000C03E1 /* MeViewController.m in Sources */,
 				CD2DCC9E1E0A2092000C03E1 /* TestViewController.m in Sources */,
 				CD2DCCA21E0A20D5000C03E1 /* TestTableViewCell.m in Sources */,
-				CD2DCC071E0536A7000C03E1 /* Vp1TableViewController.m in Sources */,
+				CD2DCC071E0536A7000C03E1 /* ArticleTableViewController.m in Sources */,
 				CD2DCC8D1E09305D000C03E1 /* UIView+WebCache.m in Sources */,
 				CD2DCB861E03CC6C000C03E1 /* MeTableViewCell.m in Sources */,
 				CD2DCB8D1E03E837000C03E1 /* CommentTableViewCell.m in Sources */,

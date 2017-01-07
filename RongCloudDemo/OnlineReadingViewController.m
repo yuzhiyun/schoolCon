@@ -8,7 +8,7 @@
 
 #import "OnlineReadingViewController.h"
 #import "ArticleDetailViewController.h"
-#import "Vp1TableViewController.h"
+#import "ArticleTableViewController.h"
 #import "AppDelegate.h"
 #import "PsychologyTableViewController.h"
 #import "ShalongTableViewController.h"
@@ -82,7 +82,7 @@
     
     PsychologyTableViewController *controller0 = (PsychologyTableViewController *)[storyboard instantiateViewControllerWithIdentifier:@"PsychologyTableViewController"];//这里的identifer是我们之前设置的StoryboardID
     
-    Vp1TableViewController *controller1 = (Vp1TableViewController *)[storyboard instantiateViewControllerWithIdentifier:@"vp1"];
+    ArticleTableViewController *controller1 = (ArticleTableViewController *)[storyboard instantiateViewControllerWithIdentifier:@"ArticleTableViewController"];
     ShalongTableViewController *controller2 = (ShalongTableViewController *)[storyboard instantiateViewControllerWithIdentifier:@"ShalongTableViewController"];
     
     
