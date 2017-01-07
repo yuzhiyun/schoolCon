@@ -15,6 +15,7 @@
     NSString *pubString;
     
 }
+@property (weak, nonatomic) IBOutlet UIWebView *UIWebViewActivity;
 
 
 @end

@@ -100,7 +100,7 @@
     
     
     //根据storyboard id来获取目标页面
-    DetailYuluViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"DetailYueluViewController"];
+    DetailYuluViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"DetailYuluViewController"];
     
     
     //    传值

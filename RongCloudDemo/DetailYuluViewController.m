@@ -19,6 +19,14 @@
     
     
     self.title=pubString;
+    /**
+     * 显示网页
+     */
+    NSString *url=@"http://mp.weixin.qq.com/s/m3y2dvyWLxHoFskyX5aWPQ";
+    NSURL *nsUrl=[NSURL URLWithString:url];
+    NSURLRequest *request=[NSURLRequest requestWithURL:nsUrl];
+    
+    [_UIWebViewActivity loadRequest:request];
     // Do any additional setup after loading the view.
 }
 
@@ -36,5 +44,8 @@
     // Pass the selected object to the new view controller.
 }
 */
+- (IBAction)join:(id)sender {
+    
+}
 
 @end
