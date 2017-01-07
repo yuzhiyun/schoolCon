@@ -7,7 +7,7 @@
 //
 
 #import "DetailYuluViewController.h"
-
+#import "JoinViewController.h"
 @interface DetailYuluViewController ()
 
 @end
@@ -45,6 +45,14 @@
 }
 */
 - (IBAction)join:(id)sender {
+    
+    //根据storyboard id来获取目标页面
+    JoinViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"JoinViewController"];
+
+    nextPage.hidesBottomBarWhenPushed=YES;
+    
+    //跳转
+    [self.navigationController pushViewController:nextPage animated:YES];
     
 }
 

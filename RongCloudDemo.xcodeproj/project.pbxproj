@@ -143,6 +143,7 @@
 		CDDE853F1E20BA0200E5F03B /* ForgetPwdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDDE853E1E20BA0200E5F03B /* ForgetPwdViewController.m */; };
 		CDDE85431E20C49B00E5F03B /* SetPwdAfterActiveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDDE85421E20C49B00E5F03B /* SetPwdAfterActiveViewController.m */; };
 		CDDE85471E20C52800E5F03B /* SetNewPwdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDDE85461E20C52800E5F03B /* SetNewPwdViewController.m */; };
+		CDDE85501E20E03700E5F03B /* JoinViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDDE854F1E20E03700E5F03B /* JoinViewController.m */; };
 		CDE5AEB21E1009670059D310 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDE5AEB11E1009670059D310 /* MainViewController.m */; };
 		CDE5AEB61E1014F70059D310 /* ChooseSchoolTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDE5AEB51E1014F70059D310 /* ChooseSchoolTableViewController.m */; };
 		CDE5AEBA1E1101F60059D310 /* EntranceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDE5AEB91E1101F60059D310 /* EntranceViewController.m */; };
@@ -380,6 +381,8 @@
 		CDDE85421E20C49B00E5F03B /* SetPwdAfterActiveViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetPwdAfterActiveViewController.m; sourceTree = "<group>"; };
 		CDDE85451E20C52800E5F03B /* SetNewPwdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetNewPwdViewController.h; sourceTree = "<group>"; };
 		CDDE85461E20C52800E5F03B /* SetNewPwdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetNewPwdViewController.m; sourceTree = "<group>"; };
+		CDDE854E1E20E03700E5F03B /* JoinViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JoinViewController.h; sourceTree = SOURCE_ROOT; };
+		CDDE854F1E20E03700E5F03B /* JoinViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JoinViewController.m; sourceTree = SOURCE_ROOT; };
 		CDE5AEB01E1009670059D310 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		CDE5AEB11E1009670059D310 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		CDE5AEB41E1014F70059D310 /* ChooseSchoolTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChooseSchoolTableViewController.h; sourceTree = "<group>"; };
@@ -717,6 +720,7 @@
 		CD2DCB951E0506C5000C03E1 /* detailYuelushalong */ = {
 			isa = PBXGroup;
 			children = (
+				CDDE854D1E20E02800E5F03B /* join */,
 				CD2DCC371E066137000C03E1 /* DetailYuluViewController.h */,
 				CD2DCC381E066137000C03E1 /* DetailYuluViewController.m */,
 			);
@@ -1041,6 +1045,15 @@
 			name = setPwd;
 			sourceTree = "<group>";
 		};
+		CDDE854D1E20E02800E5F03B /* join */ = {
+			isa = PBXGroup;
+			children = (
+				CDDE854E1E20E03700E5F03B /* JoinViewController.h */,
+				CDDE854F1E20E03700E5F03B /* JoinViewController.m */,
+			);
+			name = join;
+			sourceTree = "<group>";
+		};
 		CDE5AEAC1E1008E50059D310 /* main */ = {
 			isa = PBXGroup;
 			children = (
@@ -1242,6 +1255,7 @@
 			files = (
 				CD2DCC801E09305D000C03E1 /* SDImageCacheConfig.m in Sources */,
 				CD2DCC121E054051000C03E1 /* Vp2TableViewCell.m in Sources */,
+				CDDE85501E20E03700E5F03B /* JoinViewController.m in Sources */,
 				CD2DCBF91E052BB8000C03E1 /* WMMenuView.m in Sources */,
 				CD2DCC191E0553A8000C03E1 /* MessageViewController.m in Sources */,
 				CD2DCC321E065B98000C03E1 /* ShalongTableViewCell.m in Sources */,
