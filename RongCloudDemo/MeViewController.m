@@ -10,6 +10,7 @@
 #import "MeTableViewCell.h"
 #import "UIImageView+WebCache.h"
 #import "EntranceViewController.h"
+#import "ArticleTableViewController.h"
 @interface MeViewController (){
     
     NSMutableArray *mDataKey;
@@ -23,21 +24,24 @@
 
 @implementation MeViewController
 
-
-//-(void) touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
-//
-//}
 - (void)viewDidLoad {
     
     [super viewDidLoad];
+    self.title=@"我的收藏";
+    [self.navigationController.navigationBar setBarTintColor:[UIColor colorWithRed:3/255.0 green:121/255.0 blue:251/255.0 alpha:1.0]];
+    //      navigationBar标题颜色
+    [self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor],UITextAttributeTextColor,nil]];
     
+
     //    隐藏返回按钮navigationController的navigationBar
     self.navigationController.navigationBarHidden=YES;
+    
     
     //    返回箭头和文字的颜色，只要写一次就行了，是全局的
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     //    修改下一个界面返回按钮的title，注意这行代码每个页面都要写一遍，不是全局的
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:nil action:nil];
+    
     mDataKey=[[NSMutableArray alloc]init];
     
     [mDataKey addObject:@"修改电话"];
@@ -137,16 +141,23 @@
     }
     //我的收藏
     
-   /* if(4==indexPath.row){
-        DetailNotificationViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"DetailNotificationViewController"];
+    if(4==indexPath.row){
+        //显示顶部导航
+        self.navigationController.navigationBarHidden=NO;
+        ArticleTableViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"ArticleTableViewController"];
+        nextPage.hidesBottomBarWhenPushed=YES;
         [self.navigationController pushViewController:nextPage animated:YES];
         
     }
     
-    */
+    
     
 }
-
+//虽然viewDidLoad已经设置了隐藏，但是在进入下一个页面并返回此页面的时候，还是会出现，所以在这里再次隐藏
+-(void) viewDidAppear:(BOOL)animated{
+    //    隐藏返回按钮navigationController的navigationBar
+    self.navigationController.navigationBarHidden=YES;
+}
 
 
 @end
