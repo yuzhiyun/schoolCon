@@ -8,6 +8,7 @@
 
 #import "GroupSendViewController.h"
 #import "GroupSendTableViewCell.h"
+#import <RongIMKit/RongIMKit.h>
 @interface GroupSendViewController ()
 
 @end
@@ -114,12 +115,31 @@
 -(void)rightBarButtonItemPressed:(id)sender
 {
     
-    NSLog(@"点击确定");
+    NSLog(@"群发");
 //    //根据storyboard id来获取目标页面
 //    GroupSendViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"GroupSendViewController"];
 //    //UITabBarController和的UINavigationController结合使用,进入新的页面的时候，隐藏主页tabbarController的底部栏
 //    nextPage.hidesBottomBarWhenPushed=YES;
 //    //跳转
 //    [self.navigationController pushViewController:nextPage animated:YES];
+    int a=1;
+    int b=2;
+    
+    NSArray *userlist=[NSArray arrayWithObjects:@"1",@"321",nil];
+//    userlist addObject :1
+//    [self createDiscussion:@"班级讨论组" userIdList:userlist success:nil error:nil];
+    
+//    [[RCIM sharedRCIM] createDiscussion:]
+    
+    [[RCIMClient sharedRCIMClient] createDiscussion:@"班级讨论组" userIdList:userlist success:nil error:nil];
+    
 }
+//- (void)createDiscussion:(NSString *)name
+//              userIdList:(NSArray *)userIdList
+//                 success:(void (^)(RCDiscussion *discussion))successBlock
+//                   error:(void (^)(RCErrorCode status))errorBlock{
+////    NSLog(@)
+//    
+//    
+//}
 @end
