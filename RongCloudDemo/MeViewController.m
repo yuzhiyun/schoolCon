@@ -19,7 +19,7 @@
     NSMutableArray *mDataImg;
     
     
-    NSData *data;
+    NSData *selectedImgData;
     UIImage *image;
     //上传头像进度条，就是一个劲旋转的进度
     MBProgressHUD *hud;
@@ -143,6 +143,8 @@ didDismissWithButtonIndex:(NSInteger)buttonIndex {
 didFinishPickingMediaWithInfo:(NSDictionary *)info {
     [UIApplication sharedApplication].statusBarHidden = NO;
     
+    
+    NSLog(@"更换头像imagePickerController  info=%@",info);
     NSString *mediaType = [info objectForKey:UIImagePickerControllerMediaType];
     
     if ([mediaType isEqual:@"public.image"]) {
@@ -150,16 +152,16 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
         [info objectForKey:UIImagePickerControllerOriginalImage];
         
         UIImage *scaleImage = [self scaleImage:originImage toScale:0.8];
-        data = UIImageJPEGRepresentation(scaleImage, 0.00001);
+        selectedImgData = UIImageJPEGRepresentation(scaleImage, 0.00001);
     }
-    image = [UIImage imageWithData:data];
+    
+    image = [UIImage imageWithData:selectedImgData];
     [self dismissViewControllerAnimated:YES completion:nil];
     hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     //hud.color = [UIColor colorWithHexString:@"343637" alpha:0.5];
     hud.labelText = @"上传头像中...";
     [hud show:YES];
     /*
-    
     [RCDHTTPTOOL uploadImageToQiNiu:[RCIM sharedRCIM].currentUserInfo.userId
                           ImageData:data
                             success:^(NSString *url) {
