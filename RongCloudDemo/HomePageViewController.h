@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface HomePageViewController : UIViewController<UITableViewDelegate, UITableViewDataSource,UIActionSheetDelegate>
+#import "CycleScrollView.h"
+@interface HomePageViewController : UIViewController<UITableViewDelegate, UITableViewDataSource,UIActionSheetDelegate,CycleScrollViewDelegate,CycleScrollViewDatasource>
 
 @end

@@ -138,6 +138,11 @@
 		CD3CF69F1E0D000E003599F5 /* emotion_test.png in Resources */ = {isa = PBXBuildFile; fileRef = CD3CF69C1E0D000E003599F5 /* emotion_test.png */; };
 		CD3CF6A21E0D6788003599F5 /* TeacherNotUseCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD3CF6A11E0D6788003599F5 /* TeacherNotUseCollectionViewController.m */; };
 		CD3CF6A61E0E176C003599F5 /* rank2.png in Resources */ = {isa = PBXBuildFile; fileRef = CD3CF6A51E0E176C003599F5 /* rank2.png */; };
+		CD3F24661E2233630083293D /* CycleScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = CD3F24651E2233630083293D /* CycleScrollView.m */; };
+		CD3F246C1E22339C0083293D /* 4.png in Resources */ = {isa = PBXBuildFile; fileRef = CD3F24681E22339C0083293D /* 4.png */; };
+		CD3F246D1E22339C0083293D /* 3.png in Resources */ = {isa = PBXBuildFile; fileRef = CD3F24691E22339C0083293D /* 3.png */; };
+		CD3F246E1E22339C0083293D /* 2.png in Resources */ = {isa = PBXBuildFile; fileRef = CD3F246A1E22339C0083293D /* 2.png */; };
+		CD3F246F1E22339C0083293D /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = CD3F246B1E22339C0083293D /* 1.png */; };
 		CD4EE2541E2200E7001882F7 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = CD4EE2531E2200E7001882F7 /* MBProgressHUD.m */; };
 		CDDE85371E20973800E5F03B /* ConsultTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDDE85361E20973800E5F03B /* ConsultTableViewController.m */; };
 		CDDE853B1E20B9C500E5F03B /* ActiveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDDE853A1E20B9C500E5F03B /* ActiveViewController.m */; };
@@ -372,6 +377,12 @@
 		CD3CF6A01E0D6788003599F5 /* TeacherNotUseCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeacherNotUseCollectionViewController.h; sourceTree = "<group>"; };
 		CD3CF6A11E0D6788003599F5 /* TeacherNotUseCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeacherNotUseCollectionViewController.m; sourceTree = "<group>"; };
 		CD3CF6A51E0E176C003599F5 /* rank2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rank2.png; sourceTree = "<group>"; };
+		CD3F24641E2233630083293D /* CycleScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CycleScrollView.h; sourceTree = "<group>"; };
+		CD3F24651E2233630083293D /* CycleScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CycleScrollView.m; sourceTree = "<group>"; };
+		CD3F24681E22339C0083293D /* 4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 4.png; sourceTree = "<group>"; };
+		CD3F24691E22339C0083293D /* 3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 3.png; sourceTree = "<group>"; };
+		CD3F246A1E22339C0083293D /* 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2.png; sourceTree = "<group>"; };
+		CD3F246B1E22339C0083293D /* 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1.png; sourceTree = "<group>"; };
 		CD4EE2521E2200E7001882F7 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		CD4EE2531E2200E7001882F7 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		CDDE85351E20973800E5F03B /* ConsultTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConsultTableViewController.h; sourceTree = "<group>"; };
@@ -579,6 +590,7 @@
 		CD2DCAE81DFD9043000C03E1 /* img */ = {
 			isa = PBXGroup;
 			children = (
+				CD3F24671E2233930083293D /* rotate */,
 				CDE5AEC51E1147D30059D310 /* a5.jpg */,
 				CDE5AEC61E1147D30059D310 /* a4.jpg */,
 				CDE5AEC71E1147D30059D310 /* a3.jpg */,
@@ -654,6 +666,7 @@
 		CD2DCB101E025B23000C03E1 /* home_page */ = {
 			isa = PBXGroup;
 			children = (
+				CD3F24631E22331E0083293D /* RotateImg */,
 				CD2DCB911E04ED55000C03E1 /* detailNotification */,
 				CD2DCB621E02DF4A000C03E1 /* NotificationTableViewController.h */,
 				CD2DCB631E02DF4A000C03E1 /* NotificationTableViewController.m */,
@@ -1003,6 +1016,26 @@
 			name = option;
 			sourceTree = "<group>";
 		};
+		CD3F24631E22331E0083293D /* RotateImg */ = {
+			isa = PBXGroup;
+			children = (
+				CD3F24641E2233630083293D /* CycleScrollView.h */,
+				CD3F24651E2233630083293D /* CycleScrollView.m */,
+			);
+			name = RotateImg;
+			sourceTree = "<group>";
+		};
+		CD3F24671E2233930083293D /* rotate */ = {
+			isa = PBXGroup;
+			children = (
+				CD3F24681E22339C0083293D /* 4.png */,
+				CD3F24691E22339C0083293D /* 3.png */,
+				CD3F246A1E22339C0083293D /* 2.png */,
+				CD3F246B1E22339C0083293D /* 1.png */,
+			);
+			name = rotate;
+			sourceTree = "<group>";
+		};
 		CD4EE2501E2200A9001882F7 /* utility */ = {
 			isa = PBXGroup;
 			children = (
@@ -1230,6 +1263,7 @@
 				CD3CF68B1E0C1412003599F5 /* chat.png in Resources */,
 				CDE5AECA1E1147D30059D310 /* a5.jpg in Resources */,
 				CDE5AEC41E11324E0059D310 /* school.png in Resources */,
+				CD3F246D1E22339C0083293D /* 3.png in Resources */,
 				CD2DCB7E1E03C7E7000C03E1 /* contacts_us.png in Resources */,
 				CD2DCAF01DFD9051000C03E1 /* list.jpg in Resources */,
 				CD3CF69E1E0D000E003599F5 /* emotion_activity.png in Resources */,
@@ -1244,6 +1278,7 @@
 				461B27851B82DD7D00107001 /* Emoji.plist in Resources */,
 				CD1A479A1E0BFBB700B8EF35 /* notice1.png in Resources */,
 				CD3CF6991E0C1502003599F5 /* vip.png in Resources */,
+				CD3F246C1E22339C0083293D /* 4.png in Resources */,
 				CD112A781E0E4B02004519B9 /* study.jpg in Resources */,
 				CD3CF69D1E0D000E003599F5 /* check_grade.png in Resources */,
 				461B27861B82DD7D00107001 /* RongCloud.bundle in Resources */,
@@ -1260,9 +1295,11 @@
 				CD2DCAF21DFD9051000C03E1 /* 1.jpg in Resources */,
 				CD3CF69F1E0D000E003599F5 /* emotion_test.png in Resources */,
 				4698CBB01AE22FCA0006330E /* LaunchScreen.xib in Resources */,
+				CD3F246F1E22339C0083293D /* 1.png in Resources */,
 				CD2DCCAB1E0A4CD8000C03E1 /* selected2.png in Resources */,
 				4698CBAD1AE22FCA0006330E /* Images.xcassets in Resources */,
 				CD3CF6971E0C1502003599F5 /* notice.png in Resources */,
+				CD3F246E1E22339C0083293D /* 2.png in Resources */,
 				CDE5AEC21E1132330059D310 /* bg.jpg in Resources */,
 				CD112A7A1E0E969F004519B9 /* test.png in Resources */,
 			);
@@ -1288,6 +1325,7 @@
 				CD2DCBF91E052BB8000C03E1 /* WMMenuView.m in Sources */,
 				CD2DCC191E0553A8000C03E1 /* MessageViewController.m in Sources */,
 				CD2DCC321E065B98000C03E1 /* ShalongTableViewCell.m in Sources */,
+				CD3F24661E2233630083293D /* CycleScrollView.m in Sources */,
 				CD2DCC881E09305D000C03E1 /* UIImage+GIF.m in Sources */,
 				CD1A47981E0B925100B8EF35 /* PhysicalViewController.m in Sources */,
 				CD2DCB941E04ED7B000C03E1 /* DetailNotificationViewController.m in Sources */,

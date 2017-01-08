@@ -15,8 +15,13 @@
 //#import "DetailNotificationViewController.h"
 #import "TeacherViewController.h"
 #import "TeacherNotUseCollectionViewController.h"
-@interface HomePageViewController ()
 
+#import "CycleScrollView.h"
+@interface HomePageViewController ()
+//轮播图组件
+@property (nonatomic, strong) CycleScrollView *scrollView;
+//轮播图图片
+@property (nonatomic, strong) NSArray *imageArray;
 @end
 
 @implementation HomePageViewController{
@@ -42,6 +47,17 @@
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     //    修改下一个界面返回按钮的title，注意这行代码每个页面都要写一遍，不是全局的
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:nil action:nil];
+    
+    /**
+     *添加轮播图组件
+     */
+    _imageArray = @[@"1",@"2",@"3",@"4"];
+    _scrollView = [[CycleScrollView alloc]initWithFrame:CGRectMake(0, self.navigationController.navigationBar.bounds.size.height, [[UIScreen mainScreen]bounds].size.width , 220)];
+    _scrollView.delegate = self;
+    _scrollView.datasource = self;
+    _scrollView.animationDuration = 4;
+    [self.view addSubview:_scrollView];
+
 
     recipes=[[NSMutableArray alloc]init];
     
@@ -51,7 +67,23 @@
 //    recipes = [NSArray arrayWithObjects:@"Egg Benedict",@"Ham and Cheese Panini","yuzhiyun",nil];
     // Do any additional setup after loading the view.
 }
-
+//轮播图数量
+- (NSInteger)numberOfPages
+{
+    return _imageArray.count;
+}
+//指定具体图片
+- (UIView *)pageAtIndex:(NSInteger)index size:(CGSize)size
+{
+    UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, _scrollView.frame.size.width , _scrollView.frame.size.height)];
+    imageView.image = [UIImage imageNamed:_imageArray[index]];
+    return imageView;
+}
+//轮播图点击事件
+- (void)scrollView:(CycleScrollView *)scrollView didClickPage:(UIView *)view atIndex:(NSInteger)index
+{
+    NSLog(@"你点的是第%d个",(int)index + 1);
+}
 
 
 - (void)didReceiveMemoryWarning {
