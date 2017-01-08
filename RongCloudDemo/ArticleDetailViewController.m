@@ -38,6 +38,7 @@
     NSURL *nsUrl=[NSURL URLWithString:url];
     NSURLRequest *request=[NSURLRequest requestWithURL:nsUrl];
     
+    //这里也可以写_UIWebViewArticle，这样就不需要上面的@synthesize UIWebViewArticle;这行代码了
     [UIWebViewArticle loadRequest:request];
     mDataUsername=[[NSMutableArray alloc]init];
     [mDataUsername addObject:@"俞志云"];

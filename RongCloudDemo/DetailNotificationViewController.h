@@ -15,6 +15,7 @@
     NSString *pubString;
     
 }
+@property (weak, nonatomic) IBOutlet UIWebView *UIWebViewNotify;
 
 //@property (strong,nonatomic) NSString *mDetailString;
 @end

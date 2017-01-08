@@ -25,6 +25,9 @@
     NSString *url=@"http://mp.weixin.qq.com/s/m3y2dvyWLxHoFskyX5aWPQ";
     NSURL *nsUrl=[NSURL URLWithString:url];
     NSURLRequest *request=[NSURLRequest requestWithURL:nsUrl];
+    
+    
+    
     [_UIWebViewActivity loadRequest:request];
     
     
