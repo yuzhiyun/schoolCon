@@ -138,6 +138,7 @@
 		CD3CF69F1E0D000E003599F5 /* emotion_test.png in Resources */ = {isa = PBXBuildFile; fileRef = CD3CF69C1E0D000E003599F5 /* emotion_test.png */; };
 		CD3CF6A21E0D6788003599F5 /* TeacherNotUseCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD3CF6A11E0D6788003599F5 /* TeacherNotUseCollectionViewController.m */; };
 		CD3CF6A61E0E176C003599F5 /* rank2.png in Resources */ = {isa = PBXBuildFile; fileRef = CD3CF6A51E0E176C003599F5 /* rank2.png */; };
+		CD4EE2541E2200E7001882F7 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = CD4EE2531E2200E7001882F7 /* MBProgressHUD.m */; };
 		CDDE85371E20973800E5F03B /* ConsultTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDDE85361E20973800E5F03B /* ConsultTableViewController.m */; };
 		CDDE853B1E20B9C500E5F03B /* ActiveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDDE853A1E20B9C500E5F03B /* ActiveViewController.m */; };
 		CDDE853F1E20BA0200E5F03B /* ForgetPwdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDDE853E1E20BA0200E5F03B /* ForgetPwdViewController.m */; };
@@ -371,6 +372,8 @@
 		CD3CF6A01E0D6788003599F5 /* TeacherNotUseCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeacherNotUseCollectionViewController.h; sourceTree = "<group>"; };
 		CD3CF6A11E0D6788003599F5 /* TeacherNotUseCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeacherNotUseCollectionViewController.m; sourceTree = "<group>"; };
 		CD3CF6A51E0E176C003599F5 /* rank2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rank2.png; sourceTree = "<group>"; };
+		CD4EE2521E2200E7001882F7 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		CD4EE2531E2200E7001882F7 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		CDDE85351E20973800E5F03B /* ConsultTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConsultTableViewController.h; sourceTree = "<group>"; };
 		CDDE85361E20973800E5F03B /* ConsultTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConsultTableViewController.m; sourceTree = "<group>"; };
 		CDDE85391E20B9C500E5F03B /* ActiveViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActiveViewController.h; sourceTree = "<group>"; };
@@ -473,6 +476,7 @@
 		4698CB9E1AE22FCA0006330E /* RongCloudDemo */ = {
 			isa = PBXGroup;
 			children = (
+				CD4EE2501E2200A9001882F7 /* utility */,
 				CDE5AEAC1E1008E50059D310 /* main */,
 				CD112A7B1E0E9990004519B9 /* login */,
 				CD2DCCAC1E0A6F86000C03E1 /* queryGrade */,
@@ -999,6 +1003,23 @@
 			name = option;
 			sourceTree = "<group>";
 		};
+		CD4EE2501E2200A9001882F7 /* utility */ = {
+			isa = PBXGroup;
+			children = (
+				CD4EE2511E2200B4001882F7 /* MBProgressHUD */,
+			);
+			name = utility;
+			sourceTree = "<group>";
+		};
+		CD4EE2511E2200B4001882F7 /* MBProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				CD4EE2521E2200E7001882F7 /* MBProgressHUD.h */,
+				CD4EE2531E2200E7001882F7 /* MBProgressHUD.m */,
+			);
+			name = MBProgressHUD;
+			sourceTree = "<group>";
+		};
 		CDDE85341E20971700E5F03B /* consult */ = {
 			isa = PBXGroup;
 			children = (
@@ -1328,6 +1349,7 @@
 				CD2DCC441E066F58000C03E1 /* PsychologyTableViewController.m in Sources */,
 				CD2DCB641E02DF4A000C03E1 /* NotificationTableViewController.m in Sources */,
 				CDDE85431E20C49B00E5F03B /* SetPwdAfterActiveViewController.m in Sources */,
+				CD4EE2541E2200E7001882F7 /* MBProgressHUD.m in Sources */,
 				CDE5AEB61E1014F70059D310 /* ChooseSchoolTableViewController.m in Sources */,
 				CD2DCBF81E052BB8000C03E1 /* WMMenuItem.m in Sources */,
 				CD2DCCAF1E0A6FF9000C03E1 /* QueryGradeTableViewController.m in Sources */,

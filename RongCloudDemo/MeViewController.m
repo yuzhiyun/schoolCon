@@ -11,10 +11,18 @@
 #import "UIImageView+WebCache.h"
 #import "EntranceViewController.h"
 #import "ArticleTableViewController.h"
+#import "MBProgressHUD.h"
+#import <RongIMLib/RongIMLib.h>
 @interface MeViewController (){
     
     NSMutableArray *mDataKey;
     NSMutableArray *mDataImg;
+    
+    
+    NSData *data;
+    UIImage *image;
+    //上传头像进度条，就是一个劲旋转的进度
+    MBProgressHUD *hud;
     
 }
 @property (weak, nonatomic) IBOutlet UIImageView *UIImageViewAvatar;
@@ -75,7 +83,6 @@
     self.UIImageViewAvatar.layer.masksToBounds = YES;
     self.UIImageViewAvatar.layer.cornerRadius = self.UIImageViewAvatar.frame.size.height / 2 ;
     
-    
     //给图片添加点击事件更换图片
      self.UIImageViewAvatar.userInteractionEnabled = YES;//打开用户交互
     //初始化一个手势
@@ -83,13 +90,164 @@
     //为图片添加手势
     [ self.UIImageViewAvatar addGestureRecognizer:singleTap];
 }
-    //点击事件
+//头像点击事件
 -(void)singleTapAction:(UIGestureRecognizer *) s{
-    
-    
     NSLog(@"单击了头像");
-    
+    if([self dealWithNetworkStatus])
+       [self changePortrait];
 }
+
+- (void)changePortrait {
+    UIActionSheet *actionSheet =
+    [[UIActionSheet alloc] initWithTitle:nil
+                                delegate:self
+                       cancelButtonTitle:@"取消"
+                  destructiveButtonTitle:@"拍照"
+                       otherButtonTitles:@"我的相册", nil];
+    [actionSheet showInView:self.view];
+}
+
+/**
+ *actionSheet点击事件
+ */
+- (void)actionSheet:(UIActionSheet *)actionSheet
+didDismissWithButtonIndex:(NSInteger)buttonIndex {
+    
+    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+    picker.allowsEditing = YES;
+    picker.delegate = self;
+    
+    switch (buttonIndex) {
+        case 0:
+            if ([UIImagePickerController
+                 isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+                picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+            } else {
+                NSLog(@"模拟器无法连接相机");
+            }
+            [self presentViewController:picker animated:YES completion:nil];
+            break;
+        case 1:
+            picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+            [self presentViewController:picker animated:YES completion:nil];
+            break;
+            
+        default:
+            break;
+    }
+}
+/**
+ *这里是用户选中图片(照相后的使用图片或者图库中选中图片)时调用
+ */
+- (void)imagePickerController:(UIImagePickerController *)picker
+didFinishPickingMediaWithInfo:(NSDictionary *)info {
+    [UIApplication sharedApplication].statusBarHidden = NO;
+    
+    NSString *mediaType = [info objectForKey:UIImagePickerControllerMediaType];
+    
+    if ([mediaType isEqual:@"public.image"]) {
+        UIImage *originImage =
+        [info objectForKey:UIImagePickerControllerOriginalImage];
+        
+        UIImage *scaleImage = [self scaleImage:originImage toScale:0.8];
+        data = UIImageJPEGRepresentation(scaleImage, 0.00001);
+    }
+    image = [UIImage imageWithData:data];
+    [self dismissViewControllerAnimated:YES completion:nil];
+    hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    //hud.color = [UIColor colorWithHexString:@"343637" alpha:0.5];
+    hud.labelText = @"上传头像中...";
+    [hud show:YES];
+    /*
+    
+    [RCDHTTPTOOL uploadImageToQiNiu:[RCIM sharedRCIM].currentUserInfo.userId
+                          ImageData:data
+                            success:^(NSString *url) {
+                                [RCDHTTPTOOL
+                                 setUserPortraitUri:url
+                                 complete:^(BOOL result) {
+                                     if (result == YES) {
+                                         [RCIM sharedRCIM].currentUserInfo.portraitUri = url;
+                                         RCUserInfo *userInfo =
+                                         [RCIM sharedRCIM].currentUserInfo;
+                                         userInfo.portraitUri = url;
+                                         [DEFAULTS setObject:url forKey:@"userPortraitUri"];
+                                         [DEFAULTS synchronize];
+                                         [[RCIM sharedRCIM]
+                                          refreshUserInfoCache:userInfo
+                                          withUserId:[RCIM sharedRCIM]
+                                          .currentUserInfo.userId];
+                                         [[RCDataBaseManager shareInstance]
+                                          insertUserToDB:userInfo];
+                                         [[NSNotificationCenter defaultCenter]
+                                          postNotificationName:@"setCurrentUserPortrait"
+                                          object:image];
+                                         dispatch_async(dispatch_get_main_queue(), ^{
+                                             [self.tableView reloadData];
+                                             //关闭HUD
+                                             [hud hide:YES];
+                                         });
+                                     }
+                                     if (result == NO) {
+                                         //关闭HUD
+                                         [hud hide:YES];
+                                         UIAlertView *alert = [[UIAlertView alloc]
+                                                               initWithTitle:nil
+                                                               message:@"上传头像失败"
+                                                               delegate:self
+                                                               cancelButtonTitle:@"确定"
+                                                               otherButtonTitles:nil];
+                                         [alert show];
+                                     }
+                                 }];
+                                
+                            }
+                            failure:^(NSError *err) {
+                                //关闭HUD
+                                [hud hide:YES];
+                                UIAlertView *alert =
+                                [[UIAlertView alloc] initWithTitle:nil
+                                                           message:@"上传头像失败"
+                                                          delegate:self
+                                                 cancelButtonTitle:@"确定"
+                                                 otherButtonTitles:nil];
+                                [alert show];
+                            }];
+     
+     */
+}
+
+- (UIImage *)scaleImage:(UIImage *)tempImage toScale:(float)scaleSize {
+    UIGraphicsBeginImageContext(CGSizeMake(tempImage.size.width * scaleSize,
+                                           tempImage.size.height * scaleSize));
+    [tempImage drawInRect:CGRectMake(0, 0, tempImage.size.width * scaleSize,
+                                     tempImage.size.height * scaleSize)];
+    UIImage *scaledImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return scaledImage;
+}
+
+/**
+ *判断网络情况
+ */
+- (BOOL)dealWithNetworkStatus {
+    BOOL isconnected = NO;
+    RCNetworkStatus networkStatus = [[RCIMClient sharedRCIMClient] getCurrentNetworkStatus];
+    if (networkStatus == 0) {
+        UIAlertView *alert =
+        [[UIAlertView alloc] initWithTitle:nil
+                                   message:@"当前网络不可用，请检查你的网络设置"
+                                  delegate:nil
+                         cancelButtonTitle:@"确定"
+                         otherButtonTitles:nil];
+        [alert show];
+        return isconnected;
+    }
+    return isconnected = YES;
+}
+
+
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

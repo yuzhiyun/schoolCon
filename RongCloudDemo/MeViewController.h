@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MeViewController : UIViewController<UITableViewDelegate, UITableViewDataSource>
+@interface MeViewController : UIViewController<UITableViewDelegate, UITableViewDataSource,UIActionSheetDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 
 
 @end
