@@ -18,19 +18,14 @@
 #import "EditPhoneViewController.h"
 #import "VipViewController.h"
 @interface MeViewController (){
-    
     NSMutableArray *mDataKey;
     NSMutableArray *mDataImg;
-    
-    
     NSData *selectedImgData;
     UIImage *image;
     //上传头像进度条，就是一个劲旋转的进度
     MBProgressHUD *hud;
-    
 }
 @property (weak, nonatomic) IBOutlet UIImageView *UIImageViewAvatar;
-
 
 @end
 
@@ -39,7 +34,7 @@
 - (void)viewDidLoad {
     
     [super viewDidLoad];
-    self.title=@"我的收藏";
+    self.title=@"我 的";
     [self.navigationController.navigationBar setBarTintColor:[UIColor colorWithRed:3/255.0 green:121/255.0 blue:251/255.0 alpha:1.0]];
     //      navigationBar标题颜色
     [self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor],UITextAttributeTextColor,nil]];
@@ -296,9 +291,6 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
                                                         nextPage.hidesBottomBarWhenPushed=YES;
                                                            //跳转
                                                            [self.navigationController pushViewController:nextPage animated:YES];
-                                                       
-                                                       
-                                                       
                                                    }];
         
         UIAlertAction *cancel=[UIAlertAction actionWithTitle:@"取消"
@@ -306,9 +298,6 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
                                                            
                                                            [alert dismissViewControllerAnimated:YES completion:nil];
                                                        }];
-        
-        
-        
 //        信息框添加按键
         [alert addAction:ok];
         [alert addAction:cancel];

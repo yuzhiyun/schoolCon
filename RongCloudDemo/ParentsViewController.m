@@ -7,7 +7,7 @@
 //
 
 #import "ParentsViewController.h"
-
+#import "WSLineChartView.h"
 @interface ParentsViewController ()
 
 @end
@@ -16,6 +16,17 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    NSMutableArray *xArray = [NSMutableArray array];
+    NSMutableArray *yArray = [NSMutableArray array];
+    for (NSInteger i = 0; i < 50; i++) {
+        [xArray addObject:@"高一期末考试"];
+        [yArray addObject:[NSString stringWithFormat:@"%.2lf",50.0+arc4random_uniform(50)]];
+    }
+    
+    WSLineChartView *wsLine = [[WSLineChartView alloc]initWithFrame:CGRectMake(0, 50, self.view.frame.size.width, 500) xTitleArray:xArray yValueArray:yArray yMax:100 yMin:0];
+    [self.view addSubview:wsLine];
+    
+    
     // Do any additional setup after loading the view.
 }
 
@@ -24,14 +35,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

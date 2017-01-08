@@ -51,7 +51,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title=@"在线学习";
+    self.title=@"心理专区";
     
     [self.navigationController.navigationBar setBarTintColor:[UIColor colorWithRed:3/255.0 green:121/255.0 blue:251/255.0 alpha:1.0]];
     

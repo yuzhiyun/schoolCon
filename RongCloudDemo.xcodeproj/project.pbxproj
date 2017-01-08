@@ -146,6 +146,15 @@
 		CD3F24731E2237AD0083293D /* RotateImgArticleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD3F24721E2237AD0083293D /* RotateImgArticleViewController.m */; };
 		CD3F24771E223D9D0083293D /* VipViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD3F24761E223D9D0083293D /* VipViewController.m */; };
 		CD3F247B1E223DEB0083293D /* EditPhoneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD3F247A1E223DEB0083293D /* EditPhoneViewController.m */; };
+		CD3F247D1E2261A70083293D /* vip2.png in Resources */ = {isa = PBXBuildFile; fileRef = CD3F247C1E2261A70083293D /* vip2.png */; };
+		CD3F24801E2263040083293D /* article2.png in Resources */ = {isa = PBXBuildFile; fileRef = CD3F247E1E2263040083293D /* article2.png */; };
+		CD3F24811E2263040083293D /* clock2.png in Resources */ = {isa = PBXBuildFile; fileRef = CD3F247F1E2263040083293D /* clock2.png */; };
+		CD3F24911E2273D00083293D /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CD3F24841E2273D00083293D /* SVProgressHUD.bundle */; };
+		CD3F24921E2273D00083293D /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = CD3F24861E2273D00083293D /* SVProgressHUD.m */; };
+		CD3F24931E2273D00083293D /* TBActivityView.m in Sources */ = {isa = PBXBuildFile; fileRef = CD3F24881E2273D00083293D /* TBActivityView.m */; };
+		CD3F24941E2273D00083293D /* WSLineChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = CD3F248B1E2273D00083293D /* WSLineChartView.m */; };
+		CD3F24951E2273D00083293D /* XAxisView.m in Sources */ = {isa = PBXBuildFile; fileRef = CD3F248D1E2273D00083293D /* XAxisView.m */; };
+		CD3F24961E2273D00083293D /* YAxisView.m in Sources */ = {isa = PBXBuildFile; fileRef = CD3F248F1E2273D00083293D /* YAxisView.m */; };
 		CD4EE2541E2200E7001882F7 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = CD4EE2531E2200E7001882F7 /* MBProgressHUD.m */; };
 		CDDE85371E20973800E5F03B /* ConsultTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDDE85361E20973800E5F03B /* ConsultTableViewController.m */; };
 		CDDE853B1E20B9C500E5F03B /* ActiveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDDE853A1E20B9C500E5F03B /* ActiveViewController.m */; };
@@ -392,6 +401,20 @@
 		CD3F24761E223D9D0083293D /* VipViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VipViewController.m; sourceTree = "<group>"; };
 		CD3F24791E223DEB0083293D /* EditPhoneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditPhoneViewController.h; sourceTree = "<group>"; };
 		CD3F247A1E223DEB0083293D /* EditPhoneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditPhoneViewController.m; sourceTree = "<group>"; };
+		CD3F247C1E2261A70083293D /* vip2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = vip2.png; sourceTree = "<group>"; };
+		CD3F247E1E2263040083293D /* article2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = article2.png; sourceTree = "<group>"; };
+		CD3F247F1E2263040083293D /* clock2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = clock2.png; sourceTree = "<group>"; };
+		CD3F24841E2273D00083293D /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SVProgressHUD.bundle; sourceTree = "<group>"; };
+		CD3F24851E2273D00083293D /* SVProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVProgressHUD.h; sourceTree = "<group>"; };
+		CD3F24861E2273D00083293D /* SVProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVProgressHUD.m; sourceTree = "<group>"; };
+		CD3F24871E2273D00083293D /* TBActivityView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBActivityView.h; sourceTree = "<group>"; };
+		CD3F24881E2273D00083293D /* TBActivityView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBActivityView.m; sourceTree = "<group>"; };
+		CD3F248A1E2273D00083293D /* WSLineChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSLineChartView.h; sourceTree = "<group>"; };
+		CD3F248B1E2273D00083293D /* WSLineChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSLineChartView.m; sourceTree = "<group>"; };
+		CD3F248C1E2273D00083293D /* XAxisView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XAxisView.h; sourceTree = "<group>"; };
+		CD3F248D1E2273D00083293D /* XAxisView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XAxisView.m; sourceTree = "<group>"; };
+		CD3F248E1E2273D00083293D /* YAxisView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YAxisView.h; sourceTree = "<group>"; };
+		CD3F248F1E2273D00083293D /* YAxisView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YAxisView.m; sourceTree = "<group>"; };
 		CD4EE2521E2200E7001882F7 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		CD4EE2531E2200E7001882F7 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		CDDE85351E20973800E5F03B /* ConsultTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConsultTableViewController.h; sourceTree = "<group>"; };
@@ -599,6 +622,8 @@
 		CD2DCAE81DFD9043000C03E1 /* img */ = {
 			isa = PBXGroup;
 			children = (
+				CD3F247E1E2263040083293D /* article2.png */,
+				CD3F247F1E2263040083293D /* clock2.png */,
 				CD3F24671E2233930083293D /* rotate */,
 				CDE5AEC51E1147D30059D310 /* a5.jpg */,
 				CDE5AEC61E1147D30059D310 /* a4.jpg */,
@@ -642,6 +667,7 @@
 		CD2DCB051E014F7E000C03E1 /* icon */ = {
 			isa = PBXGroup;
 			children = (
+				CD3F247C1E2261A70083293D /* vip2.png */,
 				CD112A791E0E969F004519B9 /* test.png */,
 				CD3CF6A51E0E176C003599F5 /* rank2.png */,
 				CD3CF69A1E0D000E003599F5 /* check_grade.png */,
@@ -1075,6 +1101,33 @@
 			name = editPhone;
 			sourceTree = "<group>";
 		};
+		CD3F24891E2273D00083293D /* SVProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				CD3F24841E2273D00083293D /* SVProgressHUD.bundle */,
+				CD3F24851E2273D00083293D /* SVProgressHUD.h */,
+				CD3F24861E2273D00083293D /* SVProgressHUD.m */,
+				CD3F24871E2273D00083293D /* TBActivityView.h */,
+				CD3F24881E2273D00083293D /* TBActivityView.m */,
+			);
+			path = SVProgressHUD;
+			sourceTree = "<group>";
+		};
+		CD3F24901E2273D00083293D /* WSLineChartView */ = {
+			isa = PBXGroup;
+			children = (
+				CD3F24891E2273D00083293D /* SVProgressHUD */,
+				CD3F248A1E2273D00083293D /* WSLineChartView.h */,
+				CD3F248B1E2273D00083293D /* WSLineChartView.m */,
+				CD3F248C1E2273D00083293D /* XAxisView.h */,
+				CD3F248D1E2273D00083293D /* XAxisView.m */,
+				CD3F248E1E2273D00083293D /* YAxisView.h */,
+				CD3F248F1E2273D00083293D /* YAxisView.m */,
+			);
+			name = WSLineChartView;
+			path = ../../Applications/WSLineChart/WSLineChartView;
+			sourceTree = "<group>";
+		};
 		CD4EE2501E2200A9001882F7 /* utility */ = {
 			isa = PBXGroup;
 			children = (
@@ -1194,6 +1247,7 @@
 		CDE5AED31E1FCC7C0059D310 /* parents */ = {
 			isa = PBXGroup;
 			children = (
+				CD3F24901E2273D00083293D /* WSLineChartView */,
 				CDE5AED41E1FCC990059D310 /* ParentsViewController.h */,
 				CDE5AED51E1FCC990059D310 /* ParentsViewController.m */,
 			);
@@ -1304,6 +1358,7 @@
 				CDE5AEC41E11324E0059D310 /* school.png in Resources */,
 				CD3F246D1E22339C0083293D /* 3.png in Resources */,
 				CD2DCB7E1E03C7E7000C03E1 /* contacts_us.png in Resources */,
+				CD3F24811E2263040083293D /* clock2.png in Resources */,
 				CD2DCAF01DFD9051000C03E1 /* list.jpg in Resources */,
 				CD3CF69E1E0D000E003599F5 /* emotion_activity.png in Resources */,
 				CD112A741E0E1CB5004519B9 /* exam1.png in Resources */,
@@ -1316,6 +1371,7 @@
 				CD3CF6831E0C13E8003599F5 /* door.png in Resources */,
 				461B27851B82DD7D00107001 /* Emoji.plist in Resources */,
 				CD1A479A1E0BFBB700B8EF35 /* notice1.png in Resources */,
+				CD3F247D1E2261A70083293D /* vip2.png in Resources */,
 				CD3CF6991E0C1502003599F5 /* vip.png in Resources */,
 				CD3F246C1E22339C0083293D /* 4.png in Resources */,
 				CD112A781E0E4B02004519B9 /* study.jpg in Resources */,
@@ -1323,12 +1379,14 @@
 				461B27861B82DD7D00107001 /* RongCloud.bundle in Resources */,
 				CD2DCB7F1E03C7E7000C03E1 /* favorites.png in Resources */,
 				CD3CF6951E0C1502003599F5 /* exit.png in Resources */,
+				CD3F24801E2263040083293D /* article2.png in Resources */,
 				CD2DCAF61DFD9051000C03E1 /* 5.jpg in Resources */,
 				CD2DCB0B1E015132000C03E1 /* shalong.png in Resources */,
 				CD3CF6931E0C1502003599F5 /* callect.png in Resources */,
 				4698CBAB1AE22FCA0006330E /* Main.storyboard in Resources */,
 				CDE5AEBC1E110A750059D310 /* coffee_little.png in Resources */,
 				CDE5AECD1E1147D30059D310 /* a2.jpg in Resources */,
+				CD3F24911E2273D00083293D /* SVProgressHUD.bundle in Resources */,
 				461B27891B82DDA000107001 /* RongCloudKit.strings in Resources */,
 				CD3CF6851E0C13F0003599F5 /* coffee.png in Resources */,
 				CD2DCAF21DFD9051000C03E1 /* 1.jpg in Resources */,
@@ -1368,6 +1426,7 @@
 				CD3F24661E2233630083293D /* CycleScrollView.m in Sources */,
 				CD2DCC881E09305D000C03E1 /* UIImage+GIF.m in Sources */,
 				CD1A47981E0B925100B8EF35 /* PhysicalViewController.m in Sources */,
+				CD3F24931E2273D00083293D /* TBActivityView.m in Sources */,
 				CD2DCB941E04ED7B000C03E1 /* DetailNotificationViewController.m in Sources */,
 				CD3F24771E223D9D0083293D /* VipViewController.m in Sources */,
 				CDE5AED21E1FC2330059D310 /* EducationViewController.m in Sources */,
@@ -1403,11 +1462,13 @@
 				CD2DCB831E03CAB3000C03E1 /* MeViewController.m in Sources */,
 				CD2DCC9E1E0A2092000C03E1 /* TestViewController.m in Sources */,
 				CD2DCCA21E0A20D5000C03E1 /* TestTableViewCell.m in Sources */,
+				CD3F24951E2273D00083293D /* XAxisView.m in Sources */,
 				CD2DCC071E0536A7000C03E1 /* ArticleTableViewController.m in Sources */,
 				CD2DCC8D1E09305D000C03E1 /* UIView+WebCache.m in Sources */,
 				CD2DCB861E03CC6C000C03E1 /* MeTableViewCell.m in Sources */,
 				CD2DCB8D1E03E837000C03E1 /* CommentTableViewCell.m in Sources */,
 				CD2DCC151E05507C000C03E1 /* ContactViewController.m in Sources */,
+				CD3F24941E2273D00083293D /* WSLineChartView.m in Sources */,
 				CD2DCCB31E0A72AF000C03E1 /* TeacherViewController.m in Sources */,
 				CD2DCC931E0938AE000C03E1 /* FLAnimatedImage.m in Sources */,
 				CD2DCC351E065CE6000C03E1 /* ShalongTableViewController.m in Sources */,
@@ -1415,12 +1476,14 @@
 				CD2DCC8E1E09305D000C03E1 /* UIView+WebCacheOperation.m in Sources */,
 				CD2DCC821E09305D000C03E1 /* SDWebImageDecoder.m in Sources */,
 				CD2DCC8B1E09305D000C03E1 /* UIImageView+HighlightedWebCache.m in Sources */,
+				CD3F24921E2273D00083293D /* SVProgressHUD.m in Sources */,
 				CDDE853F1E20BA0200E5F03B /* ForgetPwdViewController.m in Sources */,
 				CD2DCC2C1E0573EF000C03E1 /* GroupSendViewController.m in Sources */,
 				4698CBA21AE22FCA0006330E /* main.m in Sources */,
 				CD2DCC871E09305D000C03E1 /* UIButton+WebCache.m in Sources */,
 				CDDE853B1E20B9C500E5F03B /* ActiveViewController.m in Sources */,
 				CDE5AEB21E1009670059D310 /* MainViewController.m in Sources */,
+				CD3F24961E2273D00083293D /* YAxisView.m in Sources */,
 				CD2DCC8C1E09305D000C03E1 /* UIImageView+WebCache.m in Sources */,
 				CD2DCC4F1E067CD3000C03E1 /* PsychologyTableViewCell.m in Sources */,
 				CD2DCC831E09305D000C03E1 /* SDWebImageDownloader.m in Sources */,
