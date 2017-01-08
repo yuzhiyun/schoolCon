@@ -16,6 +16,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    //    修改下一个界面返回按钮的title，注意这行代码每个页面都要写一遍，不是全局的
+    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:nil action:nil];
+
+    
     NSMutableArray *xArray = [NSMutableArray array];
     NSMutableArray *yArray = [NSMutableArray array];
     for (NSInteger i = 0; i < 50; i++) {
@@ -23,7 +28,9 @@
         [yArray addObject:[NSString stringWithFormat:@"%.2lf",50.0+arc4random_uniform(50)]];
     }
     
-    WSLineChartView *wsLine = [[WSLineChartView alloc]initWithFrame:CGRectMake(0, 50, self.view.frame.size.width, 500) xTitleArray:xArray yValueArray:yArray yMax:100 yMin:0];
+    WSLineChartView *wsLine = [[WSLineChartView alloc]initWithFrame:CGRectMake(0, self.navigationController.navigationBar.bounds.size.height+[[UIApplication sharedApplication] statusBarFrame].size.height, self.view.frame.size.width, self.view.frame.size.height-self.navigationController.navigationBar.bounds.size.height-[[UIApplication sharedApplication] statusBarFrame].size.height) xTitleArray:xArray yValueArray:yArray yMax:100 yMin:0];
+    
+    
     [self.view addSubview:wsLine];
     
     
