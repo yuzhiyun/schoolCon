@@ -74,8 +74,22 @@
      */
     self.UIImageViewAvatar.layer.masksToBounds = YES;
     self.UIImageViewAvatar.layer.cornerRadius = self.UIImageViewAvatar.frame.size.height / 2 ;
+    
+    
+    //给图片添加点击事件更换图片
+     self.UIImageViewAvatar.userInteractionEnabled = YES;//打开用户交互
+    //初始化一个手势
+    UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(singleTapAction:)];
+    //为图片添加手势
+    [ self.UIImageViewAvatar addGestureRecognizer:singleTap];
 }
-
+    //点击事件
+-(void)singleTapAction:(UIGestureRecognizer *) s{
+    
+    
+    NSLog(@"单击了头像");
+    
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
