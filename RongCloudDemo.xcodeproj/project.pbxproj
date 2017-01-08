@@ -144,6 +144,8 @@
 		CD3F246E1E22339C0083293D /* 2.png in Resources */ = {isa = PBXBuildFile; fileRef = CD3F246A1E22339C0083293D /* 2.png */; };
 		CD3F246F1E22339C0083293D /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = CD3F246B1E22339C0083293D /* 1.png */; };
 		CD3F24731E2237AD0083293D /* RotateImgArticleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD3F24721E2237AD0083293D /* RotateImgArticleViewController.m */; };
+		CD3F24771E223D9D0083293D /* VipViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD3F24761E223D9D0083293D /* VipViewController.m */; };
+		CD3F247B1E223DEB0083293D /* EditPhoneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD3F247A1E223DEB0083293D /* EditPhoneViewController.m */; };
 		CD4EE2541E2200E7001882F7 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = CD4EE2531E2200E7001882F7 /* MBProgressHUD.m */; };
 		CDDE85371E20973800E5F03B /* ConsultTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDDE85361E20973800E5F03B /* ConsultTableViewController.m */; };
 		CDDE853B1E20B9C500E5F03B /* ActiveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDDE853A1E20B9C500E5F03B /* ActiveViewController.m */; };
@@ -386,6 +388,10 @@
 		CD3F246B1E22339C0083293D /* 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1.png; sourceTree = "<group>"; };
 		CD3F24711E2237AD0083293D /* RotateImgArticleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RotateImgArticleViewController.h; sourceTree = "<group>"; };
 		CD3F24721E2237AD0083293D /* RotateImgArticleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RotateImgArticleViewController.m; sourceTree = "<group>"; };
+		CD3F24751E223D9D0083293D /* VipViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VipViewController.h; sourceTree = "<group>"; };
+		CD3F24761E223D9D0083293D /* VipViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VipViewController.m; sourceTree = "<group>"; };
+		CD3F24791E223DEB0083293D /* EditPhoneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditPhoneViewController.h; sourceTree = "<group>"; };
+		CD3F247A1E223DEB0083293D /* EditPhoneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditPhoneViewController.m; sourceTree = "<group>"; };
 		CD4EE2521E2200E7001882F7 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		CD4EE2531E2200E7001882F7 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		CDDE85351E20973800E5F03B /* ConsultTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConsultTableViewController.h; sourceTree = "<group>"; };
@@ -711,6 +717,8 @@
 		CD2DCB131E025B7D000C03E1 /* me */ = {
 			isa = PBXGroup;
 			children = (
+				CD3F24781E223DCD0083293D /* editPhone */,
+				CD3F24741E223D540083293D /* vip */,
 				CDDE85511E20E3BA00E5F03B /* myFavorite */,
 				CD2DCB811E03CAB3000C03E1 /* MeViewController.h */,
 				CD2DCB821E03CAB3000C03E1 /* MeViewController.m */,
@@ -1049,6 +1057,24 @@
 			name = article;
 			sourceTree = "<group>";
 		};
+		CD3F24741E223D540083293D /* vip */ = {
+			isa = PBXGroup;
+			children = (
+				CD3F24751E223D9D0083293D /* VipViewController.h */,
+				CD3F24761E223D9D0083293D /* VipViewController.m */,
+			);
+			name = vip;
+			sourceTree = "<group>";
+		};
+		CD3F24781E223DCD0083293D /* editPhone */ = {
+			isa = PBXGroup;
+			children = (
+				CD3F24791E223DEB0083293D /* EditPhoneViewController.h */,
+				CD3F247A1E223DEB0083293D /* EditPhoneViewController.m */,
+			);
+			name = editPhone;
+			sourceTree = "<group>";
+		};
 		CD4EE2501E2200A9001882F7 /* utility */ = {
 			isa = PBXGroup;
 			children = (
@@ -1334,6 +1360,7 @@
 			files = (
 				CD2DCC801E09305D000C03E1 /* SDImageCacheConfig.m in Sources */,
 				CD2DCC121E054051000C03E1 /* Vp2TableViewCell.m in Sources */,
+				CD3F247B1E223DEB0083293D /* EditPhoneViewController.m in Sources */,
 				CDDE85501E20E03700E5F03B /* JoinViewController.m in Sources */,
 				CD2DCBF91E052BB8000C03E1 /* WMMenuView.m in Sources */,
 				CD2DCC191E0553A8000C03E1 /* MessageViewController.m in Sources */,
@@ -1342,6 +1369,7 @@
 				CD2DCC881E09305D000C03E1 /* UIImage+GIF.m in Sources */,
 				CD1A47981E0B925100B8EF35 /* PhysicalViewController.m in Sources */,
 				CD2DCB941E04ED7B000C03E1 /* DetailNotificationViewController.m in Sources */,
+				CD3F24771E223D9D0083293D /* VipViewController.m in Sources */,
 				CDE5AED21E1FC2330059D310 /* EducationViewController.m in Sources */,
 				CD2DCC841E09305D000C03E1 /* SDWebImageDownloaderOperation.m in Sources */,
 				CD2DCC7E1E09305D000C03E1 /* NSImage+WebCache.m in Sources */,

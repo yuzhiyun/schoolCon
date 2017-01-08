@@ -13,6 +13,10 @@
 #import "ArticleTableViewController.h"
 #import "MBProgressHUD.h"
 #import <RongIMLib/RongIMLib.h>
+#import "PsychologyTableViewController.h"
+#import "ShalongTableViewController.h"
+#import "EditPhoneViewController.h"
+#import "VipViewController.h"
 @interface MeViewController (){
     
     NSMutableArray *mDataKey;
@@ -313,8 +317,45 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
         
         
     }
-    //我的收藏
     
+    //修改电话
+    if(0==indexPath.row){
+        //显示顶部导航
+        self.navigationController.navigationBarHidden=NO;
+        EditPhoneViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"EditPhoneViewController"];
+        nextPage.hidesBottomBarWhenPushed=YES;
+        [self.navigationController pushViewController:nextPage animated:YES];
+        
+    }
+    //我的活动
+    if(1==indexPath.row){
+        //显示顶部导航
+        self.navigationController.navigationBarHidden=NO;
+        ShalongTableViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"ShalongTableViewController"];
+        nextPage.hidesBottomBarWhenPushed=YES;
+        [self.navigationController pushViewController:nextPage animated:YES];
+        
+    }
+    //我的测试
+    if(2==indexPath.row){
+        //显示顶部导航
+        self.navigationController.navigationBarHidden=NO;
+        PsychologyTableViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"PsychologyTableViewController"];
+        nextPage.hidesBottomBarWhenPushed=YES;
+        [self.navigationController pushViewController:nextPage animated:YES];
+        
+    }
+    
+    //我的会员
+    if(3==indexPath.row){
+        //显示顶部导航
+        self.navigationController.navigationBarHidden=NO;
+        VipViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"VipViewController"];
+        nextPage.hidesBottomBarWhenPushed=YES;
+        [self.navigationController pushViewController:nextPage animated:YES];
+        
+    }
+    //我的收藏
     if(4==indexPath.row){
         //显示顶部导航
         self.navigationController.navigationBarHidden=NO;

@@ -651,6 +651,13 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" backgroundImage="emotion_activity.png"/>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="最近通知：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JZq-jC-RRk">
+                                <rect key="frame" x="14" y="375" width="93" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.19807185059999999" green="0.66129513610000001" blue="0.98470920319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -665,7 +672,7 @@
                     <nil key="highlightedColor"/>
                 </label>
             </objects>
-            <point key="canvasLocation" x="1034" y="1023"/>
+            <point key="canvasLocation" x="1032.8" y="1022.3388305847077"/>
         </scene>
         <!--Entrance View Controller-->
         <scene sceneID="iyK-1f-5wA">
@@ -1698,7 +1705,59 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yEC-X0-3bx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5780" y="1039"/>
+            <point key="canvasLocation" x="6414" y="1039"/>
+        </scene>
+        <!--Vip View Controller-->
+        <scene sceneID="Jke-44-945">
+            <objects>
+                <viewController storyboardIdentifier="VipViewController" id="Ov5-MD-f5T" customClass="VipViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="rUs-qj-oNQ"/>
+                        <viewControllerLayoutGuide type="bottom" id="hpJ-ak-oOj"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="rDW-dR-JrF">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lCi-UA-G7p" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5962" y="1713"/>
+        </scene>
+        <!--Edit Phone View Controller-->
+        <scene sceneID="PSZ-Zg-9bQ">
+            <objects>
+                <viewController storyboardIdentifier="EditPhoneViewController" id="L6S-1Q-T3I" customClass="EditPhoneViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="OE7-0c-JDg"/>
+                        <viewControllerLayoutGuide type="bottom" id="cNM-Ni-7uD"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="NtD-bj-2Jc">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="您可以联系我们的管理员来更新电话：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WhP-ES-ih0">
+                                <rect key="frame" x="16" y="113" width="298" height="45"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="15111356295" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XPV-Qb-3Dg">
+                                <rect key="frame" x="16" y="166" width="172" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.19807185059999999" green="0.66129513610000001" blue="0.98470920319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oxq-aR-xlH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6720.8000000000002" y="1711.3943028485758"/>
         </scene>
         <!--Choose School Table View Controller-->
         <scene sceneID="79S-aL-V2Y">
@@ -2155,7 +2214,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zUq-LI-sRR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5780" y="296.40179910044981"/>
+            <point key="canvasLocation" x="6415" y="284"/>
         </scene>
         <!--教育天地-->
         <scene sceneID="dXs-gp-vvF">
