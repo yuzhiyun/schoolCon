@@ -501,6 +501,34 @@
             </objects>
             <point key="canvasLocation" x="1062" y="1858"/>
         </scene>
+        <!--Rotate Img Article View Controller-->
+        <scene sceneID="6WV-D6-vqP">
+            <objects>
+                <viewController storyboardIdentifier="RotateImgArticleViewController" id="7Aw-4C-9GM" customClass="RotateImgArticleViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="cjp-vh-0qr"/>
+                        <viewControllerLayoutGuide type="bottom" id="Gy3-Xp-nO2"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="eJb-BW-cLP">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tbJ-D1-kFc">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="UIWebViewRotateImgArticle" destination="tbJ-D1-kFc" id="7G3-JO-1vl"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dKQ-pw-jet" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="386.39999999999998" y="1022.3388305847077"/>
+        </scene>
         <!--Home Page View Controller-->
         <scene sceneID="l6A-BC-gYV">
             <objects>

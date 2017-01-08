@@ -15,18 +15,21 @@
 //#import "DetailNotificationViewController.h"
 #import "TeacherViewController.h"
 #import "TeacherNotUseCollectionViewController.h"
-
+#import "RotateImgArticleViewController.h"
 #import "CycleScrollView.h"
 @interface HomePageViewController ()
 //轮播图组件
 @property (nonatomic, strong) CycleScrollView *scrollView;
 //轮播图图片
 @property (nonatomic, strong) NSArray *imageArray;
+//轮播图对应 的文章URL
+@property (nonatomic, strong) NSArray *articleUrlArray;
 @end
 
 @implementation HomePageViewController{
 
     NSMutableArray *recipes;
+
     
     
 }
@@ -52,6 +55,8 @@
      *添加轮播图组件
      */
     _imageArray = @[@"1",@"2",@"3",@"4"];
+    
+_articleUrlArray=@[@"http://mp.weixin.qq.com/s/m3y2dvyWLxHoFskyX5aWPQ",@"http://mp.weixin.qq.com/s/m3y2dvyWLxHoFskyX5aWPQ",@"http://mp.weixin.qq.com/s/m3y2dvyWLxHoFskyX5aWPQ",@"http://mp.weixin.qq.com/s/m3y2dvyWLxHoFskyX5aWPQ"];
     _scrollView = [[CycleScrollView alloc]initWithFrame:CGRectMake(0, self.navigationController.navigationBar.bounds.size.height, [[UIScreen mainScreen]bounds].size.width , 220)];
     _scrollView.delegate = self;
     _scrollView.datasource = self;
@@ -83,6 +88,14 @@
 - (void)scrollView:(CycleScrollView *)scrollView didClickPage:(UIView *)view atIndex:(NSInteger)index
 {
     NSLog(@"你点的是第%d个",(int)index + 1);
+
+    RotateImgArticleViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"RotateImgArticleViewController"];
+    //    传值
+    nextPage->url=[_articleUrlArray objectAtIndex:index];
+    nextPage.hidesBottomBarWhenPushed=YES;
+    //跳转
+    [self.navigationController pushViewController:nextPage animated:YES];
+    
 }
 
 
