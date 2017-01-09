@@ -16,12 +16,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -31,25 +26,36 @@
 
 #pragma mark - Table view data source
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Incomplete implementation, return the number of sections
-    return 0;
-}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 #warning Incomplete implementation, return the number of rows
-    return 0;
+    return 5;
 }
 
-/*
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+  
     
-    // Configure the cell...
+    static NSString *simpleTableIdentifier = @"cell";
     
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
+
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:simpleTableIdentifier];
+    }
+    //    cell.imageView.image=[UIImage imageNamed:@"notice1.png"];
+
+    
+    UILabel *mUILabelName=(UILabel *)[cell viewWithTag:1];
+    mUILabelName.text=@"张新源";
+    UILabel *mUILabelTitle=(UILabel *)[cell viewWithTag:2];
+    mUILabelTitle.text=@"一级心理咨询师";
+    
+    UILabel *mUILabelSpecialty=(UILabel *)[cell viewWithTag:3];
+mUILabelSpecialty.text=@"认知行为治疗";
     return cell;
 }
-*/
+
 
 /*
 // Override to support conditional editing of the table view.

@@ -65,7 +65,6 @@
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:simpleTableIdentifier];
     }
-    
 //    cell.imageView.image=[UIImage imageNamed:@"notice1.png"];
 //    cell.detailTextLabel.text=@"2017/12/21";
 //    //    cell.tes
