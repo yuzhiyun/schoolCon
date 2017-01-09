@@ -17,6 +17,8 @@
 #import "TeacherNotUseCollectionViewController.h"
 #import "RotateImgArticleViewController.h"
 #import "CycleScrollView.h"
+#import "SchoolMomentsTableViewController.h"
+#import "PsychologyTableViewController.h"
 @interface HomePageViewController ()
 //轮播图组件
 @property (nonatomic, strong) CycleScrollView *scrollView;
@@ -123,6 +125,26 @@ _articleUrlArray=@[@"http://mp.weixin.qq.com/s/m3y2dvyWLxHoFskyX5aWPQ",@"http://
     //跳转
     [self.navigationController pushViewController:nextPage animated:YES];
 }
+
+
+
+
+- (IBAction)schoolMoments:(id)sender {
+    SchoolMomentsTableViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"SchoolMomentsTableViewController"];
+    nextPage.hidesBottomBarWhenPushed=YES;
+    [self.navigationController pushViewController:nextPage animated:YES];
+}
+
+
+- (IBAction)physicalTest:(id)sender {
+    
+    
+    PsychologyTableViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"PsychologyTableViewController"];
+    nextPage.hidesBottomBarWhenPushed=YES;
+    [self.navigationController pushViewController:nextPage animated:YES];
+}
+
+
 - (IBAction)enterQueryGrade:(id)sender {
     //根据storyboard id来获取目标页面
 //    QueryGradeTableViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"QueryGradeTableViewController"];

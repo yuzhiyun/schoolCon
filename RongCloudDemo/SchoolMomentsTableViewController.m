@@ -1,39 +1,25 @@
 //
-//  NotificationTableViewController.m
+//  SchoolMomentsTableViewController.m
 //  RongCloudDemo
 //
-//  Created by 秦启飞 on 2016/12/15.
-//  Copyright © 2016年 dlz. All rights reserved.
+//  Created by 秦启飞 on 2017/1/9.
+//  Copyright © 2017年 dlz. All rights reserved.
 //
 
-#import "NotificationTableViewController.h"
+#import "SchoolMomentsTableViewController.h"
 #import "DetailNotificationViewController.h"
-@interface NotificationTableViewController ()
+@interface SchoolMomentsTableViewController ()
 
 @end
 
-@implementation NotificationTableViewController{
-    
-    NSMutableArray *mDataNotification;
-    
-}
+@implementation SchoolMomentsTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     //    修改下一个界面返回按钮的title，注意这行代码每个页面都要写一遍，不是全局的
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:nil action:nil];
-
     
-    mDataNotification=[[NSMutableArray alloc]init];
-    [mDataNotification addObject:@"明天开运动会"];
-    [mDataNotification addObject:@"由于下大雪，今晚不用上课"];
-    [mDataNotification addObject:@"明天开运动会"];
-    [mDataNotification addObject:@"由于下大雪，今晚不用上课"];
-    [mDataNotification addObject:@"明天开运动会"];
-    [mDataNotification addObject:@"由于下大雪，今晚不用上课"];
-    //    recipes = [NSArray arrayWithObjects:@"Egg Benedict",@"Ham and Cheese Panini","yuzhiyun",nil];
-    // Do any additional setup after loading the view.
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -43,50 +29,42 @@
 
 #pragma mark - Table view data source
 
-//- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-//#warning Incomplete implementation, return the number of sections
-//    return 0;
-//}
+
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    
-    
-    
-    
 #warning Incomplete implementation, return the number of rows
-    return [mDataNotification count];
+    return 5;
 }
-
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    static NSString *simpleTableIdentifier = @"SimpleTableCell";
+    
+    static NSString *simpleTableIdentifier = @"cell";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
     
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:simpleTableIdentifier];
     }
+    //    cell.imageView.image=[UIImage imageNamed:@"notice1.png"];
     
-    cell.textLabel.text = [mDataNotification objectAtIndex:indexPath.row];
-    cell.imageView.image=[UIImage imageNamed:@"notice1.png"];
-    cell.detailTextLabel.text=@"2017/12/21";
+    
+    UIImageView *mUIImageViewCover=(UIImageView *)[cell viewWithTag:1];
+    mUIImageViewCover.image=[UIImage imageNamed:@"3.jpg"];
+    UILabel *mUILabelTitle=(UILabel *)[cell viewWithTag:2];
+    mUILabelTitle.text=@"恭喜我校获得省优秀校园称号";
+    
+    UILabel *mUILabelDate=(UILabel *)[cell viewWithTag:3];
+    mUILabelDate.text=@"2017-01-02";
     return cell;
 }
+
 -(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     DetailNotificationViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"DetailNotificationViewController"];
-    nextPage->pubString=[mDataNotification objectAtIndex:indexPath.row];
+//    nextPage->pubString=[mDataNotification objectAtIndex:indexPath.row];
     nextPage.hidesBottomBarWhenPushed=YES;
     [self.navigationController pushViewController:nextPage animated:YES];
 }
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
 
 /*
 // Override to support editing the table view.
@@ -114,25 +92,14 @@
 }
 */
 
-
+/*
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
-//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-//    
-//    
-//    
-//    [[segue destinationViewController] setMDetailString: @"传值过去"];
-//    
-//    NSLog(@"能跳转吗？prepareForSegue");
-//    
-//    
-//    
-//    
-//    
-//    // Get the new view controller using [segue destinationViewController].
-//    // Pass the selected object to the new view controller.
-//}
-
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+}
+*/
 
 @end

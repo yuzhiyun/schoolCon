@@ -380,6 +380,24 @@
             </objects>
             <point key="canvasLocation" x="148" y="4028.6356821589206"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="IZl-on-Yzo">
+            <objects>
+                <viewController id="VWW-i8-R7P" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="lrX-Cv-lOp"/>
+                        <viewControllerLayoutGuide type="bottom" id="NqU-yF-OjW"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="GuW-PC-khr">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WlE-bh-Ltw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="667" y="4969"/>
+        </scene>
         <!--Psychology Table View Controller-->
         <scene sceneID="aH7-cE-tha">
             <objects>
@@ -499,7 +517,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kSq-vy-a28" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1062" y="1858"/>
+            <point key="canvasLocation" x="1138" y="1999"/>
         </scene>
         <!--Rotate Img Article View Controller-->
         <scene sceneID="6WV-D6-vqP">
@@ -527,7 +545,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dKQ-pw-jet" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="386.39999999999998" y="1022.3388305847077"/>
+            <point key="canvasLocation" x="238" y="1022"/>
         </scene>
         <!--Home Page View Controller-->
         <scene sceneID="l6A-BC-gYV">
@@ -633,6 +651,9 @@
                                 <rect key="frame" x="161" y="280" width="60" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" backgroundImage="emotion_test.png"/>
+                                <connections>
+                                    <action selector="physicalTest:" destination="AzU-z8-ena" eventType="touchUpInside" id="wdK-CN-UDw"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ogf-RU-FQ7">
                                 <rect key="frame" x="83" y="281" width="60" height="60"/>
@@ -650,6 +671,9 @@
                                 <rect key="frame" x="302" y="280" width="60" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" backgroundImage="emotion_activity.png"/>
+                                <connections>
+                                    <action selector="schoolMoments:" destination="AzU-z8-ena" eventType="touchUpInside" id="eoe-Lb-M4u"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="最近通知：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JZq-jC-RRk">
                                 <rect key="frame" x="14" y="375" width="93" height="21"/>
@@ -672,7 +696,7 @@
                     <nil key="highlightedColor"/>
                 </label>
             </objects>
-            <point key="canvasLocation" x="1032.8" y="1022.3388305847077"/>
+            <point key="canvasLocation" x="1006" y="1021"/>
         </scene>
         <!--Entrance View Controller-->
         <scene sceneID="iyK-1f-5wA">
@@ -728,6 +752,54 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N5e-do-S4s" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1391" y="-1219"/>
+        </scene>
+        <!--School Moments Table View Controller-->
+        <scene sceneID="y9U-7F-R6T">
+            <objects>
+                <tableViewController storyboardIdentifier="SchoolMomentsTableViewController" id="CK8-o1-xO1" customClass="SchoolMomentsTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" sectionHeaderHeight="28" sectionFooterHeight="28" id="4ci-pX-qwl">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="90" id="qOM-LX-sSL">
+                                <rect key="frame" x="0.0" y="28" width="375" height="90"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qOM-LX-sSL" id="EKX-Zy-prN">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="89"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="2.png" translatesAutoresizingMaskIntoConstraints="NO" id="zxw-Xj-f1U">
+                                            <rect key="frame" x="16" y="12" width="129" height="65"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="我校获得省优秀校园称号" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zbl-3V-MFY">
+                                            <rect key="frame" x="164" y="12" width="203" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="3" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="2017-01-01" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E5l-HU-ZAd">
+                                            <rect key="frame" x="295" y="56" width="80" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <color key="textColor" red="0.43226522839999998" green="0.43226522839999998" blue="0.43226522839999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="CK8-o1-xO1" id="Itq-mj-AGq"/>
+                            <outlet property="delegate" destination="CK8-o1-xO1" id="12I-OT-Ahn"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vjj-4A-Tqu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1586.4000000000001" y="1599.8500749625189"/>
         </scene>
         <!--Notification Table View Controller-->
         <scene sceneID="CbQ-Ce-HRi">
@@ -2412,6 +2484,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="2.png" width="600" height="400"/>
         <image name="3.jpg" width="263" height="191"/>
         <image name="4.jpg" width="290" height="174"/>
         <image name="article2.png" width="128" height="115"/>
