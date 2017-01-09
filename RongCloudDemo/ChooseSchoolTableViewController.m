@@ -18,11 +18,24 @@
     
     NSMutableArray *mDataNotification;
     
+        UIAlertController *alert;
+        
+        
+        
+    
+    
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title=@"选择学校";
+    
+    
+    
+    
+    
+    
+    
     //    navigationBar背景颜色
     [self.navigationController.navigationBar setBarTintColor:[UIColor colorWithRed:3/255.0 green:121/255.0 blue:251/255.0 alpha:1.0]];
     //      navigationBar标题颜色
@@ -44,6 +57,109 @@
     [mDataNotification addObject:@"铁道小学"];
     [mDataNotification addObject:@"湖南第一中学"];
     [mDataNotification addObject:@"长沙市第一中学"];
+    
+    
+
+}
+
+-(void) viewWillAppear:(BOOL)animated{
+    //获取数据
+    [self getData];
+
+}
+-(void) getData{
+    
+    //    NSString *urlString=@"http://www.kuaidi100.com/query?type=ems&postid=11";
+//    NSString *urlString=@"http://apis.juhe.cn/mobile/get";
+    
+        NSString *urlString=@"http://192.168.217.1:8080/api/sch/school/get?appId=03a8f0ea6a&appSecret=b4a01f5a7dd4416c";
+    
+    NSURL *url=[NSURL URLWithString:urlString];
+    
+    NSMutableURLRequest *request=[[NSMutableURLRequest alloc]initWithURL:url];
+    
+    //    设置为post方法
+    [request setHTTPMethod:@"POST"];
+    //    post请求参数
+    NSString *postParameters=@"phone=15111356294&dtype=json&key=d90f8fa635ffbc051ed51553cbf02f61";
+    //    把参数封装到　body中
+    NSData *body=[postParameters dataUsingEncoding:NSUTF8StringEncoding];
+    //    设置body，对于post方法，参数是放在body中的
+    [request setHTTPBody:body];
+    
+    
+    
+    NSURLConnection *connection=[[NSURLConnection alloc]initWithRequest:request delegate:self];
+    
+
+
+}
+
+
+//接收数据,并不是只会被调用一次的，数据被切割，该函数被调用多次。
+-(void) connection:(NSURLConnection *)connection didReceiveData:(NSData *)data{
+    //    NSLog(@"DATA=%@",data);
+    //数据添加到backData
+    [backData appendData:data];
+}
+//返回response，包括状态码等等信息
+-(void) connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response{
+    
+    
+    NSLog(@"didReceiveResponse函数 %@",response);
+    
+    //初始化data
+    backData=[[NSMutableData alloc]init];
+    
+    //    [dataUILable setText:response];
+}
+
+//请求结束
+-(void) connectionDidFinishLoading:(NSURLConnection *)connection{
+    
+    
+    
+    //    隐藏对话框
+    [self dismissViewControllerAnimated:YES  completion:nil];
+    
+    
+    NSString *result=[[NSString alloc] initWithData:backData encoding:NSUTF8StringEncoding];
+//    [dataTextview setText:result];
+    NSLog(@"序列化之前%@",result);
+//   {
+//        code = 0;
+//        data =     {
+//            schools =         (
+//                               {
+//                                   hasChildren = 0;
+//                                   id = pi153odfasd;
+//                                   name = "\U957f\U90e1\U4e2d\U5b66";
+//                                   type = 0;
+//                               },
+//                               {
+//                                   hasChildren = 0;
+//                                   id = 1564do12spa;
+//                                   name = "\U96c5\U793c\U4e2d\U5b66";
+//                                   type = 0;
+//                               }
+//                               );
+//        };
+//        msg = ok;
+//    }
+    
+    
+    
+    id obj=[NSJSONSerialization JSONObjectWithData:backData options:0 error:nil];
+    NSLog(@"序列化之后%@",obj);
+    
+    
+}
+
+//网络请求错误
+-(void) connection:(NSURLConnection *)connection didFailWithError:(NSError *)error{
+    [alert setMessage:@"请求错误"];
+    NSLog(@"❌错误 %@",error);
+    
 }
 
 - (void)didReceiveMemoryWarning {

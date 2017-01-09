@@ -11,6 +11,7 @@
 @interface ChooseSchoolTableViewController : UITableViewController{
 
     @public NSInteger index;
+@public NSMutableData *backData;
 
 }
 
