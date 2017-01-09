@@ -123,7 +123,32 @@
     [self dismissViewControllerAnimated:YES  completion:nil];
     
     
+    /**
+     *开始解析json
+     */
     NSString *result=[[NSString alloc] initWithData:backData encoding:NSUTF8StringEncoding];
+    
+    NSData *data=[result dataUsingEncoding:NSUTF8StringEncoding];
+    
+    NSError *error=[[NSError alloc]init];
+    NSDictionary *doc= [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
+    
+    
+    if(doc!=nil){
+        NSLog(@"*****doc不为空***********");
+         NSDictionary *data=[doc objectForKey:@"data"];
+        if(data!=nil){
+        NSArray *schoolArray=[data objectForKey:@"schools"];
+        for(NSDictionary *item in  schoolArray ){
+        
+            NSString *schoolName=[item objectForKey:@"name"];
+            NSLog(@"******打印学校**********");
+            NSLog(@"学校名称是%@",schoolName);
+        }
+        }
+    }
+    else
+        NSLog(@"*****doc空***********");
 //    [dataTextview setText:result];
     NSLog(@"序列化之前%@",result);
 //   {
