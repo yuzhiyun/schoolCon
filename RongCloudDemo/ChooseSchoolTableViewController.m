@@ -18,10 +18,10 @@
     
     NSMutableArray *mDataNotification;
     
-        UIAlertController *alert;
-        
-        
-        
+    UIAlertController *alert;
+    
+    
+    
     
     
 }
@@ -51,28 +51,28 @@
     self.navigationController.navigationBarHidden=NO;
     
     mDataNotification=[[NSMutableArray alloc]init];
-    [mDataNotification addObject:@"长郡中学"];
-    [mDataNotification addObject:@"长沙第一中学"];
-    [mDataNotification addObject:@"长沙师大附中"];
-    [mDataNotification addObject:@"铁道小学"];
-    [mDataNotification addObject:@"湖南第一中学"];
-    [mDataNotification addObject:@"长沙市第一中学"];
+//    [mDataNotification addObject:@"长郡中学"];
+//    [mDataNotification addObject:@"长沙第一中学"];
+//    [mDataNotification addObject:@"长沙师大附中"];
+//    [mDataNotification addObject:@"铁道小学"];
+//    [mDataNotification addObject:@"湖南第一中学"];
+//    [mDataNotification addObject:@"长沙市第一中学"];
     
     
-
+    
 }
 
 -(void) viewWillAppear:(BOOL)animated{
     //获取数据
     [self getData];
-
+    
 }
 -(void) getData{
     
     //    NSString *urlString=@"http://www.kuaidi100.com/query?type=ems&postid=11";
-//    NSString *urlString=@"http://apis.juhe.cn/mobile/get";
+    //    NSString *urlString=@"http://apis.juhe.cn/mobile/get";
     
-        NSString *urlString=@"http://192.168.217.1:8080/api/sch/school/get?appId=03a8f0ea6a&appSecret=b4a01f5a7dd4416c";
+    NSString *urlString=@"http://192.168.217.1:8080/api/sch/school/get?appId=03a8f0ea6a&appSecret=b4a01f5a7dd4416c";
     
     NSURL *url=[NSURL URLWithString:urlString];
     
@@ -91,8 +91,8 @@
     
     NSURLConnection *connection=[[NSURLConnection alloc]initWithRequest:request delegate:self];
     
-
-
+    
+    
 }
 
 
@@ -136,41 +136,52 @@
     
     if(doc!=nil){
         NSLog(@"*****doc不为空***********");
-         NSDictionary *data=[doc objectForKey:@"data"];
+        NSDictionary *data=[doc objectForKey:@"data"];
         if(data!=nil){
-        NSArray *schoolArray=[data objectForKey:@"schools"];
-        for(NSDictionary *item in  schoolArray ){
-        
-            NSString *schoolName=[item objectForKey:@"name"];
-            NSLog(@"******打印学校**********");
-            NSLog(@"学校名称是%@",schoolName);
-        }
+            NSArray *schoolArray=[data objectForKey:@"schools"];
+            for(NSDictionary *item in  schoolArray ){
+                
+                NSString *schoolName=[item objectForKey:@"name"];
+                NSLog(@"******打印学校**********");
+                NSLog(@"学校名称是%@",schoolName);
+                //添加到数组以便显示到tableview
+                [mDataNotification addObject:schoolName];
+            }
+            
+            //更新界面
+            [mTableView reloadData];
+            
+            
+            
+            
+            
+            
         }
     }
     else
         NSLog(@"*****doc空***********");
-//    [dataTextview setText:result];
+    //    [dataTextview setText:result];
     NSLog(@"序列化之前%@",result);
-//   {
-//        code = 0;
-//        data =     {
-//            schools =         (
-//                               {
-//                                   hasChildren = 0;
-//                                   id = pi153odfasd;
-//                                   name = "\U957f\U90e1\U4e2d\U5b66";
-//                                   type = 0;
-//                               },
-//                               {
-//                                   hasChildren = 0;
-//                                   id = 1564do12spa;
-//                                   name = "\U96c5\U793c\U4e2d\U5b66";
-//                                   type = 0;
-//                               }
-//                               );
-//        };
-//        msg = ok;
-//    }
+    //   {
+    //        code = 0;
+    //        data =     {
+    //            schools =         (
+    //                               {
+    //                                   hasChildren = 0;
+    //                                   id = pi153odfasd;
+    //                                   name = "\U957f\U90e1\U4e2d\U5b66";
+    //                                   type = 0;
+    //                               },
+    //                               {
+    //                                   hasChildren = 0;
+    //                                   id = 1564do12spa;
+    //                                   name = "\U96c5\U793c\U4e2d\U5b66";
+    //                                   type = 0;
+    //                               }
+    //                               );
+    //        };
+    //        msg = ok;
+    //    }
     
     
     
@@ -193,6 +204,8 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    
+    mTableView=tableView;
     return [mDataNotification count];
 }
 

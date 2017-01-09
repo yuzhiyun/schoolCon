@@ -27,6 +27,8 @@
     NSMutableArray *mAllData;
     UITableView *mTableView;
     
+    
+    
 @public
     NSString *pubString;
     

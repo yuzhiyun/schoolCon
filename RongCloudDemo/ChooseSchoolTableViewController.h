@@ -12,6 +12,8 @@
 
     @public NSInteger index;
 @public NSMutableData *backData;
+    
+    UITableView *mTableView;
 
 }
 
