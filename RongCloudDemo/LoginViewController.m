@@ -33,6 +33,10 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+
+
+
 - (IBAction)login:(id)sender {
     MainViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"MainViewController"];
     nextPage.hidesBottomBarWhenPushed=YES;

@@ -622,7 +622,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" backgroundImage="emotion_test.png"/>
                                 <connections>
-                                    <action selector="btnEnterPsychology:" destination="AzU-z8-ena" eventType="touchUpInside" id="meZ-Yl-V0f"/>
+                                    <action selector="vip:" destination="AzU-z8-ena" eventType="touchUpInside" id="dqE-pS-2sl"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nDw-cz-f40">
@@ -738,6 +738,14 @@
                                 </state>
                                 <connections>
                                     <action selector="active:" destination="MgX-kz-2PI" eventType="touchUpInside" id="2fp-2Z-FJx"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zBo-vy-NFJ">
+                                <rect key="frame" x="324" y="555" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="首页"/>
+                                <connections>
+                                    <action selector="main:" destination="MgX-kz-2PI" eventType="touchUpInside" id="K9S-YA-Nqn"/>
                                 </connections>
                             </button>
                         </subviews>

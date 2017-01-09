@@ -18,8 +18,6 @@
     [super viewDidLoad];
     //    修改下一个界面返回按钮的title，注意这行代码每个页面都要写一遍，不是全局的
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:nil action:nil];
-    
-
 }
 
 - (void)didReceiveMemoryWarning {

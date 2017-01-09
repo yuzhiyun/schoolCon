@@ -23,10 +23,12 @@
     
     //    默认显示第一个题目
     indexOfExercise=0;
+    //默认没有答案被选中
+    indexOfAnswer=-1;
     //    填充题目
     mAllData=[[NSMutableArray alloc]init];
     
-    for(int i=0;i<5;i++){
+//    for(int i=0;i<5;i++){
         NSMutableArray *mEntity=[[NSMutableArray alloc]init];
         
 //        [mEntity addObject:[NSString stringWithFormat:@"标题%d",i+1]];
@@ -47,8 +49,23 @@
 //        [mEntity addObject:[NSString stringWithFormat:@"第%d题item3",i+1]];
 //        [mEntity addObject:[NSString stringWithFormat:@"第%d题item4",i+1]];
         [mAllData addObject:mEntity];
+    
+    NSMutableArray *mEntity2=[[NSMutableArray alloc]init];
+    
+    [mEntity2 addObject:@"2、第二题标题？"];
+    [mEntity2 addObject:@"第二题标题选项1"];
+    [mEntity2 addObject:@"第二题标题选项2"];
+    [mEntity2 addObject:@"第二题标题选项3"];
+    [mEntity2 addObject:@"第二题标题选项4"];
+        [mEntity2 addObject:@"第二题标题选项5"];
+        [mEntity2 addObject:@"第二题标题选项6"];
+
+    [mAllData addObject:mEntity2];
+    
+    
+    
         
-    }
+//    }
     
     [self setTitle];
     
@@ -74,7 +91,7 @@
     //    此处存储一下这个tableView，以便在切换到下一个题目的时候，reload数据
     mTableView=tableView;
 #warning Incomplete implementation, return the number of rows
-    return 4;
+    return [[mAllData  objectAtIndex:indexOfExercise] count]-1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -92,6 +109,13 @@
     
     cell.UILabelExerciseItem.text=[mEntity objectAtIndex:indexPath.row+1];
     
+    
+    if(indexOfAnswer==indexPath.row)
+        cell.UIImageViewCheckbox.image=[UIImage imageNamed:@"selected2.png"];
+    else
+          cell.UIImageViewCheckbox.image=[UIImage imageNamed:@"un_selected.png"];
+        
+    
     return cell;
 }
 //切换到下一个题目
@@ -100,12 +124,11 @@
     indexOfExercise++;
     if(indexOfExercise<[mAllData count]){
         [self setTitle];
-        //        [UITableView.self reload];
-        //        [self.tableView reload];
+        //所有item置于不被选中状态
+        indexOfAnswer=-1;
         [mTableView reloadData];
     }
     else{
-        
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示"
                                                         message:@"已经是最后一题了，请提交答案"
                                                        delegate:self
@@ -113,10 +136,6 @@
                                               otherButtonTitles:nil];
         [alert show];
     }
-    
-    
-    
-    
 }
 
 //把checkbox的图标改成被选中的
@@ -127,19 +146,14 @@
     
     //    self tableView:<#(nonnull UITableView *)#> cellForRowAtIndexPath:<#(nonnull NSIndexPath *)#>
     
-    
-    //    cell.UIButtonCheckbox.
-    cell.UIImageViewCheckbox.image=[UIImage imageNamed:@"selected2.png"];
-    
+    //如果和上一次点击同一个item，就取消掉那个item被选中状态
+    if(indexPath.row==indexOfAnswer)
+        indexOfAnswer=-1;
+    else{
+        //选中被点击item
+        indexOfAnswer=indexPath.row;
+    }
+    [mTableView reloadData];
 }
-/*
- #pragma mark - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- */
 
 @end

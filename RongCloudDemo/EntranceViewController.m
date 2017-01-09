@@ -9,6 +9,7 @@
 #import "EntranceViewController.h"
 #import "LoginViewController.h"
 #import "ChooseSchoolTableViewController.h"
+#import "MainViewController.h"
 @interface EntranceViewController ()
 
 @end
@@ -47,6 +48,12 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
+}
+
+
+- (IBAction)main:(id)sender {
+    MainViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"MainViewController"];
+    [self.navigationController pushViewController:nextPage animated:YES];
 }
 
 - (IBAction)login:(id)sender {

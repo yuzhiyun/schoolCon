@@ -19,6 +19,7 @@
 #import "CycleScrollView.h"
 #import "SchoolMomentsTableViewController.h"
 #import "PsychologyTableViewController.h"
+#import "VipViewController.h"
 @interface HomePageViewController ()
 //轮播图组件
 @property (nonatomic, strong) CycleScrollView *scrollView;
@@ -126,6 +127,12 @@ _articleUrlArray=@[@"http://mp.weixin.qq.com/s/m3y2dvyWLxHoFskyX5aWPQ",@"http://
     [self.navigationController pushViewController:nextPage animated:YES];
 }
 
+- (IBAction)vip:(id)sender {
+    VipViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"VipViewController"];
+    nextPage.hidesBottomBarWhenPushed=YES;
+    [self.navigationController pushViewController:nextPage animated:YES];
+    
+}
 
 
 
@@ -144,29 +151,14 @@ _articleUrlArray=@[@"http://mp.weixin.qq.com/s/m3y2dvyWLxHoFskyX5aWPQ",@"http://
     [self.navigationController pushViewController:nextPage animated:YES];
 }
 
-
 - (IBAction)enterQueryGrade:(id)sender {
-    //根据storyboard id来获取目标页面
-//    QueryGradeTableViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"QueryGradeTableViewController"];
-//    TeacherViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"TeacherViewController"];
-//    TeacherNotUseCollectionViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"TeacherNotUseCollectionViewController"];
-//    
-//    //UITabBarController和的UINavigationController结合使用,进入新的页面的时候，隐藏主页tabbarController的底部栏
-//    nextPage.hidesBottomBarWhenPushed=YES;
-//    
-//    //跳转
-//    [self.navigationController pushViewController:nextPage animated:YES];
-//    
-//    
-//
-    
 //    弹出对话框选择年级
     UIActionSheet *actionSheet = [[UIActionSheet alloc]
                                   initWithTitle:@"请选择年级"
                                   delegate:self
                                   cancelButtonTitle:@"取消"
                                   destructiveButtonTitle:nil
-                                  otherButtonTitles:@"高一", @"高二",@"高三",nil];
+                                  otherButtonTitles:@"2016学年", @"2015学年",@"2014学年",nil];
     actionSheet.actionSheetStyle = UIBarStyleDefault;
     [actionSheet showInView:self.view];
 }

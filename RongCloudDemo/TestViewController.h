@@ -13,7 +13,10 @@
     
     __weak IBOutlet UILabel *UILabelTitle;
 //    NSMutableArray *mData;
+    //当前题目index
     int indexOfExercise;
+    //当前题目被选中答案的index
+     int indexOfAnswer;
     
 //    NSMutableArray *mTitle;
 //    NSMutableArray *mItem1;
