@@ -10,6 +10,8 @@
 #import "LoginViewController.h"
 #import "ForgetPwdViewController.h"
 #import "ActiveViewController.h"
+#import "MBProgressHUD.h"
+
 @interface ChooseSchoolTableViewController ()
 
 @end
@@ -18,24 +20,14 @@
     
     NSMutableArray *mDataNotification;
     
-    UIAlertController *alert;
     
-    
-    
-    
-    
+    //上传头像进度条，就是一个劲旋转的进度
+    MBProgressHUD *hud;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title=@"选择学校";
-    
-    
-    
-    
-    
-    
-    
     //    navigationBar背景颜色
     [self.navigationController.navigationBar setBarTintColor:[UIColor colorWithRed:3/255.0 green:121/255.0 blue:251/255.0 alpha:1.0]];
     //      navigationBar标题颜色
@@ -68,11 +60,15 @@
     
 }
 -(void) getData{
+    hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    //hud.color = [UIColor colorWithHexString:@"343637" alpha:0.5];
+    hud.labelText = @" 获取数据...";
+    [hud show:YES];
     
     //    NSString *urlString=@"http://www.kuaidi100.com/query?type=ems&postid=11";
     //    NSString *urlString=@"http://apis.juhe.cn/mobile/get";
     
-    NSString *urlString=@"http://192.168.217.1:8080/api/sch/school/get?appId=03a8f0ea6a&appSecret=b4a01f5a7dd4416c";
+    NSString *urlString=@"http://192.168.229.1:8080/schoolCon/api/sch/school/get?appId=03a8f0ea6a&appSecret=b4a01f5a7dd4416c";
     
     NSURL *url=[NSURL URLWithString:urlString];
     
@@ -120,9 +116,10 @@
     
     
     //    隐藏对话框
-    [self dismissViewControllerAnimated:YES  completion:nil];
+//    [self dismissViewControllerAnimated:YES  completion:nil];
     
     
+    [hud hide:YES];
     /**
      *开始解析json
      */
@@ -147,15 +144,8 @@
                 //添加到数组以便显示到tableview
                 [mDataNotification addObject:schoolName];
             }
-            
             //更新界面
             [mTableView reloadData];
-            
-            
-            
-            
-            
-            
         }
     }
     else
@@ -182,9 +172,6 @@
     //        };
     //        msg = ok;
     //    }
-    
-    
-    
     id obj=[NSJSONSerialization JSONObjectWithData:backData options:0 error:nil];
     NSLog(@"序列化之后%@",obj);
     
@@ -193,7 +180,19 @@
 
 //网络请求错误
 -(void) connection:(NSURLConnection *)connection didFailWithError:(NSError *)error{
-    [alert setMessage:@"请求错误"];
+    [hud show:NO];
+
+    UIAlertController *alert=[UIAlertController alertControllerWithTitle:nil message:[NSString stringWithFormat:@"访问错误%@",error]preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *ok=[UIAlertAction actionWithTitle:@"确认"
+                                               style:UIAlertActionStyleDefault handler:nil];
+
+    //        信息框添加按键
+    [alert addAction:ok];
+
+    
+    [self presentViewController:alert animated:YES completion:nil];
+    
+
     NSLog(@"❌错误 %@",error);
     
 }
