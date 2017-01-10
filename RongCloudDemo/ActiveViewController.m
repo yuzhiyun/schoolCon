@@ -9,7 +9,7 @@
 #import "MainViewController.h"
 #import "SetPwdAfterActiveViewController.h"
 #import "AFNetworking.h"
-
+#import "AppDelegate.h"
 #define JsonGet @"http://192.168.229.1:8080/schoolCon/api/sys/sms/send?appId=03a8f0ea6a&appSecret=b4a01f5a7dd4416c&phone=12345&1564do12spa"
 @interface ActiveViewController ()
 
@@ -20,6 +20,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title=@"激活";
+    //全局ip
+    AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
+    NSLog(@"全局ip地址是 %@",myDelegate.ipString);
+    
+//    ipString
     // Do any additional setup after loading the view.
 }
 

@@ -10,6 +10,7 @@
 #import "LoginViewController.h"
 #import "ChooseSchoolTableViewController.h"
 #import "MainViewController.h"
+#import "AppDelegate.h"
 @interface EntranceViewController ()
 
 @end
@@ -18,6 +19,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    //全局ip
+    AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
+    myDelegate.ipString=@"192.168.229.1";
+    NSLog(@"全局ip地址是 %@",myDelegate.ipString);
+    
     
 //    修改下一个界面返回按钮的title，注意这行代码每个页面都要写一遍，不是全局的
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:nil action:nil];

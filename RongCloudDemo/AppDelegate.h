@@ -15,11 +15,14 @@
     NSMutableArray *onlineReadinngTitle;
 //   记录在线学习的viewpager当前页面是第几页
     int *indexOnlineReadinng;
+    
+    NSString *ipString;
 }
 @property (strong, nonatomic) UIWindow *window;
 
 /** 设置全局变量的属性. */
 @property (nonatomic, strong)NSMutableArray *onlineReadinngTitle;
 @property (nonatomic)int *indexOnlineReadinng;
+@property (nonatomic)NSString *ipString;
 @end
 

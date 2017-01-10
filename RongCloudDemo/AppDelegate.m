@@ -27,6 +27,7 @@
     //初始化全局变量
     onlineReadinngTitle=[[NSMutableArray alloc]init];
     indexOnlineReadinng=0;
+    ipString=@"192.168.229.1";
     
     
     

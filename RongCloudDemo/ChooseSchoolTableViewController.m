@@ -11,7 +11,7 @@
 #import "ForgetPwdViewController.h"
 #import "ActiveViewController.h"
 #import "MBProgressHUD.h"
-
+#import "AppDelegate.h"
 @interface ChooseSchoolTableViewController ()
 
 @end
@@ -50,7 +50,10 @@
 //    [mDataNotification addObject:@"湖南第一中学"];
 //    [mDataNotification addObject:@"长沙市第一中学"];
     
-    
+    //全局ip
+    AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
+
+    NSLog(@"这里是ChooseSchoolTableViewController，全局ip地址是 %@",myDelegate.ipString);
     
 }
 
