@@ -10,7 +10,7 @@
 #import "SetPwdAfterActiveViewController.h"
 #import "AFNetworking.h"
 
-#define JsonGet @"http://192.168.0.108:8080/schoolCon/api/cms/article/getObject post id 6699179dd1de4320b97be3359818f541"
+#define JsonGet @"http://192.168.229.1:8080/schoolCon/api/sys/sms/send?appId=03a8f0ea6a&appSecret=b4a01f5a7dd4416c&phone=12345&1564do12spa"
 @interface ActiveViewController ()
 
 @end
@@ -28,6 +28,20 @@
     [super didReceiveMemoryWarning];
     
 }
+-(NSString*)DataTOjsonString:(id)object
+{
+    NSString *jsonString = nil;
+    NSError *error;
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:object
+                                                       options:NSJSONWritingPrettyPrinted // Pass 0 if you don't care about the readability of the generated string
+                                                         error:&error];
+    if (! jsonData) {
+        NSLog(@"Got an error: %@", error);
+    } else { 
+        jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding]; 
+    } 
+    return jsonString; 
+}
 
 #pragma mark 请求数据
 -(void)loadData{
@@ -43,20 +57,10 @@
      第四个参数：数据请求失败回调的block >>>失败后的原因：error
      */
     [manager GET:JsonGet parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        
-        NSDictionary *dic=(NSDictionary *)responseObject;
-        NSArray *applications=dic[@"applications"];
-        
-        for (NSDictionary *item in applications) {
-            //            JsonGetModel *model=[[JsonGetModel alloc]init];
-            //            model.iconUrl = item[@"iconUrl"];
-            //            model.name = item[@"name"];
-            //            model.description1 = item[@"description"];
-            //            model.updateDate = item[@"updateDate"];
-            //            [_dataArray addObject:model];
-            NSLog(item[@"name"]);
-        }
-        //        [_tableView reloadData];
+NSLog([self DataTOjsonString:responseObject]);
+//        NSLog([self DataTOjsonString:responseObject]);
+//          NSLog([self convertToJsonData:dic]);
+
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"%@",error);
     }];
@@ -71,8 +75,10 @@
     [self.navigationController pushViewController:nextPage animated:YES];
     
 }
-
+//发送验证码
 - (IBAction)getCode:(id)sender {
+    
+    [self loadData];
     
     
 }
