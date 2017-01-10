@@ -23,6 +23,6 @@
 /** 设置全局变量的属性. */
 @property (nonatomic, strong)NSMutableArray *onlineReadinngTitle;
 @property (nonatomic)int *indexOnlineReadinng;
-@property (nonatomic)NSString *ipString;
+@property (nonatomic,strong)NSString *ipString;
 @end
 

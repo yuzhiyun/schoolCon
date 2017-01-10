@@ -22,7 +22,7 @@
     
     //全局ip
     AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
-    myDelegate.ipString=@"192.168.229.1";
+//    myDelegate.ipString=@"192.168.229.1";
     NSLog(@"全局ip地址是 %@",myDelegate.ipString);
     
     
