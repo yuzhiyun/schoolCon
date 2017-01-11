@@ -43,16 +43,16 @@
     self.navigationController.navigationBarHidden=NO;
     
     mDataNotification=[[NSMutableArray alloc]init];
-//    [mDataNotification addObject:@"长郡中学"];
-//    [mDataNotification addObject:@"长沙第一中学"];
-//    [mDataNotification addObject:@"长沙师大附中"];
-//    [mDataNotification addObject:@"铁道小学"];
-//    [mDataNotification addObject:@"湖南第一中学"];
-//    [mDataNotification addObject:@"长沙市第一中学"];
+    //    [mDataNotification addObject:@"长郡中学"];
+    //    [mDataNotification addObject:@"长沙第一中学"];
+    //    [mDataNotification addObject:@"长沙师大附中"];
+    //    [mDataNotification addObject:@"铁道小学"];
+    //    [mDataNotification addObject:@"湖南第一中学"];
+    //    [mDataNotification addObject:@"长沙市第一中学"];
     
     //全局ip
     AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
-
+    
     NSLog(@"这里是ChooseSchoolTableViewController，全局ip地址是 %@",myDelegate.ipString);
     
 }
@@ -63,16 +63,17 @@
     
 }
 -(void) getData{
+    
+    //获取全局ip地址
+    AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
+    
+    NSString *urlString= [NSString stringWithFormat:@"http://%@:8080/schoolCon/api/sch/school/get?appId=03a8f0ea6a&appSecret=b4a01f5a7dd4416c",myDelegate.ipString];
+    
     hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     //hud.color = [UIColor colorWithHexString:@"343637" alpha:0.5];
     hud.labelText = @" 获取数据...";
     [hud show:YES];
-    
-    //    NSString *urlString=@"http://www.kuaidi100.com/query?type=ems&postid=11";
-    //    NSString *urlString=@"http://apis.juhe.cn/mobile/get";
-    
-    NSString *urlString=@"http://192.168.229.1:8080/schoolCon/api/sch/school/get?appId=03a8f0ea6a&appSecret=b4a01f5a7dd4416c";
-    
+
     NSURL *url=[NSURL URLWithString:urlString];
     
     NSMutableURLRequest *request=[[NSMutableURLRequest alloc]initWithURL:url];
@@ -119,7 +120,7 @@
     
     
     //    隐藏对话框
-//    [self dismissViewControllerAnimated:YES  completion:nil];
+    //    [self dismissViewControllerAnimated:YES  completion:nil];
     
     
     [hud hide:YES];
@@ -183,19 +184,19 @@
 
 //网络请求错误
 -(void) connection:(NSURLConnection *)connection didFailWithError:(NSError *)error{
-    [hud show:NO];
-
+    [hud hide:YES];
+    
     UIAlertController *alert=[UIAlertController alertControllerWithTitle:nil message:[NSString stringWithFormat:@"访问错误%@",error]preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction *ok=[UIAlertAction actionWithTitle:@"确认"
                                                style:UIAlertActionStyleDefault handler:nil];
-
+    
     //        信息框添加按键
     [alert addAction:ok];
-
+    
     
     [self presentViewController:alert animated:YES completion:nil];
     
-
+    
     NSLog(@"❌错误 %@",error);
     
 }

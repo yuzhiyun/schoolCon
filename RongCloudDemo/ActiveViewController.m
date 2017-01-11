@@ -10,7 +10,8 @@
 #import "SetPwdAfterActiveViewController.h"
 #import "AFNetworking.h"
 #import "AppDelegate.h"
-#define JsonGet @"http://192.168.229.1:8080/schoolCon/api/sys/sms/send?appId=03a8f0ea6a&appSecret=b4a01f5a7dd4416c&phone=12345&1564do12spa"
+#import "MBProgressHUD.h"
+//#define JsonGet @"http://192.168.229.1:8080/schoolCon/api/sys/sms/send?appId=03a8f0ea6a&appSecret=b4a01f5a7dd4416c&phone=12345&1564do12spa"
 @interface ActiveViewController ()
 
 @end
@@ -50,6 +51,17 @@
 
 #pragma mark 请求数据
 -(void)loadData{
+    
+    MBProgressHUD *hud;
+    hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    //hud.color = [UIColor colorWithHexString:@"343637" alpha:0.5];
+    hud.labelText = @" 获取数据...";
+    [hud show:YES];
+    //获取全局ip地址
+    AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
+    
+    NSString *urlString= [NSString stringWithFormat:@"http://%@:8080/schoolCon/api/sys/sms/send?appId=03a8f0ea6a&appSecret=b4a01f5a7dd4416c&phone=12345&1564do12spa",myDelegate.ipString];
+    
     //创建数据请求的对象，不是单例
     AFHTTPRequestOperationManager *manager=[AFHTTPRequestOperationManager manager];
     //设置响应数据的类型,如果是json数据，会自动帮你解析
@@ -61,13 +73,24 @@
      第三个参数：数据请求成功回调的block >>>成功后的数据：responseObject
      第四个参数：数据请求失败回调的block >>>失败后的原因：error
      */
-    [manager GET:JsonGet parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [manager GET:urlString parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        //隐藏圆形进度条
+        [hud show:NO];
+        
+        
 NSLog([self DataTOjsonString:responseObject]);
 //        NSLog([self DataTOjsonString:responseObject]);
 //          NSLog([self convertToJsonData:dic]);
 
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"%@",error);
+        UIAlertController *alert=[UIAlertController alertControllerWithTitle:nil message:[NSString stringWithFormat:@"访问错误%@",error]preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *ok=[UIAlertAction actionWithTitle:@"确认"
+                                                   style:UIAlertActionStyleDefault handler:nil];
+        
+        //        信息框添加按键
+        [alert addAction:ok];
+        [self presentViewController:alert animated:YES completion:nil];
+        NSLog(@"访问错误%@",error);
     }];
 }
 

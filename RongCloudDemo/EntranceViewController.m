@@ -21,9 +21,9 @@
     [super viewDidLoad];
     
     //全局ip
-    AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
+//    AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
 //    myDelegate.ipString=@"192.168.229.1";
-    NSLog(@"全局ip地址是 %@",myDelegate.ipString);
+//    NSLog(@"全局ip地址是 %@",myDelegate.ipString);
     
     
 //    修改下一个界面返回按钮的title，注意这行代码每个页面都要写一遍，不是全局的
@@ -32,7 +32,7 @@
     //    隐藏返回按钮navigationController的navigationBar
     self.navigationController.navigationBarHidden=YES;
     
-
+ 
 //    按钮设置边框
     [self.UIButtonLogin.layer setMasksToBounds:YES];
     [self.UIButtonActive.layer setMasksToBounds:YES];

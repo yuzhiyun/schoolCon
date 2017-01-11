@@ -9,8 +9,12 @@
 #import "ArticleTableViewController.h"
 #import "Vp1TableViewCell.h"
 #import "ArticleDetailViewController.h"
-#import "AppDelegate.h"
+//#import "AppDelegate.h"
 #import "WMPageController.h"
+
+#import "AFNetworking.h"
+#import "AppDelegate.h"
+#import "MBProgressHUD.h"
 @interface ArticleTableViewController ()
 
 @end
@@ -20,6 +24,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [self loadData];
     /**
       *
       *获取当前页面在WMPageController中的index，有一点bug,获取到的index不准确，再等等吧。
@@ -60,6 +65,77 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+-(NSString*)DataTOjsonString:(id)object
+{
+    NSString *jsonString = nil;
+    NSError *error;
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:object
+                                                       options:NSJSONWritingPrettyPrinted // Pass 0 if you don't care about the readability of the generated string
+                                                         error:&error];
+    if (! jsonData) {
+        NSLog(@"Got an error: %@", error);
+    } else {
+        jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+    }
+    return jsonString;
+}
+
+#pragma mark 请求数据
+-(void)loadData{
+//#import "AFNetworking.h"
+//#import "AppDelegate.h"
+//#import "MBProgressHUD.h"
+    MBProgressHUD *hud;
+    hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    //hud.color = [UIColor colorWithHexString:@"343637" alpha:0.5];
+    hud.labelText = @" 获取数据...";
+    [hud show:YES];
+    //获取全局ip地址
+    AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
+    
+    NSString *urlString= [NSString stringWithFormat:@"http://%@:8080/schoolCon/api/cms/article/getList",myDelegate.ipString];
+    
+    //创建数据请求的对象，不是单例
+    AFHTTPRequestOperationManager *manager=[AFHTTPRequestOperationManager manager];
+    //设置响应数据的类型,如果是json数据，会自动帮你解析
+    //注意setWithObjects后面的s不能少
+    manager.responseSerializer.acceptableContentTypes=[NSSet setWithObjects:@"application/json", nil];
+    /*
+     第一个参数：请求的地址
+     第二个参数：需要传给服务端的参数
+     第三个参数：数据请求成功回调的block >>>成功后的数据：responseObject
+     第四个参数：数据请求失败回调的block >>>失败后的原因：error
+     */
+    
+    // 请求参数
+    NSDictionary *parameters = @{
+                                 @"channelType":@"zxxx",
+                                 @"pageNumber":@"1"
+                                 };
+    [manager POST:urlString parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        //隐藏圆形进度条
+        [hud hide:YES];
+        
+        NSLog(@"***************返回结果***********************");
+        NSLog([self DataTOjsonString:responseObject]);
+        //        NSLog([self DataTOjsonString:responseObject]);
+        //          NSLog([self convertToJsonData:dic]);
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        
+        //隐藏圆形进度条
+        [hud hide:YES];
+        UIAlertController *alert=[UIAlertController alertControllerWithTitle:nil message:[NSString stringWithFormat:@"访问错误%@",error]preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *ok=[UIAlertAction actionWithTitle:@"确认"
+                                                   style:UIAlertActionStyleDefault handler:nil];
+        
+        //        信息框添加按键
+        [alert addAction:ok];
+        [self presentViewController:alert animated:YES completion:nil];
+        NSLog(@"访问错误%@",error);
+    }];
+}
+
 
 #pragma mark - Table view data source
 
@@ -105,6 +181,8 @@
     
     
     
+    [self loadArticleData];
+    
     //根据storyboard id来获取目标页面
     ArticleDetailViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"ArticleDetailViewController"];
     
@@ -115,54 +193,72 @@
     
     //跳转
     [self.navigationController pushViewController:nextPage animated:YES];
-    
-    
-    
-    
-    
 }
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
 
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
+//-(NSString*)DataTOjsonString:(id)object
+//{
+//    NSString *jsonString = nil;
+//    NSError *error;
+//    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:object
+//                                                       options:NSJSONWritingPrettyPrinted // Pass 0 if you don't care about the readability of the generated string
+//                                                         error:&error];
+//    if (! jsonData) {
+//        NSLog(@"Got an error: %@", error);
+//    } else {
+//        jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+//    }
+//    return jsonString;
+//}
 
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
+#pragma mark 请求数据
+-(void)loadArticleData{
+    //#import "AFNetworking.h"
+    //#import "AppDelegate.h"
+    //#import "MBProgressHUD.h"
+    MBProgressHUD *hud;
+    hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    //hud.color = [UIColor colorWithHexString:@"343637" alpha:0.5];
+    hud.labelText = @" 获取数据...";
+    [hud show:YES];
+    //获取全局ip地址
+    AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
+    
+    NSString *urlString= [NSString stringWithFormat:@"http://%@:8080/schoolCon/api/cms/article/getObject",myDelegate.ipString];
+    
+    //创建数据请求的对象，不是单例
+    AFHTTPRequestOperationManager *manager=[AFHTTPRequestOperationManager manager];
+    //设置响应数据的类型,如果是json数据，会自动帮你解析
+    //注意setWithObjects后面的s不能少
+    manager.responseSerializer.acceptableContentTypes=[NSSet setWithObjects:@"application/json", nil];
+    // 请求参数
+    NSDictionary *parameters = @{
+//                                 @"channelType":@"zxxx",
+//                                 @"pageNumber":@"1",
+                                 @"id":@"bb744859cadc4c85b3b5228723da8671"
+                                 };
+    [manager POST:urlString parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        //隐藏圆形进度条
+        [hud hide:YES];
+        
+        NSLog(@"***************返回结果***********************");
+        NSLog([self DataTOjsonString:responseObject]);
+        //        NSLog([self DataTOjsonString:responseObject]);
+        //          NSLog([self convertToJsonData:dic]);
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        
+        //隐藏圆形进度条
+        [hud hide:YES];
+        UIAlertController *alert=[UIAlertController alertControllerWithTitle:nil message:[NSString stringWithFormat:@"访问错误%@",error]preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *ok=[UIAlertAction actionWithTitle:@"确认"
+                                                   style:UIAlertActionStyleDefault handler:nil];
+        
+        //        信息框添加按键
+        [alert addAction:ok];
+        [self presentViewController:alert animated:YES completion:nil];
+        NSLog(@"访问错误%@",error);
+    }];
 }
-*/
 
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

@@ -30,16 +30,24 @@
     
     [rightButton setTitleTextAttributes: [NSDictionary dictionaryWithObjectsAndKeys:[UIFont systemFontOfSize:17], UITextAttributeFont, [UIColor whiteColor], UITextAttributeTextColor, nil] forState:UIControlStateNormal];
     self.navigationItem.rightBarButtonItem=rightButton;
-
+    
+    NSString *urlString=@"http://172.27.35.6:8080/schoolCon/api/cms/article/getObject";
+    
+    NSURL *url = [NSURL URLWithString: urlString];
+//    NSString *body = [NSString stringWithFormat: @"id=%@&arg2=%@", @"bb744859cadc4c85b3b5228723da8671",@"val2"]; NSMutableURLRequest *request = [[NSMutableURLRequest alloc]initWithURL: url];
+        NSString *body = [NSString stringWithFormat: @"id=%@", @"bb744859cadc4c85b3b5228723da8671"]; NSMutableURLRequest *request = [[NSMutableURLRequest alloc]initWithURL: url];
+    [request setHTTPMethod: @"POST"];
+    [request setHTTPBody: [body dataUsingEncoding: NSUTF8StringEncoding]];
+    [UIWebViewArticle loadRequest: request];
     /**
      * 显示网页
      */
-    NSString *url=@"http://mp.weixin.qq.com/s/m3y2dvyWLxHoFskyX5aWPQ";
-    NSURL *nsUrl=[NSURL URLWithString:url];
-    NSURLRequest *request=[NSURLRequest requestWithURL:nsUrl];
-    
-    //这里也可以写_UIWebViewArticle，这样就不需要上面的@synthesize UIWebViewArticle;这行代码了
-    [UIWebViewArticle loadRequest:request];
+    //    NSString *url=@"http://172.27.35.6:8080/schoolCon/api/cms/article/getObject?id=bb744859cadc4c85b3b5228723da8671";
+    //    NSURL *nsUrl=[NSURL URLWithString:url];
+    //    NSURLRequest *request=[NSURLRequest requestWithURL:nsUrl];
+    //
+    //    //这里也可以写_UIWebViewArticle，这样就不需要上面的@synthesize UIWebViewArticle;这行代码了
+    //    [UIWebViewArticle loadRequest:request];
     mDataUsername=[[NSMutableArray alloc]init];
     [mDataUsername addObject:@"俞志云"];
     [mDataUsername addObject:@"马小龙"];
@@ -54,7 +62,7 @@
     [mDataCommentContent addObject:@"很好的解决了我的困惑"];
     [mDataCommentContent addObject:@"文章说出了我的心里话"];
     
-
+    
 }
 /**
  *  重载右边导航按钮的事件
@@ -70,7 +78,7 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     
-//    self.title=pubString;
+    //    self.title=pubString;
     // Dispose of any resources that can be recreated.
 }
 -(NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
