@@ -49,8 +49,8 @@
     }
     return jsonString;
 }
-#pragma mark 请求数据
--(void)loadData{
+//获取验证码
+-(void)httpGetVerifyCode{
     //#import "AFNetworking.h"
     //#import "AppDelegate.h"
     //#import "MBProgressHUD.h"
@@ -208,9 +208,6 @@
         
         [HUD removeFromSuperview];
     }];
-    
-    
-    
 }
 //发送验证码
 - (IBAction)getCode:(id)sender {
@@ -220,7 +217,7 @@
         NSLog(@"手机号不能为空");
     }
     else
-        [self loadData];
+        [self httpGetVerifyCode];
 
 }
 
