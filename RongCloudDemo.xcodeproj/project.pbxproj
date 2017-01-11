@@ -174,6 +174,7 @@
 		CD79C2061E2502B400A9889F /* UIProgressView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = CD79C1F11E2502B400A9889F /* UIProgressView+AFNetworking.m */; };
 		CD79C2071E2502B400A9889F /* UIRefreshControl+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = CD79C1F31E2502B400A9889F /* UIRefreshControl+AFNetworking.m */; };
 		CD79C2081E2502B400A9889F /* UIWebView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = CD79C1F51E2502B400A9889F /* UIWebView+AFNetworking.m */; };
+		CD79C20F1E26256E00A9889F /* School.m in Sources */ = {isa = PBXBuildFile; fileRef = CD79C20E1E26256E00A9889F /* School.m */; };
 		CDDE85371E20973800E5F03B /* ConsultTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDDE85361E20973800E5F03B /* ConsultTableViewController.m */; };
 		CDDE853B1E20B9C500E5F03B /* ActiveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDDE853A1E20B9C500E5F03B /* ActiveViewController.m */; };
 		CDDE853F1E20BA0200E5F03B /* ForgetPwdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDDE853E1E20BA0200E5F03B /* ForgetPwdViewController.m */; };
@@ -473,6 +474,8 @@
 		CD79C1F31E2502B400A9889F /* UIRefreshControl+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIRefreshControl+AFNetworking.m"; sourceTree = "<group>"; };
 		CD79C1F41E2502B400A9889F /* UIWebView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWebView+AFNetworking.h"; sourceTree = "<group>"; };
 		CD79C1F51E2502B400A9889F /* UIWebView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWebView+AFNetworking.m"; sourceTree = "<group>"; };
+		CD79C20D1E26256E00A9889F /* School.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = School.h; sourceTree = "<group>"; };
+		CD79C20E1E26256E00A9889F /* School.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = School.m; sourceTree = "<group>"; };
 		CDDE85351E20973800E5F03B /* ConsultTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConsultTableViewController.h; sourceTree = "<group>"; };
 		CDDE85361E20973800E5F03B /* ConsultTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConsultTableViewController.m; sourceTree = "<group>"; };
 		CDDE85391E20B9C500E5F03B /* ActiveViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActiveViewController.h; sourceTree = "<group>"; };
@@ -1272,6 +1275,15 @@
 			path = /Users/qifeiqin/Downloads/AFNetWorkingDemo/AFNetWorkingDemo/AFNetworking;
 			sourceTree = "<absolute>";
 		};
+		CD79C2091E2622D500A9889F /* schoolEntity */ = {
+			isa = PBXGroup;
+			children = (
+				CD79C20D1E26256E00A9889F /* School.h */,
+				CD79C20E1E26256E00A9889F /* School.m */,
+			);
+			name = schoolEntity;
+			sourceTree = "<group>";
+		};
 		CDDE85341E20971700E5F03B /* consult */ = {
 			isa = PBXGroup;
 			children = (
@@ -1348,6 +1360,7 @@
 		CDE5AEB31E1014D70059D310 /* chooseSchool */ = {
 			isa = PBXGroup;
 			children = (
+				CD79C2091E2622D500A9889F /* schoolEntity */,
 				CDE5AEB41E1014F70059D310 /* ChooseSchoolTableViewController.h */,
 				CDE5AEB51E1014F70059D310 /* ChooseSchoolTableViewController.m */,
 			);
@@ -1625,6 +1638,7 @@
 				CD2DCC871E09305D000C03E1 /* UIButton+WebCache.m in Sources */,
 				CDDE853B1E20B9C500E5F03B /* ActiveViewController.m in Sources */,
 				CDE5AEB21E1009670059D310 /* MainViewController.m in Sources */,
+				CD79C20F1E26256E00A9889F /* School.m in Sources */,
 				CD3F24961E2273D00083293D /* YAxisView.m in Sources */,
 				CD2DCC8C1E09305D000C03E1 /* UIImageView+WebCache.m in Sources */,
 				CD79C1FA1E2502B400A9889F /* AFHTTPSessionManager.m in Sources */,

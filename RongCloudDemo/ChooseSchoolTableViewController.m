@@ -13,6 +13,7 @@
 #import "MBProgressHUD.h"
 #import "AppDelegate.h"
 #import "AFNetworking.h"
+#import "School.h"
 //#import "AppDelegate.h"
 //#import "MBProgressHUD.h"
 @interface ChooseSchoolTableViewController ()
@@ -21,7 +22,7 @@
 
 @implementation ChooseSchoolTableViewController{
     
-    NSMutableArray *mDataNotification;
+    NSMutableArray *mDataSchool;
     
     
     //上传头像进度条，就是一个劲旋转的进度
@@ -45,29 +46,17 @@
     //    显示返回按钮navigationController的navigationBar
     self.navigationController.navigationBarHidden=NO;
     
-    mDataNotification=[[NSMutableArray alloc]init];
+    mDataSchool=[[NSMutableArray alloc]init];
     
     [self loadData];
     
-    //    [mDataNotification addObject:@"长郡中学"];
-    //    [mDataNotification addObject:@"长沙第一中学"];
-    //    [mDataNotification addObject:@"长沙师大附中"];
-    //    [mDataNotification addObject:@"铁道小学"];
-    //    [mDataNotification addObject:@"湖南第一中学"];
-    //    [mDataNotification addObject:@"长沙市第一中学"];
-    
+    //    [mDataNotification addObject:@"长郡中学"]
     //全局ip
     AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
     
     NSLog(@"这里是ChooseSchoolTableViewController，全局ip地址是 %@",myDelegate.ipString);
     
 }
-
-//-(void) viewWillAppear:(BOOL)animated{
-//    //获取数据
-////        [self getData];
-//            [self loadData];
-//}
 
 -(NSString*)DataTOjsonString:(id)object
 {
@@ -110,7 +99,6 @@
      第三个参数：数据请求成功回调的block >>>成功后的数据：responseObject
      第四个参数：数据请求失败回调的block >>>失败后的原因：error
      */
-    
     // 请求参数
     NSDictionary *parameters = @{
                                  @"channelType":@"zxxx",
@@ -141,16 +129,22 @@
                 NSArray *schoolArray=[data objectForKey:@"schools"];
                 for(NSDictionary *item in  schoolArray ){
                     
-                    NSString *schoolName=[item objectForKey:@"name"];
+
+                
+                   School *model=[[School alloc]init];
+                    model.schoolName=item [@"name"];
+                    model.schoolId=item [@"id"];
                     NSLog(@"******打印学校**********");
-                    NSLog(@"学校名称是%@",schoolName);
+                    NSLog(@"学校名称是%@",model.schoolName);
                     //添加到数组以便显示到tableview
-                    [mDataNotification addObject:schoolName];
+                    [mDataSchool addObject:model];
                 }
                 //更新界面
                 [mTableView reloadData];
             }
         }
+        
+        
         else
             NSLog(@"*****doc空***********");
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -322,7 +316,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
     mTableView=tableView;
-    return [mDataNotification count];
+    return [mDataSchool count];
 }
 
 
@@ -335,9 +329,10 @@
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:simpleTableIdentifier];
     }
-    
-    cell.textLabel.text = [mDataNotification objectAtIndex:indexPath.row];
+    School *model=[mDataSchool objectAtIndex:indexPath.row];
+    cell.textLabel.text =model.schoolName;
     cell.imageView.image=[UIImage imageNamed:@"school.png"];
+    
     cell.detailTextLabel.text=nil;
     return cell;
 }
