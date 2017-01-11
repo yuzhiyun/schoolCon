@@ -46,6 +46,9 @@
     self.navigationController.navigationBarHidden=NO;
     
     mDataNotification=[[NSMutableArray alloc]init];
+    
+    [self loadData];
+    
     //    [mDataNotification addObject:@"长郡中学"];
     //    [mDataNotification addObject:@"长沙第一中学"];
     //    [mDataNotification addObject:@"长沙师大附中"];
@@ -60,11 +63,11 @@
     
 }
 
--(void) viewWillAppear:(BOOL)animated{
-    //获取数据
-//        [self getData];
-            [self loadData];
-}
+//-(void) viewWillAppear:(BOOL)animated{
+//    //获取数据
+////        [self getData];
+//            [self loadData];
+//}
 
 -(NSString*)DataTOjsonString:(id)object
 {
@@ -120,8 +123,6 @@
         
         NSLog(@"***************返回结果***********************");
         NSLog(result);
-        
-        
         /**
          *开始解析json
          */
@@ -153,19 +154,11 @@
         else
             NSLog(@"*****doc空***********");
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        
         //隐藏圆形进度条
         [hud hide:YES];
         NSString *errorUser=[error.userInfo objectForKey:NSLocalizedDescriptionKey];
-                             
-        NSLog(errorUser);
-//        NSString *msg=[NSString stringWithFormat:@"访问错误%i",error.code];
-//        if(error.code==-1009)
-//            msg=@"主人，似乎没有网络喔！";
-//        else if(error.code==500)
-//            msg=@"服务器内部错误";
-//        else if(error.code==-1011)
-//            msg=@"请求超时";
+        if(error.code==-1009)
+            errorUser=@"主人，似乎没有网络喔！";
         UIAlertController *alert=[UIAlertController alertControllerWithTitle:nil message:errorUser preferredStyle:UIAlertControllerStyleAlert];
         UIAlertAction *ok=[UIAlertAction actionWithTitle:@"确认"
                                                    style:UIAlertActionStyleDefault handler:nil];
@@ -173,10 +166,6 @@
         //        信息框添加按键
         [alert addAction:ok];
         [self presentViewController:alert animated:YES completion:nil];
-        NSLog(@"访问错误%i",error.code);
-        NSLog(@"访问错误%@",error.userInfo);
-        NSLog(@"访问错误%@",error);
-        
     }];
 }
 

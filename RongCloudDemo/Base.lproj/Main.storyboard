@@ -2212,6 +2212,11 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="UITextFieldPhone" destination="1LF-lI-PqQ" id="eYd-IT-D7i"/>
+                        <outlet property="UITextFieldPwd" destination="EYv-Hy-0ne" id="TLU-bp-j1Y"/>
+                        <outlet property="UITextFieldVerifyCode" destination="oLZ-Wl-jMK" id="cgx-rS-2uy"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mju-fB-rJ0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
