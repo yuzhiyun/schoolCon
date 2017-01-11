@@ -17,6 +17,11 @@
     int *indexOnlineReadinng;
     
     NSString *ipString;
+    NSString *token;
+    NSString *appId;
+    NSString *appSecret;
+    NSString *schoolId;
+    
 }
 @property (strong, nonatomic) UIWindow *window;
 
@@ -24,5 +29,10 @@
 @property (nonatomic, strong)NSMutableArray *onlineReadinngTitle;
 @property (nonatomic)int *indexOnlineReadinng;
 @property (nonatomic,strong)NSString *ipString;
+@property (nonatomic,strong)NSString *token;
+@property (nonatomic,strong)NSString *appId;
+@property (nonatomic,strong)NSString *appSecret;
+@property (nonatomic,strong)NSString *schoolId;
+
 @end
 

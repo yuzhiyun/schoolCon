@@ -8,6 +8,7 @@
 
 #import "ArticleDetailViewController.h"
 #import "CommentTableViewCell.h"
+#import "AppDelegate.h"
 @interface ArticleDetailViewController ()
 
 @end
@@ -35,7 +36,10 @@
     
     NSURL *url = [NSURL URLWithString: urlString];
 //    NSString *body = [NSString stringWithFormat: @"id=%@&arg2=%@", @"bb744859cadc4c85b3b5228723da8671",@"val2"]; NSMutableURLRequest *request = [[NSMutableURLRequest alloc]initWithURL: url];
-        NSString *body = [NSString stringWithFormat: @"id=%@", @"bb744859cadc4c85b3b5228723da8671"]; NSMutableURLRequest *request = [[NSMutableURLRequest alloc]initWithURL: url];
+      AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
+//    @"appId":@"03a8f0ea6a",
+//    @"appSecret":@"b4a01f5a7dd4416c",
+        NSString *body = [NSString stringWithFormat: @"id=%@&token=%@&appId=%@&appSecret=%@", @"bb744859cadc4c85b3b5228723da8671",myDelegate.token,myDelegate.appId,myDelegate.appSecret]; NSMutableURLRequest *request = [[NSMutableURLRequest alloc]initWithURL: url];
     [request setHTTPMethod: @"POST"];
     [request setHTTPBody: [body dataUsingEncoding: NSUTF8StringEncoding]];
     [UIWebViewArticle loadRequest: request];

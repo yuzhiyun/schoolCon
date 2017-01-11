@@ -175,6 +175,7 @@
 		CD79C2071E2502B400A9889F /* UIRefreshControl+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = CD79C1F31E2502B400A9889F /* UIRefreshControl+AFNetworking.m */; };
 		CD79C2081E2502B400A9889F /* UIWebView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = CD79C1F51E2502B400A9889F /* UIWebView+AFNetworking.m */; };
 		CD79C20F1E26256E00A9889F /* School.m in Sources */ = {isa = PBXBuildFile; fileRef = CD79C20E1E26256E00A9889F /* School.m */; };
+		CD79C21B1E264AE900A9889F /* Article.m in Sources */ = {isa = PBXBuildFile; fileRef = CD79C21A1E264AE900A9889F /* Article.m */; };
 		CDDE85371E20973800E5F03B /* ConsultTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDDE85361E20973800E5F03B /* ConsultTableViewController.m */; };
 		CDDE853B1E20B9C500E5F03B /* ActiveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDDE853A1E20B9C500E5F03B /* ActiveViewController.m */; };
 		CDDE853F1E20BA0200E5F03B /* ForgetPwdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDDE853E1E20BA0200E5F03B /* ForgetPwdViewController.m */; };
@@ -476,6 +477,8 @@
 		CD79C1F51E2502B400A9889F /* UIWebView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWebView+AFNetworking.m"; sourceTree = "<group>"; };
 		CD79C20D1E26256E00A9889F /* School.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = School.h; sourceTree = "<group>"; };
 		CD79C20E1E26256E00A9889F /* School.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = School.m; sourceTree = "<group>"; };
+		CD79C21A1E264AE900A9889F /* Article.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Article.m; sourceTree = "<group>"; };
+		CD79C21C1E264B0100A9889F /* Article.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Article.h; sourceTree = "<group>"; };
 		CDDE85351E20973800E5F03B /* ConsultTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConsultTableViewController.h; sourceTree = "<group>"; };
 		CDDE85361E20973800E5F03B /* ConsultTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConsultTableViewController.m; sourceTree = "<group>"; };
 		CDDE85391E20B9C500E5F03B /* ActiveViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActiveViewController.h; sourceTree = "<group>"; };
@@ -791,7 +794,7 @@
 			children = (
 				CDDE85341E20971700E5F03B /* consult */,
 				CD2DCC041E053648000C03E1 /* vp2_education_wisdom */,
-				CD2DCC031E053627000C03E1 /* vp1_reading_speaking */,
+				CD2DCC031E053627000C03E1 /* article */,
 				CD2DCB8A1E03E815000C03E1 /* commentCell */,
 				CD2DCB871E03E7BE000C03E1 /* ArticleDetailViewController.h */,
 				CD2DCB881E03E7BE000C03E1 /* ArticleDetailViewController.m */,
@@ -868,14 +871,15 @@
 			path = WMMenuView;
 			sourceTree = "<group>";
 		};
-		CD2DCC031E053627000C03E1 /* vp1_reading_speaking */ = {
+		CD2DCC031E053627000C03E1 /* article */ = {
 			isa = PBXGroup;
 			children = (
+				CD79C2101E26467A00A9889F /* Article */,
 				CD2DCC0B1E0537A2000C03E1 /* cell */,
 				CD2DCC051E0536A7000C03E1 /* ArticleTableViewController.h */,
 				CD2DCC061E0536A7000C03E1 /* ArticleTableViewController.m */,
 			);
-			name = vp1_reading_speaking;
+			name = article;
 			sourceTree = "<group>";
 		};
 		CD2DCC041E053648000C03E1 /* vp2_education_wisdom */ = {
@@ -1284,6 +1288,15 @@
 			name = schoolEntity;
 			sourceTree = "<group>";
 		};
+		CD79C2101E26467A00A9889F /* Article */ = {
+			isa = PBXGroup;
+			children = (
+				CD79C21A1E264AE900A9889F /* Article.m */,
+				CD79C21C1E264B0100A9889F /* Article.h */,
+			);
+			name = Article;
+			sourceTree = "<group>";
+		};
 		CDDE85341E20971700E5F03B /* consult */ = {
 			isa = PBXGroup;
 			children = (
@@ -1653,6 +1666,7 @@
 				CDDE85431E20C49B00E5F03B /* SetPwdAfterActiveViewController.m in Sources */,
 				CD4EE2541E2200E7001882F7 /* MBProgressHUD.m in Sources */,
 				CDE5AEB61E1014F70059D310 /* ChooseSchoolTableViewController.m in Sources */,
+				CD79C21B1E264AE900A9889F /* Article.m in Sources */,
 				CD2DCBF81E052BB8000C03E1 /* WMMenuItem.m in Sources */,
 				CD2DCCAF1E0A6FF9000C03E1 /* QueryGradeTableViewController.m in Sources */,
 				CD2DCC391E066137000C03E1 /* DetailYuluViewController.m in Sources */,

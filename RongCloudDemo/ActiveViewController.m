@@ -61,19 +61,31 @@
     [hud show:YES];
     //获取全局ip地址
     AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
-    
-    NSString *urlString= [NSString stringWithFormat:@"http://%@:8080/schoolCon/api/sys/sms/validate?appId=03a8f0ea6a&appSecret=b4a01f5a7dd4416c&phone=123456&schoolId=1564do12spa",myDelegate.ipString];
-    
+    NSString *urlString= [NSString stringWithFormat:@"http://%@:8080/schoolCon/api/sys/sms/validate",myDelegate.ipString];
     //创建数据请求的对象，不是单例
     AFHTTPRequestOperationManager *manager=[AFHTTPRequestOperationManager manager];
     //设置响应数据的类型,如果是json数据，会自动帮你解析
     manager.responseSerializer.acceptableContentTypes=[NSSet setWithObjects:@"application/json", nil];
-    //    // 请求参数
-    //    NSDictionary *parameters = @{
-    //                                 @"channelType":@"zxxx",
-    //                                 @"pageNumber":@"1"
-    //                                 };
-    [manager POST:urlString parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    // 请求参数
+//    NSDictionary *parameters = @{
+//                                 @"appId":myDelegate.appId,
+//                                 @"appSecret":myDelegate.appSecret,
+//                                 @"schoolId":myDelegate.schoolId,
+//                                 @"phone":@"123456",
+//                                 @"pwd":@"123456",
+//                                 @"vcode":@"1234"
+//                                 };
+    
+    
+    // 请求参数
+    NSDictionary *parameters = @{
+                                 @"appId":myDelegate.appId,
+                                 @"appSecret":myDelegate.appSecret,
+                                 @"schoolId":myDelegate.schoolId,
+                                 @"phone":_UITextFieldPhone.text
+                                 };
+
+    [manager POST:urlString parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         //隐藏圆形进度条
         [hud hide:YES];
         NSString *result=[self DataTOjsonString:responseObject];
@@ -118,11 +130,18 @@
 
 - (IBAction)active:(id)sender {
     
+    if(_UITextFieldPhone.text.length == 0||_UITextFieldPwd.text.length==0||_UITextFieldVerifyCode==0){
+        [self toast:@"确保输入框不为空"];
+//        NSLog(@"手机号不能为空");
+    }
+    
+    else
+    
     
     [self httpActive];
-    SetPwdAfterActiveViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"SetPwdAfterActiveViewController"];
-    nextPage.hidesBottomBarWhenPushed=YES;
-    [self.navigationController pushViewController:nextPage animated:YES];
+//    SetPwdAfterActiveViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"SetPwdAfterActiveViewController"];
+//    nextPage.hidesBottomBarWhenPushed=YES;
+//    [self.navigationController pushViewController:nextPage animated:YES];
     
 }
 
@@ -146,13 +165,14 @@
     manager.responseSerializer.acceptableContentTypes=[NSSet setWithObjects:@"application/json", nil];
     // 请求参数
     NSDictionary *parameters = @{
-                                 @"appId":@"03a8f0ea6a",
-                                 @"appSecret":@"b4a01f5a7dd4416c",
-                                 @"schoolId":@"1564do12spa",
-                                 @"phone":@"123456",
-                                 @"vcode":@"1234",
-                                 @"pwd":@"123456"
+                                 @"appId":myDelegate.appId,
+                                 @"appSecret":myDelegate.appSecret,
+                                 @"schoolId":myDelegate.schoolId,
+                                 @"phone":_UITextFieldPhone.text,
+                                 @"pwd":_UITextFieldPwd.text,
+                                 @"vcode":_UITextFieldVerifyCode.text
                                  };
+    
     [manager POST:urlString parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         //隐藏圆形进度条
         [hud hide:YES];
@@ -177,6 +197,26 @@
         //         }
         NSLog(@"服务器返回msg%@",[doc objectForKey:@"msg"]);
         NSLog(@"服务器返回code%i",[doc objectForKey:@"code"]);
+        if([[doc objectForKey:@"msg"]isEqualToString:@"ok"]){
+            
+            //激活成功之后获取token
+            AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
+            myDelegate.token=[[doc objectForKey:@"data"]objectForKey:@"token"];
+            
+            MainViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"MainViewController"];
+            nextPage.hidesBottomBarWhenPushed=YES;
+            [self.navigationController pushViewController:nextPage animated:YES];
+        }
+        else
+        {
+            UIAlertController *alert=[UIAlertController alertControllerWithTitle:nil message:[doc objectForKey:@"msg"] preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction *ok=[UIAlertAction actionWithTitle:@"确认"
+                                                       style:UIAlertActionStyleDefault handler:nil];
+            
+            //        信息框添加按键
+            [alert addAction:ok];
+            [self presentViewController:alert animated:YES completion:nil];
+        }
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         //隐藏圆形进度条

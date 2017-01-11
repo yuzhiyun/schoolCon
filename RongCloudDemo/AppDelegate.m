@@ -30,9 +30,14 @@
      AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
 //    myDelegate.ipString=@"192.168.155.1";
     
-    myDelegate.ipString=@"172.27.35.7";
+//    myDelegate.ipString=@"172.27.35.7";
+    myDelegate.ipString=@"172.27.35.6";
+    myDelegate.token=@"";
 //    172.27.35.7
-    
+    myDelegate.appId=@"03a8f0ea6a";
+    myDelegate.appSecret=@"b4a01f5a7dd4416c";
+    //    @"appId":@"03a8f0ea6a",
+    //    @"appSecret":@"b4a01f5a7dd4416c",
     
     
     

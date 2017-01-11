@@ -15,6 +15,7 @@
 //#import "AFNetworking.h"
 #import "AppDelegate.h"
 #import "MBProgressHUD.h"
+#import "ForgetPwdViewController.h"
 #define JsonGet @"http://iappfree.candou.com:8080/free/applications/limited?currency=rmb&page=1"
 
 @interface LoginViewController ()
@@ -33,7 +34,7 @@
 //    隐藏返回按钮navigationController的navigationBar
 //    self.navigationController.navigationBarHidden=YES;
     
-    [self loadData];
+//    [self loadData];
 }
 
 
@@ -49,9 +50,9 @@
     
     [self httpLogin];
     
-//    MainViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"MainViewController"];
-//    nextPage.hidesBottomBarWhenPushed=YES;
-//    [self.navigationController pushViewController:nextPage animated:YES];
+    MainViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"MainViewController"];
+    nextPage.hidesBottomBarWhenPushed=YES;
+    [self.navigationController pushViewController:nextPage animated:YES];
 }
 
 //登录
@@ -75,11 +76,11 @@
     manager.responseSerializer.acceptableContentTypes=[NSSet setWithObjects:@"application/json", nil];
     // 请求参数
     NSDictionary *parameters = @{
-                                 @"appId":@"03a8f0ea6a",
-                                 @"appSecret":@"b4a01f5a7dd4416c",
-                                 @"schoolId":@"1564do12spa",
-                                 @"loginname":@"123456",
-                                 @"vcode":@"1234",
+                                 @"appId":myDelegate.appId,
+                                 @"appSecret":myDelegate.appSecret,
+                                 @"schoolId":myDelegate.schoolId,
+                                 @"loginname":@"maxiaolong",
+//                                 @"vcode":@"1234",
                                  @"pwd":@"123456"
                                  };
     [manager POST:urlString parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
@@ -102,6 +103,10 @@
         NSLog([doc objectForKey:@"msg"]);
         NSLog(@"%i",[doc objectForKey:@"code"]);
         
+        //登录之后获取token
+        AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
+        myDelegate.token=[[doc objectForKey:@"data"]objectForKey:@"token"];
+        
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         //隐藏圆形进度条
         [hud hide:YES];
@@ -119,8 +124,7 @@
 }
 
 - (IBAction)forgetPwd:(id)sender {
-    ChooseSchoolTableViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"ChooseSchoolTableViewController"];
-    nextPage->index=3;
+    ForgetPwdViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"ForgetPwdViewController"];
     [self.navigationController pushViewController:nextPage animated:YES];
 }
 
@@ -143,43 +147,6 @@
     }
     return jsonString;
 }
-
-
-#pragma mark 请求数据
--(void)loadData{
-    //创建数据请求的对象，不是单例
-    AFHTTPRequestOperationManager *manager=[AFHTTPRequestOperationManager manager];
-    //设置响应数据的类型,如果是json数据，会自动帮你解析
-    //注意setWithObjects后面的s不能少
-    manager.responseSerializer.acceptableContentTypes=[NSSet setWithObjects:@"application/json", nil];
-    /*
-     第一个参数：请求的地址
-     第二个参数：需要传给服务端的参数
-     第三个参数：数据请求成功回调的block >>>成功后的数据：responseObject
-     第四个参数：数据请求失败回调的block >>>失败后的原因：error
-     */
-    [manager GET:JsonGet parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        
-        NSLog([self DataTOjsonString:responseObject]);
-//        NSLog(responseObject);
-        NSDictionary *dic=(NSDictionary *)responseObject;
-        NSArray *applications=dic[@"applications"];
-        for (NSDictionary *item in applications) {
-//            JsonGetModel *model=[[JsonGetModel alloc]init];
-//            model.iconUrl = item[@"iconUrl"];
-//            model.name = item[@"name"];
-//            model.description1 = item[@"description"];
-//            model.updateDate = item[@"updateDate"];
-//            [_dataArray addObject:model];
-            NSLog(item[@"name"]);
-        }
-//        [_tableView reloadData];
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"%@",error);
-    }];
-}
-
-
 
 
 

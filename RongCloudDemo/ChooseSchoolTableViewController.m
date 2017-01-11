@@ -93,28 +93,20 @@
     //设置响应数据的类型,如果是json数据，会自动帮你解析
     //注意setWithObjects后面的s不能少
     manager.responseSerializer.acceptableContentTypes=[NSSet setWithObjects:@"application/json", nil];
-    /*
-     第一个参数：请求的地址
-     第二个参数：需要传给服务端的参数
-     第三个参数：数据请求成功回调的block >>>成功后的数据：responseObject
-     第四个参数：数据请求失败回调的block >>>失败后的原因：error
-     */
     // 请求参数
-    NSDictionary *parameters = @{
-                                 @"channelType":@"zxxx",
-                                 @"pageNumber":@"1"
-                                 };
-    [manager POST:urlString parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+//    NSDictionary *parameters = @{
+//                                 @"channelType":@"zxxx",
+//                                 @"pageNumber":@"1"
+//                                 };
+    [manager POST:urlString parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         //隐藏圆形进度条
         [hud hide:YES];
         NSString *result=[self DataTOjsonString:responseObject];
-        
         NSLog(@"***************返回结果***********************");
         NSLog(result);
         /**
          *开始解析json
          */
-        
         //NSString *result=[self DataTOjsonString:responseObject];
         NSData *data=[result dataUsingEncoding:NSUTF8StringEncoding];
         
@@ -336,7 +328,13 @@
     cell.detailTextLabel.text=nil;
     return cell;
 }
+#pragma mark item点击事件
 -(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    
+    School *school=[mDataSchool objectAtIndex:indexPath.row];
+     AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
+    myDelegate.schoolId=school.schoolId;
     //登录
     if(1==self->index){
         //根据storyboard id来获取目标页面
@@ -349,11 +347,11 @@
         ActiveViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"ActiveViewController"];
         [self.navigationController pushViewController:nextPage animated:YES];
     }
-    //忘记密码
+    /*忘记密码
     else if(3==self->index){
         ForgetPwdViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"ForgetPwdViewController"];
         [self.navigationController pushViewController:nextPage animated:YES];
-    }
+    }*/
     
 }
 

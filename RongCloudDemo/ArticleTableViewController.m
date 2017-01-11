@@ -9,22 +9,32 @@
 #import "ArticleTableViewController.h"
 #import "Vp1TableViewCell.h"
 #import "ArticleDetailViewController.h"
-//#import "AppDelegate.h"
+#import "AppDelegate.h"
 #import "WMPageController.h"
 
 #import "AFNetworking.h"
 #import "AppDelegate.h"
 #import "MBProgressHUD.h"
+#import "Article.h"
 @interface ArticleTableViewController ()
 
 @end
 
-@implementation ArticleTableViewController
+@implementation ArticleTableViewController{
+
+    NSMutableArray *mDataArticle;
+    UITableView *mTableView;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    mDataArticle=[[NSMutableArray alloc]init];
+
+    
     [self loadData];
+    AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
+    NSLog(@"token是%@",myDelegate.token);
     /**
       *
       *获取当前页面在WMPageController中的index，有一点bug,获取到的index不准确，再等等吧。
@@ -35,29 +45,29 @@
     //防止与顶部重叠
     self.tableView.contentInset=UIEdgeInsetsMake(20.0f, 0.0f, 0.0f, 0.0f);
     
-    //指定大标题
-    mData=[[NSMutableArray alloc]init];
-//    [mData addObject:[NSString stringWithFormat:@"当前页面%d, 你是最美的",pageController.selectIndex]];
-    [mData addObject:@"心灵的憩息之地"];
-    [mData addObject:@"优雅，是一种岁月"];
-    [mData addObject:@"科学家证实：“3岁看大”确有科学依据"];
-    [mData addObject:@"人生处世心态好，看淡尘世品行高"];
-    [mData addObject:@"人生十二最"];
-    //指定封面
-    mImg=[[NSMutableArray alloc]init];
-    [mImg addObject:@"1.jpg"];
-    [mImg addObject:@"2.jpg"];
-    [mImg addObject:@"3.jpg"];
-    [mImg addObject:@"4.jpg"];
-    [mImg addObject:@"5.jpg"];
-    
-    //指定作者
-    mDataAuthor=[[NSMutableArray alloc]init];
-    [mDataAuthor addObject:@"余秋雨"];
-    [mDataAuthor addObject:@"老舍"];
-    [mDataAuthor addObject:@"张凯景"];
-    [mDataAuthor addObject:@"李非"];
-    [mDataAuthor addObject:@"张晓静"];
+//    //指定大标题
+//    mData=[[NSMutableArray alloc]init];
+////    [mData addObject:[NSString stringWithFormat:@"当前页面%d, 你是最美的",pageController.selectIndex]];
+//    [mData addObject:@"心灵的憩息之地"];
+//    [mData addObject:@"优雅，是一种岁月"];
+//    [mData addObject:@"科学家证实：“3岁看大”确有科学依据"];
+//    [mData addObject:@"人生处世心态好，看淡尘世品行高"];
+//    [mData addObject:@"人生十二最"];
+//    //指定封面
+//    mImg=[[NSMutableArray alloc]init];
+//    [mImg addObject:@"1.jpg"];
+//    [mImg addObject:@"2.jpg"];
+//    [mImg addObject:@"3.jpg"];
+//    [mImg addObject:@"4.jpg"];
+//    [mImg addObject:@"5.jpg"];
+//    
+//    //指定作者
+//    mDataAuthor=[[NSMutableArray alloc]init];
+//    [mDataAuthor addObject:@"余秋雨"];
+//    [mDataAuthor addObject:@"老舍"];
+//    [mDataAuthor addObject:@"张凯景"];
+//    [mDataAuthor addObject:@"李非"];
+//    [mDataAuthor addObject:@"张晓静"];
 
 }
 
@@ -80,7 +90,7 @@
     return jsonString;
 }
 
-#pragma mark 请求数据
+#pragma mark 加载文章列表
 -(void)loadData{
 //#import "AFNetworking.h"
 //#import "AppDelegate.h"
@@ -100,49 +110,114 @@
     //设置响应数据的类型,如果是json数据，会自动帮你解析
     //注意setWithObjects后面的s不能少
     manager.responseSerializer.acceptableContentTypes=[NSSet setWithObjects:@"application/json", nil];
-    /*
-     第一个参数：请求的地址
-     第二个参数：需要传给服务端的参数
-     第三个参数：数据请求成功回调的block >>>成功后的数据：responseObject
-     第四个参数：数据请求失败回调的block >>>失败后的原因：error
-     */
-    
+    NSString *token=myDelegate.token;
     // 请求参数
-    NSDictionary *parameters = @{
+    NSDictionary *parameters = @{ @"appId":@"03a8f0ea6a",
+                                  @"appSecret":@"b4a01f5a7dd4416c",
                                  @"channelType":@"zxxx",
-                                 @"pageNumber":@"1"
+                                 @"pageNumber":@"1",
+                                 
+                                 @"token":token
+                                 
                                  };
+    
     [manager POST:urlString parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         //隐藏圆形进度条
         [hud hide:YES];
-        
+        NSString *result=[self DataTOjsonString:responseObject];
         NSLog(@"***************返回结果***********************");
-        NSLog([self DataTOjsonString:responseObject]);
+        NSLog(result);
+        
+        NSData *data=[result dataUsingEncoding:NSUTF8StringEncoding];
+        
+        NSError *error=[[NSError alloc]init];
+        NSDictionary *doc= [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
+//        "data" : [
+//                  {
+//                      "id" : "bb744859cadc4c85b3b5228723da8671",
+//                      "title" : "1",
+//                      "author" : "超级管理员",
+//                      "publishat" : 1484101843,
+//                      "picurl" : "\/schoolCon\/upload\/image\/20170111\/5rpblhora6i7prhqa1i7j48b15.14.02.png"
+//                  }
+//                  ]
+        
+        if(doc!=nil){
+            NSLog(@"*****doc不为空***********");
+            NSArray *articleArray=[doc objectForKey:@"data"];
+//            if(data!=nil){
+//                NSArray *schoolArray=[data objectForKey:@"schools"];
+                for(NSDictionary *item in  articleArray ){
+                    
+                    
+                    
+                    Article *model=[[Article alloc]init];
+                    model.articleId=item [@"id"];
+                    model.picUrl=item [@"picurl"];
+                    model.title=item [@"title"];
+                    model.author=item [@"author"];
+                    
+//                    注意，publishat是NSNumber 类型的，所以不要用字符串去接收，否则报错
+//                    -[__NSCFNumber rangeOfCharacterFromSet:]: unrecognized selector sent to instance 0x7fa5216589d0"，对于IOS开发感兴趣的同学可以参考一下： 这个算是类型的不匹配，就是把NSNumber类型的赋给字符串了自己还不知情，
+                    
+                    model.date=item [@"publishat"];
+
+                    
+                    NSLog(@"******打印文章列表**********");
+                    NSLog(@"文章articleId是%@",model.articleId);
+                    NSLog(@"文章picUrl是%@",model.picUrl);
+                    NSLog(@"文章title是%@",model.title);
+                    NSLog(@"文章author是%@",model.author);
+                    NSLog(@"文章publishat是%i",model.date);
+                    //添加到数组以便显示到tableview
+                    NSLog(@"addObject之前");
+                    [mDataArticle addObject:model];
+                    NSLog(@"addObject之后");
+                }
+            NSLog(@"mDataArticle项数为%i",[mDataArticle count]);
+            NSLog(@"//更新界面");
+                //更新界面
+                [mTableView reloadData];
+//            }
+        }
+        
+        
+        else
+            NSLog(@"*****doc空***********");
+        
+        
+        
+        
+        
+        
+        
         //        NSLog([self DataTOjsonString:responseObject]);
         //          NSLog([self convertToJsonData:dic]);
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        
         //隐藏圆形进度条
         [hud hide:YES];
-        UIAlertController *alert=[UIAlertController alertControllerWithTitle:nil message:[NSString stringWithFormat:@"访问错误%@",error]preferredStyle:UIAlertControllerStyleAlert];
+        NSString *errorUser=[error.userInfo objectForKey:NSLocalizedDescriptionKey];
+        if(error.code==-1009)
+            errorUser=@"主人，似乎没有网络喔！";
+        UIAlertController *alert=[UIAlertController alertControllerWithTitle:nil message:errorUser preferredStyle:UIAlertControllerStyleAlert];
         UIAlertAction *ok=[UIAlertAction actionWithTitle:@"确认"
                                                    style:UIAlertActionStyleDefault handler:nil];
         
         //        信息框添加按键
         [alert addAction:ok];
         [self presentViewController:alert animated:YES completion:nil];
-        NSLog(@"访问错误%@",error);
-    }];
-}
+    }];}
 
 
 #pragma mark - Table view data source
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    
+    mTableView=tableView;
 #warning Incomplete implementation, return the number of rows
-    return [mData count];
+    return [mDataArticle count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -153,39 +228,33 @@
     
     AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
     ;
-    NSString *t1=[mData objectAtIndex:indexPath.row];
-//    NSString *t1=[myDelegate.title objectAtIndex:indexPath.row];
     
-//    int a=[myDelegate.onlineReadinngTitle count];
-//    NSLog(@"title的大小为**************%i",a);
-    
-        cell.UILabelTitle.text=t1;
-    cell.UILabelTitle.numberOfLines=2;
-    
-//    cell.UILabelDate.text=@"2016-12-27，页面index";
-    int a=index;
-    //cell.UILabelDate.text=[NSString stringWithFormat:@"页索引=%d",a];
-    cell.UILabelDate.text=@"2016-12-27";
-    cell.UILabelAuthor.text=[mDataAuthor objectAtIndex:indexPath.row];
+    Article *model=[mDataArticle objectAtIndex:indexPath.row];
+    NSLog(@"cellForRowAtIndexPath");
 
-    cell.UIImgCover.image=[UIImage imageNamed:[mImg objectAtIndex:indexPath.row]];
-//    cell.UIImgCover.image=[UIImage imageNamed:@"study.jpg"];
+    cell.UILabelTitle.text=model.title;
+    NSLog(@"model.title;");
+    cell.UILabelTitle.numberOfLines=2;
+//    NSNumber *date=model.date;
+//    date.stringValue
+    cell.UILabelDate.text=model.date.stringValue;
+    cell.UILabelAuthor.text= model.author;
+
     
-    
-    // Configure the cell...
-    
+    NSLog(model.author);
+    cell.UIImgCover.image=[UIImage imageNamed:@"1.png"];
+    NSLog(@"return cell;");
     return cell;
 }
-
+#pragma mark 文章点击事件
 -(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
     
     
-    [self loadArticleData];
+//    [self loadArticleData];
     
     //根据storyboard id来获取目标页面
     ArticleDetailViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"ArticleDetailViewController"];
-    
     //    传值
     nextPage->pubString=[mData objectAtIndex:indexPath.row];
     //UITabBarController和的UINavigationController结合使用,进入新的页面的时候，隐藏主页tabbarController的底部栏
@@ -210,7 +279,7 @@
 //    return jsonString;
 //}
 
-#pragma mark 请求数据
+#pragma mark
 -(void)loadArticleData{
     //#import "AFNetworking.h"
     //#import "AppDelegate.h"
@@ -229,13 +298,16 @@
     AFHTTPRequestOperationManager *manager=[AFHTTPRequestOperationManager manager];
     //设置响应数据的类型,如果是json数据，会自动帮你解析
     //注意setWithObjects后面的s不能少
-    manager.responseSerializer.acceptableContentTypes=[NSSet setWithObjects:@"application/json", nil];
+//    manager.responseSerializer.acceptableContentTypes=[NSSet setWithObjects:@"application/json", nil];
     // 请求参数
     NSDictionary *parameters = @{
-//                                 @"channelType":@"zxxx",
-//                                 @"pageNumber":@"1",
-                                 @"id":@"bb744859cadc4c85b3b5228723da8671"
+                                 @"id": @"bb744859cadc4c85b3b5228723da8671",
+                                 @"appId": @"03a8f0ea6a",
+                                 @"appSecret": @"b4a01f5a7dd4416c",
+                                 @"token":myDelegate.token
                                  };
+    
+    
     [manager POST:urlString parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         //隐藏圆形进度条
         [hud hide:YES];
@@ -246,18 +318,19 @@
         //          NSLog([self convertToJsonData:dic]);
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        
         //隐藏圆形进度条
         [hud hide:YES];
-        UIAlertController *alert=[UIAlertController alertControllerWithTitle:nil message:[NSString stringWithFormat:@"访问错误%@",error]preferredStyle:UIAlertControllerStyleAlert];
+        NSString *errorUser=[error.userInfo objectForKey:NSLocalizedDescriptionKey];
+        if(error.code==-1009)
+            errorUser=@"主人，似乎没有网络喔！";
+        UIAlertController *alert=[UIAlertController alertControllerWithTitle:nil message:errorUser preferredStyle:UIAlertControllerStyleAlert];
         UIAlertAction *ok=[UIAlertAction actionWithTitle:@"确认"
                                                    style:UIAlertActionStyleDefault handler:nil];
-        
         //        信息框添加按键
         [alert addAction:ok];
         [self presentViewController:alert animated:YES completion:nil];
-        NSLog(@"访问错误%@",error);
     }];
+
 }
 
 
