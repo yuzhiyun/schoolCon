@@ -156,14 +156,27 @@
         
         //隐藏圆形进度条
         [hud hide:YES];
-        UIAlertController *alert=[UIAlertController alertControllerWithTitle:nil message:[NSString stringWithFormat:@"访问错误%@",error]preferredStyle:UIAlertControllerStyleAlert];
+        NSString *errorUser=[error.userInfo objectForKey:NSLocalizedDescriptionKey];
+                             
+        NSLog(errorUser);
+//        NSString *msg=[NSString stringWithFormat:@"访问错误%i",error.code];
+//        if(error.code==-1009)
+//            msg=@"主人，似乎没有网络喔！";
+//        else if(error.code==500)
+//            msg=@"服务器内部错误";
+//        else if(error.code==-1011)
+//            msg=@"请求超时";
+        UIAlertController *alert=[UIAlertController alertControllerWithTitle:nil message:errorUser preferredStyle:UIAlertControllerStyleAlert];
         UIAlertAction *ok=[UIAlertAction actionWithTitle:@"确认"
                                                    style:UIAlertActionStyleDefault handler:nil];
         
         //        信息框添加按键
         [alert addAction:ok];
         [self presentViewController:alert animated:YES completion:nil];
+        NSLog(@"访问错误%i",error.code);
         NSLog(@"访问错误%@",error.userInfo);
+        NSLog(@"访问错误%@",error);
+        
     }];
 }
 

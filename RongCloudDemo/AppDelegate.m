@@ -31,7 +31,7 @@
 //    myDelegate.ipString=@"192.168.155.1";
     
     myDelegate.ipString=@"172.27.35.7";
-    
+//    172.27.35.7
     
     
     
