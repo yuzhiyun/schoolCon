@@ -235,9 +235,9 @@
     cell.UILabelTitle.text=model.title;
     NSLog(@"model.title;");
     cell.UILabelTitle.numberOfLines=2;
-//    NSNumber *date=model.date;
-//    date.stringValue
-//    NSDate
+/**
+ *NSNumber 转成用户看得懂的时间
+ */
     NSString *timeStamp2 = model.date.stringValue;
     long long int date1 = (long long int)[timeStamp2 intValue];
     NSDate *date2 = [NSDate dateWithTimeIntervalSince1970:date1];
@@ -252,19 +252,115 @@
     [cell.UIImgCover sd_setImageWithURL:[NSString stringWithFormat:@"http://%@:8080%@",myDelegate.ipString,model.picUrl] placeholderImage:[UIImage imageNamed:@"favorites.png"]];
     return cell;
 }
+
 #pragma mark 文章点击事件
 -(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
 //    [self loadArticleData];
-    //根据storyboard id来获取目标页面
-    ArticleDetailViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"ArticleDetailViewController"];
-    //    传值
-    nextPage->pubString=[mData objectAtIndex:indexPath.row];
-    //UITabBarController和的UINavigationController结合使用,进入新的页面的时候，隐藏主页tabbarController的底部栏
-    nextPage.hidesBottomBarWhenPushed=YES;
+    MBProgressHUD *hud;
+    hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    //hud.color = [UIColor colorWithHexString:@"343637" alpha:0.5];
+    hud.labelText = @" 获取数据...";
+    [hud show:YES];
+    //获取全局ip地址
+    AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
     
-    //跳转
-    [self.navigationController pushViewController:nextPage animated:YES];
+    NSString *urlString= [NSString stringWithFormat:@"http://%@:8080/schoolCon/api/sys/user/validateVip",myDelegate.ipString];
+    
+    //创建数据请求的对象，不是单例
+    AFHTTPRequestOperationManager *manager=[AFHTTPRequestOperationManager manager];
+    //设置响应数据的类型,如果是json数据，会自动帮你解析
+    //注意setWithObjects后面的s不能少
+    //    manager.responseSerializer.acceptableContentTypes=[NSSet setWithObjects:@"application/json", nil];
+    // 请求参数
+    NSDictionary *parameters = @{
+//                                 @"id": @"bb744859cadc4c85b3b5228723da8671",
+                                 @"appId": @"03a8f0ea6a",
+                                 @"appSecret": @"b4a01f5a7dd4416c",
+                                 @"token":myDelegate.token
+                                 };
+    
+    
+    [manager POST:urlString parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        //隐藏圆形进度条
+        [hud hide:YES];
+        NSString *result=[self DataTOjsonString:responseObject];
+        
+        NSLog(@"***************返回结果***********************");
+        NSLog(result);
+        /**
+         *开始解析json
+         */
+        
+        
+        
+        //
+        //        //NSString *result=[self DataTOjsonString:responseObject];
+        NSData *data=[result dataUsingEncoding:NSUTF8StringEncoding];
+        NSError *error=[[NSError alloc]init];
+        NSDictionary *doc= [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
+        //        {
+        //         "msg" : "激活失败,该账号已经进行过激活",
+        //         "code" : 205
+        //         }
+        NSLog(@"服务器返回msg%@",[doc objectForKey:@"msg"]);
+        NSLog(@"服务器返回code%@",[doc objectForKey:@"code"]);
+        NSNumber *code=0;
+        if([[doc objectForKey:@"msg"] isEqualToString:@"会员"]){
+                ArticleDetailViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"ArticleDetailViewController"];
+                nextPage->pubString=[mData objectAtIndex:indexPath.row];
+                nextPage.hidesBottomBarWhenPushed=YES;
+                [self.navigationController pushViewController:nextPage animated:YES];
+        }
+        else
+        {
+            UIAlertController *alert=[UIAlertController alertControllerWithTitle:nil message:@"您不是VIP，无法查看精品文章" preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction *ok=[UIAlertAction actionWithTitle:@"确认"
+                                                       style:UIAlertActionStyleDefault handler:nil];
+            
+            //        信息框添加按键
+            [alert addAction:ok];
+            [self presentViewController:alert animated:YES completion:nil];
+        }
+
+        
+        
+        
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        //隐藏圆形进度条
+        [hud hide:YES];
+        NSString *errorUser=[error.userInfo objectForKey:NSLocalizedDescriptionKey];
+        if(error.code==-1009)
+            errorUser=@"主人，似乎没有网络喔！";
+        UIAlertController *alert=[UIAlertController alertControllerWithTitle:nil message:errorUser preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *ok=[UIAlertAction actionWithTitle:@"确认"
+                                                   style:UIAlertActionStyleDefault handler:nil];
+        //        信息框添加按键
+        [alert addAction:ok];
+        [self presentViewController:alert animated:YES completion:nil];
+    }];
+    
+    
+//    [self verifyVip];
+    
+    
+   
 }
+//-(void)verifyVip (NSInteger *){
+//    
+//    
+//    
+//    
+//    //根据storyboard id来获取目标页面
+//    ArticleDetailViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"ArticleDetailViewController"];
+//    //    传值
+//    nextPage->pubString=[mData objectAtIndex:indexPath.row];
+//    //UITabBarController和的UINavigationController结合使用,进入新的页面的时候，隐藏主页tabbarController的底部栏
+//    nextPage.hidesBottomBarWhenPushed=YES;
+//    
+//    //跳转
+//    [self.navigationController pushViewController:nextPage animated:YES];
+//}
 
 //-(NSString*)DataTOjsonString:(id)object
 //{

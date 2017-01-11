@@ -16,3 +16,6 @@
 @property (nonatomic,copy)NSString *author;
 @property (nonatomic,copy)NSNumber *date;
 @end
+
+
+

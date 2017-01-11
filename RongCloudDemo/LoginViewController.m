@@ -27,14 +27,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title=@"登录";
-//    头像圆形
+    //    头像圆形
     self.UIImageViewAvatar.layer.masksToBounds = YES;
     self.UIImageViewAvatar.layer.cornerRadius = self.UIImageViewAvatar.frame.size.height / 2 ;
     
-//    隐藏返回按钮navigationController的navigationBar
-//    self.navigationController.navigationBarHidden=YES;
+    //    隐藏返回按钮navigationController的navigationBar
+    //    self.navigationController.navigationBarHidden=YES;
     
-//    [self loadData];
+    //    [self loadData];
 }
 
 
@@ -79,9 +79,10 @@
                                  @"appId":myDelegate.appId,
                                  @"appSecret":myDelegate.appSecret,
                                  @"schoolId":myDelegate.schoolId,
-                                 @"loginname":@"superadmin",
-//                                 @"vcode":@"1234",
-                                 @"pwd":@"1"
+                                 //                                 @"loginname":@"superadmin",
+                                 @"loginname":@"maxiaolong",
+                                 //                                 @"vcode":@"1234",
+                                 @"pwd":@"123456"
                                  };
     [manager POST:urlString parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         //隐藏圆形进度条
