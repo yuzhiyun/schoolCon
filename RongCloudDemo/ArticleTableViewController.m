@@ -237,25 +237,24 @@
     cell.UILabelTitle.numberOfLines=2;
 //    NSNumber *date=model.date;
 //    date.stringValue
-    cell.UILabelDate.text=model.date.stringValue;
+//    NSDate
+    NSString *timeStamp2 = model.date.stringValue;
+    long long int date1 = (long long int)[timeStamp2 intValue];
+    NSDate *date2 = [NSDate dateWithTimeIntervalSince1970:date1];
+    //用于格式化NSDate对象
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    //设置格式：zzz表示时区
+    [dateFormatter setDateFormat:@"yyyy-MM-dd"];
+    //NSDate转NSString
+    NSString *currentDateString = [dateFormatter stringFromDate:date2];
+    cell.UILabelDate.text=currentDateString;
     cell.UILabelAuthor.text= model.author;
-
-    
-    
-    
     [cell.UIImgCover sd_setImageWithURL:[NSString stringWithFormat:@"http://%@:8080%@",myDelegate.ipString,model.picUrl] placeholderImage:[UIImage imageNamed:@"favorites.png"]];
-
-//    cell.UIImgCover.image=[UIImage imageNamed:@"1.png"];
-    
     return cell;
 }
 #pragma mark 文章点击事件
 -(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    
-    
-    
 //    [self loadArticleData];
-    
     //根据storyboard id来获取目标页面
     ArticleDetailViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"ArticleDetailViewController"];
     //    传值

@@ -79,9 +79,9 @@
                                  @"appId":myDelegate.appId,
                                  @"appSecret":myDelegate.appSecret,
                                  @"schoolId":myDelegate.schoolId,
-                                 @"loginname":@"maxiaolong",
+                                 @"loginname":@"superadmin",
 //                                 @"vcode":@"1234",
-                                 @"pwd":@"123456"
+                                 @"pwd":@"1"
                                  };
     [manager POST:urlString parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         //隐藏圆形进度条
