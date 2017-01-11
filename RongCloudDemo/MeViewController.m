@@ -314,7 +314,6 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
         EditPhoneViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"EditPhoneViewController"];
         nextPage.hidesBottomBarWhenPushed=YES;
         [self.navigationController pushViewController:nextPage animated:YES];
-        
     }
     //我的活动
     if(1==indexPath.row){
