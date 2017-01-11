@@ -11,7 +11,7 @@
 #import "ArticleDetailViewController.h"
 #import "AppDelegate.h"
 #import "WMPageController.h"
-
+#import "UIImageView+WebCache.h"
 #import "AFNetworking.h"
 #import "AppDelegate.h"
 #import "MBProgressHUD.h"
@@ -241,9 +241,12 @@
     cell.UILabelAuthor.text= model.author;
 
     
-    NSLog(model.author);
-    cell.UIImgCover.image=[UIImage imageNamed:@"1.png"];
-    NSLog(@"return cell;");
+    
+    
+    [cell.UIImgCover sd_setImageWithURL:[NSString stringWithFormat:@"http://%@:8080%@",myDelegate.ipString,model.picUrl] placeholderImage:[UIImage imageNamed:@"favorites.png"]];
+
+//    cell.UIImgCover.image=[UIImage imageNamed:@"1.png"];
+    
     return cell;
 }
 #pragma mark 文章点击事件
