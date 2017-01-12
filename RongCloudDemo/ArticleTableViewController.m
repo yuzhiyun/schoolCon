@@ -167,6 +167,9 @@
                                   @"token":token
                                   };
     [manager POST:urlString parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        // (最好在刷新表格后调用)调用endRefreshing可以结束刷新状态
+        [self.tableView footerEndRefreshing];
+        [self.tableView headerEndRefreshing];
         //隐藏圆形进度条
         [hud hide:YES];
         NSString *result=[JsonUtil DataTOjsonString:responseObject];
@@ -273,6 +276,8 @@
         //          NSLog([self convertToJsonData:dic]);
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [self.tableView footerEndRefreshing];
+        [self.tableView headerEndRefreshing];
         //隐藏圆形进度条
         [hud hide:YES];
         NSString *errorUser=[error.userInfo objectForKey:NSLocalizedDescriptionKey];
