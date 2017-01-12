@@ -160,6 +160,7 @@
 		CD6EACF61E276D5C009EC3A0 /* DataBaseNSUserDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6EACF51E276D5C009EC3A0 /* DataBaseNSUserDefaults.m */; };
 		CD6EACF91E276FB3009EC3A0 /* JsonUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6EACF81E276FB3009EC3A0 /* JsonUtil.m */; };
 		CD6EACFE1E2784D6009EC3A0 /* PhysicalTest.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6EACFD1E2784D6009EC3A0 /* PhysicalTest.m */; };
+		CD6EAD011E279AF5009EC3A0 /* Activity.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6EAD001E279AF5009EC3A0 /* Activity.m */; };
 		CD79C1D01E23368500A9889F /* SchoolMomentsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD79C1CF1E23368500A9889F /* SchoolMomentsTableViewController.m */; };
 		CD79C1F81E2502B400A9889F /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = CD79C1D21E2502B400A9889F /* AFHTTPRequestOperation.m */; };
 		CD79C1F91E2502B400A9889F /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CD79C1D41E2502B400A9889F /* AFHTTPRequestOperationManager.m */; };
@@ -457,6 +458,8 @@
 		CD6EACFA1E276FBD009EC3A0 /* JsonUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JsonUtil.h; sourceTree = "<group>"; };
 		CD6EACFC1E2784CB009EC3A0 /* PhysicalTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PhysicalTest.h; sourceTree = "<group>"; };
 		CD6EACFD1E2784D6009EC3A0 /* PhysicalTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhysicalTest.m; sourceTree = "<group>"; };
+		CD6EAD001E279AF5009EC3A0 /* Activity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Activity.m; sourceTree = SOURCE_ROOT; };
+		CD6EAD021E279B03009EC3A0 /* Activity.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Activity.h; sourceTree = SOURCE_ROOT; };
 		CD79C1CE1E23368500A9889F /* SchoolMomentsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SchoolMomentsTableViewController.h; sourceTree = "<group>"; };
 		CD79C1CF1E23368500A9889F /* SchoolMomentsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SchoolMomentsTableViewController.m; sourceTree = "<group>"; };
 		CD79C1D11E2502B400A9889F /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
@@ -754,6 +757,7 @@
 		CD2DCAFE1DFD9102000C03E1 /* education */ = {
 			isa = PBXGroup;
 			children = (
+				CD6EACFF1E279ADE009EC3A0 /* activity */,
 				CDE5AECF1E1FC2060059D310 /* main */,
 				CD2DCC361E066105000C03E1 /* cell */,
 				CD2DCB951E0506C5000C03E1 /* detailYuelushalong */,
@@ -1287,6 +1291,15 @@
 			name = test;
 			sourceTree = "<group>";
 		};
+		CD6EACFF1E279ADE009EC3A0 /* activity */ = {
+			isa = PBXGroup;
+			children = (
+				CD6EAD001E279AF5009EC3A0 /* Activity.m */,
+				CD6EAD021E279B03009EC3A0 /* Activity.h */,
+			);
+			name = activity;
+			sourceTree = "<group>";
+		};
 		CD79C1CD1E23365300A9889F /* schoolMoments */ = {
 			isa = PBXGroup;
 			children = (
@@ -1766,6 +1779,7 @@
 				CD79C2301E27240000A9889F /* MJRefreshConst.m in Sources */,
 				CD79C2311E27240000A9889F /* MJRefreshFooterView.m in Sources */,
 				CD2DCC8C1E09305D000C03E1 /* UIImageView+WebCache.m in Sources */,
+				CD6EAD011E279AF5009EC3A0 /* Activity.m in Sources */,
 				CD79C1FA1E2502B400A9889F /* AFHTTPSessionManager.m in Sources */,
 				CD79C1FF1E2502B400A9889F /* AFURLResponseSerialization.m in Sources */,
 				CD2DCC4F1E067CD3000C03E1 /* PsychologyTableViewCell.m in Sources */,

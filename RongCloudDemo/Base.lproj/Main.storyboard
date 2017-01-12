@@ -984,6 +984,8 @@
                                 <connections>
                                     <outlet property="UIImgCover" destination="Fhj-MJ-ARx" id="2Fm-iB-VXG"/>
                                     <outlet property="UILabelDate" destination="zvh-jb-xd0" id="B7w-cI-c4g"/>
+                                    <outlet property="UILabelPlace" destination="nm5-yQ-fQj" id="QwG-YQ-6H8"/>
+                                    <outlet property="UILabelPublisher" destination="7nm-cj-Emk" id="TkB-87-FeF"/>
                                     <outlet property="UILabelTitle" destination="8Sh-Jg-5sM" id="rhW-zP-kJ8"/>
                                 </connections>
                             </tableViewCell>

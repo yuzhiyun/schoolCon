@@ -9,11 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @interface ShalongTableViewCell : UITableViewCell
-//@property (weak, nonatomic) IBOutlet UIImageView *UIImgCover;
-//@property (weak, nonatomic) IBOutlet UILabel *UILabelTitle;
-//@property (weak, nonatomic) IBOutlet UILabel *UILabelDate;
+
 @property (weak, nonatomic) IBOutlet UIImageView *UIImgCover;
 @property (weak, nonatomic) IBOutlet UILabel *UILabelTitle;
+@property (weak, nonatomic) IBOutlet UILabel *UILabelPublisher;
+@property (weak, nonatomic) IBOutlet UILabel *UILabelPlace;
 @property (weak, nonatomic) IBOutlet UILabel *UILabelDate;
-
 @end

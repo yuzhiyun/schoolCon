@@ -11,8 +11,8 @@
 @interface ShalongTableViewController : UITableViewController{
     
     
-    NSMutableArray *mData;
-    NSMutableArray *mImg;
+//    NSMutableArray *mData;
+//    NSMutableArray *mImg;
     
 }
 
