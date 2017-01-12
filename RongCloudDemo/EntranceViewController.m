@@ -67,15 +67,13 @@
     NSString *stringToken=(NSString *)token;
     if(token==nil){
         NSLog(@"token==nil,还未登录，什么事都不需要干");
-        UIAlertView *alert =
-        [[UIAlertView alloc] initWithTitle:nil
-                                   message:@"token==nil"
-                                  delegate:nil
-                         cancelButtonTitle:@"确定"
-                         otherButtonTitles:nil];
-        [alert show];
-
-        
+//        UIAlertView *alert =
+//        [[UIAlertView alloc] initWithTitle:nil
+//                                   message:@"token==nil"
+//                                  delegate:nil
+//                         cancelButtonTitle:@"确定"
+//                         otherButtonTitles:nil];
+//        [alert show];
     }
     else{
         NSLog(@"token不是nil，把数据传给appDelegate,弹窗显示自动登录，然后进入首页");
@@ -123,6 +121,15 @@
     //取出数据
     object=[tUserDefaults objectForKey:forkey];
     return object;
+}
+//NSUserDefaults 清除数据
+-(void) removeData:(NSString *) forkey{
+    //取得定义
+    NSUserDefaults *tUserDefaults=[NSUserDefaults standardUserDefaults];
+    //清除数据
+    [tUserDefaults removeObjectForKey:forkey];
+    //确认数据
+    [tUserDefaults synchronize];
 }
 
 - (void)didReceiveMemoryWarning {

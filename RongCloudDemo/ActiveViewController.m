@@ -203,6 +203,8 @@
             AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
             myDelegate.token=[[doc objectForKey:@"data"]objectForKey:@"token"];
             
+            [self setData:myDelegate.token forkey:@"token"];
+        
             MainViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"MainViewController"];
             nextPage.hidesBottomBarWhenPushed=YES;
             [self.navigationController pushViewController:nextPage animated:YES];
@@ -232,6 +234,16 @@
         [alert addAction:ok];
         [self presentViewController:alert animated:YES completion:nil];
     }];
+}
+
+//NSUserDefaults 存数据
+-(void) setData:(id) object forkey:(NSString*) forkey{
+    //取得定义
+    NSUserDefaults *tUserDefaults=[NSUserDefaults standardUserDefaults];
+    //存放数据
+    [tUserDefaults setObject:object forKey:forkey];
+    //确认数据
+    [tUserDefaults synchronize];
 }
 -(void)toast:(NSString *)str
 

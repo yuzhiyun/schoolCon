@@ -10,5 +10,7 @@
 
 @interface LoginViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UIImageView *UIImageViewAvatar;
+@property (weak, nonatomic) IBOutlet UITextField *UITextFieldUserName;
+@property (weak, nonatomic) IBOutlet UITextField *UITextFieldPwd;
 
 @end

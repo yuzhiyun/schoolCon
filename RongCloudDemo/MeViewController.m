@@ -283,6 +283,9 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
         UIAlertAction *ok=[UIAlertAction actionWithTitle:@"确认"
                                                    style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){
                                                        
+                                                       //清除token
+                                                       [self removeData:@"token"];
+                                                       
 //                                                       NSLog(@"退出登录");
                                                        
                                                            
@@ -360,6 +363,15 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
 -(void) viewDidAppear:(BOOL)animated{
     //    隐藏返回按钮navigationController的navigationBar
     self.navigationController.navigationBarHidden=YES;
+}
+//NSUserDefaults 清除数据
+-(void) removeData:(NSString *) forkey{
+    //取得定义
+    NSUserDefaults *tUserDefaults=[NSUserDefaults standardUserDefaults];
+    //清除数据
+    [tUserDefaults removeObjectForKey:forkey];
+    //确认数据
+    [tUserDefaults synchronize];
 }
 
 

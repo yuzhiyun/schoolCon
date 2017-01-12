@@ -48,9 +48,28 @@
 
 - (IBAction)login:(id)sender {
     
-    [self httpLogin];
+    if(0==_UITextFieldUserName.text.length||0==_UITextFieldPwd.text.length)
+        [self toast:@"用户名密码不能为空"];
+    else
+        [self httpLogin];
     
     
+}
+-(void)toast:(NSString *)str
+
+{
+    MBProgressHUD *HUD = [[MBProgressHUD alloc] initWithView:self.view];
+    [self.view addSubview:HUD];
+    HUD.labelText = str;
+    HUD.mode = MBProgressHUDModeText;
+    [HUD showAnimated:YES whileExecutingBlock:^{
+        
+        sleep(1);
+        
+    } completionBlock:^{
+        
+        [HUD removeFromSuperview];
+    }];
 }
 
 //登录
@@ -75,6 +94,9 @@
     
     NSString *userName=@"123456";
     NSString *pwd=@"12345";
+    
+    userName=_UITextFieldUserName.text;
+    pwd=_UITextFieldPwd.text;
     
     
     
@@ -116,11 +138,21 @@
             
             NSLog(@"登录之后存储token%@",myDelegate.token);
             [self setData: myDelegate.token forkey:@"token"];
-
+            
             MainViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"MainViewController"];
             nextPage.hidesBottomBarWhenPushed=YES;
             [self.navigationController pushViewController:nextPage animated:YES];
             
+        }
+        else{
+            
+            UIAlertController *alert=[UIAlertController alertControllerWithTitle:nil message: [doc objectForKey:@"msg"]preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction *ok=[UIAlertAction actionWithTitle:@"确认"
+                                                       style:UIAlertActionStyleDefault handler:nil];
+            
+            //        信息框添加按键
+            [alert addAction:ok];
+            [self presentViewController:alert animated:YES completion:nil];
         }
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
