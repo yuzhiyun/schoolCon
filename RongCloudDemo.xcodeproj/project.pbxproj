@@ -157,6 +157,7 @@
 		CD3F24961E2273D00083293D /* YAxisView.m in Sources */ = {isa = PBXBuildFile; fileRef = CD3F248F1E2273D00083293D /* YAxisView.m */; };
 		CD4EE2541E2200E7001882F7 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = CD4EE2531E2200E7001882F7 /* MBProgressHUD.m */; };
 		CD6EACF21E2765A2009EC3A0 /* Toast.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6EACF11E2765A2009EC3A0 /* Toast.m */; };
+		CD6EACF61E276D5C009EC3A0 /* DataBaseNSUserDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6EACF51E276D5C009EC3A0 /* DataBaseNSUserDefaults.m */; };
 		CD79C1D01E23368500A9889F /* SchoolMomentsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD79C1CF1E23368500A9889F /* SchoolMomentsTableViewController.m */; };
 		CD79C1F81E2502B400A9889F /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = CD79C1D21E2502B400A9889F /* AFHTTPRequestOperation.m */; };
 		CD79C1F91E2502B400A9889F /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CD79C1D41E2502B400A9889F /* AFHTTPRequestOperationManager.m */; };
@@ -448,6 +449,8 @@
 		CD4EE2531E2200E7001882F7 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		CD6EACF01E276546009EC3A0 /* Toast.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Toast.h; sourceTree = "<group>"; };
 		CD6EACF11E2765A2009EC3A0 /* Toast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Toast.m; sourceTree = "<group>"; };
+		CD6EACF41E276D51009EC3A0 /* DataBaseNSUserDefaults.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DataBaseNSUserDefaults.h; sourceTree = "<group>"; };
+		CD6EACF51E276D5C009EC3A0 /* DataBaseNSUserDefaults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataBaseNSUserDefaults.m; sourceTree = "<group>"; };
 		CD79C1CE1E23368500A9889F /* SchoolMomentsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SchoolMomentsTableViewController.h; sourceTree = "<group>"; };
 		CD79C1CF1E23368500A9889F /* SchoolMomentsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SchoolMomentsTableViewController.m; sourceTree = "<group>"; };
 		CD79C1D11E2502B400A9889F /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
@@ -1224,7 +1227,8 @@
 		CD4EE2501E2200A9001882F7 /* utility */ = {
 			isa = PBXGroup;
 			children = (
-				CD6EACEF1E276523009EC3A0 /* token */,
+				CD6EACF31E276CED009EC3A0 /* NSUserDefaults */,
+				CD6EACEF1E276523009EC3A0 /* toast */,
 				CD4EE2511E2200B4001882F7 /* MBProgressHUD */,
 			);
 			name = utility;
@@ -1239,13 +1243,22 @@
 			name = MBProgressHUD;
 			sourceTree = "<group>";
 		};
-		CD6EACEF1E276523009EC3A0 /* token */ = {
+		CD6EACEF1E276523009EC3A0 /* toast */ = {
 			isa = PBXGroup;
 			children = (
 				CD6EACF01E276546009EC3A0 /* Toast.h */,
 				CD6EACF11E2765A2009EC3A0 /* Toast.m */,
 			);
-			name = token;
+			name = toast;
+			sourceTree = "<group>";
+		};
+		CD6EACF31E276CED009EC3A0 /* NSUserDefaults */ = {
+			isa = PBXGroup;
+			children = (
+				CD6EACF41E276D51009EC3A0 /* DataBaseNSUserDefaults.h */,
+				CD6EACF51E276D5C009EC3A0 /* DataBaseNSUserDefaults.m */,
+			);
+			name = NSUserDefaults;
 			sourceTree = "<group>";
 		};
 		CD79C1CD1E23365300A9889F /* schoolMoments */ = {
@@ -1637,6 +1650,7 @@
 				CD2DCC801E09305D000C03E1 /* SDImageCacheConfig.m in Sources */,
 				CD2DCC121E054051000C03E1 /* Vp2TableViewCell.m in Sources */,
 				CD79C22F1E27240000A9889F /* MJRefreshBaseView.m in Sources */,
+				CD6EACF61E276D5C009EC3A0 /* DataBaseNSUserDefaults.m in Sources */,
 				CD3F247B1E223DEB0083293D /* EditPhoneViewController.m in Sources */,
 				CD79C2061E2502B400A9889F /* UIProgressView+AFNetworking.m in Sources */,
 				CD79C2011E2502B400A9889F /* AFNetworkActivityIndicatorManager.m in Sources */,

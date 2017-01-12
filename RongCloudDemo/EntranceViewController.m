@@ -12,6 +12,7 @@
 #import "MainViewController.h"
 #import "AppDelegate.h"
 #import "MBProgressHUD.h"
+#import "DataBaseNSUserDefaults.h"
 @interface EntranceViewController ()
 
 @end
@@ -63,7 +64,9 @@
 
 -(void)checkUserLogin{
     
-    id token=[self getData:@"token"];
+    
+    
+    id token=[DataBaseNSUserDefaults getData:@"token"];
     NSString *stringToken=(NSString *)token;
     if(token==nil){
         NSLog(@"token==nil,还未登录，什么事都不需要干");
@@ -96,33 +99,6 @@
     }
 }
 
-//NSUserDefaults 存数据
--(void) setData:(id) object forkey:(NSString*) forkey{
-    //取得定义
-    NSUserDefaults *tUserDefaults=[NSUserDefaults standardUserDefaults];
-    //存放数据
-    [tUserDefaults setObject:object forKey:forkey];
-    //确认数据
-    [tUserDefaults synchronize];
-}
-//NSUserDefaults 取出数据
--(id) getData:(NSString *) forkey{
-    id object;
-    //取得定义
-    NSUserDefaults *tUserDefaults=[NSUserDefaults standardUserDefaults];
-    //取出数据
-    object=[tUserDefaults objectForKey:forkey];
-    return object;
-}
-//NSUserDefaults 清除数据
--(void) removeData:(NSString *) forkey{
-    //取得定义
-    NSUserDefaults *tUserDefaults=[NSUserDefaults standardUserDefaults];
-    //清除数据
-    [tUserDefaults removeObjectForKey:forkey];
-    //确认数据
-    [tUserDefaults synchronize];
-}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

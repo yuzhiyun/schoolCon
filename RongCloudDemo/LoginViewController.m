@@ -17,7 +17,7 @@
 #import "MBProgressHUD.h"
 #import "ForgetPwdViewController.h"
 #import "Toast.h"
-
+#import "DataBaseNSUserDefaults.h"
 #define JsonGet @"http://iappfree.candou.com:8080/free/applications/limited?currency=rmb&page=1"
 
 @interface LoginViewController ()
@@ -140,7 +140,7 @@
             myDelegate.token=[[doc objectForKey:@"data"]objectForKey:@"token"];
             
             NSLog(@"登录之后存储token%@",myDelegate.token);
-            [self setData: myDelegate.token forkey:@"token"];
+            [DataBaseNSUserDefaults setData: myDelegate.token forkey:@"token"];
             
             MainViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"MainViewController"];
             nextPage.hidesBottomBarWhenPushed=YES;
@@ -173,15 +173,7 @@
         [self presentViewController:alert animated:YES completion:nil];
     }];
 }
-//NSUserDefaults 存数据
--(void) setData:(id) object forkey:(NSString*) forkey{
-    //取得定义
-    NSUserDefaults *tUserDefaults=[NSUserDefaults standardUserDefaults];
-    //存放数据
-    [tUserDefaults setObject:object forKey:forkey];
-    //确认数据
-    [tUserDefaults synchronize];
-}
+
 - (IBAction)forgetPwd:(id)sender {
     ForgetPwdViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"ForgetPwdViewController"];
     [self.navigationController pushViewController:nextPage animated:YES];
