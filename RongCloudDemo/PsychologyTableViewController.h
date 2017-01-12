@@ -11,8 +11,8 @@
 @interface PsychologyTableViewController : UITableViewController{
     
     
-    NSMutableArray *mData;
-    NSMutableArray *mImg;
+//    NSMutableArray *mData;
+//    NSMutableArray *mImg;
     
         
     @public

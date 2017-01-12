@@ -159,6 +159,7 @@
 		CD6EACF21E2765A2009EC3A0 /* Toast.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6EACF11E2765A2009EC3A0 /* Toast.m */; };
 		CD6EACF61E276D5C009EC3A0 /* DataBaseNSUserDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6EACF51E276D5C009EC3A0 /* DataBaseNSUserDefaults.m */; };
 		CD6EACF91E276FB3009EC3A0 /* JsonUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6EACF81E276FB3009EC3A0 /* JsonUtil.m */; };
+		CD6EACFE1E2784D6009EC3A0 /* PhysicalTest.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6EACFD1E2784D6009EC3A0 /* PhysicalTest.m */; };
 		CD79C1D01E23368500A9889F /* SchoolMomentsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD79C1CF1E23368500A9889F /* SchoolMomentsTableViewController.m */; };
 		CD79C1F81E2502B400A9889F /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = CD79C1D21E2502B400A9889F /* AFHTTPRequestOperation.m */; };
 		CD79C1F91E2502B400A9889F /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CD79C1D41E2502B400A9889F /* AFHTTPRequestOperationManager.m */; };
@@ -454,6 +455,8 @@
 		CD6EACF51E276D5C009EC3A0 /* DataBaseNSUserDefaults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataBaseNSUserDefaults.m; sourceTree = "<group>"; };
 		CD6EACF81E276FB3009EC3A0 /* JsonUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JsonUtil.m; sourceTree = "<group>"; };
 		CD6EACFA1E276FBD009EC3A0 /* JsonUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JsonUtil.h; sourceTree = "<group>"; };
+		CD6EACFC1E2784CB009EC3A0 /* PhysicalTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PhysicalTest.h; sourceTree = "<group>"; };
+		CD6EACFD1E2784D6009EC3A0 /* PhysicalTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhysicalTest.m; sourceTree = "<group>"; };
 		CD79C1CE1E23368500A9889F /* SchoolMomentsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SchoolMomentsTableViewController.h; sourceTree = "<group>"; };
 		CD79C1CF1E23368500A9889F /* SchoolMomentsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SchoolMomentsTableViewController.m; sourceTree = "<group>"; };
 		CD79C1D11E2502B400A9889F /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
@@ -627,10 +630,10 @@
 				CD2DCB111E025B37000C03E1 /* contact */,
 				CD2DCB101E025B23000C03E1 /* home_page */,
 				CD2DCAFE1DFD9102000C03E1 /* education */,
-				4698CBA31AE22FCA0006330E /* AppDelegate.h */,
 				4698CBA41AE22FCA0006330E /* AppDelegate.m */,
 				4698CBA91AE22FCA0006330E /* Main.storyboard */,
 				4698CBAC1AE22FCA0006330E /* Images.xcassets */,
+				4698CBA31AE22FCA0006330E /* AppDelegate.h */,
 				4698CBAE1AE22FCA0006330E /* LaunchScreen.xib */,
 				4698CB9F1AE22FCA0006330E /* Supporting Files */,
 				4698CC021AE245940006330E /* ChatListViewController.h */,
@@ -1003,8 +1006,8 @@
 		CD2DCC3A1E066ACA000C03E1 /* psychologyTest */ = {
 			isa = PBXGroup;
 			children = (
-				CD2DCC9B1E0A2074000C03E1 /* test */,
-				CD2DCC3E1E066D5C000C03E1 /* template */,
+				CD2DCC9B1E0A2074000C03E1 /* concreteTest */,
+				CD2DCC3E1E066D5C000C03E1 /* psychologylist */,
 				CD2DCC981E09668D000C03E1 /* PsychologyListTableViewController.h */,
 				CD2DCC991E09668D000C03E1 /* PsychologyListTableViewController.m */,
 				CD1A47961E0B925100B8EF35 /* PhysicalViewController.h */,
@@ -1013,14 +1016,15 @@
 			name = psychologyTest;
 			sourceTree = "<group>";
 		};
-		CD2DCC3E1E066D5C000C03E1 /* template */ = {
+		CD2DCC3E1E066D5C000C03E1 /* psychologylist */ = {
 			isa = PBXGroup;
 			children = (
+				CD6EACFB1E278497009EC3A0 /* test */,
 				CD2DCC4C1E067CB9000C03E1 /* cell */,
 				CD2DCC421E066F58000C03E1 /* PsychologyTableViewController.h */,
 				CD2DCC431E066F58000C03E1 /* PsychologyTableViewController.m */,
 			);
-			name = template;
+			name = psychologylist;
 			sourceTree = "<group>";
 		};
 		CD2DCC4C1E067CB9000C03E1 /* cell */ = {
@@ -1092,14 +1096,14 @@
 			path = FLAnimatedImage;
 			sourceTree = "<group>";
 		};
-		CD2DCC9B1E0A2074000C03E1 /* test */ = {
+		CD2DCC9B1E0A2074000C03E1 /* concreteTest */ = {
 			isa = PBXGroup;
 			children = (
 				CD2DCC9F1E0A20AF000C03E1 /* cell */,
 				CD2DCC9C1E0A2092000C03E1 /* TestViewController.h */,
 				CD2DCC9D1E0A2092000C03E1 /* TestViewController.m */,
 			);
-			name = test;
+			name = concreteTest;
 			sourceTree = "<group>";
 		};
 		CD2DCC9F1E0A20AF000C03E1 /* cell */ = {
@@ -1272,6 +1276,15 @@
 				CD6EACFA1E276FBD009EC3A0 /* JsonUtil.h */,
 			);
 			name = jsonUtil;
+			sourceTree = "<group>";
+		};
+		CD6EACFB1E278497009EC3A0 /* test */ = {
+			isa = PBXGroup;
+			children = (
+				CD6EACFC1E2784CB009EC3A0 /* PhysicalTest.h */,
+				CD6EACFD1E2784D6009EC3A0 /* PhysicalTest.m */,
+			);
+			name = test;
 			sourceTree = "<group>";
 		};
 		CD79C1CD1E23365300A9889F /* schoolMoments */ = {
@@ -1679,6 +1692,7 @@
 				CD2DCB941E04ED7B000C03E1 /* DetailNotificationViewController.m in Sources */,
 				CD3F24771E223D9D0083293D /* VipViewController.m in Sources */,
 				CDE5AED21E1FC2330059D310 /* EducationViewController.m in Sources */,
+				CD6EACFE1E2784D6009EC3A0 /* PhysicalTest.m in Sources */,
 				CD2DCC841E09305D000C03E1 /* SDWebImageDownloaderOperation.m in Sources */,
 				CD2DCC7E1E09305D000C03E1 /* NSImage+WebCache.m in Sources */,
 				CD2DCCB71E0A84CA000C03E1 /* OptionViewController.m in Sources */,
