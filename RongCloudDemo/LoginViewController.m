@@ -16,6 +16,8 @@
 #import "AppDelegate.h"
 #import "MBProgressHUD.h"
 #import "ForgetPwdViewController.h"
+#import "Toast.h"
+
 #define JsonGet @"http://iappfree.candou.com:8080/free/applications/limited?currency=rmb&page=1"
 
 @interface LoginViewController ()
@@ -49,28 +51,29 @@
 - (IBAction)login:(id)sender {
     
     if(0==_UITextFieldUserName.text.length||0==_UITextFieldPwd.text.length)
-        [self toast:@"用户名密码不能为空"];
+//        [self toast:@"用户名密码不能为空"];
+        [Toast showToast:@"用户名密码不能为空" view:self.view];
     else
         [self httpLogin];
     
     
 }
--(void)toast:(NSString *)str
-
-{
-    MBProgressHUD *HUD = [[MBProgressHUD alloc] initWithView:self.view];
-    [self.view addSubview:HUD];
-    HUD.labelText = str;
-    HUD.mode = MBProgressHUDModeText;
-    [HUD showAnimated:YES whileExecutingBlock:^{
-        
-        sleep(1);
-        
-    } completionBlock:^{
-        
-        [HUD removeFromSuperview];
-    }];
-}
+//-(void)toast:(NSString *)str
+//
+//{
+//    MBProgressHUD *HUD = [[MBProgressHUD alloc] initWithView:self.view];
+//    [self.view addSubview:HUD];
+//    HUD.labelText = str;
+//    HUD.mode = MBProgressHUDModeText;
+//    [HUD showAnimated:YES whileExecutingBlock:^{
+//        
+//        sleep(1);
+//        
+//    } completionBlock:^{
+//        
+//        [HUD removeFromSuperview];
+//    }];
+//}
 
 //登录
 -(void)httpLogin{

@@ -92,15 +92,8 @@
             MainViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"MainViewController"];
             nextPage.hidesBottomBarWhenPushed=YES;
             [self.navigationController pushViewController:nextPage animated:YES];
-            
         });
-       
-        
-        
-        
     }
-    
-    
 }
 
 //NSUserDefaults 存数据

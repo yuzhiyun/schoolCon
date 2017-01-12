@@ -156,6 +156,7 @@
 		CD3F24951E2273D00083293D /* XAxisView.m in Sources */ = {isa = PBXBuildFile; fileRef = CD3F248D1E2273D00083293D /* XAxisView.m */; };
 		CD3F24961E2273D00083293D /* YAxisView.m in Sources */ = {isa = PBXBuildFile; fileRef = CD3F248F1E2273D00083293D /* YAxisView.m */; };
 		CD4EE2541E2200E7001882F7 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = CD4EE2531E2200E7001882F7 /* MBProgressHUD.m */; };
+		CD6EACF21E2765A2009EC3A0 /* Toast.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6EACF11E2765A2009EC3A0 /* Toast.m */; };
 		CD79C1D01E23368500A9889F /* SchoolMomentsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD79C1CF1E23368500A9889F /* SchoolMomentsTableViewController.m */; };
 		CD79C1F81E2502B400A9889F /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = CD79C1D21E2502B400A9889F /* AFHTTPRequestOperation.m */; };
 		CD79C1F91E2502B400A9889F /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CD79C1D41E2502B400A9889F /* AFHTTPRequestOperationManager.m */; };
@@ -445,6 +446,8 @@
 		CD3F248F1E2273D00083293D /* YAxisView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YAxisView.m; sourceTree = "<group>"; };
 		CD4EE2521E2200E7001882F7 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		CD4EE2531E2200E7001882F7 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		CD6EACF01E276546009EC3A0 /* Toast.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Toast.h; sourceTree = "<group>"; };
+		CD6EACF11E2765A2009EC3A0 /* Toast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Toast.m; sourceTree = "<group>"; };
 		CD79C1CE1E23368500A9889F /* SchoolMomentsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SchoolMomentsTableViewController.h; sourceTree = "<group>"; };
 		CD79C1CF1E23368500A9889F /* SchoolMomentsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SchoolMomentsTableViewController.m; sourceTree = "<group>"; };
 		CD79C1D11E2502B400A9889F /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
@@ -1221,6 +1224,7 @@
 		CD4EE2501E2200A9001882F7 /* utility */ = {
 			isa = PBXGroup;
 			children = (
+				CD6EACEF1E276523009EC3A0 /* token */,
 				CD4EE2511E2200B4001882F7 /* MBProgressHUD */,
 			);
 			name = utility;
@@ -1233,6 +1237,15 @@
 				CD4EE2531E2200E7001882F7 /* MBProgressHUD.m */,
 			);
 			name = MBProgressHUD;
+			sourceTree = "<group>";
+		};
+		CD6EACEF1E276523009EC3A0 /* token */ = {
+			isa = PBXGroup;
+			children = (
+				CD6EACF01E276546009EC3A0 /* Toast.h */,
+				CD6EACF11E2765A2009EC3A0 /* Toast.m */,
+			);
+			name = token;
 			sourceTree = "<group>";
 		};
 		CD79C1CD1E23365300A9889F /* schoolMoments */ = {
@@ -1655,6 +1668,7 @@
 				4698CBA51AE22FCA0006330E /* AppDelegate.m in Sources */,
 				CD79C1FB1E2502B400A9889F /* AFNetworkReachabilityManager.m in Sources */,
 				CD79C2021E2502B400A9889F /* UIActivityIndicatorView+AFNetworking.m in Sources */,
+				CD6EACF21E2765A2009EC3A0 /* Toast.m in Sources */,
 				CD2DCB901E04E832000C03E1 /* OnlineReadingViewController.m in Sources */,
 				CD3F24731E2237AD0083293D /* RotateImgArticleViewController.m in Sources */,
 				CD2DCC001E052BB8000C03E1 /* WMPageController.m in Sources */,

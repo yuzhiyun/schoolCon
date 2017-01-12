@@ -12,6 +12,7 @@
 #import "AppDelegate.h"
 #import "MBProgressHUD.h"
 #import "LoginViewController.h"
+#import "Toast.h"
 @interface ForgetPwdViewController ()
 
 @end
@@ -30,7 +31,8 @@
 - (IBAction)changePwd:(id)sender {
     
     if(_UITextFieldPhone.text.length == 0||_UITextFieldNewPwd.text.length==0||_UITextFieldVerifyCode==0){
-        [self toast:@"确保输入框不为空"];
+        
+        [Toast showToast:@"确保输入框不为空" view:self.view];
     }
     else
         [self httpChangePwd];
@@ -123,27 +125,11 @@
         [self presentViewController:alert animated:YES completion:nil];
     }];
 }
--(void)toast:(NSString *)str
 
-{
-    MBProgressHUD *HUD = [[MBProgressHUD alloc] initWithView:self.view];
-    [self.view addSubview:HUD];
-    HUD.labelText = str;
-    HUD.mode = MBProgressHUDModeText;
-    [HUD showAnimated:YES whileExecutingBlock:^{
-        
-        sleep(1);
-        
-    } completionBlock:^{
-        
-        [HUD removeFromSuperview];
-    }];
-}
 - (IBAction)getVerifyCode:(id)sender {
     
     if(_UITextFieldPhone.text.length == 0){
-        [self toast:@"手机号不能为空"];
-        NSLog(@"手机号不能为空");
+        [Toast showToast:@"手机号不能为空" view:self.view];
     }
     else
         [self httpGetVerifyCode];
@@ -196,7 +182,8 @@
         NSLog(@"%i",[doc objectForKey:@"code"]);
         if([@"ok" isEqualToString:[doc objectForKey:@"msg"]])
         {
-            [self toast:@"短信已经发送"];
+
+            [Toast showToast:@"短信已经发送" view:self.view];
         }
         else{
             UIAlertController *alert=[UIAlertController alertControllerWithTitle:nil message: [doc objectForKey:@"msg"]preferredStyle:UIAlertControllerStyleAlert];

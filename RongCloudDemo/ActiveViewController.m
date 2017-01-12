@@ -11,6 +11,7 @@
 #import "AFNetworking.h"
 #import "AppDelegate.h"
 #import "MBProgressHUD.h"
+#import "Toast.h"
 //#define JsonGet @"http://192.168.229.1:8080/schoolCon/api/sys/sms/send?appId=03a8f0ea6a&appSecret=b4a01f5a7dd4416c&phone=12345&1564do12spa"
 @interface ActiveViewController ()
 
@@ -131,7 +132,8 @@
 - (IBAction)active:(id)sender {
     
     if(_UITextFieldPhone.text.length == 0||_UITextFieldPwd.text.length==0||_UITextFieldVerifyCode==0){
-        [self toast:@"确保输入框不为空"];
+      
+        [Toast showToast:@"确保输入框不为空" view:self.view];
 //        NSLog(@"手机号不能为空");
     }
     
@@ -245,27 +247,12 @@
     //确认数据
     [tUserDefaults synchronize];
 }
--(void)toast:(NSString *)str
 
-{
-    MBProgressHUD *HUD = [[MBProgressHUD alloc] initWithView:self.view];
-    [self.view addSubview:HUD];
-    HUD.labelText = str;
-    HUD.mode = MBProgressHUDModeText;
-    [HUD showAnimated:YES whileExecutingBlock:^{
-        
-        sleep(1);
-        
-    } completionBlock:^{
-        
-        [HUD removeFromSuperview];
-    }];
-}
 //发送验证码
 - (IBAction)getCode:(id)sender {
     
     if(_UITextFieldPhone.text.length == 0){
-        [self toast:@"手机号不能为空"];
+        [Toast showToast:@"手机号不能为空" view:self.view];
         NSLog(@"手机号不能为空");
     }
     else
