@@ -13,6 +13,7 @@
 #import "MBProgressHUD.h"
 #import "LoginViewController.h"
 #import "Toast.h"
+#import "JsonUtil.h"
 @interface ForgetPwdViewController ()
 
 @end
@@ -65,7 +66,7 @@
     [manager POST:urlString parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         //隐藏圆形进度条
 //        [hud hide:YES];
-        NSString *result=[self DataTOjsonString:responseObject];
+        NSString *result=[JsonUtil DataTOjsonString:responseObject];
         
         NSLog(@"***************返回结果***********************");
         NSLog(result);
@@ -164,7 +165,7 @@
     [manager POST:urlString parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         //隐藏圆形进度条
         [hud hide:YES];
-        NSString *result=[self DataTOjsonString:responseObject];
+        NSString *result=[JsonUtil DataTOjsonString:responseObject];
         NSLog(@"***************返回结果***********************");
         NSLog(result);
         /**
@@ -209,30 +210,6 @@
     }];
 }
 
--(NSString*)DataTOjsonString:(id)object
-{
-    NSString *jsonString = nil;
-    NSError *error;
-    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:object
-                                                       options:NSJSONWritingPrettyPrinted // Pass 0 if you don't care about the readability of the generated string
-                        
-                                                         error:&error];
-    if (! jsonData) {
-        NSLog(@"Got an error: %@", error);
-    } else {
-        jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
-    }
-    return jsonString;
-}
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

@@ -12,6 +12,7 @@
 #import "AppDelegate.h"
 #import "MBProgressHUD.h"
 #import "Toast.h"
+#import "JsonUtil.h"
 //#define JsonGet @"http://192.168.229.1:8080/schoolCon/api/sys/sms/send?appId=03a8f0ea6a&appSecret=b4a01f5a7dd4416c&phone=12345&1564do12spa"
 @interface ActiveViewController ()
 
@@ -35,21 +36,7 @@
     [super didReceiveMemoryWarning];
     
 }
--(NSString*)DataTOjsonString:(id)object
-{
-    NSString *jsonString = nil;
-    NSError *error;
-    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:object
-                                                       options:NSJSONWritingPrettyPrinted // Pass 0 if you don't care about the readability of the generated string
-                        
-                                                         error:&error];
-    if (! jsonData) {
-        NSLog(@"Got an error: %@", error);
-    } else {
-        jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
-    }
-    return jsonString;
-}
+
 //获取验证码
 -(void)httpGetVerifyCode{
     //#import "AFNetworking.h"
@@ -89,7 +76,7 @@
     [manager POST:urlString parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         //隐藏圆形进度条
         [hud hide:YES];
-        NSString *result=[self DataTOjsonString:responseObject];
+        NSString *result=[JsonUtil DataTOjsonString:responseObject];
         
         NSLog(@"***************返回结果***********************");
         NSLog(result);
@@ -178,7 +165,7 @@
     [manager POST:urlString parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         //隐藏圆形进度条
         [hud hide:YES];
-        NSString *result=[self DataTOjsonString:responseObject];
+        NSString *result=[JsonUtil DataTOjsonString:responseObject];
         
         NSLog(@"***************返回结果***********************");
         NSLog(result);

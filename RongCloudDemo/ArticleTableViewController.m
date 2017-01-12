@@ -16,6 +16,7 @@
 #import "AppDelegate.h"
 #import "MBProgressHUD.h"
 #import "Article.h"
+#import "JsonUtil.h"
 @interface ArticleTableViewController ()
 
 @end
@@ -75,20 +76,7 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
--(NSString*)DataTOjsonString:(id)object
-{
-    NSString *jsonString = nil;
-    NSError *error;
-    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:object
-                                                       options:NSJSONWritingPrettyPrinted // Pass 0 if you don't care about the readability of the generated string
-                                                         error:&error];
-    if (! jsonData) {
-        NSLog(@"Got an error: %@", error);
-    } else {
-        jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
-    }
-    return jsonString;
-}
+
 
 #pragma mark 加载文章列表
 -(void)loadData{
@@ -116,22 +104,19 @@
                                   @"appSecret":@"b4a01f5a7dd4416c",
                                  @"channelType":@"zxxx",
                                  @"pageNumber":@"1",
-                                 
                                  @"token":token
-                                 
                                  };
-    
     [manager POST:urlString parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         //隐藏圆形进度条
         [hud hide:YES];
-        NSString *result=[self DataTOjsonString:responseObject];
+        NSString *result=[JsonUtil DataTOjsonString:responseObject];
         NSLog(@"***************返回结果***********************");
         NSLog(result);
-        
         NSData *data=[result dataUsingEncoding:NSUTF8StringEncoding];
-        
         NSError *error=[[NSError alloc]init];
         NSDictionary *doc= [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
+        
+        
 //        "data" : [
 //                  {
 //                      "id" : "bb744859cadc4c85b3b5228723da8671",
@@ -142,15 +127,36 @@
 //                  }
 //                  ]
         
+
+//        {
+//            "msg" : "ok",
+//            "data" : {
+//                "schools" : [
+//                             {
+//                                 "id" : "pi153odfasd",
+//                                 "name" : "长郡中学",
+//                                 "type" : 0,
+//                                 "hasChildren" : false
+//                             },
+//                             {
+//                                 "id" : "1564do12spa",
+//                                 "name" : "雅礼中学",
+//                                 "type" : 0,
+//                                 "hasChildren" : false
+//                             }
+//                             ]
+//            },
+//            "code" : 0
+//        }
+        
         if(doc!=nil){
             NSLog(@"*****doc不为空***********");
+            if(nil!=[doc allKeys]){
+                
             NSArray *articleArray=[doc objectForKey:@"data"];
 //            if(data!=nil){
 //                NSArray *schoolArray=[data objectForKey:@"schools"];
                 for(NSDictionary *item in  articleArray ){
-                    
-                    
-                    
                     Article *model=[[Article alloc]init];
                     model.articleId=item [@"id"];
                     model.picUrl=item [@"picurl"];
@@ -179,6 +185,18 @@
                 //更新界面
                 [mTableView reloadData];
 //            }
+            }
+            else
+            {
+                UIAlertController *alert=[UIAlertController alertControllerWithTitle:nil message:@"抱歉，尚无文章可以阅读" preferredStyle:UIAlertControllerStyleAlert];
+                UIAlertAction *ok=[UIAlertAction actionWithTitle:@"确认"
+                                                           style:UIAlertActionStyleDefault handler:nil];
+                
+                //        信息框添加按键
+                [alert addAction:ok];
+                [self presentViewController:alert animated:YES completion:nil];
+            
+            }
         }
         
         
@@ -283,7 +301,7 @@
     [manager POST:urlString parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         //隐藏圆形进度条
         [hud hide:YES];
-        NSString *result=[self DataTOjsonString:responseObject];
+        NSString *result=[JsonUtil DataTOjsonString:responseObject];
         
         NSLog(@"***************返回结果***********************");
         NSLog(result);
@@ -411,7 +429,7 @@
         [hud hide:YES];
         
         NSLog(@"***************返回结果***********************");
-        NSLog([self DataTOjsonString:responseObject]);
+        NSLog([JsonUtil DataTOjsonString:responseObject]);
         //        NSLog([self DataTOjsonString:responseObject]);
         //          NSLog([self convertToJsonData:dic]);
         

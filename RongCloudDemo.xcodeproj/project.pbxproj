@@ -158,6 +158,7 @@
 		CD4EE2541E2200E7001882F7 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = CD4EE2531E2200E7001882F7 /* MBProgressHUD.m */; };
 		CD6EACF21E2765A2009EC3A0 /* Toast.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6EACF11E2765A2009EC3A0 /* Toast.m */; };
 		CD6EACF61E276D5C009EC3A0 /* DataBaseNSUserDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6EACF51E276D5C009EC3A0 /* DataBaseNSUserDefaults.m */; };
+		CD6EACF91E276FB3009EC3A0 /* JsonUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6EACF81E276FB3009EC3A0 /* JsonUtil.m */; };
 		CD79C1D01E23368500A9889F /* SchoolMomentsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD79C1CF1E23368500A9889F /* SchoolMomentsTableViewController.m */; };
 		CD79C1F81E2502B400A9889F /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = CD79C1D21E2502B400A9889F /* AFHTTPRequestOperation.m */; };
 		CD79C1F91E2502B400A9889F /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CD79C1D41E2502B400A9889F /* AFHTTPRequestOperationManager.m */; };
@@ -451,6 +452,8 @@
 		CD6EACF11E2765A2009EC3A0 /* Toast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Toast.m; sourceTree = "<group>"; };
 		CD6EACF41E276D51009EC3A0 /* DataBaseNSUserDefaults.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DataBaseNSUserDefaults.h; sourceTree = "<group>"; };
 		CD6EACF51E276D5C009EC3A0 /* DataBaseNSUserDefaults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataBaseNSUserDefaults.m; sourceTree = "<group>"; };
+		CD6EACF81E276FB3009EC3A0 /* JsonUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JsonUtil.m; sourceTree = "<group>"; };
+		CD6EACFA1E276FBD009EC3A0 /* JsonUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JsonUtil.h; sourceTree = "<group>"; };
 		CD79C1CE1E23368500A9889F /* SchoolMomentsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SchoolMomentsTableViewController.h; sourceTree = "<group>"; };
 		CD79C1CF1E23368500A9889F /* SchoolMomentsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SchoolMomentsTableViewController.m; sourceTree = "<group>"; };
 		CD79C1D11E2502B400A9889F /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
@@ -1227,6 +1230,7 @@
 		CD4EE2501E2200A9001882F7 /* utility */ = {
 			isa = PBXGroup;
 			children = (
+				CD6EACF71E276F95009EC3A0 /* jsonUtil */,
 				CD6EACF31E276CED009EC3A0 /* NSUserDefaults */,
 				CD6EACEF1E276523009EC3A0 /* toast */,
 				CD4EE2511E2200B4001882F7 /* MBProgressHUD */,
@@ -1259,6 +1263,15 @@
 				CD6EACF51E276D5C009EC3A0 /* DataBaseNSUserDefaults.m */,
 			);
 			name = NSUserDefaults;
+			sourceTree = "<group>";
+		};
+		CD6EACF71E276F95009EC3A0 /* jsonUtil */ = {
+			isa = PBXGroup;
+			children = (
+				CD6EACF81E276FB3009EC3A0 /* JsonUtil.m */,
+				CD6EACFA1E276FBD009EC3A0 /* JsonUtil.h */,
+			);
+			name = jsonUtil;
 			sourceTree = "<group>";
 		};
 		CD79C1CD1E23365300A9889F /* schoolMoments */ = {
@@ -1705,6 +1718,7 @@
 				CDDE85471E20C52800E5F03B /* SetNewPwdViewController.m in Sources */,
 				CD112A7E1E0E99AD004519B9 /* LoginViewController.m in Sources */,
 				CD2DCB831E03CAB3000C03E1 /* MeViewController.m in Sources */,
+				CD6EACF91E276FB3009EC3A0 /* JsonUtil.m in Sources */,
 				CD2DCC9E1E0A2092000C03E1 /* TestViewController.m in Sources */,
 				CD79C2071E2502B400A9889F /* UIRefreshControl+AFNetworking.m in Sources */,
 				CD79C1FC1E2502B400A9889F /* AFSecurityPolicy.m in Sources */,

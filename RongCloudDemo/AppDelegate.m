@@ -36,11 +36,6 @@
 //    172.27.35.7
     myDelegate.appId=@"03a8f0ea6a";
     myDelegate.appSecret=@"b4a01f5a7dd4416c";
-    //    @"appId":@"03a8f0ea6a",
-    //    @"appSecret":@"b4a01f5a7dd4416c",
-//    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // Override point for customization after application launch.
-    
     //初始化融云SDK
     [[RCIM sharedRCIM] initWithAppKey:RONGCLOUD_IM_APPKEY];
     

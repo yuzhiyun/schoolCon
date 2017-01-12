@@ -17,6 +17,7 @@
 #import "ShalongTableViewController.h"
 #import "EditPhoneViewController.h"
 #import "VipViewController.h"
+#import "DataBaseNSUserDefaults.h"
 @interface MeViewController (){
     NSMutableArray *mDataKey;
     NSMutableArray *mDataImg;
@@ -284,7 +285,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
                                                    style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){
                                                        
                                                        //清除token
-                                                       [self removeData:@"token"];
+                                                       [DataBaseNSUserDefaults removeData:@"token"];
                                                        
 //                                                       NSLog(@"退出登录");
                                                        
@@ -364,15 +365,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
     //    隐藏返回按钮navigationController的navigationBar
     self.navigationController.navigationBarHidden=YES;
 }
-//NSUserDefaults 清除数据
--(void) removeData:(NSString *) forkey{
-    //取得定义
-    NSUserDefaults *tUserDefaults=[NSUserDefaults standardUserDefaults];
-    //清除数据
-    [tUserDefaults removeObjectForKey:forkey];
-    //确认数据
-    [tUserDefaults synchronize];
-}
+
 
 
 @end

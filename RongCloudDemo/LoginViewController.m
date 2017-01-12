@@ -18,6 +18,8 @@
 #import "ForgetPwdViewController.h"
 #import "Toast.h"
 #import "DataBaseNSUserDefaults.h"
+#import "JsonUtil.h"
+
 #define JsonGet @"http://iappfree.candou.com:8080/free/applications/limited?currency=rmb&page=1"
 
 @interface LoginViewController ()
@@ -116,7 +118,7 @@
     [manager POST:urlString parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         //隐藏圆形进度条
         [hud hide:YES];
-        NSString *result=[self DataTOjsonString:responseObject];
+        NSString *result=[JsonUtil DataTOjsonString:responseObject];
         
         NSLog(@"***************返回结果***********************");
         NSLog(result);
@@ -179,25 +181,8 @@
     [self.navigationController pushViewController:nextPage animated:YES];
 }
 
-//- (IBAction)active:(id)sender {
-//    ChooseSchoolTableViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"ChooseSchoolTableViewController"];
-//    nextPage->index=2;
-//    [self.navigationController pushViewController:nextPage animated:YES];
-//}
--(NSString*)DataTOjsonString:(id)object
-{
-    NSString *jsonString = nil;
-    NSError *error;
-    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:object
-                                                       options:NSJSONWritingPrettyPrinted // Pass 0 if you don't care about the readability of the generated string
-                                                         error:&error];
-    if (! jsonData) {
-        NSLog(@"Got an error: %@", error);
-    } else {
-        jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
-    }
-    return jsonString;
-}
+
+
 
 
 
