@@ -31,7 +31,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     allDataFromServer=[[NSMutableArray alloc]init];
-//    [self loadData];
+    [self loadData];
     AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
     NSLog(@"token是%@",myDelegate.token);
 
@@ -115,7 +115,6 @@
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         // 刷新表格
         [self.tableView reloadData];
-        
         // (最好在刷新表格后调用)调用endRefreshing可以结束刷新状态
         [self.tableView headerEndRefreshing];
     });
@@ -132,12 +131,10 @@
     for (int i = 0; i<5; i++) {
         [allDataFromServer addObject:model];
     }
-    
     // 2.模拟2秒后刷新表格UI（真实开发中，可以移除这段gcd代码）
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         // 刷新表格
         [self.tableView reloadData];
-        
         // (最好在刷新表格后调用)调用endRefreshing可以结束刷新状态
         [self.tableView footerEndRefreshing];
     });
@@ -164,7 +161,6 @@
     AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
     
     NSString *urlString= [NSString stringWithFormat:@"http://%@:8080/schoolCon/api/cms/article/getList",myDelegate.ipString];
-    
     //创建数据请求的对象，不是单例
     AFHTTPRequestOperationManager *manager=[AFHTTPRequestOperationManager manager];
     //设置响应数据的类型,如果是json数据，会自动帮你解析
@@ -224,7 +220,13 @@
         
         if(doc!=nil){
             NSLog(@"*****doc不为空***********");
-            if([@"ok" isEqualToString:[doc objectForKey:@"msg"]])
+            if([[doc objectForKey:@"code"] isKindOfClass:[NSNumber class]])
+                NSLog(@"code 是 NSNumber");
+            //判断code 是不是0
+            
+            NSNumber *zero=[NSNumber numberWithInt:(0)];
+            NSNumber *code=[doc objectForKey:@"code"];
+            if([zero isEqualToNumber:code])
             {
                 if(nil!=[doc allKeys]){
                     
