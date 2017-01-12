@@ -129,7 +129,7 @@
 }
 
 - (void)footerRereshing
-{  self.tableView.headerRefreshingText = @"正在为您刷新。。。";
+{  self.tableView.footerRefreshingText = @"正在为您刷新。。。";
     
     pageIndex++;
     [self loadData:pageIndex orientation:@"up"];
@@ -200,8 +200,12 @@
                 if(nil!=[doc allKeys]){
                     
                     NSArray *articleArray=[doc objectForKey:@"data"];
-                    if(0==[articleArray count])
+                    if(0==[articleArray count]){
+                        if([orientation isEqualToString:@"down"])
                         self.tableView.headerRefreshingText = @"亲，没有更多数据了";
+                        else
+                            self.tableView.footerRefreshingText = @"亲，没有更多数据了";
+                    }
                     else{
                         
                         for(NSDictionary *item in  articleArray ){
