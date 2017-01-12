@@ -17,34 +17,24 @@
 #import "MBProgressHUD.h"
 #import "Article.h"
 #import "JsonUtil.h"
+#import "MJRefresh.h"
 @interface ArticleTableViewController ()
 
 @end
 
 @implementation ArticleTableViewController{
     
-    NSMutableArray *mDataArticle;
+    NSMutableArray *allDataFromServer;
     UITableView *mTableView;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    mDataArticle=[[NSMutableArray alloc]init];
-    
-    
-    [self loadData];
+    allDataFromServer=[[NSMutableArray alloc]init];
+//    [self loadData];
     AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
     NSLog(@"token是%@",myDelegate.token);
-    /**
-     *
-     *获取当前页面在WMPageController中的index，有一点bug,获取到的index不准确，再等等吧。
-     */
-    //    WMPageController *pageController = (WMPageController *)self.parentViewController;
-    //    NSLog(@"WMPageController当前页面%d",pageController.selectIndex);
-    //        NSLog(@"WMPageController当前页面%d",pageController.selectIndex);
-    //防止与顶部重叠
-    self.tableView.contentInset=UIEdgeInsetsMake(20.0f, 0.0f, 0.0f, 0.0f);
+
     
     //    //指定大标题
     //    mData=[[NSMutableArray alloc]init];
@@ -69,8 +59,90 @@
     //    [mDataAuthor addObject:@"张凯景"];
     //    [mDataAuthor addObject:@"李非"];
     //    [mDataAuthor addObject:@"张晓静"];
+    Article *model=[[Article alloc]init];
+    model.articleId=@"1";
+    model.picUrl=@"http://img05.tooopen.com/images/20150202/sy_80219211654.jpg";
+    model.title=@"人生处世心态好，看淡尘世品行高";
+    model.author=@"余秋雨";
+    model.date=[NSNumber numberWithInt:(1234)];
+    allDataFromServer=[[NSMutableArray alloc]init];
+    [allDataFromServer addObject:model];
+    [allDataFromServer addObject:model];
+
     
+    // 2.集成刷新控件
+    [self setupRefresh];
 }
+/**
+ *  集成刷新控件
+ */
+- (void)setupRefresh
+{
+    // 1.下拉刷新(进入刷新状态就会调用self的headerRereshing)
+    //    [self.tableView addHeaderWithTarget:self action:@selector(headerRereshing)];
+    // dateKey用于存储刷新时间，可以保证不同界面拥有不同的刷新时间
+    [self.tableView addHeaderWithTarget:self action:@selector(headerRereshing) dateKey:@"table"];
+    
+    // 2.上拉加载更多(进入刷新状态就会调用self的footerRereshing)
+    [self.tableView addFooterWithTarget:self action:@selector(footerRereshing)];
+    
+    // 设置文字(也可以不设置,默认的文字在MJRefreshConst中修改)
+    self.tableView.headerPullToRefreshText = @"下拉可以刷新了";
+    self.tableView.headerReleaseToRefreshText = @"松开马上刷新了";
+    self.tableView.headerRefreshingText = @"正在为您刷新。。。";
+    
+    self.tableView.footerPullToRefreshText = @"上拉可以加载更多数据了";
+    self.tableView.footerReleaseToRefreshText = @"松开马上加载更多数据了";
+    self.tableView.footerRefreshingText = @"正在为您刷新。。。";
+}
+
+#pragma mark 开始进入刷新状态
+- (void)headerRereshing
+{
+    Article *model=[[Article alloc]init];
+    model.articleId=@"1";
+    model.picUrl=@"http://img05.tooopen.com/images/20150202/sy_80219211654.jpg";
+    model.title=@"人生处世心态好，看淡尘世品行高";
+    model.author=@"下拉刷新数据";
+   model.date=[NSNumber numberWithInt:(1234)];
+//    model.date=@"2017-02-29";
+    // 1.添加假数据
+    for (int i = 0; i<5; i++) {
+        [allDataFromServer insertObject:model atIndex:0];
+    }
+    
+    // 2.模拟2秒后刷新表格UI（真实开发中，可以移除这段gcd代码）
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        // 刷新表格
+        [self.tableView reloadData];
+        
+        // (最好在刷新表格后调用)调用endRefreshing可以结束刷新状态
+        [self.tableView headerEndRefreshing];
+    });
+}
+
+- (void)footerRereshing
+{
+    Article *model=[[Article alloc]init];
+    model.articleId=@"1";
+    model.picUrl=@"http://img05.tooopen.com/images/20150202/sy_80219211654.jpg";
+    model.title=@"人生处世心态好，看淡尘世品行高";
+    model.author=@"向上拉刷新";
+   model.date=[NSNumber numberWithInt:(1234)];
+    for (int i = 0; i<5; i++) {
+        [allDataFromServer addObject:model];
+    }
+    
+    // 2.模拟2秒后刷新表格UI（真实开发中，可以移除这段gcd代码）
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        // 刷新表格
+        [self.tableView reloadData];
+        
+        // (最好在刷新表格后调用)调用endRefreshing可以结束刷新状态
+        [self.tableView footerEndRefreshing];
+    });
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -180,10 +252,10 @@
                         NSLog(@"文章publishat是%i",model.date);
                         //添加到数组以便显示到tableview
                         NSLog(@"addObject之前");
-                        [mDataArticle addObject:model];
+                        [allDataFromServer addObject:model];
                         NSLog(@"addObject之后");
                     }
-                    NSLog(@"mDataArticle项数为%i",[mDataArticle count]);
+                    NSLog(@"mDataArticle项数为%i",[allDataFromServer count]);
                     NSLog(@"//更新界面");
                     //更新界面
                     [mTableView reloadData];
@@ -249,7 +321,7 @@
     
     mTableView=tableView;
 #warning Incomplete implementation, return the number of rows
-    return [mDataArticle count];
+    return [allDataFromServer count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -261,7 +333,7 @@
     AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
     ;
     
-    Article *model=[mDataArticle objectAtIndex:indexPath.row];
+    Article *model=[allDataFromServer objectAtIndex:indexPath.row];
     NSLog(@"cellForRowAtIndexPath");
     
     cell.UILabelTitle.text=model.title;

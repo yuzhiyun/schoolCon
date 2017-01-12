@@ -835,7 +835,7 @@
 			children = (
 				CDDE85341E20971700E5F03B /* consult */,
 				CD2DCC041E053648000C03E1 /* vp2_education_wisdom */,
-				CD2DCC031E053627000C03E1 /* article */,
+				CD2DCC031E053627000C03E1 /* articleList */,
 				CD2DCB8A1E03E815000C03E1 /* commentCell */,
 				CD2DCB871E03E7BE000C03E1 /* ArticleDetailViewController.h */,
 				CD2DCB881E03E7BE000C03E1 /* ArticleDetailViewController.m */,
@@ -912,7 +912,7 @@
 			path = WMMenuView;
 			sourceTree = "<group>";
 		};
-		CD2DCC031E053627000C03E1 /* article */ = {
+		CD2DCC031E053627000C03E1 /* articleList */ = {
 			isa = PBXGroup;
 			children = (
 				CD79C2101E26467A00A9889F /* Article */,
@@ -920,7 +920,7 @@
 				CD2DCC051E0536A7000C03E1 /* ArticleTableViewController.h */,
 				CD2DCC061E0536A7000C03E1 /* ArticleTableViewController.m */,
 			);
-			name = article;
+			name = articleList;
 			sourceTree = "<group>";
 		};
 		CD2DCC041E053648000C03E1 /* vp2_education_wisdom */ = {

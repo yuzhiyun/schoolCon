@@ -139,14 +139,6 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-#pragma mark - Table view data source
-
-//- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-//#warning Incomplete implementation, return the number of sections
-//    return 0;
-//}
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 #warning Incomplete implementation, return the number of rows
     return [allDataFromServer count];
@@ -157,22 +149,16 @@
     if(cell==nil){
         cell=[[ShalongTableViewCell init] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
     }
-    
     Activity *model=[allDataFromServer objectAtIndex:indexPath.row];
 //    NSString *t1=[mData objectAtIndex:indexPath.row];
-    
 //    cell.UILabelTitle.text=t1;
     cell.UILabelTitle.text=model.title;
     cell.UILabelDate.text=model.date;
     cell.UILabelPlace.text=model.place;
     cell.UILabelPublisher.text=model.publisher;
 //    cell.UIImgCover.image=[UIImage imageNamed:[mImg objectAtIndex:indexPath.row]];
-//    //
 //        加载图片,如果加载不到图片，就显示favorites.png
     [cell.UIImgCover sd_setImageWithURL: model.picUrl placeholderImage:[UIImage imageNamed:@"favorites.png"]];
-
-    // Configure the cell...
-//
     return cell;
 }
 
