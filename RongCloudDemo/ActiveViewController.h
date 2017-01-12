@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ActiveViewController : UIViewController
+@interface ActiveViewController : UIViewController<UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *UITextFieldPhone;
 @property (weak, nonatomic) IBOutlet UITextField *UITextFieldVerifyCode;
 @property (weak, nonatomic) IBOutlet UITextField *UITextFieldPwd;
