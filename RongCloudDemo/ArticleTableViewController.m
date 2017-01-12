@@ -149,8 +149,11 @@
 //            "code" : 0
 //        }
         
+        
         if(doc!=nil){
             NSLog(@"*****doc不为空***********");
+            if([@"ok" isEqualToString:[doc objectForKey:@"msg"]])
+            {
             if(nil!=[doc allKeys]){
                 
             NSArray *articleArray=[doc objectForKey:@"data"];
@@ -198,8 +201,20 @@
             
             }
         }
+            
+            else{
+                
+                UIAlertController *alert=[UIAlertController alertControllerWithTitle:nil message:[doc objectForKey:@"msg"] preferredStyle:UIAlertControllerStyleAlert];
+                UIAlertAction *ok=[UIAlertAction actionWithTitle:@"确认"
+                                                           style:UIAlertActionStyleDefault handler:nil];
+                
+                //        信息框添加按键
+                [alert addAction:ok];
+                [self presentViewController:alert animated:YES completion:nil];
+            
+            }
         
-        
+        }
         else
             NSLog(@"*****doc空***********");
         
