@@ -26,16 +26,19 @@
     
     NSMutableArray *allDataFromServer;
     UITableView *mTableView;
+    //页面索引，分页查询数据，下拉刷新的时候需要使用到
+    int pageIndex;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     allDataFromServer=[[NSMutableArray alloc]init];
-    [self loadData];
+    
+    //数据默认为先加载第一页
+    pageIndex=1;
+    [self loadData:pageIndex orientation:@"up"];
     AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
     NSLog(@"token是%@",myDelegate.token);
-
-    
     //    //指定大标题
     //    mData=[[NSMutableArray alloc]init];
     ////    [mData addObject:[NSString stringWithFormat:@"当前页面%d, 你是最美的",pageController.selectIndex]];
@@ -68,7 +71,7 @@
     allDataFromServer=[[NSMutableArray alloc]init];
     [allDataFromServer addObject:model];
     [allDataFromServer addObject:model];
-
+    
     
     // 2.集成刷新控件
     [self setupRefresh];
@@ -99,59 +102,48 @@
 #pragma mark 开始进入刷新状态
 - (void)headerRereshing
 {
-    Article *model=[[Article alloc]init];
-    model.articleId=@"1";
-    model.picUrl=@"http://img05.tooopen.com/images/20150202/sy_80219211654.jpg";
-    model.title=@"人生处世心态好，看淡尘世品行高";
-    model.author=@"下拉刷新数据";
-   model.date=[NSNumber numberWithInt:(1234)];
-//    model.date=@"2017-02-29";
-    // 1.添加假数据
-    for (int i = 0; i<5; i++) {
-        [allDataFromServer insertObject:model atIndex:0];
-    }
+    self.tableView.headerRefreshingText = @"正在为您刷新。。。";
     
-    // 2.模拟2秒后刷新表格UI（真实开发中，可以移除这段gcd代码）
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        // 刷新表格
-        [self.tableView reloadData];
-        // (最好在刷新表格后调用)调用endRefreshing可以结束刷新状态
-        [self.tableView headerEndRefreshing];
-    });
+    pageIndex++;
+    
+    //    Article *model=[[Article alloc]init];
+    //    model.articleId=@"1";
+    //    model.picUrl=@"http://img05.tooopen.com/images/20150202/sy_80219211654.jpg";
+    //    model.title=@"人生处世心态好，看淡尘世品行高";
+    //    model.author=@"下拉刷新数据";
+    //   model.date=[NSNumber numberWithInt:(1234)];
+    ////    model.date=@"2017-02-29";
+    //    // 1.添加假数据
+    //    for (int i = 0; i<5; i++) {
+    //        [allDataFromServer insertObject:model atIndex:0];
+    //    }
+    //
+    //    // 2.模拟2秒后刷新表格UI（真实开发中，可以移除这段gcd代码）
+    //    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+    //        // 刷新表格
+    //        [self.tableView reloadData];
+    //        // (最好在刷新表格后调用)调用endRefreshing可以结束刷新状态
+    //        [self.tableView headerEndRefreshing];
+    //    });
+    [self loadData:pageIndex orientation:@"down"];
 }
 
 - (void)footerRereshing
-{
-    Article *model=[[Article alloc]init];
-    model.articleId=@"1";
-    model.picUrl=@"http://img05.tooopen.com/images/20150202/sy_80219211654.jpg";
-    model.title=@"人生处世心态好，看淡尘世品行高";
-    model.author=@"向上拉刷新";
-   model.date=[NSNumber numberWithInt:(1234)];
-    for (int i = 0; i<5; i++) {
-        [allDataFromServer addObject:model];
-    }
-    // 2.模拟2秒后刷新表格UI（真实开发中，可以移除这段gcd代码）
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        // 刷新表格
-        [self.tableView reloadData];
-        // (最好在刷新表格后调用)调用endRefreshing可以结束刷新状态
-        [self.tableView footerEndRefreshing];
-    });
+{  self.tableView.headerRefreshingText = @"正在为您刷新。。。";
+    
+    pageIndex++;
+    [self loadData:pageIndex orientation:@"up"];
 }
 
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    
 }
 
 
 #pragma mark 加载文章列表
--(void)loadData{
-    //#import "AFNetworking.h"
-    //#import "AppDelegate.h"
-    //#import "MBProgressHUD.h"
+-(void)loadData:(int)pageIndex orientation:(NSString *) orientation{
     MBProgressHUD *hud;
     hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     //hud.color = [UIColor colorWithHexString:@"343637" alpha:0.5];
@@ -171,7 +163,7 @@
     NSDictionary *parameters = @{ @"appId":@"03a8f0ea6a",
                                   @"appSecret":@"b4a01f5a7dd4416c",
                                   @"channelType":@"zxxx",
-                                  @"pageNumber":@"1",
+                                  @"pageNumber":[NSString stringWithFormat:@"%d",pageIndex],
                                   @"token":token
                                   };
     [manager POST:urlString parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
@@ -184,7 +176,6 @@
         NSError *error=[[NSError alloc]init];
         NSDictionary *doc= [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
         
-        
         //        "data" : [
         //                  {
         //                      "id" : "bb744859cadc4c85b3b5228723da8671",
@@ -194,36 +185,11 @@
         //                      "picurl" : "\/schoolCon\/upload\/image\/20170111\/5rpblhora6i7prhqa1i7j48b15.14.02.png"
         //                  }
         //                  ]
-        
-        
-        //        {
-        //            "msg" : "ok",
-        //            "data" : {
-        //                "schools" : [
-        //                             {
-        //                                 "id" : "pi153odfasd",
-        //                                 "name" : "长郡中学",
-        //                                 "type" : 0,
-        //                                 "hasChildren" : false
-        //                             },
-        //                             {
-        //                                 "id" : "1564do12spa",
-        //                                 "name" : "雅礼中学",
-        //                                 "type" : 0,
-        //                                 "hasChildren" : false
-        //                             }
-        //                             ]
-        //            },
-        //            "code" : 0
-        //        }
-        
-        
         if(doc!=nil){
             NSLog(@"*****doc不为空***********");
             if([[doc objectForKey:@"code"] isKindOfClass:[NSNumber class]])
                 NSLog(@"code 是 NSNumber");
             //判断code 是不是0
-            
             NSNumber *zero=[NSNumber numberWithInt:(0)];
             NSNumber *code=[doc objectForKey:@"code"];
             if([zero isEqualToNumber:code])
@@ -231,36 +197,42 @@
                 if(nil!=[doc allKeys]){
                     
                     NSArray *articleArray=[doc objectForKey:@"data"];
-                    //            if(data!=nil){
-                    //                NSArray *schoolArray=[data objectForKey:@"schools"];
-                    for(NSDictionary *item in  articleArray ){
-                        Article *model=[[Article alloc]init];
-                        model.articleId=item [@"id"];
-                        model.picUrl=item [@"picurl"];
-                        model.title=item [@"title"];
-                        model.author=item [@"author"];
+                    if(0==[articleArray count])
+                        self.tableView.headerRefreshingText = @"亲，没有更多数据了";
+                    else{
                         
-                        //                    注意，publishat是NSNumber 类型的，所以不要用字符串去接收，否则报错
-                        //                    -[__NSCFNumber rangeOfCharacterFromSet:]: unrecognized selector sent to instance 0x7fa5216589d0"，对于IOS开发感兴趣的同学可以参考一下： 这个算是类型的不匹配，就是把NSNumber类型的赋给字符串了自己还不知情，
-                        
-                        model.date=item [@"publishat"];
-                        
-                        
-                        NSLog(@"******打印文章列表**********");
-                        NSLog(@"文章articleId是%@",model.articleId);
-                        NSLog(@"文章picUrl是%@",model.picUrl);
-                        NSLog(@"文章title是%@",model.title);
-                        NSLog(@"文章author是%@",model.author);
-                        NSLog(@"文章publishat是%i",model.date);
-                        //添加到数组以便显示到tableview
-                        NSLog(@"addObject之前");
-                        [allDataFromServer addObject:model];
-                        NSLog(@"addObject之后");
+                        for(NSDictionary *item in  articleArray ){
+                            Article *model=[[Article alloc]init];
+                            model.articleId=item [@"id"];
+                            model.picUrl=item [@"picurl"];
+                            model.title=item [@"title"];
+                            model.author=item [@"author"];
+                            
+                            //                    注意，publishat是NSNumber 类型的，所以不要用字符串去接收，否则报错
+                            //                    -[__NSCFNumber rangeOfCharacterFromSet:]: unrecognized selector sent to instance 0x7fa5216589d0"，对于IOS开发感兴趣的同学可以参考一下： 这个算是类型的不匹配，就是把NSNumber类型的赋给字符串了自己还不知情，
+                            
+                            model.date=item [@"publishat"];
+                            
+                            
+                            NSLog(@"******打印文章列表**********");
+                            NSLog(@"文章articleId是%@",model.articleId);
+                            NSLog(@"文章picUrl是%@",model.picUrl);
+                            NSLog(@"文章title是%@",model.title);
+                            NSLog(@"文章author是%@",model.author);
+                            NSLog(@"文章publishat是%i",model.date);
+                            //添加到数组以便显示到tableview
+                            NSLog(@"addObject之前");
+                            if([orientation isEqualToString:@"up"])
+                                [allDataFromServer addObject:model];
+                            else
+                                [allDataFromServer insertObject:model atIndex:0];
+                            NSLog(@"addObject之后");
+                        }
+                        NSLog(@"mDataArticle项数为%i",[allDataFromServer count]);
+                        NSLog(@"//更新界面");
+                        //更新界面
+                        [mTableView reloadData];
                     }
-                    NSLog(@"mDataArticle项数为%i",[allDataFromServer count]);
-                    NSLog(@"//更新界面");
-                    //更新界面
-                    [mTableView reloadData];
                     //            }
                 }
                 else
