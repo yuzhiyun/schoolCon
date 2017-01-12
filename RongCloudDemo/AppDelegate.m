@@ -28,19 +28,16 @@
     onlineReadinngTitle=[[NSMutableArray alloc]init];
     indexOnlineReadinng=0;
      AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
-//    myDelegate.ipString=@"192.168.155.1";
+    myDelegate.ipString=@"192.168.0.109";
     
 //    myDelegate.ipString=@"172.27.35.7";
-    myDelegate.ipString=@"172.27.35.6";
+//    myDelegate.ipString=@"172.27.35.6";
     myDelegate.token=@"";
 //    172.27.35.7
     myDelegate.appId=@"03a8f0ea6a";
     myDelegate.appSecret=@"b4a01f5a7dd4416c";
     //    @"appId":@"03a8f0ea6a",
     //    @"appSecret":@"b4a01f5a7dd4416c",
-    
-    
-    
 //    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     

@@ -50,9 +50,7 @@
     
     [self httpLogin];
     
-    MainViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"MainViewController"];
-    nextPage.hidesBottomBarWhenPushed=YES;
-    [self.navigationController pushViewController:nextPage animated:YES];
+    
 }
 
 //登录
@@ -74,15 +72,21 @@
     AFHTTPRequestOperationManager *manager=[AFHTTPRequestOperationManager manager];
     //设置响应数据的类型,如果是json数据，会自动帮你解析
     manager.responseSerializer.acceptableContentTypes=[NSSet setWithObjects:@"application/json", nil];
+    
+    NSString *userName=@"123456";
+    NSString *pwd=@"12345";
+    
+    
+    
     // 请求参数
     NSDictionary *parameters = @{
                                  @"appId":myDelegate.appId,
                                  @"appSecret":myDelegate.appSecret,
                                  @"schoolId":myDelegate.schoolId,
                                  //                                 @"loginname":@"superadmin",
-                                 @"loginname":@"maxiaolong",
+                                 @"loginname":userName,
                                  //                                 @"vcode":@"1234",
-                                 @"pwd":@"123456"
+                                 @"pwd":pwd
                                  };
     [manager POST:urlString parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         //隐藏圆形进度条
@@ -103,10 +107,21 @@
         //         }
         NSLog([doc objectForKey:@"msg"]);
         NSLog(@"%i",[doc objectForKey:@"code"]);
-        
-        //登录之后获取token
-        AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
-        myDelegate.token=[[doc objectForKey:@"data"]objectForKey:@"token"];
+        //如果登录成功
+        if([@"ok" isEqualToString:[doc objectForKey:@"msg"]])
+        {
+            //登录之后获取token
+            AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
+            myDelegate.token=[[doc objectForKey:@"data"]objectForKey:@"token"];
+            
+            NSLog(@"登录之后存储token%@",myDelegate.token);
+            [self setData: myDelegate.token forkey:@"token"];
+
+            MainViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"MainViewController"];
+            nextPage.hidesBottomBarWhenPushed=YES;
+            [self.navigationController pushViewController:nextPage animated:YES];
+            
+        }
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         //隐藏圆形进度条
@@ -123,7 +138,15 @@
         [self presentViewController:alert animated:YES completion:nil];
     }];
 }
-
+//NSUserDefaults 存数据
+-(void) setData:(id) object forkey:(NSString*) forkey{
+    //取得定义
+    NSUserDefaults *tUserDefaults=[NSUserDefaults standardUserDefaults];
+    //存放数据
+    [tUserDefaults setObject:object forKey:forkey];
+    //确认数据
+    [tUserDefaults synchronize];
+}
 - (IBAction)forgetPwd:(id)sender {
     ForgetPwdViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"ForgetPwdViewController"];
     [self.navigationController pushViewController:nextPage animated:YES];

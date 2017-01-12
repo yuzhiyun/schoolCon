@@ -11,6 +11,7 @@
 #import "ChooseSchoolTableViewController.h"
 #import "MainViewController.h"
 #import "AppDelegate.h"
+#import "MBProgressHUD.h"
 @interface EntranceViewController ()
 
 @end
@@ -51,6 +52,77 @@
     
     //    隐藏返回按钮navigationController的navigationBar
     self.navigationController.navigationBarHidden=YES;
+    
+    
+    
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+    [self checkUserLogin];
+}
+
+-(void)checkUserLogin{
+    
+    id token=[self getData:@"token"];
+    NSString *stringToken=(NSString *)token;
+    if(token==nil){
+        NSLog(@"token==nil,还未登录，什么事都不需要干");
+        UIAlertView *alert =
+        [[UIAlertView alloc] initWithTitle:nil
+                                   message:@"token==nil"
+                                  delegate:nil
+                         cancelButtonTitle:@"确定"
+                         otherButtonTitles:nil];
+        [alert show];
+
+        
+    }
+    else{
+        NSLog(@"token不是nil，把数据传给appDelegate,弹窗显示自动登录，然后进入首页");
+        AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
+        myDelegate.token=stringToken;
+        
+        MBProgressHUD *hud;
+        hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        //hud.color = [UIColor colorWithHexString:@"343637" alpha:0.5];
+        hud.labelText = @"正在自动登录";
+        [hud show:YES];
+        
+        // 2.模拟2秒后（
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            
+            [hud hide:YES];
+            MainViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"MainViewController"];
+            nextPage.hidesBottomBarWhenPushed=YES;
+            [self.navigationController pushViewController:nextPage animated:YES];
+            
+        });
+       
+        
+        
+        
+    }
+    
+    
+}
+
+//NSUserDefaults 存数据
+-(void) setData:(id) object forkey:(NSString*) forkey{
+    //取得定义
+    NSUserDefaults *tUserDefaults=[NSUserDefaults standardUserDefaults];
+    //存放数据
+    [tUserDefaults setObject:object forKey:forkey];
+    //确认数据
+    [tUserDefaults synchronize];
+}
+//NSUserDefaults 取出数据
+-(id) getData:(NSString *) forkey{
+    id object;
+    //取得定义
+    NSUserDefaults *tUserDefaults=[NSUserDefaults standardUserDefaults];
+    //取出数据
+    object=[tUserDefaults objectForKey:forkey];
+    return object;
 }
 
 - (void)didReceiveMemoryWarning {

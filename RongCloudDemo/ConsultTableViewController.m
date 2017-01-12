@@ -13,24 +13,22 @@
 @end
 
 @implementation ConsultTableViewController{
-NSMutableArray *mDataConsult;
-
+    NSMutableArray *mDataConsult;
+    
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-      mDataConsult=[[NSMutableArray alloc]init];
+    mDataConsult=[[NSMutableArray alloc]init];
     [mDataConsult addObject:@"初始数据"];
     [mDataConsult addObject:@"初始数据"];
     [mDataConsult addObject:@"初始数据"];
     [mDataConsult addObject:@"初始数据"];
     [mDataConsult addObject:@"初始数据"];
-    
-    
     // 2.集成刷新控件
     [self setupRefresh];
-
+    
 }
 /**
  *  集成刷新控件
@@ -41,8 +39,6 @@ NSMutableArray *mDataConsult;
     //    [self.tableView addHeaderWithTarget:self action:@selector(headerRereshing)];
     // dateKey用于存储刷新时间，可以保证不同界面拥有不同的刷新时间
     [self.tableView addHeaderWithTarget:self action:@selector(headerRereshing) dateKey:@"table"];
-#warning 自动刷新(一进入程序就下拉刷新)
-//    [self.tableView headerBeginRefreshing];
     
     // 2.上拉加载更多(进入刷新状态就会调用self的footerRereshing)
     [self.tableView addFooterWithTarget:self action:@selector(footerRereshing)];
@@ -79,7 +75,7 @@ NSMutableArray *mDataConsult;
 {
     // 1.添加假数据
     for (int i = 0; i<5; i++) {
-          [mDataConsult addObject:@"上拉刷新数据"];
+        [mDataConsult addObject:@"上拉刷新数据"];
     }
     
     // 2.模拟2秒后刷新表格UI（真实开发中，可以移除这段gcd代码）
@@ -108,17 +104,17 @@ NSMutableArray *mDataConsult;
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-  
+    
     
     static NSString *simpleTableIdentifier = @"cell";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
-
+    
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:simpleTableIdentifier];
     }
     //    cell.imageView.image=[UIImage imageNamed:@"notice1.png"];
-
+    
     
     UILabel *mUILabelName=(UILabel *)[cell viewWithTag:1];
     mUILabelName.text=@"张新源";
@@ -126,54 +122,9 @@ NSMutableArray *mDataConsult;
     mUILabelTitle.text=@"一级心理咨询师";
     
     UILabel *mUILabelSpecialty=(UILabel *)[cell viewWithTag:3];
-//mUILabelSpecialty.text=@"认知行为治疗";
+    //mUILabelSpecialty.text=@"认知行为治疗";
     mUILabelSpecialty.text=[mDataConsult objectAtIndex:indexPath.row];
     return cell;
 }
-
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
