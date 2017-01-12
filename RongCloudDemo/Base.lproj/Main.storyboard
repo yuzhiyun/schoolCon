@@ -2327,6 +2327,9 @@
                                 <rect key="frame" x="251" y="332" width="80" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="获取验证码"/>
+                                <connections>
+                                    <action selector="getVerifyCode:" destination="gnI-ct-PKk" eventType="touchUpInside" id="qiE-3h-rC9"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RWv-4h-5UJ">
                                 <rect key="frame" x="46" y="454" width="285" height="30"/>
@@ -2342,6 +2345,11 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="UITextFieldNewPwd" destination="g0k-Ej-bAk" id="cNg-wK-yIF"/>
+                        <outlet property="UITextFieldPhone" destination="0Lj-75-AzY" id="WOK-30-AfI"/>
+                        <outlet property="UITextFieldVerifyCode" destination="QVJ-XO-Std" id="a8m-Qe-Ocn"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4he-wH-xFA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

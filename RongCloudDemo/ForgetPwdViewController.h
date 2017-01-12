@@ -9,5 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface ForgetPwdViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UITextField *UITextFieldPhone;
+@property (weak, nonatomic) IBOutlet UITextField *UITextFieldVerifyCode;
+@property (weak, nonatomic) IBOutlet UITextField *UITextFieldNewPwd;
 
 @end
