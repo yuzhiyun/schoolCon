@@ -28,44 +28,52 @@
     //    填充题目
     mAllData=[[NSMutableArray alloc]init];
     
-//    for(int i=0;i<5;i++){
-        NSMutableArray *mEntity=[[NSMutableArray alloc]init];
-        
-//        [mEntity addObject:[NSString stringWithFormat:@"标题%d",i+1]];
-//        
-//        [mEntity addObject:[NSString stringWithFormat:@"第%d题item1",i+1]];
-//        [mEntity addObject:[NSString stringWithFormat:@"第%d题item2",i+1]];
-//        [mEntity addObject:[NSString stringWithFormat:@"第%d题item3",i+1]];
-//        [mEntity addObject:[NSString stringWithFormat:@"第%d题item4",i+1]];
-        
-        [mEntity addObject:@"1、你是一个没有安全感的人吗？"];
-        [mEntity addObject:@"是的"];
-        [mEntity addObject:@"不是"];
-        [mEntity addObject:@"一直都有安全感"];
-        [mEntity addObject:@"偶尔"];
-        
-//        [mEntity addObject:[NSString stringWithFormat:@"第%d题item1",i+1]];
-//        [mEntity addObject:[NSString stringWithFormat:@"第%d题item2",i+1]];
-//        [mEntity addObject:[NSString stringWithFormat:@"第%d题item3",i+1]];
-//        [mEntity addObject:[NSString stringWithFormat:@"第%d题item4",i+1]];
-        [mAllData addObject:mEntity];
+    //    for(int i=0;i<5;i++){
+    NSMutableArray *mEntity=[[NSMutableArray alloc]init];
+    
+    //        [mEntity addObject:[NSString stringWithFormat:@"标题%d",i+1]];
+    //
+    //        [mEntity addObject:[NSString stringWithFormat:@"第%d题item1",i+1]];
+    //        [mEntity addObject:[NSString stringWithFormat:@"第%d题item2",i+1]];
+    //        [mEntity addObject:[NSString stringWithFormat:@"第%d题item3",i+1]];
+    //        [mEntity addObject:[NSString stringWithFormat:@"第%d题item4",i+1]];
+    
+    [mEntity addObject:@"1、你是一个没有安全感的人吗？"];
+    [mEntity addObject:@"是的"];
+    [mEntity addObject:@"不是"];
+    [mEntity addObject:@"一直都有安全感"];
+    [mEntity addObject:@"偶尔"];
+    
+    //        [mEntity addObject:[NSString stringWithFormat:@"第%d题item1",i+1]];
+    //        [mEntity addObject:[NSString stringWithFormat:@"第%d题item2",i+1]];
+    //        [mEntity addObject:[NSString stringWithFormat:@"第%d题item3",i+1]];
+    //        [mEntity addObject:[NSString stringWithFormat:@"第%d题item4",i+1]];
+    [mAllData addObject:mEntity];
     
     NSMutableArray *mEntity2=[[NSMutableArray alloc]init];
     
-    [mEntity2 addObject:@"2、第二题标题？"];
-    [mEntity2 addObject:@"第二题标题选项1"];
-    [mEntity2 addObject:@"第二题标题选项2"];
-    [mEntity2 addObject:@"第二题标题选项3"];
-    [mEntity2 addObject:@"第二题标题选项4"];
-        [mEntity2 addObject:@"第二题标题选项5"];
-        [mEntity2 addObject:@"第二题标题选项6"];
-
+    [mEntity2 addObject:@"2、你在面试中常常紧张的不知所措吗？"];
+    [mEntity2 addObject:@"是的"];
+    [mEntity2 addObject:@"不是"];
+    [mEntity2 addObject:@"看具体情况"];
+    [mEntity2 addObject:@"非常紧张，脑袋一片空白"];
+    [mEntity2 addObject:@"偶尔"];
+    [mEntity2 addObject:@"非常自信，不会紧张"];
+    
     [mAllData addObject:mEntity2];
+    NSMutableArray *mEntity3=[[NSMutableArray alloc]init];
+    
+    [mEntity3 addObject:@"3、你是一个怀旧的人吗？"];
+    [mEntity3 addObject:@"是的"];
+    [mEntity3 addObject:@"不是"];
+    [mEntity3 addObject:@"不一定"];
+    [mEntity3 addObject:@"有时候会"];
+    
+    [mAllData addObject:mEntity3];
     
     
     
-        
-//    }
+    //    }
     
     [self setTitle];
     
@@ -94,6 +102,8 @@
     return [[mAllData  objectAtIndex:indexOfExercise] count]-1;
 }
 
+
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     TestTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
     if(cell==nil){
@@ -113,11 +123,33 @@
     if(indexOfAnswer==indexPath.row)
         cell.UIImageViewCheckbox.image=[UIImage imageNamed:@"selected2.png"];
     else
-          cell.UIImageViewCheckbox.image=[UIImage imageNamed:@"un_selected.png"];
-        
+        cell.UIImageViewCheckbox.image=[UIImage imageNamed:@"un_selected.png"];
+    
     
     return cell;
 }
+
+- (IBAction)lastExercise:(id)sender {
+    indexOfExercise--;
+    if(indexOfExercise>=0){
+        [self setTitle];
+        //所有item置于不被选中状态
+        indexOfAnswer=-1;
+        [mTableView reloadData];
+    }
+    else{
+        indexOfExercise++;
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示"
+                                                        message:@"这已经是第一题了"
+                                                       delegate:self
+                                              cancelButtonTitle:@"确定"
+                                              otherButtonTitles:nil];
+        [alert show];
+    }
+    
+}
+
+
 //切换到下一个题目
 - (IBAction)nextExercise:(id)sender {
     
@@ -129,6 +161,7 @@
         [mTableView reloadData];
     }
     else{
+        indexOfExercise--;
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示"
                                                         message:@"已经是最后一题了，请提交答案"
                                                        delegate:self
