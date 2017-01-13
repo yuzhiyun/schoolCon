@@ -16,6 +16,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    //设置需要显示哪些类型的会话,加了这行代码，群的消息就显示出来了，否则默认只显示单聊消息（我的猜测吧！）
+    [self setDisplayConversationTypes:@[@(ConversationType_PRIVATE),
+                                        @(ConversationType_DISCUSSION),
+                                        @(ConversationType_CHATROOM),
+                                        @(ConversationType_GROUP),
+                                        @(ConversationType_APPSERVICE),
+                                        @(ConversationType_SYSTEM)]];
+    
     // Do any additional setup after loading the view.
 }
 
@@ -23,8 +31,15 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-#pragma mark 点击事件的回调
+#pragma mark 用户信息提供者
+- (void)getUserInfoWithUserId:(NSString *)userId completion:(void (^)(RCUserInfo *))completion{
 
+    if([@"321" isEqualToString:userId]){
+        RCUserInfo *userInfo=[[RCUserInfo alloc]initWithUserId:userId name:@"我是用户321" portrait:@"http://img05.tooopen.com/images/20150202/sy_80219211654.jpg"];
+    completion(userInfo);
+
+    }
+}
 
 /*!
  点击会话列表中Cell的回调
@@ -61,14 +76,16 @@
     [self.navigationController pushViewController:chat animated:YES];
     
     }
-    
-    if(conversationModelType==ConversationType_DISCUSSION){
+    //如果是群聊
+    if(conversationModelType==ConversationType_GROUP){
         //新建一个聊天会话View Controller对象
         RCConversationViewController *chat = [[RCConversationViewController alloc]init];
         //设置会话的类型，如单聊、讨论组、群聊、聊天室、客服、公众服务会话等
-        chat.conversationType = ConversationType_PRIVATE;
+        chat.conversationType = ConversationType_GROUP;
         //设置会话的目标会话ID。（单聊、客服、公众服务会话为对方的ID，讨论组、群聊、聊天室为会话的ID）
         chat.targetId = model.targetId;
+        
+        chat.targetId =@"1";
         //设置聊天会话界面要显示的标题
         chat.title = model.conversationTitle;
         //设置隐藏底部栏

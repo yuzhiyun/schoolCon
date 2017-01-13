@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 #import <RongIMKit/RongIMKit.h>
 #import "ChatListViewController.h"
-@interface MessageViewController :ChatListViewController
+@interface MessageViewController :ChatListViewController<RCIMUserInfoDataSource>
 
 @end

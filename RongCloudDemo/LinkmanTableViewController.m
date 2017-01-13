@@ -31,26 +31,26 @@
     
     allDataFromServer=[[NSMutableArray alloc]init];
     
-//    mDataUsername=[[NSMutableArray alloc]init];
-//    [mDataUsername addObject:@"俞志云"];
-//    [mDataUsername addObject:@"马小龙"];
-//    [mDataUsername addObject:@"孙萌"];
-//    [mDataUsername addObject:@"吴晓茎"];
-//    [mDataUsername addObject:@"秦启飞"];
-//    
-//    mDataRemark=[[NSMutableArray alloc]init];
-//    [mDataRemark addObject:@"化学教师"];
-//    [mDataRemark addObject:@"数学教师"];
-//    [mDataRemark addObject:@"英语教师"];
-//    [mDataRemark addObject:@"语文教师"];
-//    [mDataRemark addObject:@"生物教师"];
-//    
-//    mDataAvatar=[[NSMutableArray alloc]init];
-//    [mDataAvatar addObject:@"1.jpg"];
-//    [mDataAvatar addObject:@"2.jpg"];
-//    [mDataAvatar addObject:@"3.jpg"];
-//    [mDataAvatar addObject:@"4.jpg"];
-//    [mDataAvatar addObject:@"5.jpg"];
+    //    mDataUsername=[[NSMutableArray alloc]init];
+    //    [mDataUsername addObject:@"俞志云"];
+    //    [mDataUsername addObject:@"马小龙"];
+    //    [mDataUsername addObject:@"孙萌"];
+    //    [mDataUsername addObject:@"吴晓茎"];
+    //    [mDataUsername addObject:@"秦启飞"];
+    //
+    //    mDataRemark=[[NSMutableArray alloc]init];
+    //    [mDataRemark addObject:@"化学教师"];
+    //    [mDataRemark addObject:@"数学教师"];
+    //    [mDataRemark addObject:@"英语教师"];
+    //    [mDataRemark addObject:@"语文教师"];
+    //    [mDataRemark addObject:@"生物教师"];
+    //
+    //    mDataAvatar=[[NSMutableArray alloc]init];
+    //    [mDataAvatar addObject:@"1.jpg"];
+    //    [mDataAvatar addObject:@"2.jpg"];
+    //    [mDataAvatar addObject:@"3.jpg"];
+    //    [mDataAvatar addObject:@"4.jpg"];
+    //    [mDataAvatar addObject:@"5.jpg"];
     
     LinkMan *model=[[LinkMan alloc]init];
     model.type=@"private";
@@ -98,11 +98,9 @@
     LinkMan *model=[allDataFromServer objectAtIndex:indexPath.row];
     cell.UILabelName.text =model.name;
     cell.UILabelRemark.text = model.introduction;
-//    cell.UIImgAvatar.image=[UIImage imageNamed:[mDataAvatar objectAtIndex:indexPath.row]];
+    //    cell.UIImgAvatar.image=[UIImage imageNamed:[mDataAvatar objectAtIndex:indexPath.row]];
     if([@"private" isEqualToString: model.type]){
-
-    [cell.UIImgAvatar sd_setImageWithURL:model.picUrl placeholderImage:[UIImage imageNamed:@"favorites.png"]];
-        
+        [cell.UIImgAvatar sd_setImageWithURL:model.picUrl placeholderImage:[UIImage imageNamed:@"favorites.png"]];
     }
     else
         cell.UIImgAvatar.image=[UIImage imageNamed:@"group.png"];
@@ -110,7 +108,6 @@
     cell.UIImgAvatar.layer.cornerRadius = cell.UIImgAvatar.frame.size.height / 2 ;
     return cell;
 }
-
 -(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     LinkMan *model=[allDataFromServer objectAtIndex:indexPath.row];
     if([@"private" isEqualToString: model.type]){
@@ -119,9 +116,9 @@
         //设置会话的类型，如单聊、讨论组、群聊、聊天室、客服、公众服务会话等
         chat.conversationType = ConversationType_PRIVATE;
         //设置会话的目标会话ID。（单聊、客服、公众服务会话为对方的ID，讨论组、群聊、聊天室为会话的ID）
-        chat.targetId = [mDataUsername objectAtIndex:indexPath.row];
+        chat.targetId =model.LinkmanId;
         //设置聊天会话界面要显示的标题
-        chat.title = [mDataUsername objectAtIndex:indexPath.row];
+        chat.title = model.name;
         //设置隐藏底部栏
         chat.hidesBottomBarWhenPushed=YES;
         //显示聊天会话界面
@@ -129,6 +126,18 @@
     }
     else{
         NSLog(@"群聊");
+        //新建一个聊天会话View Controller对象
+        RCConversationViewController *chat = [[RCConversationViewController alloc]init];
+        //设置会话的类型，如单聊、讨论组、群聊、聊天室、客服、公众服务会话等
+        chat.conversationType = ConversationType_GROUP;
+        //设置会话的目标会话ID。（单聊、客服、公众服务会话为对方的ID，讨论组、群聊、聊天室为会话的ID）
+        chat.targetId = model.LinkmanId;
+        //设置聊天会话界面要显示的标题
+        chat.title = model.name;
+        //设置隐藏底部栏
+        chat.hidesBottomBarWhenPushed=YES;
+        //显示聊天会话界面
+        [self.navigationController pushViewController:chat animated:YES];
     }
 }
 
