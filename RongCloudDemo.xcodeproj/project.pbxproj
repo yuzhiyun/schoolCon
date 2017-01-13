@@ -162,6 +162,8 @@
 		CD6EACFE1E2784D6009EC3A0 /* PhysicalTest.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6EACFD1E2784D6009EC3A0 /* PhysicalTest.m */; };
 		CD6EAD011E279AF5009EC3A0 /* Activity.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6EAD001E279AF5009EC3A0 /* Activity.m */; };
 		CD6EAD061E288161009EC3A0 /* TestIntroductionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6EAD051E288161009EC3A0 /* TestIntroductionViewController.m */; };
+		CD6EAD091E28B128009EC3A0 /* LinkMan.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6EAD081E28B128009EC3A0 /* LinkMan.m */; };
+		CD6EAD0C1E28B75F009EC3A0 /* group.png in Resources */ = {isa = PBXBuildFile; fileRef = CD6EAD0B1E28B75F009EC3A0 /* group.png */; };
 		CD79C1D01E23368500A9889F /* SchoolMomentsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD79C1CF1E23368500A9889F /* SchoolMomentsTableViewController.m */; };
 		CD79C1F81E2502B400A9889F /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = CD79C1D21E2502B400A9889F /* AFHTTPRequestOperation.m */; };
 		CD79C1F91E2502B400A9889F /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CD79C1D41E2502B400A9889F /* AFHTTPRequestOperationManager.m */; };
@@ -463,6 +465,9 @@
 		CD6EAD021E279B03009EC3A0 /* Activity.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Activity.h; sourceTree = SOURCE_ROOT; };
 		CD6EAD041E288161009EC3A0 /* TestIntroductionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestIntroductionViewController.h; sourceTree = "<group>"; };
 		CD6EAD051E288161009EC3A0 /* TestIntroductionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestIntroductionViewController.m; sourceTree = "<group>"; };
+		CD6EAD081E28B128009EC3A0 /* LinkMan.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LinkMan.m; sourceTree = "<group>"; };
+		CD6EAD0A1E28B130009EC3A0 /* LinkMan.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LinkMan.h; sourceTree = "<group>"; };
+		CD6EAD0B1E28B75F009EC3A0 /* group.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = group.png; sourceTree = "<group>"; };
 		CD79C1CE1E23368500A9889F /* SchoolMomentsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SchoolMomentsTableViewController.h; sourceTree = "<group>"; };
 		CD79C1CF1E23368500A9889F /* SchoolMomentsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SchoolMomentsTableViewController.m; sourceTree = "<group>"; };
 		CD79C1D11E2502B400A9889F /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
@@ -774,6 +779,7 @@
 		CD2DCB051E014F7E000C03E1 /* icon */ = {
 			isa = PBXGroup;
 			children = (
+				CD6EAD0B1E28B75F009EC3A0 /* group.png */,
 				CD3F247C1E2261A70083293D /* vip2.png */,
 				CD112A791E0E969F004519B9 /* test.png */,
 				CD3CF6A51E0E176C003599F5 /* rank2.png */,
@@ -966,6 +972,7 @@
 		CD2DCC1D1E0565A7000C03E1 /* linkman */ = {
 			isa = PBXGroup;
 			children = (
+				CD6EAD071E28B108009EC3A0 /* linkManEntity */,
 				CD2DCC1E1E0565BA000C03E1 /* cell */,
 				CD2DCC1A1E056587000C03E1 /* LinkmanTableViewController.h */,
 				CD2DCC1B1E056587000C03E1 /* LinkmanTableViewController.m */,
@@ -1311,6 +1318,15 @@
 				CD6EAD051E288161009EC3A0 /* TestIntroductionViewController.m */,
 			);
 			name = testIntroduction;
+			sourceTree = "<group>";
+		};
+		CD6EAD071E28B108009EC3A0 /* linkManEntity */ = {
+			isa = PBXGroup;
+			children = (
+				CD6EAD081E28B128009EC3A0 /* LinkMan.m */,
+				CD6EAD0A1E28B130009EC3A0 /* LinkMan.h */,
+			);
+			name = linkManEntity;
 			sourceTree = "<group>";
 		};
 		CD79C1CD1E23365300A9889F /* schoolMoments */ = {
@@ -1659,6 +1675,7 @@
 				CD3CF69D1E0D000E003599F5 /* check_grade.png in Resources */,
 				461B27861B82DD7D00107001 /* RongCloud.bundle in Resources */,
 				CD2DCB7F1E03C7E7000C03E1 /* favorites.png in Resources */,
+				CD6EAD0C1E28B75F009EC3A0 /* group.png in Resources */,
 				CD3CF6951E0C1502003599F5 /* exit.png in Resources */,
 				CD3F24801E2263040083293D /* article2.png in Resources */,
 				CD2DCAF61DFD9051000C03E1 /* 5.jpg in Resources */,
@@ -1702,6 +1719,7 @@
 				CD2DCC801E09305D000C03E1 /* SDImageCacheConfig.m in Sources */,
 				CD2DCC121E054051000C03E1 /* Vp2TableViewCell.m in Sources */,
 				CD79C22F1E27240000A9889F /* MJRefreshBaseView.m in Sources */,
+				CD6EAD091E28B128009EC3A0 /* LinkMan.m in Sources */,
 				CD6EACF61E276D5C009EC3A0 /* DataBaseNSUserDefaults.m in Sources */,
 				CD3F247B1E223DEB0083293D /* EditPhoneViewController.m in Sources */,
 				CD79C2061E2502B400A9889F /* UIProgressView+AFNetworking.m in Sources */,
