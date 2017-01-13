@@ -54,45 +54,31 @@
 - (void)onSelectedTableRow:(RCConversationModelType)conversationModelType
          conversationModel:(RCConversationModel *)model
                atIndexPath:(NSIndexPath *)indexPath{
-//我重写会话列表的点击事件是为了让聊天界面不显示底部栏。
-    
-    NSLog(@"targetId 是会话目标id   %@",model.targetId );
-//     senderUserId是会话中最后一条消息的发送者用户ID
-    NSLog( @"senderUserId是会话中最后一条消息的发送者用户ID,那么单聊的话就是 发送者id   %@",model.senderUserId );
-
-    
-    if(conversationModelType==ConversationType_PRIVATE){
-    //新建一个聊天会话View Controller对象
-    RCConversationViewController *chat = [[RCConversationViewController alloc]init];
-    //设置会话的类型，如单聊、讨论组、群聊、聊天室、客服、公众服务会话等
-    chat.conversationType = ConversationType_PRIVATE;
-    //设置会话的目标会话ID。（单聊、客服、公众服务会话为对方的ID，讨论组、群聊、聊天室为会话的ID）
-    chat.targetId = model.senderUserId;
-    //设置聊天会话界面要显示的标题
-    chat.title = model.senderUserId;
+    RCConversationViewController *conversationVC = [[RCConversationViewController alloc]init];
+    conversationVC.conversationType = model.conversationType;
+    conversationVC.targetId = model.targetId;
+    conversationVC.title = model.conversationTitle;
     //设置隐藏底部栏
-    chat.hidesBottomBarWhenPushed=YES;
-    //显示聊天会话界面
-    [self.navigationController pushViewController:chat animated:YES];
-    
-    }
-    //如果是群聊
-    if(conversationModelType==ConversationType_GROUP){
-        //新建一个聊天会话View Controller对象
-        RCConversationViewController *chat = [[RCConversationViewController alloc]init];
-        //设置会话的类型，如单聊、讨论组、群聊、聊天室、客服、公众服务会话等
-        chat.conversationType = ConversationType_GROUP;
-        //设置会话的目标会话ID。（单聊、客服、公众服务会话为对方的ID，讨论组、群聊、聊天室为会话的ID）
-        chat.targetId = model.targetId;
-        
-        chat.targetId =@"1";
-        //设置聊天会话界面要显示的标题
-        chat.title = model.conversationTitle;
-        //设置隐藏底部栏
-        chat.hidesBottomBarWhenPushed=YES;
-        //显示聊天会话界面
-        [self.navigationController pushViewController:chat animated:YES];
-    }
+    conversationVC.hidesBottomBarWhenPushed=YES;
+    [self.navigationController pushViewController:conversationVC animated:YES];
+////我重写会话列表的点击事件是为了让聊天界面不显示底部栏。
+//    NSLog(@"targetId 是会话目标id   %@",model.targetId );
+////     senderUserId是会话中最后一条消息的发送者用户ID
+//    NSLog( @"senderUserId是会话中最后一条消息的发送者用户ID,那么单聊的话就是 发送者id   %@",model.senderUserId );
+//    if(conversationModelType==ConversationType_PRIVATE){
+//    //新建一个聊天会话View Controller对象
+//    RCConversationViewController *chat = [[RCConversationViewController alloc]init];
+//    //设置会话的类型，如单聊、讨论组、群聊、聊天室、客服、公众服务会话等
+//    chat.conversationType = ConversationType_PRIVATE;
+//    //设置会话的目标会话ID。（单聊、客服、公众服务会话为对方的ID，讨论组、群聊、聊天室为会话的ID）
+//    chat.targetId = model.senderUserId;
+//    //设置聊天会话界面要显示的标题
+//    chat.title = model.senderUserId;
+//    //设置隐藏底部栏
+//    chat.hidesBottomBarWhenPushed=YES;
+//    //显示聊天会话界面
+//    [self.navigationController pushViewController:chat animated:YES];
+//    }
 }
 
 
