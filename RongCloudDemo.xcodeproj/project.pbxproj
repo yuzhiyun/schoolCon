@@ -161,6 +161,7 @@
 		CD6EACF91E276FB3009EC3A0 /* JsonUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6EACF81E276FB3009EC3A0 /* JsonUtil.m */; };
 		CD6EACFE1E2784D6009EC3A0 /* PhysicalTest.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6EACFD1E2784D6009EC3A0 /* PhysicalTest.m */; };
 		CD6EAD011E279AF5009EC3A0 /* Activity.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6EAD001E279AF5009EC3A0 /* Activity.m */; };
+		CD6EAD061E288161009EC3A0 /* TestIntroductionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6EAD051E288161009EC3A0 /* TestIntroductionViewController.m */; };
 		CD79C1D01E23368500A9889F /* SchoolMomentsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD79C1CF1E23368500A9889F /* SchoolMomentsTableViewController.m */; };
 		CD79C1F81E2502B400A9889F /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = CD79C1D21E2502B400A9889F /* AFHTTPRequestOperation.m */; };
 		CD79C1F91E2502B400A9889F /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CD79C1D41E2502B400A9889F /* AFHTTPRequestOperationManager.m */; };
@@ -460,6 +461,8 @@
 		CD6EACFD1E2784D6009EC3A0 /* PhysicalTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhysicalTest.m; sourceTree = "<group>"; };
 		CD6EAD001E279AF5009EC3A0 /* Activity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Activity.m; sourceTree = SOURCE_ROOT; };
 		CD6EAD021E279B03009EC3A0 /* Activity.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Activity.h; sourceTree = SOURCE_ROOT; };
+		CD6EAD041E288161009EC3A0 /* TestIntroductionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestIntroductionViewController.h; sourceTree = "<group>"; };
+		CD6EAD051E288161009EC3A0 /* TestIntroductionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestIntroductionViewController.m; sourceTree = "<group>"; };
 		CD79C1CE1E23368500A9889F /* SchoolMomentsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SchoolMomentsTableViewController.h; sourceTree = "<group>"; };
 		CD79C1CF1E23368500A9889F /* SchoolMomentsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SchoolMomentsTableViewController.m; sourceTree = "<group>"; };
 		CD79C1D11E2502B400A9889F /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
@@ -1010,6 +1013,7 @@
 		CD2DCC3A1E066ACA000C03E1 /* psychologyTest */ = {
 			isa = PBXGroup;
 			children = (
+				CD6EAD031E288137009EC3A0 /* testIntroduction */,
 				CD2DCC9B1E0A2074000C03E1 /* concreteTest */,
 				CD2DCC3E1E066D5C000C03E1 /* psychologylist */,
 				CD2DCC981E09668D000C03E1 /* PsychologyListTableViewController.h */,
@@ -1298,6 +1302,15 @@
 				CD6EAD021E279B03009EC3A0 /* Activity.h */,
 			);
 			name = activity;
+			sourceTree = "<group>";
+		};
+		CD6EAD031E288137009EC3A0 /* testIntroduction */ = {
+			isa = PBXGroup;
+			children = (
+				CD6EAD041E288161009EC3A0 /* TestIntroductionViewController.h */,
+				CD6EAD051E288161009EC3A0 /* TestIntroductionViewController.m */,
+			);
+			name = testIntroduction;
 			sourceTree = "<group>";
 		};
 		CD79C1CD1E23365300A9889F /* schoolMoments */ = {
@@ -1774,6 +1787,7 @@
 				CD2DCC871E09305D000C03E1 /* UIButton+WebCache.m in Sources */,
 				CDDE853B1E20B9C500E5F03B /* ActiveViewController.m in Sources */,
 				CDE5AEB21E1009670059D310 /* MainViewController.m in Sources */,
+				CD6EAD061E288161009EC3A0 /* TestIntroductionViewController.m in Sources */,
 				CD79C20F1E26256E00A9889F /* School.m in Sources */,
 				CD3F24961E2273D00083293D /* YAxisView.m in Sources */,
 				CD79C2301E27240000A9889F /* MJRefreshConst.m in Sources */,

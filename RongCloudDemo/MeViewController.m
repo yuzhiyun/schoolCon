@@ -161,6 +161,10 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
     //hud.color = [UIColor colorWithHexString:@"343637" alpha:0.5];
     hud.labelText = @"上传头像中...";
     [hud show:YES];
+    
+    
+    
+    
     /*
     [RCDHTTPTOOL uploadImageToQiNiu:[RCIM sharedRCIM].currentUserInfo.userId
                           ImageData:data
