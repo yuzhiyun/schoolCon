@@ -48,6 +48,7 @@
 //    [mImg addObject:@"3.jpg"];
 //    [mImg addObject:@"4.jpg"];
 //    [mImg addObject:@"5.jpg"];
+    
     PhysicalTest *model=[[PhysicalTest alloc]init];
     model.testId=@"1";
     model.picUrl=@"http://img05.tooopen.com/images/20150202/sy_80219211654.jpg";
