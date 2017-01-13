@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <RongIMKit/RongIMKit.h>
 #import "ChatListViewController.h"
-@interface MessageViewController :ChatListViewController<RCIMUserInfoDataSource>
+//实现这两个协议，可以用于显示用户、群组头像昵称等信息
+@interface MessageViewController :ChatListViewController<RCIMUserInfoDataSource,RCIMGroupInfoDataSource>
 
 @end
