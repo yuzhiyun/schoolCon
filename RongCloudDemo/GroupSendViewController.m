@@ -23,6 +23,9 @@
     
 }
 
+
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -116,22 +119,52 @@
 {
     
     NSLog(@"群发");
+    
+    NSString *content=@"这是群发的消息";
+    //初始化文本消息
+    RCTextMessage *txtMsg = [RCTextMessage messageWithContent:content];
+    [[RCIMClient sharedRCIMClient]  sendMessage:ConversationType_PRIVATE targetId:@"321" content:txtMsg pushContent:content success:nil error:nil];
+    
+    
+    
+    
+    
+    
 //    //根据storyboard id来获取目标页面
 //    GroupSendViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"GroupSendViewController"];
 //    //UITabBarController和的UINavigationController结合使用,进入新的页面的时候，隐藏主页tabbarController的底部栏
 //    nextPage.hidesBottomBarWhenPushed=YES;
 //    //跳转
 //    [self.navigationController pushViewController:nextPage animated:YES];
-    int a=1;
-    int b=2;
+//    int a=1;
+//    int b=2;
     
-    NSArray *userlist=[NSArray arrayWithObjects:@"1",@"321",nil];
+//    NSArray *userlist=[NSArray arrayWithObjects:@"1",@"321",nil];
 //    userlist addObject :1
 //    [self createDiscussion:@"班级讨论组" userIdList:userlist success:nil error:nil];
     
 //    [[RCIM sharedRCIM] createDiscussion:]
     
-    [[RCIMClient sharedRCIMClient] createDiscussion:@"班级讨论组" userIdList:userlist success:nil error:nil];
+//    [[RCIMClient sharedRCIMClient] createDiscussion:@"班级讨论组" userIdList:userlist success:nil error:nil];
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
 }
 //- (void)createDiscussion:(NSString *)name

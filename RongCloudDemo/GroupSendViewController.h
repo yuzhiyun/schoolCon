@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <RongIMKit/RongIMKit.h>
 
 @interface GroupSendViewController : UIViewController<UITableViewDelegate, UITableViewDataSource>
 
