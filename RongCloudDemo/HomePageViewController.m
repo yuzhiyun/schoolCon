@@ -20,6 +20,9 @@
 #import "SchoolMomentsTableViewController.h"
 #import "PsychologyTableViewController.h"
 #import "VipViewController.h"
+#import <RongIMKit/RongIMKit.h>
+#import "ChatListViewController.h"
+#import "LinkMan.h"
 @interface HomePageViewController ()
 //轮播图组件
 @property (nonatomic, strong) CycleScrollView *scrollView;
@@ -106,6 +109,29 @@ _articleUrlArray=@[@"http://mp.weixin.qq.com/s/m3y2dvyWLxHoFskyX5aWPQ",@"http://
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+- (IBAction)classGroup:(id)sender {
+    
+    LinkMan *group=[[LinkMan alloc]init];
+    group.type=@"group";
+    group.LinkmanId=@"1";
+    group.picUrl=@"http://img05.tooopen.com/images/20150202/sy_80219211654.jpg";
+    group.name=@"初二3班班群";
+    group.introduction=@"";
+    //新建一个聊天会话View Controller对象
+    RCConversationViewController *chat = [[RCConversationViewController alloc]init];
+    //设置会话的类型，如单聊、讨论组、群聊、聊天室、客服、公众服务会话等
+    chat.conversationType = ConversationType_GROUP;
+    //设置会话的目标会话ID。（单聊、客服、公众服务会话为对方的ID，讨论组、群聊、聊天室为会话的ID）
+    chat.targetId = group.LinkmanId;
+    //设置聊天会话界面要显示的标题
+    chat.title = group.name;
+    //设置隐藏底部栏
+    chat.hidesBottomBarWhenPushed=YES;
+    //显示聊天会话界面
+    [self.navigationController pushViewController:chat animated:YES];
+}
+
 
 //跳转到所有通知页面
 - (IBAction)btnEnterAllNotifications:(id)sender {

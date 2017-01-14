@@ -701,6 +701,9 @@
                                 <rect key="frame" x="83" y="281" width="60" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" backgroundImage="emotion_activity.png"/>
+                                <connections>
+                                    <action selector="classGroup:" destination="AzU-z8-ena" eventType="touchUpInside" id="JWZ-2n-q5b"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="学校动态" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TYm-0D-6Df">
                                 <rect key="frame" x="297" y="352" width="70" height="11"/>
