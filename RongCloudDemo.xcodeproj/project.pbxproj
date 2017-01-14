@@ -2007,7 +2007,7 @@
 					"$(PROJECT_DIR)/framework",
 				);
 				OTHER_LDFLAGS = "";
-				PRODUCT_BUNDLE_IDENTIFIER = com.heike.schoolCon;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sukclub.school;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -2033,7 +2033,7 @@
 					"$(PROJECT_DIR)/framework",
 				);
 				OTHER_LDFLAGS = "";
-				PRODUCT_BUNDLE_IDENTIFIER = com.heike.schoolCon;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sukclub.school;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

@@ -71,12 +71,10 @@
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     
     ShalongTableViewController *controller0 = (ShalongTableViewController *)[storyboard instantiateViewControllerWithIdentifier:@"ShalongTableViewController"];
-    
+    //标识这是岳麓沙龙
+    controller0->type=@"ylsl";
     ArticleTableViewController *controller1 = (ArticleTableViewController *)[storyboard instantiateViewControllerWithIdentifier:@"ArticleTableViewController"];
-    
     if(index==0)
-        
-        
         return controller0;
     else
         return controller1;

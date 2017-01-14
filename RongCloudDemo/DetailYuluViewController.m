@@ -18,11 +18,11 @@
     [super viewDidLoad];
     
     
-    self.title=pubString;
+//    self.title=pubString;
     /**
      * 显示网页
      */
-    NSString *url=@"http://mp.weixin.qq.com/s/uikPkoBVZkE5KXwCqrzscg";
+    NSString *url=pubString;
     NSURL *nsUrl=[NSURL URLWithString:url];
     NSURLRequest *request=[NSURLRequest requestWithURL:nsUrl];
     

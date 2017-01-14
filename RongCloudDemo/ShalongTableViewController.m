@@ -53,12 +53,22 @@
     model.publisher=@"理想国、听道、慢书房";
     model.place=@"厦门·纸的时代书店";
     model.date=@"2017-02-29";
+    
+    Activity *modelPhysicalActicity=[[Activity alloc]init];
+    modelPhysicalActicity.activityId=@"1";
+    modelPhysicalActicity.picUrl=@"https://imgsa.baidu.com/baike/c0%3Dbaike80%2C5%2C5%2C80%2C26/sign=cb319e894290f60310bd9415587bd87e/ac345982b2b7d0a24d471625c3ef76094a369aff.jpg";
+    modelPhysicalActicity.title=@"长沙地面 | 儿童精神分析系统培训工作坊（第一阶)";
+    modelPhysicalActicity.publisher=@" 大成心理工作室";
+    modelPhysicalActicity.place=@"长沙市星沙向阳路金科时代 3栋613  ";
+    modelPhysicalActicity.date=@"2017-02-29";
     allDataFromServer=[[NSMutableArray alloc]init];
-    [allDataFromServer addObject:model];
-    [allDataFromServer addObject:model];
-    [allDataFromServer addObject:model];
-    [allDataFromServer addObject:model];
-    [allDataFromServer addObject:model];
+    if([@"ylsl" isEqualToString:type])
+    for(int i=0;i<5;i++)
+        [allDataFromServer addObject:model];
+    else
+        for(int i=0;i<5;i++)
+            [allDataFromServer addObject:modelPhysicalActicity];
+    
     
     // 2.集成刷新控件
     [self setupRefresh];
@@ -165,6 +175,10 @@
 -(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     //根据storyboard id来获取目标页面
     DetailYuluViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"DetailYuluViewController"];
+    if([@"ylsl" isEqualToString:type])
+        nextPage->pubString=@"http://mp.weixin.qq.com/s/uikPkoBVZkE5KXwCqrzscg";
+    else
+    nextPage->pubString=@"https://mp.weixin.qq.com/s?__biz=MzI0NzcwMjk4OA==&mid=100000022&idx=1&sn=27cf85ac5608ce44155933b96a5ceb82&chksm=69aab5b55edd3ca379bfd80fef1a5a40f974fc4ff609751a10ce36d267d662c418df83c4a050&mpshare=1&scene=1&srcid=0109wYB7kXr9UDvmRYqExeBD&key=b4386489b84c1a425fed004ec36f553c36a2512955542db4ec3527929a8dc8ee8425aa3cd42627026c893c457e5890656757e099e3cc47b5938ed9444d874275789f09f4738713b1951b5959b668dd2a&ascene=0&uin=ODk4MzEwMTY5&devicetype=iMac+MacBookAir6%2C2+OSX+OSX+10.12.1+build(16B2555)&version=12010210&nettype=WIFI&fontScale=100&pass_ticket=gLigsYUageUfMfyUCRYEEUnvhAkH2%2BwYNaz83cLnA%2F3bXoIpzkMunbIBNAu2VYbw";
     //    传值
 //    nextPage->pubString=[mData objectAtIndex:indexPath.row];
     //UITabBarController和的UINavigationController结合使用,进入新的页面的时候，隐藏主页tabbarController的底部栏

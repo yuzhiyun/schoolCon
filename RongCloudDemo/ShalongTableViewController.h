@@ -13,6 +13,14 @@
     
 //    NSMutableArray *mData;
 //    NSMutableArray *mImg;
+/**这个参数用于判断页面类型
+ 1,  岳麓沙龙---------------ylsl
+ 2,  心理活动---------------xlhd
+ 3，我的活动-岳麓沙龙---------myylsl
+ 4，我的活动-心理活动---------myxlhd
+*/
+    @public
+    NSString *type;
     
 }
 

@@ -85,6 +85,7 @@
     ArticleTableViewController *controller1 = (ArticleTableViewController *)[storyboard instantiateViewControllerWithIdentifier:@"ArticleTableViewController"];
     ShalongTableViewController *controller2 = (ShalongTableViewController *)[storyboard instantiateViewControllerWithIdentifier:@"ShalongTableViewController"];
     
+    controller2->type=@"xlhd";
     
     ConsultTableViewController *controller3 = (ConsultTableViewController *)[storyboard instantiateViewControllerWithIdentifier:@"ConsultTableViewController"];
     
