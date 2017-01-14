@@ -51,11 +51,18 @@
  */
 - (void)getUserInfoWithUserId:(NSString *)userId completion:(void (^)(RCUserInfo *))completion{
     
+//    if([@"1" isEqualToString:userId]){
+//        RCUserInfo *userInfo=[[RCUserInfo alloc]initWithUserId:userId name:@"本人" portrait:@"http://img05.tooopen.com/images/20150202/sy_80219211654.jpg"];
+//        completion(userInfo);
+//        
+//    }
     if([@"321" isEqualToString:userId]){
-        RCUserInfo *userInfo=[[RCUserInfo alloc]initWithUserId:userId name:@"我是用户321" portrait:@"http://img05.tooopen.com/images/20150202/sy_80219211654.jpg"];
-        completion(userInfo);
-        
+        RCUserInfo *userInfo2=[[RCUserInfo alloc]initWithUserId:userId name:@"俞志云" portrait:@"http://avatar.csdn.net/B/A/4/1_yuzhiyun3536.jpg"];
+        completion(userInfo2);
     }
+    
+    
+    
 }
 /*!
  获取群组信息

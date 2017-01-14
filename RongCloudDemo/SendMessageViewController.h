@@ -13,6 +13,10 @@
     @public
     NSMutableArray *dataSelectedLinkman;
 
+    
 }
+@property (weak, nonatomic) IBOutlet UILabel *UILabelNumber;
+@property (weak, nonatomic) IBOutlet UILabel *UILabelReceiver;
+@property (weak, nonatomic) IBOutlet UITextView *UITextViewMessage;
 
 @end

@@ -55,7 +55,7 @@
     LinkMan *model=[[LinkMan alloc]init];
     model.type=@"private";
     model.LinkmanId=@"1";
-    model.picUrl=@"http://img05.tooopen.com/images/20150202/sy_80219211654.jpg";
+    model.picUrl=@"http://avatar.csdn.net/B/A/4/1_yuzhiyun3536.jpg";
     model.name=@"俞志云";
     model.introduction=@"化学教师";
     

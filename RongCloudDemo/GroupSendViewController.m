@@ -64,7 +64,7 @@
     LinkMan *model1=[[LinkMan alloc]init];
     model1.type=@"private";
     model1.LinkmanId=@"321";
-    model1.picUrl=@"http://img05.tooopen.com/images/20150202/sy_80219211654.jpg";
+    model1.picUrl=@"http://avatar.csdn.net/B/A/4/1_yuzhiyun3536.jpg";
     model1.name=@"俞志云";
     model1.introduction=@"化学教师";
     
@@ -89,7 +89,7 @@
     [allDataFromServer addObject:model3];
     
     //没有被初始化，导致了一些未知错误，但是这个变量 竟然可以使用，程序不崩溃
-     indexOfSelectedUser=[[NSMutableArray alloc]init];
+    indexOfSelectedUser=[[NSMutableArray alloc]init];
     //初始化勾选记录的数组,用yes或者 no来判断联系人是不是被勾选
     for(NSInteger i=0;i<[allDataFromServer count];i++){
         [indexOfSelectedUser addObject:@"no"];
@@ -134,7 +134,7 @@
     
     
     NSString *index=[indexOfSelectedUser objectAtIndex:indexPath.row];
-
+    
     if(![ index isEqualToString:@"no"]){
         
         cell.UIImageViewCheckbox.image=[UIImage imageNamed:@"selected2.png"];
@@ -179,54 +179,33 @@
     for(NSInteger i=0;i<[allDataFromServer count];i++)
         if([@"yes" isEqualToString: [indexOfSelectedUser objectAtIndex:i]])
             [ dataSelectedLinkman addObject:[allDataFromServer objectAtIndex:i]];
+//    
+//    
+//    
+//    
+//    for(LinkMan *model in dataSelectedLinkman){
+//        NSLog(model.LinkmanId);
+//        NSLog(model.name);
+//    }
     
-    
-    
-    
-    for(LinkMan *model in dataSelectedLinkman){
-        NSLog(model.LinkmanId);
-        NSLog(model.name);
-    }
-    
-    
-    
-    SendMessageViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"SendMessageViewController"];
-   
-    nextPage->dataSelectedLinkman=dataSelectedLinkman;
+    if([dataSelectedLinkman count]>0){
+        SendMessageViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"SendMessageViewController"];
+        nextPage->dataSelectedLinkman=dataSelectedLinkman;
         nextPage.hidesBottomBarWhenPushed=YES;
         //跳转
         [self.navigationController pushViewController:nextPage animated:YES];
+    }else{
+        UIAlertView *alert =
+        [[UIAlertView alloc] initWithTitle:nil
+                                   message:@"尚未勾选联系人"
+                                  delegate:nil
+                         cancelButtonTitle:@"确定"
+                         otherButtonTitles:nil];
+        
+        
+            [alert show];
     
-    //
-    //    NSString *content=@"这是群发的消息";
-    //    //初始化文本消息
-    //    RCTextMessage *txtMsg = [RCTextMessage messageWithContent:content];
-    //    [[RCIMClient sharedRCIMClient]  sendMessage:ConversationType_PRIVATE targetId:@"321" content:txtMsg pushContent:content success:^(long messageId) {
-    //        UIAlertView *alert =
-    //        [[UIAlertView alloc] initWithTitle:nil
-    //                                   message:@"发送成功"
-    //                                  delegate:nil
-    //                         cancelButtonTitle:@"确定"
-    //                         otherButtonTitles:nil];
-    //        [alert show];
-    //    } error:^(RCErrorCode nErrorCode, long messageId) {
-    //        NSLog(@"群发失败！！！！");
-    ////        NSLog(nErrorCode);
-    //        UIAlertView *alert =
-    //        [[UIAlertView alloc] initWithTitle:nil
-    //                                   message:@"发送失败，请检查网络或者重启应用"
-    //                                  delegate:nil
-    //                         cancelButtonTitle:@"确定"
-    //                         otherButtonTitles:nil];
-    //        [alert show];
-    //
-    //    }];
-    
-    
-    
-    
-    
-    
+    }
     //    //根据storyboard id来获取目标页面
     //    GroupSendViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"GroupSendViewController"];
     //    //UITabBarController和的UINavigationController结合使用,进入新的页面的时候，隐藏主页tabbarController的底部栏
@@ -243,33 +222,14 @@
     //    [[RCIM sharedRCIM] createDiscussion:]
     
     //    [[RCIMClient sharedRCIMClient] createDiscussion:@"班级讨论组" userIdList:userlist success:nil error:nil];
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
 }
 //- (void)createDiscussion:(NSString *)name
 //              userIdList:(NSArray *)userIdList
 //                 success:(void (^)(RCDiscussion *discussion))successBlock
 //                   error:(void (^)(RCErrorCode status))errorBlock{
 ////    NSLog(@)
-//    
+//
 //    
 //}
 @end
