@@ -19,7 +19,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     mDataConsult=[[NSMutableArray alloc]init];
     [mDataConsult addObject:@"初始数据"];
     [mDataConsult addObject:@"初始数据"];
@@ -28,7 +27,6 @@
     [mDataConsult addObject:@"初始数据"];
     // 2.集成刷新控件
     [self setupRefresh];
-    
 }
 /**
  *  集成刷新控件
@@ -96,9 +94,17 @@
 
 #pragma mark - Table view data source
 
+- (NSInteger) numberOfSectionsInTableView:(UITableView *)tableView{
+
+    return 2;
+}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 #warning Incomplete implementation, return the number of rows
+    //第一段之显示一条数据
+    if(0==section)
+        return 1;
+    else
     return [mDataConsult count];
 }
 
@@ -115,6 +121,7 @@
     }
     //    cell.imageView.image=[UIImage imageNamed:@"notice1.png"];
     
+    if(1==indexPath.section){
     
     UILabel *mUILabelName=(UILabel *)[cell viewWithTag:1];
     mUILabelName.text=@"张新源";
@@ -124,7 +131,34 @@
     UILabel *mUILabelSpecialty=(UILabel *)[cell viewWithTag:3];
     //mUILabelSpecialty.text=@"认知行为治疗";
     mUILabelSpecialty.text=[mDataConsult objectAtIndex:indexPath.row];
+    }
+    else{
+        
+        
+        UILabel *mUILabelName=(UILabel *)[cell viewWithTag:1];
+        mUILabelName.text=@"电话咨询";
+        UILabel *mUILabelTitle=(UILabel *)[cell viewWithTag:2];
+        mUILabelTitle.text=@"";
+        
+        UILabel *mUILabelSpecialty=(UILabel *)[cell viewWithTag:3];
+         UILabel *mUILabelSpecialtyLeft=(UILabel *)[cell viewWithTag:4];
+        mUILabelSpecialtyLeft.text=@"15111356394";
+        //mUILabelSpecialty.text=@"认知行为治疗";
+        mUILabelSpecialty.text=@"";
+        
+        UIImageView *mUIImageView=(UIImageView *)[cell viewWithTag:5];
+        mUIImageView.image=[UIImage imageNamed:@"phoneConsult.png"];
+    
+    }
     return cell;
 }
 
+
+-(NSString*) tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
+
+    if(0==section)
+        return @"电话咨询";
+    else
+        return @"心理咨询师";
+}
 @end

@@ -165,6 +165,7 @@
 		CD6EAD091E28B128009EC3A0 /* LinkMan.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6EAD081E28B128009EC3A0 /* LinkMan.m */; };
 		CD6EAD0C1E28B75F009EC3A0 /* group.png in Resources */ = {isa = PBXBuildFile; fileRef = CD6EAD0B1E28B75F009EC3A0 /* group.png */; };
 		CD71A36E1E29C48000396746 /* SendMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD71A36D1E29C48000396746 /* SendMessageViewController.m */; };
+		CD71A3701E29EA0D00396746 /* phoneConsult.png in Resources */ = {isa = PBXBuildFile; fileRef = CD71A36F1E29EA0D00396746 /* phoneConsult.png */; };
 		CD79C1D01E23368500A9889F /* SchoolMomentsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD79C1CF1E23368500A9889F /* SchoolMomentsTableViewController.m */; };
 		CD79C1F81E2502B400A9889F /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = CD79C1D21E2502B400A9889F /* AFHTTPRequestOperation.m */; };
 		CD79C1F91E2502B400A9889F /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CD79C1D41E2502B400A9889F /* AFHTTPRequestOperationManager.m */; };
@@ -471,6 +472,7 @@
 		CD6EAD0B1E28B75F009EC3A0 /* group.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = group.png; sourceTree = "<group>"; };
 		CD71A36C1E29C48000396746 /* SendMessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SendMessageViewController.h; sourceTree = "<group>"; };
 		CD71A36D1E29C48000396746 /* SendMessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SendMessageViewController.m; sourceTree = "<group>"; };
+		CD71A36F1E29EA0D00396746 /* phoneConsult.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = phoneConsult.png; sourceTree = "<group>"; };
 		CD79C1CE1E23368500A9889F /* SchoolMomentsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SchoolMomentsTableViewController.h; sourceTree = "<group>"; };
 		CD79C1CF1E23368500A9889F /* SchoolMomentsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SchoolMomentsTableViewController.m; sourceTree = "<group>"; };
 		CD79C1D11E2502B400A9889F /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
@@ -736,6 +738,7 @@
 		CD2DCAE81DFD9043000C03E1 /* img */ = {
 			isa = PBXGroup;
 			children = (
+				CD71A36F1E29EA0D00396746 /* phoneConsult.png */,
 				CD3F247E1E2263040083293D /* article2.png */,
 				CD3F247F1E2263040083293D /* clock2.png */,
 				CD3F24671E2233930083293D /* rotate */,
@@ -1667,6 +1670,7 @@
 				CDE5AECA1E1147D30059D310 /* a5.jpg in Resources */,
 				CDE5AEC41E11324E0059D310 /* school.png in Resources */,
 				CD3F246D1E22339C0083293D /* 3.png in Resources */,
+				CD71A3701E29EA0D00396746 /* phoneConsult.png in Resources */,
 				CD2DCB7E1E03C7E7000C03E1 /* contacts_us.png in Resources */,
 				CD3F24811E2263040083293D /* clock2.png in Resources */,
 				CD2DCAF01DFD9051000C03E1 /* list.jpg in Resources */,
