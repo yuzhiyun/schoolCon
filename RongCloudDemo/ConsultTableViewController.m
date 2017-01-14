@@ -8,6 +8,7 @@
 
 #import "ConsultTableViewController.h"
 #import "MJRefresh.h"
+#import "ConcreteConsultViewController.h"
 @interface ConsultTableViewController ()
 
 @end
@@ -161,4 +162,20 @@
     else
         return @"心理咨询师";
 }
+-(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    
+    
+    //根据storyboard id来获取目标页面
+    ConcreteConsultViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"ConcreteConsultViewController"];
+    
+    
+    //    传值
+//    nextPage->pubString=[recipes objectAtIndex:indexPath.row];
+    //UITabBarController和的UINavigationController结合使用,进入新的页面的时候，隐藏主页tabbarController的底部栏
+    nextPage.hidesBottomBarWhenPushed=YES;
+    //跳转
+    [self.navigationController pushViewController:nextPage animated:YES];
+}
+//ConcreteConsultViewController
 @end

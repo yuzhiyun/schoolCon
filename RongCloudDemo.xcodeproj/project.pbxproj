@@ -193,6 +193,7 @@
 		CD79C2331E27240000A9889F /* UIScrollView+MJRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = CD79C2281E27240000A9889F /* UIScrollView+MJRefresh.m */; };
 		CD79C2341E27240000A9889F /* UIView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = CD79C22A1E27240000A9889F /* UIView+MJExtension.m */; };
 		CD79C2351E27240000A9889F /* UIScrollView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = CD79C22C1E27240000A9889F /* UIScrollView+MJExtension.m */; };
+		CDC26A081E2A6BEF0093B804 /* ConcreteConsultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDC26A071E2A6BEF0093B804 /* ConcreteConsultViewController.m */; };
 		CDDE85371E20973800E5F03B /* ConsultTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDDE85361E20973800E5F03B /* ConsultTableViewController.m */; };
 		CDDE853B1E20B9C500E5F03B /* ActiveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDDE853A1E20B9C500E5F03B /* ActiveViewController.m */; };
 		CDDE853F1E20BA0200E5F03B /* ForgetPwdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDDE853E1E20BA0200E5F03B /* ForgetPwdViewController.m */; };
@@ -528,6 +529,8 @@
 		CD79C22A1E27240000A9889F /* UIView+MJExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+MJExtension.m"; sourceTree = "<group>"; };
 		CD79C22B1E27240000A9889F /* UIScrollView+MJExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+MJExtension.h"; sourceTree = "<group>"; };
 		CD79C22C1E27240000A9889F /* UIScrollView+MJExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+MJExtension.m"; sourceTree = "<group>"; };
+		CDC26A061E2A6BEF0093B804 /* ConcreteConsultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConcreteConsultViewController.h; sourceTree = "<group>"; };
+		CDC26A071E2A6BEF0093B804 /* ConcreteConsultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConcreteConsultViewController.m; sourceTree = "<group>"; };
 		CDDE85351E20973800E5F03B /* ConsultTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConsultTableViewController.h; sourceTree = "<group>"; };
 		CDDE85361E20973800E5F03B /* ConsultTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConsultTableViewController.m; sourceTree = "<group>"; };
 		CDDE85391E20B9C500E5F03B /* ActiveViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActiveViewController.h; sourceTree = "<group>"; };
@@ -1452,9 +1455,19 @@
 			path = "/Users/qifeiqin/Downloads/MJRefresh-master/MJRefreshExample/MJRefreshExample/MJRefresh";
 			sourceTree = "<absolute>";
 		};
+		CDC26A051E2A6B7F0093B804 /* concreteConsult */ = {
+			isa = PBXGroup;
+			children = (
+				CDC26A061E2A6BEF0093B804 /* ConcreteConsultViewController.h */,
+				CDC26A071E2A6BEF0093B804 /* ConcreteConsultViewController.m */,
+			);
+			name = concreteConsult;
+			sourceTree = "<group>";
+		};
 		CDDE85341E20971700E5F03B /* consult */ = {
 			isa = PBXGroup;
 			children = (
+				CDC26A051E2A6B7F0093B804 /* concreteConsult */,
 				CDDE85351E20973800E5F03B /* ConsultTableViewController.h */,
 				CDDE85361E20973800E5F03B /* ConsultTableViewController.m */,
 			);
@@ -1830,6 +1843,7 @@
 				CD79C1FF1E2502B400A9889F /* AFURLResponseSerialization.m in Sources */,
 				CD2DCC4F1E067CD3000C03E1 /* PsychologyTableViewCell.m in Sources */,
 				CD2DCC831E09305D000C03E1 /* SDWebImageDownloader.m in Sources */,
+				CDC26A081E2A6BEF0093B804 /* ConcreteConsultViewController.m in Sources */,
 				CD2DCC7D1E09305D000C03E1 /* NSData+ImageContentType.m in Sources */,
 				CD2DCC441E066F58000C03E1 /* PsychologyTableViewController.m in Sources */,
 				CD2DCB641E02DF4A000C03E1 /* NotificationTableViewController.m in Sources */,
