@@ -365,8 +365,6 @@
                                  @"appSecret": @"b4a01f5a7dd4416c",
                                  @"token":myDelegate.token
                                  };
-    
-    
     [manager POST:urlString parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         //隐藏圆形进度条
         [hud hide:YES];
@@ -394,7 +392,10 @@
         NSNumber *code=0;
         if([[doc objectForKey:@"msg"] isEqualToString:@"会员"]){
             ArticleDetailViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"ArticleDetailViewController"];
-            nextPage->pubString=[mData objectAtIndex:indexPath.row];
+            
+             Article *model=[allDataFromServer objectAtIndex:indexPath.row];
+            nextPage->articleId=model.articleId;
+            nextPage->title=model.title;
             nextPage.hidesBottomBarWhenPushed=YES;
             [self.navigationController pushViewController:nextPage animated:YES];
         }

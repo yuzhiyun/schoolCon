@@ -103,6 +103,39 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
+- (IBAction)setIp:(id)sender {
+    
+    UIAlertController *alert=[UIAlertController alertControllerWithTitle:@"设置IP" message:@"" preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction *OK=[UIAlertAction actionWithTitle:@"ok" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){
+        
+        AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
+
+        myDelegate.ipString=mUITextFieldIp.text;
+    }];
+    
+    [alert addAction:OK];
+   [ alert addTextFieldWithConfigurationHandler:^(UITextField *textField){
+        
+        mUITextFieldIp=textField;
+        
+   }];
+    
+    
+    [self  presentViewController:alert animated:YES completion:nil];
+    
+    
+    
+    
+    
+    
+    
+    
+                       
+                       
+    
+    
+}
 
 
 - (IBAction)main:(id)sender {

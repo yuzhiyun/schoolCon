@@ -12,7 +12,9 @@
     
     
 @public
-    NSString *pubString;
+    NSString *articleId;
+@public
+    NSString *title;
     
 }
 @property (weak, nonatomic) IBOutlet UIWebView *UIWebViewArticle;

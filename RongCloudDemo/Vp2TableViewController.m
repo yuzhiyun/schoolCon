@@ -78,10 +78,6 @@
     cell.UILabelTitle.text=t1;
     cell.UILabelDate.text=@"2016-12-27";
     cell.UIImgCover.image=[UIImage imageNamed:[mImg objectAtIndex:indexPath.row]];
-    
-    
-    // Configure the cell...
-    
     return cell;
 }
 
@@ -94,7 +90,7 @@
     
     
     //    传值
-    nextPage->pubString=[mData objectAtIndex:indexPath.row];
+    nextPage->title=[mData objectAtIndex:indexPath.row];
     //UITabBarController和的UINavigationController结合使用,进入新的页面的时候，隐藏主页tabbarController的底部栏
     nextPage.hidesBottomBarWhenPushed=YES;
     

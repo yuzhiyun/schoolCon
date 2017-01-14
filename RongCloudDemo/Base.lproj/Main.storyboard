@@ -790,6 +790,14 @@
                                     <action selector="main:" destination="MgX-kz-2PI" eventType="touchUpInside" id="K9S-YA-Nqn"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e6y-on-cq5">
+                                <rect key="frame" x="0.0" y="555" width="185" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="设置ip（假装看不到🙈）"/>
+                                <connections>
+                                    <action selector="setIp:" destination="MgX-kz-2PI" eventType="touchUpInside" id="REd-b6-zQu"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -801,7 +809,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N5e-do-S4s" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1391" y="-1219"/>
+            <point key="canvasLocation" x="1389.5999999999999" y="-1219.3403298350825"/>
         </scene>
         <!--School Moments Table View Controller-->
         <scene sceneID="y9U-7F-R6T">
