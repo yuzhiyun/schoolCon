@@ -11,6 +11,7 @@
 #import <RongIMKit/RongIMKit.h>
 #import "LinkMan.h"
 #import "UIImageView+WebCache.h"
+#import "SendMessageViewController.h"
 @interface GroupSendViewController ()
 
 @end
@@ -22,6 +23,8 @@
     NSMutableArray *indexOfSelectedUser;
     //用于刷新tableView
     UITableView *mTableView;
+    
+    
     
 }
 
@@ -60,7 +63,7 @@
     //    [mDataAvatar addObject:@"5.jpg"];
     LinkMan *model1=[[LinkMan alloc]init];
     model1.type=@"private";
-    model1.LinkmanId=@"1";
+    model1.LinkmanId=@"321";
     model1.picUrl=@"http://img05.tooopen.com/images/20150202/sy_80219211654.jpg";
     model1.name=@"俞志云";
     model1.introduction=@"化学教师";
@@ -68,7 +71,7 @@
     
     LinkMan *model2=[[LinkMan alloc]init];
     model2.type=@"private";
-    model2.LinkmanId=@"2";
+    model2.LinkmanId=@"1";
     model2.picUrl=@"http://img05.tooopen.com/images/20150202/sy_80219211654.jpg";
     model2.name=@"马小龙";
     model2.introduction=@"数学教师";
@@ -87,15 +90,10 @@
     
     //没有被初始化，导致了一些未知错误，但是这个变量 竟然可以使用，程序不崩溃
      indexOfSelectedUser=[[NSMutableArray alloc]init];
-    //初始化勾选记录的数组
+    //初始化勾选记录的数组,用yes或者 no来判断联系人是不是被勾选
     for(NSInteger i=0;i<[allDataFromServer count];i++){
-        NSLog(@"插入数据**********");
-//        NSNumber *number=[NSNumber numberWithInt:-1];
-//        NSString *string=[NSString stringWithFormat:@"%@" ,number];
         [indexOfSelectedUser addObject:@"no"];
         NSString *content=[indexOfSelectedUser objectAtIndex:i];
-        NSLog(@"数组内容是%@",content);
-//        NSLog(content,nil);
     }
 }
 
@@ -130,18 +128,15 @@
     
     cell.UILabelName.text = model.name;
     cell.UILabelRemark.text = model.introduction;
-    //    cell.UIImgAvatar.image=[UIImage imageNamed:[mDataAvatar objectAtIndex:indexPath.row]];
     cell.UIImgAvatar.layer.masksToBounds = YES;
     cell.UIImgAvatar.layer.cornerRadius = cell.UIImgAvatar.frame.size.height / 2 ;
     [cell.UIImgAvatar sd_setImageWithURL:model.picUrl placeholderImage:[UIImage imageNamed:@"favorites.png"]];
     
     
     NSString *index=[indexOfSelectedUser objectAtIndex:indexPath.row];
-    NSLog(@"打印所有内容");
-    for(NSString *content in indexOfSelectedUser)
-        NSLog(content,nil);
+
     if(![ index isEqualToString:@"no"]){
-        //        NSLog([indexOfSelectedUser objectAtIndex:indexPath.row]);
+        
         cell.UIImageViewCheckbox.image=[UIImage imageNamed:@"selected2.png"];
     }
     else
@@ -153,7 +148,7 @@
 -(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
     if([[indexOfSelectedUser objectAtIndex:indexPath.row]isEqualToString:@"no"]){
-        NSLog(@"*******************************");
+        
         [indexOfSelectedUser insertObject:@"yes" atIndex:indexPath.row];
         [indexOfSelectedUser removeObjectAtIndex: indexPath.row+1];
     }
@@ -176,10 +171,32 @@
  */
 -(void)rightBarButtonItemPressed:(id)sender
 {
-    
     NSLog(@"勾选的群发联系人群发");
     for(NSString *content in indexOfSelectedUser)
         NSLog(content);
+    NSMutableArray *dataSelectedLinkman=[[NSMutableArray alloc]init];
+    
+    for(NSInteger i=0;i<[allDataFromServer count];i++)
+        if([@"yes" isEqualToString: [indexOfSelectedUser objectAtIndex:i]])
+            [ dataSelectedLinkman addObject:[allDataFromServer objectAtIndex:i]];
+    
+    
+    
+    
+    for(LinkMan *model in dataSelectedLinkman){
+        NSLog(model.LinkmanId);
+        NSLog(model.name);
+    }
+    
+    
+    
+    SendMessageViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"SendMessageViewController"];
+   
+    nextPage->dataSelectedLinkman=dataSelectedLinkman;
+        nextPage.hidesBottomBarWhenPushed=YES;
+        //跳转
+        [self.navigationController pushViewController:nextPage animated:YES];
+    
     //
     //    NSString *content=@"这是群发的消息";
     //    //初始化文本消息

@@ -164,6 +164,7 @@
 		CD6EAD061E288161009EC3A0 /* TestIntroductionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6EAD051E288161009EC3A0 /* TestIntroductionViewController.m */; };
 		CD6EAD091E28B128009EC3A0 /* LinkMan.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6EAD081E28B128009EC3A0 /* LinkMan.m */; };
 		CD6EAD0C1E28B75F009EC3A0 /* group.png in Resources */ = {isa = PBXBuildFile; fileRef = CD6EAD0B1E28B75F009EC3A0 /* group.png */; };
+		CD71A36E1E29C48000396746 /* SendMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD71A36D1E29C48000396746 /* SendMessageViewController.m */; };
 		CD79C1D01E23368500A9889F /* SchoolMomentsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD79C1CF1E23368500A9889F /* SchoolMomentsTableViewController.m */; };
 		CD79C1F81E2502B400A9889F /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = CD79C1D21E2502B400A9889F /* AFHTTPRequestOperation.m */; };
 		CD79C1F91E2502B400A9889F /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CD79C1D41E2502B400A9889F /* AFHTTPRequestOperationManager.m */; };
@@ -468,6 +469,8 @@
 		CD6EAD081E28B128009EC3A0 /* LinkMan.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LinkMan.m; sourceTree = "<group>"; };
 		CD6EAD0A1E28B130009EC3A0 /* LinkMan.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LinkMan.h; sourceTree = "<group>"; };
 		CD6EAD0B1E28B75F009EC3A0 /* group.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = group.png; sourceTree = "<group>"; };
+		CD71A36C1E29C48000396746 /* SendMessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SendMessageViewController.h; sourceTree = "<group>"; };
+		CD71A36D1E29C48000396746 /* SendMessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SendMessageViewController.m; sourceTree = "<group>"; };
 		CD79C1CE1E23368500A9889F /* SchoolMomentsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SchoolMomentsTableViewController.h; sourceTree = "<group>"; };
 		CD79C1CF1E23368500A9889F /* SchoolMomentsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SchoolMomentsTableViewController.m; sourceTree = "<group>"; };
 		CD79C1D11E2502B400A9889F /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
@@ -833,7 +836,6 @@
 				CD2DCC221E056CE3000C03E1 /* groupSend */,
 				CD2DCC1D1E0565A7000C03E1 /* linkman */,
 				CD2DCC161E055390000C03E1 /* message */,
-				CD2DCC131E05507C000C03E1 /* ContactViewController.h */,
 				CD2DCC141E05507C000C03E1 /* ContactViewController.m */,
 			);
 			name = contact;
@@ -976,6 +978,7 @@
 				CD2DCC1E1E0565BA000C03E1 /* cell */,
 				CD2DCC1A1E056587000C03E1 /* LinkmanTableViewController.h */,
 				CD2DCC1B1E056587000C03E1 /* LinkmanTableViewController.m */,
+				CD2DCC131E05507C000C03E1 /* ContactViewController.h */,
 			);
 			name = linkman;
 			sourceTree = "<group>";
@@ -992,6 +995,7 @@
 		CD2DCC221E056CE3000C03E1 /* groupSend */ = {
 			isa = PBXGroup;
 			children = (
+				CD71A36B1E29C46300396746 /* sendMessage */,
 				CD2DCC261E056D1B000C03E1 /* cell */,
 				CD2DCC2A1E0573EF000C03E1 /* GroupSendViewController.h */,
 				CD2DCC2B1E0573EF000C03E1 /* GroupSendViewController.m */,
@@ -1327,6 +1331,15 @@
 				CD6EAD0A1E28B130009EC3A0 /* LinkMan.h */,
 			);
 			name = linkManEntity;
+			sourceTree = "<group>";
+		};
+		CD71A36B1E29C46300396746 /* sendMessage */ = {
+			isa = PBXGroup;
+			children = (
+				CD71A36C1E29C48000396746 /* SendMessageViewController.h */,
+				CD71A36D1E29C48000396746 /* SendMessageViewController.m */,
+			);
+			name = sendMessage;
 			sourceTree = "<group>";
 		};
 		CD79C1CD1E23365300A9889F /* schoolMoments */ = {
@@ -1813,6 +1826,7 @@
 				CD2DCC8C1E09305D000C03E1 /* UIImageView+WebCache.m in Sources */,
 				CD6EAD011E279AF5009EC3A0 /* Activity.m in Sources */,
 				CD79C1FA1E2502B400A9889F /* AFHTTPSessionManager.m in Sources */,
+				CD71A36E1E29C48000396746 /* SendMessageViewController.m in Sources */,
 				CD79C1FF1E2502B400A9889F /* AFURLResponseSerialization.m in Sources */,
 				CD2DCC4F1E067CD3000C03E1 /* PsychologyTableViewCell.m in Sources */,
 				CD2DCC831E09305D000C03E1 /* SDWebImageDownloader.m in Sources */,
