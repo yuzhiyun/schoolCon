@@ -18,6 +18,16 @@
     NSMutableArray *title;
     
     @public NSInteger index;
+    
+    
+    /**这个参数用于判断页面类型
+     1,  在线学习---------------zxxx
+     2,  心理知识---------------xlzs
+     3，我的文章-在线学习---------myzxxx
+     4，我的文章-心理知识---------myxlzs
+     */
+@public
+    NSString *type;
         
     
 }

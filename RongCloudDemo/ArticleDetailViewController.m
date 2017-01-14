@@ -36,7 +36,7 @@
     AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
     
 //    NSString *urlString= [NSString stringWithFormat:@"http://%@:8080/schoolCon/api/cms/article/getObject",myDelegate.ipString];
-    NSString *urlString= [NSString stringWithFormat:@"http://mp.weixin.qq.com/s/jSpB9hQupgs6e1x2MY5t2Q",myDelegate.ipString];
+    NSString *urlString= pubString;
     
     NSURL *url = [NSURL URLWithString: urlString];
     

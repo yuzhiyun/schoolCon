@@ -71,14 +71,15 @@
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     
     ShalongTableViewController *controller0 = (ShalongTableViewController *)[storyboard instantiateViewControllerWithIdentifier:@"ShalongTableViewController"];
-    //标识这是岳麓沙龙
+    //标识这是岳麓沙龙，用于复用界面
     controller0->type=@"ylsl";
     ArticleTableViewController *controller1 = (ArticleTableViewController *)[storyboard instantiateViewControllerWithIdentifier:@"ArticleTableViewController"];
+    //标示这是在线学习，用于复用界面
+    controller1->type=@"zxxx";
     if(index==0)
         return controller0;
     else
         return controller1;
-    
 }
 
 - (void)didReceiveMemoryWarning {
