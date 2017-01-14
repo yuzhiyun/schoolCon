@@ -35,17 +35,20 @@
 //    NSString *urlString=@"http://172.27.35.6:8080/schoolCon/api/cms/article/getObject";
     AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
     
-    NSString *urlString= [NSString stringWithFormat:@"http://%@:8080/schoolCon/api/cms/article/getObject",myDelegate.ipString];
+//    NSString *urlString= [NSString stringWithFormat:@"http://%@:8080/schoolCon/api/cms/article/getObject",myDelegate.ipString];
+    NSString *urlString= [NSString stringWithFormat:@"http://mp.weixin.qq.com/s/jSpB9hQupgs6e1x2MY5t2Q",myDelegate.ipString];
+    
     NSURL *url = [NSURL URLWithString: urlString];
     
     
-//    NSString *body = [NSString stringWithFormat: @"id=%@&arg2=%@", @"bb744859cadc4c85b3b5228723da8671",@"val2"]; NSMutableURLRequest *request = [[NSMutableURLRequest alloc]initWithURL: url];
+//    NSString *body = [NSString stringWithFormat: @"id=%@&arg2=%@", @"bb744859cadc4c85b3b5228723da8671",@"val2"];
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc]initWithURL: url];
 //      AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
 //    @"appId":@"03a8f0ea6a",
 //    @"appSecret":@"b4a01f5a7dd4416c",
-        NSString *body = [NSString stringWithFormat: @"id=%@&token=%@&appId=%@&appSecret=%@", articleId,myDelegate.token,myDelegate.appId,myDelegate.appSecret]; NSMutableURLRequest *request = [[NSMutableURLRequest alloc]initWithURL: url];
-    [request setHTTPMethod: @"POST"];
-    [request setHTTPBody: [body dataUsingEncoding: NSUTF8StringEncoding]];
+//        NSString *body = [NSString stringWithFormat: @"id=%@&token=%@&appId=%@&appSecret=%@", articleId,myDelegate.token,myDelegate.appId,myDelegate.appSecret]; NSMutableURLRequest *request = [[NSMutableURLRequest alloc]initWithURL: url];
+//    [request setHTTPMethod: @"POST"];
+//    [request setHTTPBody: [body dataUsingEncoding: NSUTF8StringEncoding]];
     [UIWebViewArticle loadRequest: request];
     /**
      * 显示网页

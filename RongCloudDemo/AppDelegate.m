@@ -28,8 +28,7 @@
     onlineReadinngTitle=[[NSMutableArray alloc]init];
     indexOnlineReadinng=0;
      AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
-    myDelegate.ipString=@"192.168.1.104";
-    
+    myDelegate.ipString=@"192.168.191.4";
 //    myDelegate.ipString=@"172.27.35.7";
 //    myDelegate.ipString=@"172.27.35.6";
     myDelegate.token=@"";
@@ -38,7 +37,6 @@
     myDelegate.appSecret=@"b4a01f5a7dd4416c";
     //初始化融云SDK
     [[RCIM sharedRCIM] initWithAppKey:RONGCLOUD_IM_APPKEY];
-    
     /**
      * 推送处理1
      */

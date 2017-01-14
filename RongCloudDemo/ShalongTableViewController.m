@@ -48,10 +48,10 @@
 //    [mImg addObject:@"a5.jpg"];
     Activity *model=[[Activity alloc]init];
     model.activityId=@"1";
-    model.picUrl=@"http://img05.tooopen.com/images/20150202/sy_80219211654.jpg";
-    model.title=@"长沙第一次岳麓活动";
-    model.publisher=@"中南大学软件学院";
-    model.place=@"岳麓山北门";
+    model.picUrl=@"http://mmbiz.qpic.cn/mmbiz_jpg/6qu8KwIJTLcqTxT8jqPOKCEAvGuhbFpzscsPC8FeDEYkQxsQ1AFSeJjYWgMeicQU2gJrgb3bhu7quicok24sLwIw/640?wx_fmt=jpeg&wxfrom=5&wx_lazy=1";
+    model.title=@"在生活中找寻游赏，也找寻写作 | 舒国治五城巡讲";
+    model.publisher=@"理想国、听道、慢书房";
+    model.place=@"厦门·纸的时代书店";
     model.date=@"2017-02-29";
     allDataFromServer=[[NSMutableArray alloc]init];
     [allDataFromServer addObject:model];
@@ -91,10 +91,10 @@
 {
     Activity *model=[[Activity alloc]init];
     model.activityId=@"1";
-    model.picUrl=@"http://img05.tooopen.com/images/20150202/sy_80219211654.jpg";
-    model.title=@"长沙第一次岳麓活动";
-    model.publisher=@"中南大学软件学院";
-    model.place=@"下拉刷新数据";
+    model.picUrl=@"http://mmbiz.qpic.cn/mmbiz_jpg/6qu8KwIJTLcqTxT8jqPOKCEAvGuhbFpzscsPC8FeDEYkQxsQ1AFSeJjYWgMeicQU2gJrgb3bhu7quicok24sLwIw/640?wx_fmt=jpeg&wxfrom=5&wx_lazy=1";
+    model.title=@"在生活中找寻游赏，也找寻写作 | 舒国治五城巡讲";
+    model.publisher=@"理想国、听道、慢书房";
+    model.place=@"厦门·纸的时代书店";
     model.date=@"2017-02-29";
     // 1.添加假数据
     for (int i = 0; i<5; i++) {

@@ -36,7 +36,7 @@
     
     //数据默认为先加载第一页
     pageIndex=1;
-    [self loadData:pageIndex orientation:@"up"];
+//    [self loadData:pageIndex orientation:@"up"];
     AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
     NSLog(@"token是%@",myDelegate.token);
     //    //指定大标题
@@ -64,13 +64,13 @@
     //    [mDataAuthor addObject:@"张晓静"];
     Article *model=[[Article alloc]init];
     model.articleId=@"1";
-    model.picUrl=@"http://img05.tooopen.com/images/20150202/sy_80219211654.jpg";
-    model.title=@"人生处世心态好，看淡尘世品行高";
-    model.author=@"余秋雨";
+    model.picUrl=@"http://mmbiz.qpic.cn/mmbiz/6qu8KwIJTLdpZF6UOGNNcBcb4yUQ01HD8Vq77Zb0mbYlzfcqOugLV5EY4XbyW2elT3RuMBDCVicYqHicR3ZgZO1w/640?wx_fmt=jpeg&wxfrom=5&wx_lazy=1";
+    model.title=@"小丑 独裁者 艺术家";
+    model.author=@"理想国";
     model.date=[NSNumber numberWithInt:(1234)];
     allDataFromServer=[[NSMutableArray alloc]init];
     [allDataFromServer addObject:model];
-    [allDataFromServer addObject:model];
+//    [allDataFromServer addObject:model];
     
     
     // 2.集成刷新控件
@@ -125,14 +125,14 @@
     //        // (最好在刷新表格后调用)调用endRefreshing可以结束刷新状态
     //        [self.tableView headerEndRefreshing];
     //    });
-    [self loadData:pageIndex orientation:@"down"];
+//    [self loadData:pageIndex orientation:@"down"];
 }
 
 - (void)footerRereshing
 {  self.tableView.footerRefreshingText = @"正在为您刷新。。。";
     
     pageIndex++;
-    [self loadData:pageIndex orientation:@"up"];
+//    [self loadData:pageIndex orientation:@"up"];
 }
 
 
@@ -336,7 +336,8 @@
     NSString *currentDateString = [dateFormatter stringFromDate:date2];
     cell.UILabelDate.text=currentDateString;
     cell.UILabelAuthor.text= model.author;
-    [cell.UIImgCover sd_setImageWithURL:[NSString stringWithFormat:@"http://%@:8080%@",myDelegate.ipString,model.picUrl] placeholderImage:[UIImage imageNamed:@"favorites.png"]];
+//    [cell.UIImgCover sd_setImageWithURL:[NSString stringWithFormat:@"http://%@:8080%@",myDelegate.ipString,model.picUrl] placeholderImage:[UIImage imageNamed:@"favorites.png"]];
+    [cell.UIImgCover sd_setImageWithURL:@"http://mmbiz.qpic.cn/mmbiz/6qu8KwIJTLdpZF6UOGNNcBcb4yUQ01HD8Vq77Zb0mbYlzfcqOugLV5EY4XbyW2elT3RuMBDCVicYqHicR3ZgZO1w/640?wx_fmt=jpeg&wxfrom=5&wx_lazy=1" placeholderImage:[UIImage imageNamed:@"favorites.png"]];
     return cell;
 }
 
