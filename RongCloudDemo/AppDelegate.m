@@ -28,7 +28,7 @@
     onlineReadinngTitle=[[NSMutableArray alloc]init];
     indexOnlineReadinng=0;
      AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
-    myDelegate.ipString=@"192.168.191.4";
+    myDelegate.ipString=@"school.sukclub.com";
 //    myDelegate.ipString=@"172.27.35.7";
 //    myDelegate.ipString=@"172.27.35.6";
     myDelegate.token=@"";

@@ -835,12 +835,13 @@
 		CD2DCB111E025B37000C03E1 /* contact */ = {
 			isa = PBXGroup;
 			children = (
+				CD2DCC131E05507C000C03E1 /* ContactViewController.h */,
+				CD2DCC141E05507C000C03E1 /* ContactViewController.m */,
 				4698CBA61AE22FCA0006330E /* ConnectRongyunViewController.h */,
 				4698CBA71AE22FCA0006330E /* ConnectRongyunViewController.m */,
 				CD2DCC221E056CE3000C03E1 /* groupSend */,
 				CD2DCC1D1E0565A7000C03E1 /* linkman */,
 				CD2DCC161E055390000C03E1 /* message */,
-				CD2DCC141E05507C000C03E1 /* ContactViewController.m */,
 			);
 			name = contact;
 			sourceTree = "<group>";
@@ -982,7 +983,6 @@
 				CD2DCC1E1E0565BA000C03E1 /* cell */,
 				CD2DCC1A1E056587000C03E1 /* LinkmanTableViewController.h */,
 				CD2DCC1B1E056587000C03E1 /* LinkmanTableViewController.m */,
-				CD2DCC131E05507C000C03E1 /* ContactViewController.h */,
 			);
 			name = linkman;
 			sourceTree = "<group>";

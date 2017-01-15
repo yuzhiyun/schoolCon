@@ -785,22 +785,6 @@
                                     <action selector="active:" destination="MgX-kz-2PI" eventType="touchUpInside" id="2fp-2Z-FJx"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zBo-vy-NFJ">
-                                <rect key="frame" x="324" y="555" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="首页"/>
-                                <connections>
-                                    <action selector="main:" destination="MgX-kz-2PI" eventType="touchUpInside" id="K9S-YA-Nqn"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e6y-on-cq5">
-                                <rect key="frame" x="0.0" y="555" width="185" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="设置ip（假装看不到🙈）"/>
-                                <connections>
-                                    <action selector="setIp:" destination="MgX-kz-2PI" eventType="touchUpInside" id="REd-b6-zQu"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -1071,7 +1055,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w49-CH-YhS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1945" y="555"/>
+            <point key="canvasLocation" x="1945" y="1021"/>
         </scene>
         <!--Detail Yulu View Controller-->
         <scene sceneID="1EJ-3g-n3Q">
@@ -1116,7 +1100,7 @@
         <!--Contact View Controller-->
         <scene sceneID="XHQ-uV-cSH">
             <objects>
-                <viewController id="AJU-MR-SEM" customClass="ContactViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ContactViewController" id="AJU-MR-SEM" customClass="ContactViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="vs5-B6-tvu"/>
                         <viewControllerLayoutGuide type="bottom" id="ZGX-dD-S5w"/>
@@ -1130,7 +1114,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6DH-M8-GKe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2825" y="555"/>
+            <point key="canvasLocation" x="2825" y="1021"/>
         </scene>
         <!--Message View Controller-->
         <scene sceneID="PwO-CV-2jz">
@@ -1380,7 +1364,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j4K-3f-GCq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4828" y="1039"/>
+            <point key="canvasLocation" x="4828" y="1021"/>
         </scene>
         <!--Group Send View Controller-->
         <scene sceneID="CtJ-cE-7IP">
@@ -2258,7 +2242,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES"/>
                             </textField>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="avarta.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="s6I-p5-JI5">
                                 <rect key="frame" x="128" y="164" width="118" height="112"/>
@@ -2611,7 +2595,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6NF-ug-bEp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1119" y="296"/>
+            <point key="canvasLocation" x="1006" y="296"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="xVf-hv-a8o">

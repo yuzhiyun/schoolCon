@@ -79,6 +79,7 @@
     [self.navigationController pushViewController:nextPage animated:YES];
 }
 
+
 #pragma mark 返回某个index对应的页面，该页面从Storyboard中获取
 - (UIViewController *)pageController:(WMPageController *)pageController viewControllerAtIndex:(NSInteger)index {
     

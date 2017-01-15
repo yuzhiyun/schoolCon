@@ -201,10 +201,7 @@
                                   delegate:nil
                          cancelButtonTitle:@"确定"
                          otherButtonTitles:nil];
-        
-        
             [alert show];
-    
     }
     //    //根据storyboard id来获取目标页面
     //    GroupSendViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"GroupSendViewController"];

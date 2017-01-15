@@ -43,6 +43,10 @@
     //处理软键盘遮挡输入框事件
     _UITextFieldUserName.delegate=self;
     _UITextFieldPwd.delegate=self;
+    
+    
+    _UITextFieldUserName.text=@"chenxi";
+    _UITextFieldPwd.text=@"chenxi";
 }
 
 
@@ -94,7 +98,7 @@
     //获取全局ip地址
     AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
     
-    NSString *urlString= [NSString stringWithFormat:@"http://%@:8080/schoolCon/api/sys/user/login",myDelegate.ipString];
+    NSString *urlString= [NSString stringWithFormat:@"http://%@/api/sys/user/login",myDelegate.ipString];
     
     //创建数据请求的对象，不是单例
     AFHTTPRequestOperationManager *manager=[AFHTTPRequestOperationManager manager];
