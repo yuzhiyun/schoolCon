@@ -194,6 +194,8 @@
 		CD79C2341E27240000A9889F /* UIView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = CD79C22A1E27240000A9889F /* UIView+MJExtension.m */; };
 		CD79C2351E27240000A9889F /* UIScrollView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = CD79C22C1E27240000A9889F /* UIScrollView+MJExtension.m */; };
 		CDC26A081E2A6BEF0093B804 /* ConcreteConsultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDC26A071E2A6BEF0093B804 /* ConcreteConsultViewController.m */; };
+		CDC26A0C1E2B4E220093B804 /* ChooseYearViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDC26A0B1E2B4E220093B804 /* ChooseYearViewController.m */; };
+		CDC26A101E2B51050093B804 /* CCZTableButton.m in Sources */ = {isa = PBXBuildFile; fileRef = CDC26A0E1E2B51040093B804 /* CCZTableButton.m */; };
 		CDDE85371E20973800E5F03B /* ConsultTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDDE85361E20973800E5F03B /* ConsultTableViewController.m */; };
 		CDDE853B1E20B9C500E5F03B /* ActiveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDDE853A1E20B9C500E5F03B /* ActiveViewController.m */; };
 		CDDE853F1E20BA0200E5F03B /* ForgetPwdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDDE853E1E20BA0200E5F03B /* ForgetPwdViewController.m */; };
@@ -531,6 +533,10 @@
 		CD79C22C1E27240000A9889F /* UIScrollView+MJExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+MJExtension.m"; sourceTree = "<group>"; };
 		CDC26A061E2A6BEF0093B804 /* ConcreteConsultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConcreteConsultViewController.h; sourceTree = "<group>"; };
 		CDC26A071E2A6BEF0093B804 /* ConcreteConsultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConcreteConsultViewController.m; sourceTree = "<group>"; };
+		CDC26A0A1E2B4E220093B804 /* ChooseYearViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChooseYearViewController.h; sourceTree = "<group>"; };
+		CDC26A0B1E2B4E220093B804 /* ChooseYearViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChooseYearViewController.m; sourceTree = "<group>"; };
+		CDC26A0D1E2B51040093B804 /* CCZTableButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCZTableButton.h; sourceTree = "<group>"; };
+		CDC26A0E1E2B51040093B804 /* CCZTableButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCZTableButton.m; sourceTree = "<group>"; };
 		CDDE85351E20973800E5F03B /* ConsultTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConsultTableViewController.h; sourceTree = "<group>"; };
 		CDDE85361E20973800E5F03B /* ConsultTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConsultTableViewController.m; sourceTree = "<group>"; };
 		CDDE85391E20B9C500E5F03B /* ActiveViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActiveViewController.h; sourceTree = "<group>"; };
@@ -609,6 +615,7 @@
 		4698CB931AE22FCA0006330E = {
 			isa = PBXGroup;
 			children = (
+				CDC26A0F1E2B51040093B804 /* CCZTableButton */,
 				CD79C22D1E27240000A9889F /* MJRefresh */,
 				CD79C1F71E2502B400A9889F /* AFNetworking */,
 				CD2DCC501E09305D000C03E1 /* SDWebImage */,
@@ -1148,6 +1155,7 @@
 		CD2DCCAC1E0A6F86000C03E1 /* queryGrade */ = {
 			isa = PBXGroup;
 			children = (
+				CDC26A091E2B4E120093B804 /* chooseYear */,
 				CDE5AED31E1FCC7C0059D310 /* parents */,
 				CD2DCCB01E0A728D000C03E1 /* teacher */,
 				CD2DCCAD1E0A6FF9000C03E1 /* QueryGradeTableViewController.h */,
@@ -1463,6 +1471,25 @@
 			);
 			name = concreteConsult;
 			sourceTree = "<group>";
+		};
+		CDC26A091E2B4E120093B804 /* chooseYear */ = {
+			isa = PBXGroup;
+			children = (
+				CDC26A0A1E2B4E220093B804 /* ChooseYearViewController.h */,
+				CDC26A0B1E2B4E220093B804 /* ChooseYearViewController.m */,
+			);
+			name = chooseYear;
+			sourceTree = "<group>";
+		};
+		CDC26A0F1E2B51040093B804 /* CCZTableButton */ = {
+			isa = PBXGroup;
+			children = (
+				CDC26A0D1E2B51040093B804 /* CCZTableButton.h */,
+				CDC26A0E1E2B51040093B804 /* CCZTableButton.m */,
+			);
+			name = CCZTableButton;
+			path = "/Users/qifeiqin/Downloads/CCZTableButton-master/CCZTableButton/CCZTableButton";
+			sourceTree = "<absolute>";
 		};
 		CDDE85341E20971700E5F03B /* consult */ = {
 			isa = PBXGroup;
@@ -1827,6 +1854,7 @@
 				CDDE853F1E20BA0200E5F03B /* ForgetPwdViewController.m in Sources */,
 				CD79C1F81E2502B400A9889F /* AFHTTPRequestOperation.m in Sources */,
 				CD2DCC2C1E0573EF000C03E1 /* GroupSendViewController.m in Sources */,
+				CDC26A0C1E2B4E220093B804 /* ChooseYearViewController.m in Sources */,
 				4698CBA21AE22FCA0006330E /* main.m in Sources */,
 				CD2DCC871E09305D000C03E1 /* UIButton+WebCache.m in Sources */,
 				CDDE853B1E20B9C500E5F03B /* ActiveViewController.m in Sources */,
@@ -1858,6 +1886,7 @@
 				CD2DCC391E066137000C03E1 /* DetailYuluViewController.m in Sources */,
 				CD2DCC1C1E056587000C03E1 /* LinkmanTableViewController.m in Sources */,
 				CDE5AED61E1FCC990059D310 /* ParentsViewController.m in Sources */,
+				CDC26A101E2B51050093B804 /* CCZTableButton.m in Sources */,
 				CD79C2051E2502B400A9889F /* UIImageView+AFNetworking.m in Sources */,
 				CD2DCC7F1E09305D000C03E1 /* SDImageCache.m in Sources */,
 			);

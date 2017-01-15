@@ -23,6 +23,7 @@
 #import <RongIMKit/RongIMKit.h>
 #import "ChatListViewController.h"
 #import "LinkMan.h"
+#import "ChooseYearViewController.h"
 @interface HomePageViewController ()
 //轮播图组件
 @property (nonatomic, strong) CycleScrollView *scrollView;
@@ -179,14 +180,19 @@ _articleUrlArray=@[@"http://mp.weixin.qq.com/s/m3y2dvyWLxHoFskyX5aWPQ",@"http://
 
 - (IBAction)enterQueryGrade:(id)sender {
 //    弹出对话框选择年级
-    UIActionSheet *actionSheet = [[UIActionSheet alloc]
-                                  initWithTitle:@"请选择年级"
-                                  delegate:self
-                                  cancelButtonTitle:@"取消"
-                                  destructiveButtonTitle:nil
-                                  otherButtonTitles:@"2016学年", @"2015学年",@"2014学年",nil];
-    actionSheet.actionSheetStyle = UIBarStyleDefault;
-    [actionSheet showInView:self.view];
+//    UIActionSheet *actionSheet = [[UIActionSheet alloc]
+//                                  initWithTitle:@"请选择年级"
+//                                  delegate:self
+//                                  cancelButtonTitle:@"取消"
+//                                  destructiveButtonTitle:nil
+//                                  otherButtonTitles:@"2016学年", @"2015学年",@"2014学年",nil];
+//    actionSheet.actionSheetStyle = UIBarStyleDefault;
+//    [actionSheet showInView:self.view];
+     ChooseYearViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"ChooseYearViewController"];
+    nextPage.hidesBottomBarWhenPushed=YES;
+    [self.navigationController pushViewController:nextPage animated:YES];
+    
+    
 }
 
 //UIActionSheet对话框选择监听事件

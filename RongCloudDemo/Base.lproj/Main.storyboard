@@ -143,7 +143,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZDp-zD-kiA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="148" y="2686.5067466266869"/>
+            <point key="canvasLocation" x="-855" y="3040"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="P2r-5i-mlU">
@@ -440,6 +440,63 @@
             </objects>
             <point key="canvasLocation" x="1036" y="3338.6806596701654"/>
         </scene>
+        <!--Choose Year View Controller-->
+        <scene sceneID="Xpg-uU-DNp">
+            <objects>
+                <viewController storyboardIdentifier="ChooseYearViewController" id="zXM-xa-MlP" customClass="ChooseYearViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="2Fd-aC-5GE"/>
+                        <viewControllerLayoutGuide type="bottom" id="E9E-Tb-ht1"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="KQd-4w-G1s">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2kG-fS-A4N">
+                                <rect key="frame" x="63" y="85" width="121" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="点我选择学年"/>
+                                <connections>
+                                    <action selector="select:" destination="zXM-xa-MlP" eventType="touchUpInside" id="b2V-Ii-z5Y"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OFB-ZP-ddw">
+                                <rect key="frame" x="244" y="85" width="68" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.0119239362" green="0.47466540340000002" blue="0.98470920319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="查询">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="query:" destination="zXM-xa-MlP" eventType="touchUpInside" id="DBG-Lv-deL"/>
+                                </connections>
+                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="aC9-eI-z9T">
+                                <rect key="frame" x="0.0" y="137" width="375" height="530"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="edk-Lq-faY">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="edk-Lq-faY" id="Stf-Dc-xUd">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="mUIButtonSelect" destination="2kG-fS-A4N" id="V1U-f2-btT"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CdV-RP-P8R" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="84" y="1997.4512743628188"/>
+        </scene>
         <!--Psychology Table View Controller-->
         <scene sceneID="aH7-cE-tha">
             <objects>
@@ -513,7 +570,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Upq-sx-cbQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1036" y="2669"/>
+            <point key="canvasLocation" x="812" y="2669"/>
         </scene>
         <!--Psychology List Table View Controller-->
         <scene sceneID="1eQ-l5-MV3">
@@ -587,7 +644,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dKQ-pw-jet" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="238" y="1022"/>
+            <point key="canvasLocation" x="148" y="1021"/>
         </scene>
         <!--Home Page View Controller-->
         <scene sceneID="l6A-BC-gYV">
@@ -916,7 +973,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fxz-6L-3V7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="148" y="2000"/>
+            <point key="canvasLocation" x="84" y="2669"/>
         </scene>
         <!--Detail Notification View Controller-->
         <scene sceneID="aBj-1e-bF2">
