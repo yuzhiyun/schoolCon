@@ -45,8 +45,8 @@
     _UITextFieldPwd.delegate=self;
     
     
-    _UITextFieldUserName.text=@"chenxi";
-    _UITextFieldPwd.text=@"chenxi";
+    _UITextFieldUserName.text=@"18075156565";
+    _UITextFieldPwd.text=@"12345";
 }
 
 
