@@ -9,6 +9,7 @@
 #import "SendMessageViewController.h"
 #import "LinkMan.h"
 #import <RongIMKit/RongIMKit.h>
+#import "MainViewController.h"
 @interface SendMessageViewController ()
 
 @end
@@ -47,11 +48,6 @@
  */
 -(void)rightBarButtonItemPressed:(id)sender
 {
-    
-    
-
-
-
     for(LinkMan *model in dataSelectedLinkman){
         NSString *content=@"这是群发的消息";
         //初始化文本消息
@@ -67,17 +63,34 @@
         }];
 
     }
-    UIAlertView *alert =
-    [[UIAlertView alloc] initWithTitle:nil
-                               message:@"发送成功"
-                              delegate:nil
-                     cancelButtonTitle:@"确定"
-                     otherButtonTitles:nil];
+    UIAlertController *alert=[UIAlertController alertControllerWithTitle:nil message:@"群发成功,点击确认回到主页" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *ok=[UIAlertAction actionWithTitle:@"确认"
+                                               style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){
+                                                   
+                                                   // 模拟2秒后刷新
+//                                                   dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                                                   
+                                                       NSLog(@"跳回主页面");
+                                                       MainViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"MainViewController"];
+                                                       [self.navigationController pushViewController:nextPage animated:YES];
+                                        
+                                                       
+//                                                   });
+                                                   
+                                                   
+
+                                               }];
+    
+    //        信息框添加按键
+    [alert addAction:ok];
+    
+    
+
     if(1==flag){
     [alert setMessage:@"发送失败，请检查网络或者重启应用"];
-    [alert show];
+[self presentViewController:alert animated:YES completion:nil];
     }else
-        [alert show];
+        [self presentViewController:alert animated:YES completion:nil];
     
 }
 
