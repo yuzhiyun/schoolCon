@@ -6,6 +6,8 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -812,27 +814,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XvT-Ad-Ibz">
-                                <rect key="frame" x="68" y="595" width="94" height="37"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <color key="tintColor" red="0.19807185059999999" green="0.66129513610000001" blue="0.98470920319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <size key="titleShadowOffset" width="6" height="4"/>
-                                <state key="normal" title="登  录">
-                                    <color key="titleColor" red="0.19807185059999999" green="0.66129513610000001" blue="0.98470920319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="login:" destination="MgX-kz-2PI" eventType="touchUpInside" id="Yh9-DZ-OUU"/>
-                                </connections>
-                            </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bg.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="VDa-46-02r">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="555"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="bg.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="VDa-46-02r">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="563"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Ng-7g-WNW">
-                                <rect key="frame" x="214" y="596" width="102" height="36"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Ng-7g-WNW">
+                                <rect key="frame" x="195" y="596" width="121" height="36"/>
                                 <color key="backgroundColor" red="0.19807185059999999" green="0.66129513610000001" blue="0.98470920319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="激  活">
@@ -842,13 +828,36 @@
                                     <action selector="active:" destination="MgX-kz-2PI" eventType="touchUpInside" id="2fp-2Z-FJx"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YNa-xq-utY">
+                                <rect key="frame" x="56" y="596" width="123" height="36"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="登  录">
+                                    <color key="titleColor" red="0.19807185059999999" green="0.66129513610000001" blue="0.98470920319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="login:" destination="MgX-kz-2PI" eventType="touchUpInside" id="fbn-FN-Qmm"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="VDa-46-02r" firstAttribute="height" secondItem="PKA-A1-rLM" secondAttribute="height" multiplier="0.85" id="9Z5-gO-bot"/>
+                            <constraint firstItem="VDa-46-02r" firstAttribute="top" secondItem="PKA-A1-rLM" secondAttribute="top" id="VG2-0I-mcM"/>
+                            <constraint firstItem="tPe-Al-L9V" firstAttribute="top" secondItem="YNa-xq-utY" secondAttribute="bottom" constant="20" id="Y52-ut-rOF"/>
+                            <constraint firstItem="1Ng-7g-WNW" firstAttribute="width" secondItem="PKA-A1-rLM" secondAttribute="width" multiplier="0.35" id="Y7h-2b-14t"/>
+                            <constraint firstItem="YNa-xq-utY" firstAttribute="leading" secondItem="PKA-A1-rLM" secondAttribute="leadingMargin" constant="30" id="aCH-fW-h5Y"/>
+                            <constraint firstItem="tPe-Al-L9V" firstAttribute="top" secondItem="1Ng-7g-WNW" secondAttribute="bottom" constant="20" id="fpa-ce-woy"/>
+                            <constraint firstItem="VDa-46-02r" firstAttribute="leading" secondItem="PKA-A1-rLM" secondAttribute="leading" id="hjH-Gw-Fcd"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="1Ng-7g-WNW" secondAttribute="trailing" constant="30" id="obx-wn-Kq4"/>
+                            <constraint firstAttribute="trailing" secondItem="VDa-46-02r" secondAttribute="trailing" id="qar-Ob-qhl"/>
+                            <constraint firstItem="YNa-xq-utY" firstAttribute="width" secondItem="PKA-A1-rLM" secondAttribute="width" multiplier="0.35" id="uYt-Qn-7aW"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="7eO-Kl-efU"/>
                     <connections>
                         <outlet property="UIButtonActive" destination="1Ng-7g-WNW" id="z9F-qm-a2l"/>
-                        <outlet property="UIButtonLogin" destination="XvT-Ad-Ibz" id="03C-UE-iIc"/>
+                        <outlet property="UIButtonLogin" destination="YNa-xq-utY" id="iUz-GC-Izd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N5e-do-S4s" userLabel="First Responder" sceneMemberID="firstResponder"/>

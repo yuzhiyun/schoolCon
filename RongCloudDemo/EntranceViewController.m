@@ -59,7 +59,7 @@
 }
 
 -(void)viewWillAppear:(BOOL)animated{
-    [self checkUserLogin];
+//    [self checkUserLogin];
 }
 
 -(void)checkUserLogin{
@@ -144,8 +144,6 @@
 }
 
 - (IBAction)login:(id)sender {
-    
-    
     //根据storyboard id来获取目标页面
     ChooseSchoolTableViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"ChooseSchoolTableViewController"];
     //    传值
@@ -158,7 +156,6 @@
     //    nextPage.hidesBottomBarWhenPushed=YES;
     //跳转
     [self.navigationController pushViewController:nextPage animated:YES];
-    
 }
 
 - (IBAction)active:(id)sender {
