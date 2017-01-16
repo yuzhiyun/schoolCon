@@ -237,16 +237,13 @@
     [tUserDefaults synchronize];
 }
 
-//发送验证码
 - (IBAction)getCode:(id)sender {
-    
     if(_UITextFieldPhone.text.length == 0){
         [Toast showToast:@"手机号不能为空" view:self.view];
         NSLog(@"手机号不能为空");
     }
     else
         [self httpGetVerifyCode];
-
 }
 
 //开始编辑输入框的时候，软键盘出现，执行此事件

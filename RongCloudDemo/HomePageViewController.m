@@ -48,7 +48,7 @@
     
     
     self.title=@"首页";
-//    navigationBar背景颜色
+//    navigationBar背景
     [self.navigationController.navigationBar setBarTintColor:[UIColor colorWithRed:3/255.0 green:121/255.0 blue:251/255.0 alpha:1.0]];
 //      navigationBar标题颜色
     [self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor],UITextAttributeTextColor,nil]];
