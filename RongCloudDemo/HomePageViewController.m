@@ -64,8 +64,13 @@
     _imageArray = @[@"1",@"2",@"3",@"4"];
     
 _articleUrlArray=@[@"http://mp.weixin.qq.com/s/m3y2dvyWLxHoFskyX5aWPQ",@"http://mp.weixin.qq.com/s/m3y2dvyWLxHoFskyX5aWPQ",@"http://mp.weixin.qq.com/s/m3y2dvyWLxHoFskyX5aWPQ",@"http://mp.weixin.qq.com/s/m3y2dvyWLxHoFskyX5aWPQ"];
-    _scrollView = [[CycleScrollView alloc]initWithFrame:CGRectMake(0, self.navigationController.navigationBar.bounds.size.height+[[UIApplication sharedApplication] statusBarFrame].size.height, [[UIScreen mainScreen]bounds].size.width , _mUIViewContainer.frame.size.height)];
-    _scrollView.delegate = self;
+    
+    double statusHeoght= self.navigationController.navigationBar.bounds.size.height+[[UIApplication sharedApplication] statusBarFrame].size.height;
+//    
+//    _scrollView = [[CycleScrollView alloc]initWithFrame:CGRectMake(0, statusHeoght, [[UIScreen mainScreen]bounds].size.width , _mUIViewContainer.frame.size.height)];
+    
+    _scrollView = [[CycleScrollView alloc]initWithFrame:CGRectMake(0, statusHeoght, [[UIScreen mainScreen]bounds].size.width , 0.27* [[UIScreen mainScreen] bounds].size.height)];
+        _scrollView.delegate = self;
     _scrollView.datasource = self;
     _scrollView.animationDuration = 4;
     [self.view addSubview:_scrollView];
