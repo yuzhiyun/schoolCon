@@ -27,11 +27,11 @@
     
     mDataNotification=[[NSMutableArray alloc]init];
     [mDataNotification addObject:@"明天开运动会"];
-    [mDataNotification addObject:@"由于下大雪，今晚不用上课"];
+    [mDataNotification addObject:@"今晚不用上课"];
     [mDataNotification addObject:@"明天开运动会"];
-    [mDataNotification addObject:@"由于下大雪，今晚不用上课"];
+    [mDataNotification addObject:@"今晚不用上课"];
     [mDataNotification addObject:@"明天开运动会"];
-    [mDataNotification addObject:@"由于下大雪，今晚不用上课"];
+    [mDataNotification addObject:@"今晚不用上课"];
     //    recipes = [NSArray arrayWithObjects:@"Egg Benedict",@"Ham and Cheese Panini","yuzhiyun",nil];
     // Do any additional setup after loading the view.
 }
