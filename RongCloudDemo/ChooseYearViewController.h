@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ChooseYearViewController : UIViewController
+@interface ChooseYearViewController : UIViewController<UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UIButton *mUIButtonSelect;
 
 @end
