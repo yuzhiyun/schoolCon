@@ -50,7 +50,7 @@
     model.activityId=@"1";
     model.picUrl=@"http://mmbiz.qpic.cn/mmbiz_jpg/6qu8KwIJTLcqTxT8jqPOKCEAvGuhbFpzscsPC8FeDEYkQxsQ1AFSeJjYWgMeicQU2gJrgb3bhu7quicok24sLwIw/640?wx_fmt=jpeg&wxfrom=5&wx_lazy=1";
     model.title=@"在生活中找寻游赏，也找寻写作 | 舒国治五城巡讲";
-    model.publisher=@"理想国、听道、慢书房";
+    model.publisher=@"理想国、听道";
     model.place=@"厦门·纸的时代书店";
     model.date=@"2017-02-29";
     
@@ -103,7 +103,7 @@
     model.activityId=@"1";
     model.picUrl=@"http://mmbiz.qpic.cn/mmbiz_jpg/6qu8KwIJTLcqTxT8jqPOKCEAvGuhbFpzscsPC8FeDEYkQxsQ1AFSeJjYWgMeicQU2gJrgb3bhu7quicok24sLwIw/640?wx_fmt=jpeg&wxfrom=5&wx_lazy=1";
     model.title=@"在生活中找寻游赏，也找寻写作 | 舒国治五城巡讲";
-    model.publisher=@"理想国、听道、慢书房";
+    model.publisher=@"理想国、听道";
     model.place=@"厦门·纸的时代书店";
     model.date=@"2017-02-29";
     // 1.添加假数据
