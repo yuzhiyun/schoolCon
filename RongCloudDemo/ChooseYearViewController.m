@@ -17,9 +17,6 @@
 
     NSMutableArray *mDataExam;
 //    好
-    
-    
-
 }
 
 - (void)viewDidLoad {

@@ -729,7 +729,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="支付" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="975-BT-6jW">
-                                <rect key="frame" x="235.5" y="326" width="27" height="16"/>
+                                <rect key="frame" x="236" y="326" width="27" height="16"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -784,7 +784,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xv1-6b-fWK">
-                                <rect key="frame" x="217.5" y="251" width="64" height="64"/>
+                                <rect key="frame" x="218" y="251" width="64" height="64"/>
                                 <state key="normal" backgroundImage="emotion_test.png"/>
                                 <connections>
                                     <action selector="vip:" destination="AzU-z8-ena" eventType="touchUpInside" id="dqE-pS-2sl"/>
@@ -804,26 +804,26 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="班级群" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vbo-kP-vyW">
-                                <rect key="frame" x="72" y="326" width="73.5" height="16"/>
+                                <rect key="frame" x="72" y="326" width="74" height="16"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B4G-4R-Awm">
-                                <rect key="frame" x="146.5" y="251" width="64" height="64"/>
+                                <rect key="frame" x="147" y="251" width="64" height="64"/>
                                 <state key="normal" backgroundImage="emotion_test.png"/>
                                 <connections>
                                     <action selector="physicalTest:" destination="AzU-z8-ena" eventType="touchUpInside" id="wdK-CN-UDw"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="学校动态" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TYm-0D-6Df">
-                                <rect key="frame" x="293.5" y="326" width="54" height="16"/>
+                                <rect key="frame" x="294" y="326" width="54" height="16"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hZe-hO-4Xu">
-                                <rect key="frame" x="288.5" y="251" width="63.5" height="64"/>
+                                <rect key="frame" x="289" y="251" width="64" height="64"/>
                                 <state key="normal" backgroundImage="emotion_activity.png"/>
                                 <connections>
                                     <action selector="schoolMoments:" destination="AzU-z8-ena" eventType="touchUpInside" id="eoe-Lb-M4u"/>
@@ -834,14 +834,14 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H4m-8R-ZPb">
-                                <rect key="frame" x="77" y="251" width="63.5" height="64"/>
+                                <rect key="frame" x="77" y="251" width="64" height="64"/>
                                 <state key="normal" backgroundImage="check_grade.png"/>
                                 <connections>
                                     <action selector="classGroup:" destination="AzU-z8-ena" eventType="touchUpInside" id="a2g-yl-vNo"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="最近通知：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VH3-Fm-vOa">
-                                <rect key="frame" x="6" y="345" width="71.5" height="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="最近通知：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VH3-Fm-vOa">
+                                <rect key="frame" x="6" y="357" width="71.5" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" red="0.19807185059999999" green="0.66129513610000001" blue="0.98470920319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -2617,9 +2617,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES"/>
                             </textField>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avarta.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="s6I-p5-JI5">
-                                <rect key="frame" x="16" y="70" width="343" height="121"/>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vvq-b3-aqg">
                                 <rect key="frame" x="273" y="488" width="62" height="30"/>
                                 <state key="normal" title="忘记密码">
@@ -2629,6 +2626,13 @@
                                     <action selector="forgetPwd:" destination="yKy-Cd-DJU" eventType="touchUpInside" id="1zG-fD-GQk"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="avarta.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="s6I-p5-JI5">
+                                <rect key="frame" x="127" y="81" width="121" height="121"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="121" id="H2j-pK-gw3"/>
+                                    <constraint firstAttribute="height" constant="121" id="fJR-H4-m0f"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.19807185059999999" green="0.66129513610000001" blue="0.98470920319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -2647,9 +2651,8 @@
                             <constraint firstItem="Huz-3K-Hw6" firstAttribute="top" secondItem="s6I-p5-JI5" secondAttribute="bottom" constant="120" id="NGP-1x-hpk"/>
                             <constraint firstItem="Jir-wv-Qn7" firstAttribute="height" secondItem="wDt-ty-4jW" secondAttribute="height" id="PGB-a5-nh8"/>
                             <constraint firstItem="s6I-p5-JI5" firstAttribute="top" secondItem="8eG-b7-yiK" secondAttribute="bottom" constant="50" id="RdF-bs-VjV"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="s6I-p5-JI5" secondAttribute="trailing" id="e3f-pO-G24"/>
+                            <constraint firstItem="s6I-p5-JI5" firstAttribute="centerX" secondItem="5R6-RT-5Kc" secondAttribute="centerX" id="axq-Fl-OUc"/>
                             <constraint firstItem="f9j-tW-j4J" firstAttribute="trailing" secondItem="5R6-RT-5Kc" secondAttribute="trailingMargin" constant="-24" id="gz4-Fp-EWU"/>
-                            <constraint firstItem="s6I-p5-JI5" firstAttribute="leading" secondItem="5R6-RT-5Kc" secondAttribute="leadingMargin" id="kie-5V-Xhp"/>
                             <constraint firstItem="i7u-sS-LRh" firstAttribute="top" secondItem="s6I-p5-JI5" secondAttribute="bottom" constant="120" id="nmo-n0-Z9a"/>
                             <constraint firstAttribute="trailingMargin" secondItem="vvq-b3-aqg" secondAttribute="trailing" constant="24" id="wS3-ZD-wIs"/>
                         </constraints>
