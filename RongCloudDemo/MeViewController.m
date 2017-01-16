@@ -356,6 +356,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
         //显示顶部导航
         self.navigationController.navigationBarHidden=NO;
         ArticleTableViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"ArticleTableViewController"];
+        nextPage->type=@"zxxx";
         nextPage.hidesBottomBarWhenPushed=YES;
         [self.navigationController pushViewController:nextPage animated:YES];
         

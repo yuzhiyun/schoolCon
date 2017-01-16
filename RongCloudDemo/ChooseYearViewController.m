@@ -22,11 +22,7 @@
     self.tableButton.wannaToClickTempToDissmiss = NO;
     [self.tableButton addItems:@[@"Objective-C",@"Swift",@"C++",@"C",@"Python",@"Javascript"]];
     [self.tableButton selectedAtIndexHandle:^(NSUInteger index, NSString *itemName) {
-        
-        
         NSLog(@"%@",itemName);
-        
-        
     }];
 }
 

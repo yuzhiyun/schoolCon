@@ -125,6 +125,12 @@
         [self.navigationController pushViewController:chat animated:YES];
     }
     else{
+//        LinkMan *group=[[LinkMan alloc]init];
+//        group.type=@"group";
+//        group.LinkmanId=@"1";
+//        group.picUrl=@"http://img05.tooopen.com/images/20150202/sy_80219211654.jpg";
+//        group.name=@"初二3班班群";
+//        group.introduction=@"";
         NSLog(@"群聊");
         //新建一个聊天会话View Controller对象
         RCConversationViewController *chat = [[RCConversationViewController alloc]init];
