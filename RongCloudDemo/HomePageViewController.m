@@ -235,6 +235,7 @@ _articleUrlArray=@[@"http://mp.weixin.qq.com/s/m3y2dvyWLxHoFskyX5aWPQ",@"http://
 }
 -(NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
 
+    
     return [recipes count];
 }
 
@@ -277,6 +278,13 @@ _articleUrlArray=@[@"http://mp.weixin.qq.com/s/m3y2dvyWLxHoFskyX5aWPQ",@"http://
     
     
     
+    
+}
+
+- (nullable UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
+    
+    
+    return [[UIView alloc]init];
     
 }
 

@@ -197,6 +197,8 @@
 		CDC26A0C1E2B4E220093B804 /* ChooseYearViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDC26A0B1E2B4E220093B804 /* ChooseYearViewController.m */; };
 		CDC26A101E2B51050093B804 /* CCZTableButton.m in Sources */ = {isa = PBXBuildFile; fileRef = CDC26A0E1E2B51040093B804 /* CCZTableButton.m */; };
 		CDC26A151E2CD6680093B804 /* icon2-20@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = CDC26A141E2CD6680093B804 /* icon2-20@3x.png */; };
+		CDC26A181E2CF5D40093B804 /* icon_tx@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CDC26A161E2CF5D40093B804 /* icon_tx@2x.png */; };
+		CDC26A191E2CF5D40093B804 /* icon_tx@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = CDC26A171E2CF5D40093B804 /* icon_tx@3x.png */; };
 		CDDE85371E20973800E5F03B /* ConsultTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDDE85361E20973800E5F03B /* ConsultTableViewController.m */; };
 		CDDE853B1E20B9C500E5F03B /* ActiveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDDE853A1E20B9C500E5F03B /* ActiveViewController.m */; };
 		CDDE853F1E20BA0200E5F03B /* ForgetPwdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDDE853E1E20BA0200E5F03B /* ForgetPwdViewController.m */; };
@@ -539,6 +541,8 @@
 		CDC26A0D1E2B51040093B804 /* CCZTableButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCZTableButton.h; sourceTree = "<group>"; };
 		CDC26A0E1E2B51040093B804 /* CCZTableButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCZTableButton.m; sourceTree = "<group>"; };
 		CDC26A141E2CD6680093B804 /* icon2-20@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon2-20@3x.png"; sourceTree = "<group>"; };
+		CDC26A161E2CF5D40093B804 /* icon_tx@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_tx@2x.png"; sourceTree = "<group>"; };
+		CDC26A171E2CF5D40093B804 /* icon_tx@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_tx@3x.png"; sourceTree = "<group>"; };
 		CDDE85351E20973800E5F03B /* ConsultTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConsultTableViewController.h; sourceTree = "<group>"; };
 		CDDE85361E20973800E5F03B /* ConsultTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConsultTableViewController.m; sourceTree = "<group>"; };
 		CDDE85391E20B9C500E5F03B /* ActiveViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActiveViewController.h; sourceTree = "<group>"; };
@@ -748,6 +752,8 @@
 		CD2DCAE81DFD9043000C03E1 /* img */ = {
 			isa = PBXGroup;
 			children = (
+				CDC26A161E2CF5D40093B804 /* icon_tx@2x.png */,
+				CDC26A171E2CF5D40093B804 /* icon_tx@3x.png */,
 				CDC26A131E2CD5710093B804 /* appIcon */,
 				CD71A36F1E29EA0D00396746 /* phoneConsult.png */,
 				CD3F247E1E2263040083293D /* article2.png */,
@@ -1663,7 +1669,7 @@
 				TargetAttributes = {
 					4698CB9B1AE22FCA0006330E = {
 						CreatedOnToolsVersion = 6.2;
-						DevelopmentTeam = 8TXX9HLM2Y;
+						DevelopmentTeam = 4YFU9633V4;
 						ProvisioningStyle = Automatic;
 					};
 					4698CBB41AE22FCA0006330E = {
@@ -1705,6 +1711,7 @@
 				CD2DCAF51DFD9051000C03E1 /* 4.jpg in Resources */,
 				CD3CF6871E0C1402003599F5 /* mine.png in Resources */,
 				CDE5AECE1E1147D30059D310 /* a1.png in Resources */,
+				CDC26A191E2CF5D40093B804 /* icon_tx@3x.png in Resources */,
 				CD2DCAF41DFD9051000C03E1 /* 3.jpg in Resources */,
 				CD2DCB0F1E018793000C03E1 /* reading.png in Resources */,
 				CD2DCAF11DFD9051000C03E1 /* avarta.jpg in Resources */,
@@ -1751,6 +1758,7 @@
 				CDE5AEBC1E110A750059D310 /* coffee_little.png in Resources */,
 				CDE5AECD1E1147D30059D310 /* a2.jpg in Resources */,
 				CD3F24911E2273D00083293D /* SVProgressHUD.bundle in Resources */,
+				CDC26A181E2CF5D40093B804 /* icon_tx@2x.png in Resources */,
 				461B27891B82DDA000107001 /* RongCloudKit.strings in Resources */,
 				CD3CF6851E0C13F0003599F5 /* coffee.png in Resources */,
 				CD2DCAF21DFD9051000C03E1 /* 1.jpg in Resources */,
@@ -2032,7 +2040,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 8TXX9HLM2Y;
+				DEVELOPMENT_TEAM = 4YFU9633V4;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2058,7 +2066,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 8TXX9HLM2Y;
+				DEVELOPMENT_TEAM = 4YFU9633V4;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",

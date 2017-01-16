@@ -122,11 +122,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RongCloudDemo/ChooseSchoolTableViewController.m"
-            timestampString = "505826602.252508"
+            timestampString = "506263906.692067"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "126"
-            endingLineNumber = "126"
+            startingLineNumber = "127"
+            endingLineNumber = "127"
             landmarkName = "-loadData"
             landmarkType = "7">
          </BreakpointContent>

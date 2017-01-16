@@ -55,7 +55,8 @@
     AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
     
     NSLog(@"这里是ChooseSchoolTableViewController，全局ip地址是 %@",myDelegate.ipString);
-    
+    //去掉多余的UITableView分割线
+    self.tableView.tableFooterView=[[UIView alloc]init];
 }
 
 -(NSString*)DataTOjsonString:(id)object

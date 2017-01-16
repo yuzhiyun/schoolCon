@@ -252,7 +252,12 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
     return isconnected = YES;
 }
 
-
+- (nullable UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
+    
+    
+    return [[UIView alloc]init];
+    
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -260,7 +265,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
 }
 
 -(NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    
+ 
     return [mDataKey count];
 }
 
