@@ -625,7 +625,6 @@
 				CD79C22D1E27240000A9889F /* MJRefresh */,
 				CD79C1F71E2502B400A9889F /* AFNetworking */,
 				CD2DCC501E09305D000C03E1 /* SDWebImage */,
-				CD2DCAE81DFD9043000C03E1 /* img */,
 				461B27841B82DD7D00107001 /* RongCloud.bundle */,
 				4698CBCD1AE232FF0006330E /* Frameworks */,
 				4698CBC91AE230600006330E /* Resouce */,
@@ -674,6 +673,7 @@
 		4698CB9F1AE22FCA0006330E /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				CD2DCAE81DFD9043000C03E1 /* img */,
 				461B27871B82DDA000107001 /* RongCloudKit.strings */,
 				461B27831B82DD7D00107001 /* Emoji.plist */,
 				4698CBA01AE22FCA0006330E /* Info.plist */,
@@ -783,6 +783,7 @@
 				CD2DCAEF1DFD9051000C03E1 /* 5.jpg */,
 			);
 			name = img;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		CD2DCAFE1DFD9102000C03E1 /* education */ = {
