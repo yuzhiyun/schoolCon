@@ -9,6 +9,8 @@
 #import "ChooseYearViewController.h"
 #import "CCZTableButton.h"
 #import "ParentsViewController.h"
+#import "TeacherNotUseCollectionViewController.h"
+#import "QueryGradeTableViewController.h"
 @interface ChooseYearViewController ()
 @property (nonatomic, strong) CCZTableButton *tableButton;
 @end
@@ -68,7 +70,7 @@
     [grade addObject:@"2013-2014学年"];
     [grade addObject:@"null"];
     NSLog([grade objectAtIndex:buttonIndex]);
-    if(buttonIndex!=[grade count])
+    if(buttonIndex!=[grade count]-1)
         
         [_mUIButtonSelect setTitle:[grade objectAtIndex:buttonIndex] forState:UIControlStateNormal];// 添加文字
 }
@@ -93,20 +95,17 @@
     return cell;
 }
 -(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    
-    
-    
-    //根据storyboard id来获取目标页面
-    ParentsViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"ParentsViewController"];
-    
-    //    传值
-//    nextPage->pubString=[recipes objectAtIndex:indexPath.row];
-    //UITabBarController和的UINavigationController结合使用,进入新的页面的时候，隐藏主页tabbarController的底部栏
+    TeacherNotUseCollectionViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"TeacherNotUseCollectionViewController"];
     nextPage.hidesBottomBarWhenPushed=YES;
-    
-    //跳转
     [self.navigationController pushViewController:nextPage animated:YES];
 }
 
+- (IBAction)gradeTrend:(id)sender {
+    
+    QueryGradeTableViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"QueryGradeTableViewController"];
+    nextPage.hidesBottomBarWhenPushed=YES;
+    [self.navigationController pushViewController:nextPage animated:YES];
+    
+}
 
 @end

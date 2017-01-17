@@ -86,10 +86,10 @@
         mUILabelSchool.text=@"校均分/校排名";
         
         
-        mUILabelsubject.font=[UIFont systemFontOfSize:17];
+        mUILabelsubject.font=[UIFont systemFontOfSize:16];
         [mUILabelsubject setTextColor:[UIColor blackColor]];
         
-        mUILabelScore.font=[UIFont systemFontOfSize:17];
+        mUILabelScore.font=[UIFont systemFontOfSize:16];
         [mUILabelScore setTextColor:[UIColor blackColor]];
 
         mUILabelClass.font=[UIFont systemFontOfSize:16];
