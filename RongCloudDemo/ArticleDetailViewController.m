@@ -31,34 +31,23 @@
     
     [rightButton setTitleTextAttributes: [NSDictionary dictionaryWithObjectsAndKeys:[UIFont systemFontOfSize:17], UITextAttributeFont, [UIColor whiteColor], UITextAttributeTextColor, nil] forState:UIControlStateNormal];
     self.navigationItem.rightBarButtonItem=rightButton;
+
     
-//    NSString *urlString=@"http://172.27.35.6:8080/schoolCon/api/cms/article/getObject";
     AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
     
-//    NSString *urlString= [NSString stringWithFormat:@"http://%@:8080/schoolCon/api/cms/article/getObject",myDelegate.ipString];
-    NSString *urlString= pubString;
+    NSString *urlString= [NSString stringWithFormat:@"%@/api/cms/article/getObject",myDelegate.ipString];
     
+
     NSURL *url = [NSURL URLWithString: urlString];
+
     
+
+    NSString *body = [NSString stringWithFormat: @"id=%@&token=%@&appId=%@&appSecret=%@", articleId,myDelegate.token,myDelegate.appId,myDelegate.appSecret];
     
-//    NSString *body = [NSString stringWithFormat: @"id=%@&arg2=%@", @"bb744859cadc4c85b3b5228723da8671",@"val2"];
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc]initWithURL: url];
-//      AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
-//    @"appId":@"03a8f0ea6a",
-//    @"appSecret":@"b4a01f5a7dd4416c",
-//        NSString *body = [NSString stringWithFormat: @"id=%@&token=%@&appId=%@&appSecret=%@", articleId,myDelegate.token,myDelegate.appId,myDelegate.appSecret]; NSMutableURLRequest *request = [[NSMutableURLRequest alloc]initWithURL: url];
-//    [request setHTTPMethod: @"POST"];
-//    [request setHTTPBody: [body dataUsingEncoding: NSUTF8StringEncoding]];
+    [request setHTTPMethod: @"POST"];
+    [request setHTTPBody: [body dataUsingEncoding: NSUTF8StringEncoding]];
     [UIWebViewArticle loadRequest: request];
-    /**
-     * 显示网页
-     */
-    //    NSString *url=@"http://172.27.35.6:8080/schoolCon/api/cms/article/getObject?id=bb744859cadc4c85b3b5228723da8671";
-    //    NSURL *nsUrl=[NSURL URLWithString:url];
-    //    NSURLRequest *request=[NSURLRequest requestWithURL:nsUrl];
-    //
-    //    //这里也可以写_UIWebViewArticle，这样就不需要上面的@synthesize UIWebViewArticle;这行代码了
-    //    [UIWebViewArticle loadRequest:request];
     mDataUsername=[[NSMutableArray alloc]init];
     [mDataUsername addObject:@"俞志云"];
     [mDataUsername addObject:@"马小龙"];

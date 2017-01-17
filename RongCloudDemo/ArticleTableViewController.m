@@ -36,7 +36,7 @@
     
     //数据默认为先加载第一页
     pageIndex=1;
-//    [self loadData:pageIndex orientation:@"up"];
+    [self loadData:pageIndex orientation:@"up"];
     AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
     NSLog(@"token是%@",myDelegate.token);
     //    //指定大标题
@@ -62,28 +62,30 @@
     //    [mDataAuthor addObject:@"张凯景"];
     //    [mDataAuthor addObject:@"李非"];
     //    [mDataAuthor addObject:@"张晓静"];
-    Article *model=[[Article alloc]init];
-    model.articleId=@"1";
-    model.picUrl=@"http://mmbiz.qpic.cn/mmbiz/6qu8KwIJTLdpZF6UOGNNcBcb4yUQ01HD8Vq77Zb0mbYlzfcqOugLV5EY4XbyW2elT3RuMBDCVicYqHicR3ZgZO1w/640?wx_fmt=jpeg&wxfrom=5&wx_lazy=1";
-    model.title=@"小丑 独裁者 艺术家";
-    model.author=@"理想国";
-    model.date=[NSNumber numberWithInt:(1234)];
+//    Article *model=[[Article alloc]init];
+//    model.articleId=@"1";
+//    model.picUrl=@"http://mmbiz.qpic.cn/mmbiz/6qu8KwIJTLdpZF6UOGNNcBcb4yUQ01HD8Vq77Zb0mbYlzfcqOugLV5EY4XbyW2elT3RuMBDCVicYqHicR3ZgZO1w/640?wx_fmt=jpeg&wxfrom=5&wx_lazy=1";
+//    model.title=@"小丑 独裁者 艺术家";
+//    model.author=@"理想国";
+//    model.date=[NSNumber numberWithInt:(1234)];
+//    
+//    Article *modelPhysicalKnowledge=[[Article alloc]init];
+//    modelPhysicalKnowledge.articleId=@"2";
+//    modelPhysicalKnowledge.picUrl=@"http://mmbiz.qpic.cn/mmbiz_jpg/gOssv1gYMDGB4GEPqpTwzvNXoPKQfbibPQX8aBsD780hd1yM3kWELm9afTxBpeua9Uhqh8rEThibeSUzC4I5KIjQ/640?wx_fmt=jpeg&wxfrom=5&wx_lazy=1";
+//    modelPhysicalKnowledge.title=@"儿童家庭治疗中的八大观察";
+//    modelPhysicalKnowledge.author=@" 成成 大成心理工作室";
+//    modelPhysicalKnowledge.date=[NSNumber numberWithInt:(1234)];
+//    allDataFromServer=[[NSMutableArray alloc]init];
+//    
+//    
+//    if([@"zxxx" isEqualToString:type])
+////    for(int i=0;i<5;i++)
+//    [allDataFromServer addObject:model];
+//    else
+//        if([@"xlzs" isEqualToString:type])
+//            for(int i=0;i<5;i++)
+//                [allDataFromServer addObject:modelPhysicalKnowledge];
     
-    Article *modelPhysicalKnowledge=[[Article alloc]init];
-    modelPhysicalKnowledge.articleId=@"2";
-    modelPhysicalKnowledge.picUrl=@"http://mmbiz.qpic.cn/mmbiz_jpg/gOssv1gYMDGB4GEPqpTwzvNXoPKQfbibPQX8aBsD780hd1yM3kWELm9afTxBpeua9Uhqh8rEThibeSUzC4I5KIjQ/640?wx_fmt=jpeg&wxfrom=5&wx_lazy=1";
-    modelPhysicalKnowledge.title=@"儿童家庭治疗中的八大观察";
-    modelPhysicalKnowledge.author=@" 成成 大成心理工作室";
-    modelPhysicalKnowledge.date=[NSNumber numberWithInt:(1234)];
-    allDataFromServer=[[NSMutableArray alloc]init];
-    if([@"zxxx" isEqualToString:type])
-    for(int i=0;i<5;i++)
-    [allDataFromServer addObject:model];
-    else
-        if([@"xlzs" isEqualToString:type])
-            for(int i=0;i<5;i++)
-                [allDataFromServer addObject:modelPhysicalKnowledge];
-        
 //    [allDataFromServer addObject:model];
     
     
@@ -117,36 +119,16 @@
 - (void)headerRereshing
 {
     self.tableView.headerRefreshingText = @"正在为您刷新。。。";
-    
     pageIndex++;
+    [self loadData:pageIndex orientation:@"down"];
     
-    //    Article *model=[[Article alloc]init];
-    //    model.articleId=@"1";
-    //    model.picUrl=@"http://img05.tooopen.com/images/20150202/sy_80219211654.jpg";
-    //    model.title=@"人生处世心态好，看淡尘世品行高";
-    //    model.author=@"下拉刷新数据";
-    //   model.date=[NSNumber numberWithInt:(1234)];
-    ////    model.date=@"2017-02-29";
-    //    // 1.添加假数据
-    //    for (int i = 0; i<5; i++) {
-    //        [allDataFromServer insertObject:model atIndex:0];
-    //    }
-    //
-    //    // 2.模拟2秒后刷新表格UI（真实开发中，可以移除这段gcd代码）
-    //    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-    //        // 刷新表格
-    //        [self.tableView reloadData];
-    //        // (最好在刷新表格后调用)调用endRefreshing可以结束刷新状态
-    //        [self.tableView headerEndRefreshing];
-    //    });
-//    [self loadData:pageIndex orientation:@"down"];
 }
 
 - (void)footerRereshing
 {  self.tableView.footerRefreshingText = @"正在为您刷新。。。";
     
     pageIndex++;
-//    [self loadData:pageIndex orientation:@"up"];
+    [self loadData:pageIndex orientation:@"up"];
 }
 
 
@@ -157,7 +139,7 @@
 
 
 #pragma mark 加载文章列表
--(void)loadData:(int)pageIndex orientation:(NSString *) orientation{
+-(void)loadData:(int)pageIndex orientation:(NSString *) orientation {
     MBProgressHUD *hud;
     hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     //hud.color = [UIColor colorWithHexString:@"343637" alpha:0.5];
@@ -166,7 +148,7 @@
     //获取全局ip地址
     AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
     
-    NSString *urlString= [NSString stringWithFormat:@"http://%@:8080/schoolCon/api/cms/article/getList",myDelegate.ipString];
+    NSString *urlString= [NSString stringWithFormat:@"%@/api/cms/article/getList",myDelegate.ipString];
     //创建数据请求的对象，不是单例
     AFHTTPRequestOperationManager *manager=[AFHTTPRequestOperationManager manager];
     //设置响应数据的类型,如果是json数据，会自动帮你解析
@@ -176,10 +158,11 @@
     // 请求参数
     NSDictionary *parameters = @{ @"appId":@"03a8f0ea6a",
                                   @"appSecret":@"b4a01f5a7dd4416c",
-                                  @"channelType":@"zxxx",
+                                  @"channelType":type,
                                   @"pageNumber":[NSString stringWithFormat:@"%d",pageIndex],
                                   @"token":token
                                   };
+    
     [manager POST:urlString parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         // (最好在刷新表格后调用)调用endRefreshing可以结束刷新状态
         [self.tableView footerEndRefreshing];
@@ -192,16 +175,6 @@
         NSData *data=[result dataUsingEncoding:NSUTF8StringEncoding];
         NSError *error=[[NSError alloc]init];
         NSDictionary *doc= [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
-        
-        //        "data" : [
-        //                  {
-        //                      "id" : "bb744859cadc4c85b3b5228723da8671",
-        //                      "title" : "1",
-        //                      "author" : "超级管理员",
-        //                      "publishat" : 1484101843,
-        //                      "picurl" : "\/schoolCon\/upload\/image\/20170111\/5rpblhora6i7prhqa1i7j48b15.14.02.png"
-        //                  }
-        //                  ]
         if(doc!=nil){
             NSLog(@"*****doc不为空***********");
             if([[doc objectForKey:@"code"] isKindOfClass:[NSNumber class]])
@@ -215,10 +188,19 @@
                     
                     NSArray *articleArray=[doc objectForKey:@"data"];
                     if(0==[articleArray count]){
+                        
                         if([orientation isEqualToString:@"down"])
                         self.tableView.headerRefreshingText = @"亲，没有更多数据了";
                         else
                             self.tableView.footerRefreshingText = @"亲，没有更多数据了";
+                        UIAlertController *alert=[UIAlertController alertControllerWithTitle:nil message:@"抱歉,没有更多数据了" preferredStyle:UIAlertControllerStyleAlert];
+                        UIAlertAction *ok=[UIAlertAction actionWithTitle:@"确认"
+                                                                   style:UIAlertActionStyleDefault handler:nil];
+                        
+                        //        信息框添加按键
+                        [alert addAction:ok];
+                        [self presentViewController:alert animated:YES completion:nil];
+                        
                     }
                     else{
                         
@@ -350,8 +332,8 @@
     NSString *currentDateString = [dateFormatter stringFromDate:date2];
     cell.UILabelDate.text=currentDateString;
     cell.UILabelAuthor.text= model.author;
-//    [cell.UIImgCover sd_setImageWithURL:[NSString stringWithFormat:@"http://%@:8080%@",myDelegate.ipString,model.picUrl] placeholderImage:[UIImage imageNamed:@"favorites.png"]];
-    [cell.UIImgCover sd_setImageWithURL:model.picUrl placeholderImage:[UIImage imageNamed:@"favorites.png"]];
+    [cell.UIImgCover sd_setImageWithURL:[NSString stringWithFormat:@"%@%@",myDelegate.ipString,model.picUrl] placeholderImage:[UIImage imageNamed:@"favorites.png"]];
+//    [cell.UIImgCover sd_setImageWithURL:model.picUrl placeholderImage:[UIImage imageNamed:@"favorites.png"]];
     return cell;
 }
 
@@ -359,113 +341,113 @@
 -(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
     
-    
-    
-    //根据storyboard id来获取目标页面
-    ArticleDetailViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"ArticleDetailViewController"];
-    if([@"zxxx" isEqualToString:type])
-        nextPage->pubString=@"http://mp.weixin.qq.com/s/jSpB9hQupgs6e1x2MY5t2Q";
-    else if([@"xlzs" isEqualToString:type])
-        nextPage->pubString=@"https://mp.weixin.qq.com/s?__biz=MzI0NzcwMjk4OA==&mid=100000029&idx=2&sn=6fcdd1ace7f38c279ad876916d80467a&chksm=69aab5be5edd3ca82db4e67412703ef1a9ab237c1efdf2ea8dbbb27b44c41791108020b86c87&mpshare=1&scene=1&srcid=0109cHZBsWoocYL6bgSFbKx1&key=a5e15611f72562f201c7e53e7e775691a56c248eec550dea214f5f77d9770688f21b69cd6e81ece7783a4ed8811fdeaa1d2ab56858f5dc3d9ce28d63286da04194fb70e4fcbe13ba4110457861f09002&ascene=0&uin=ODk4MzEwMTY5&devicetype=iMac+MacBookAir6%2C2+OSX+OSX+10.12.1+build(16B2555)&version=12010210&nettype=WIFI&fontScale=100&pass_ticket=gLigsYUageUfMfyUCRYEEUnvhAkH2%2BwYNaz83cLnA%2F3bXoIpzkMunbIBNAu2VYbw";
-    //    传值
-    //    nextPage->pubString=[mData objectAtIndex:indexPath.row];
-    //UITabBarController和的UINavigationController结合使用,进入新的页面的时候，隐藏主页tabbarController的底部栏
-    nextPage.hidesBottomBarWhenPushed=YES;
-    
-    //跳转
-    [self.navigationController pushViewController:nextPage animated:YES];
-    
-    
-//    //    [self loadArticleData];
-//    MBProgressHUD *hud;
-//    hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-//    //hud.color = [UIColor colorWithHexString:@"343637" alpha:0.5];
-//    hud.labelText = @" 获取数据...";
-//    [hud show:YES];
-//    //获取全局ip地址
-//    AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
-//    
-//    NSString *urlString= [NSString stringWithFormat:@"http://%@:8080/schoolCon/api/sys/user/validateVip",myDelegate.ipString];
-//    
-//    //创建数据请求的对象，不是单例
-//    AFHTTPRequestOperationManager *manager=[AFHTTPRequestOperationManager manager];
-//    //设置响应数据的类型,如果是json数据，会自动帮你解析
-//    //注意setWithObjects后面的s不能少
-//    //    manager.responseSerializer.acceptableContentTypes=[NSSet setWithObjects:@"application/json", nil];
-//    // 请求参数
-//    NSDictionary *parameters = @{
-//                                 //                                 @"id": @"bb744859cadc4c85b3b5228723da8671",
-//                                 @"appId": @"03a8f0ea6a",
-//                                 @"appSecret": @"b4a01f5a7dd4416c",
-//                                 @"token":myDelegate.token
-//                                 };
-//    [manager POST:urlString parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
-//        //隐藏圆形进度条
-//        [hud hide:YES];
-//        NSString *result=[JsonUtil DataTOjsonString:responseObject];
-//        
-//        NSLog(@"***************返回结果***********************");
-//        NSLog(result);
-//        /**
-//         *开始解析json
-//         */
-//        
-//        
-//        
-//        //
-//        //        //NSString *result=[self DataTOjsonString:responseObject];
-//        NSData *data=[result dataUsingEncoding:NSUTF8StringEncoding];
-//        NSError *error=[[NSError alloc]init];
-//        NSDictionary *doc= [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
-//        //        {
-//        //         "msg" : "激活失败,该账号已经进行过激活",
-//        //         "code" : 205
-//        //         }
-//        NSLog(@"服务器返回msg%@",[doc objectForKey:@"msg"]);
-//        NSLog(@"服务器返回code%@",[doc objectForKey:@"code"]);
-//        NSNumber *code=0;
-//        if([[doc objectForKey:@"msg"] isEqualToString:@"会员"]){
-//            ArticleDetailViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"ArticleDetailViewController"];
-//            
-//             Article *model=[allDataFromServer objectAtIndex:indexPath.row];
-//            nextPage->articleId=model.articleId;
-//            nextPage->title=model.title;
-//            nextPage.hidesBottomBarWhenPushed=YES;
-//            [self.navigationController pushViewController:nextPage animated:YES];
-//        }
-//        else
-//        {
-//            UIAlertController *alert=[UIAlertController alertControllerWithTitle:nil message:@"您不是VIP，无法查看精品文章" preferredStyle:UIAlertControllerStyleAlert];
-//            UIAlertAction *ok=[UIAlertAction actionWithTitle:@"确认"
-//                                                       style:UIAlertActionStyleDefault handler:nil];
-//            
-//            //        信息框添加按键
-//            [alert addAction:ok];
-//            [self presentViewController:alert animated:YES completion:nil];
-//        }
-//        
-//        
-//        
-//        
-//        
-//    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-//        //隐藏圆形进度条
-//        [hud hide:YES];
-//        NSString *errorUser=[error.userInfo objectForKey:NSLocalizedDescriptionKey];
-//        if(error.code==-1009)
-//            errorUser=@"主人，似乎没有网络喔！";
-//        UIAlertController *alert=[UIAlertController alertControllerWithTitle:nil message:errorUser preferredStyle:UIAlertControllerStyleAlert];
-//        UIAlertAction *ok=[UIAlertAction actionWithTitle:@"确认"
-//                                                   style:UIAlertActionStyleDefault handler:nil];
-//        //        信息框添加按键
-//        [alert addAction:ok];
-//        [self presentViewController:alert animated:YES completion:nil];
-//    }];
 //    
 //    
-//    //    [self verifyVip];
+//    //根据storyboard id来获取目标页面
+//    ArticleDetailViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"ArticleDetailViewController"];
+//    if([@"zxxx" isEqualToString:type])
+//        nextPage->pubString=@"http://mp.weixin.qq.com/s/jSpB9hQupgs6e1x2MY5t2Q";
+//    else if([@"xlzs" isEqualToString:type])
+//        nextPage->pubString=@"https://mp.weixin.qq.com/s?__biz=MzI0NzcwMjk4OA==&mid=100000029&idx=2&sn=6fcdd1ace7f38c279ad876916d80467a&chksm=69aab5be5edd3ca82db4e67412703ef1a9ab237c1efdf2ea8dbbb27b44c41791108020b86c87&mpshare=1&scene=1&srcid=0109cHZBsWoocYL6bgSFbKx1&key=a5e15611f72562f201c7e53e7e775691a56c248eec550dea214f5f77d9770688f21b69cd6e81ece7783a4ed8811fdeaa1d2ab56858f5dc3d9ce28d63286da04194fb70e4fcbe13ba4110457861f09002&ascene=0&uin=ODk4MzEwMTY5&devicetype=iMac+MacBookAir6%2C2+OSX+OSX+10.12.1+build(16B2555)&version=12010210&nettype=WIFI&fontScale=100&pass_ticket=gLigsYUageUfMfyUCRYEEUnvhAkH2%2BwYNaz83cLnA%2F3bXoIpzkMunbIBNAu2VYbw";
+//    //    传值
+//    //    nextPage->pubString=[mData objectAtIndex:indexPath.row];
+//    //UITabBarController和的UINavigationController结合使用,进入新的页面的时候，隐藏主页tabbarController的底部栏
+//    nextPage.hidesBottomBarWhenPushed=YES;
 //    
-//    */
+//    //跳转
+//    [self.navigationController pushViewController:nextPage animated:YES];
+    
+    
+    //    [self loadArticleData];
+    MBProgressHUD *hud;
+    hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    //hud.color = [UIColor colorWithHexString:@"343637" alpha:0.5];
+    hud.labelText = @" 获取数据...";
+    [hud show:YES];
+    //获取全局ip地址
+    AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
+    
+    NSString *urlString= [NSString stringWithFormat:@"%@/api/sys/user/validateVip",myDelegate.ipString];
+    
+    //创建数据请求的对象，不是单例
+    AFHTTPRequestOperationManager *manager=[AFHTTPRequestOperationManager manager];
+    //设置响应数据的类型,如果是json数据，会自动帮你解析
+    //注意setWithObjects后面的s不能少
+    //    manager.responseSerializer.acceptableContentTypes=[NSSet setWithObjects:@"application/json", nil];
+    // 请求参数
+    NSDictionary *parameters = @{
+                                 //                                 @"id": @"bb744859cadc4c85b3b5228723da8671",
+                                 @"appId": @"03a8f0ea6a",
+                                 @"appSecret": @"b4a01f5a7dd4416c",
+                                 @"token":myDelegate.token
+                                 };
+    [manager POST:urlString parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        //隐藏圆形进度条
+        [hud hide:YES];
+        NSString *result=[JsonUtil DataTOjsonString:responseObject];
+        
+        NSLog(@"***************返回结果***********************");
+        NSLog(result);
+        /**
+         *开始解析json
+         */
+        
+        
+        
+        //
+        //        //NSString *result=[self DataTOjsonString:responseObject];
+        NSData *data=[result dataUsingEncoding:NSUTF8StringEncoding];
+        NSError *error=[[NSError alloc]init];
+        NSDictionary *doc= [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
+        //        {
+        //         "msg" : "激活失败,该账号已经进行过激活",
+        //         "code" : 205
+        //         }
+        NSLog(@"服务器返回msg%@",[doc objectForKey:@"msg"]);
+        NSLog(@"服务器返回code%@",[doc objectForKey:@"code"]);
+        NSNumber *code=0;
+        if([[doc objectForKey:@"msg"] isEqualToString:@"会员"]){
+            ArticleDetailViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"ArticleDetailViewController"];
+            
+             Article *model=[allDataFromServer objectAtIndex:indexPath.row];
+            nextPage->articleId=model.articleId;
+            nextPage->title=model.title;
+            nextPage.hidesBottomBarWhenPushed=YES;
+            [self.navigationController pushViewController:nextPage animated:YES];
+        }
+        else
+        {
+            UIAlertController *alert=[UIAlertController alertControllerWithTitle:nil message:@"您不是VIP，无法查看精品文章" preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction *ok=[UIAlertAction actionWithTitle:@"确认"
+                                                       style:UIAlertActionStyleDefault handler:nil];
+            
+            //        信息框添加按键
+            [alert addAction:ok];
+            [self presentViewController:alert animated:YES completion:nil];
+        }
+        
+        
+        
+        
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        //隐藏圆形进度条
+        [hud hide:YES];
+        NSString *errorUser=[error.userInfo objectForKey:NSLocalizedDescriptionKey];
+        if(error.code==-1009)
+            errorUser=@"主人，似乎没有网络喔！";
+        UIAlertController *alert=[UIAlertController alertControllerWithTitle:nil message:errorUser preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *ok=[UIAlertAction actionWithTitle:@"确认"
+                                                   style:UIAlertActionStyleDefault handler:nil];
+        //        信息框添加按键
+        [alert addAction:ok];
+        [self presentViewController:alert animated:YES completion:nil];
+    }];
+    
+    
+    //    [self verifyVip];
+    
+    
     
 }
 //-(void)verifyVip (NSInteger *){
