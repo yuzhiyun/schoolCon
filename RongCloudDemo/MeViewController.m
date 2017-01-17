@@ -26,6 +26,7 @@
     //上传头像进度条，就是一个劲旋转的进度
     MBProgressHUD *hud;
 }
+//@property (weak, nonatomic) IBOutlet UIImageView *UIImageViewAvatar;
 @property (weak, nonatomic) IBOutlet UIImageView *UIImageViewAvatar;
 
 @end
@@ -276,12 +277,12 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
     
     static NSString *simpleTableIdentifier = @"inforCell";
     
-    MeTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
     
     if (cell == nil) {
         cell = [[MeTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
     }
-    cell.UILabelKey.text=[mDataKey objectAtIndex:indexPath.row];
+    cell.textLabel.text=[mDataKey objectAtIndex:indexPath.row];
     
     cell.imageView.image=[UIImage imageNamed:[mDataImg objectAtIndex:indexPath.row]];
     
