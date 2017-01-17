@@ -39,54 +39,7 @@
     [self loadData:pageIndex orientation:@"up"];
     AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
     NSLog(@"token是%@",myDelegate.token);
-    //    //指定大标题
-    //    mData=[[NSMutableArray alloc]init];
-    ////    [mData addObject:[NSString stringWithFormat:@"当前页面%d, 你是最美的",pageController.selectIndex]];
-    //    [mData addObject:@"心灵的憩息之地"];
-    //    [mData addObject:@"优雅，是一种岁月"];
-    //    [mData addObject:@"科学家证实：“3岁看大”确有科学依据"];
-    //    [mData addObject:@"人生处世心态好，看淡尘世品行高"];
-    //    [mData addObject:@"人生十二最"];
-    //    //指定封面
-    //    mImg=[[NSMutableArray alloc]init];
-    //    [mImg addObject:@"1.jpg"];
-    //    [mImg addObject:@"2.jpg"];
-    //    [mImg addObject:@"3.jpg"];
-    //    [mImg addObject:@"4.jpg"];
-    //    [mImg addObject:@"5.jpg"];
-    //
-    //    //指定作者
-    //    mDataAuthor=[[NSMutableArray alloc]init];
-    //    [mDataAuthor addObject:@"余秋雨"];
-    //    [mDataAuthor addObject:@"老舍"];
-    //    [mDataAuthor addObject:@"张凯景"];
-    //    [mDataAuthor addObject:@"李非"];
-    //    [mDataAuthor addObject:@"张晓静"];
-//    Article *model=[[Article alloc]init];
-//    model.articleId=@"1";
-//    model.picUrl=@"http://mmbiz.qpic.cn/mmbiz/6qu8KwIJTLdpZF6UOGNNcBcb4yUQ01HD8Vq77Zb0mbYlzfcqOugLV5EY4XbyW2elT3RuMBDCVicYqHicR3ZgZO1w/640?wx_fmt=jpeg&wxfrom=5&wx_lazy=1";
-//    model.title=@"小丑 独裁者 艺术家";
-//    model.author=@"理想国";
-//    model.date=[NSNumber numberWithInt:(1234)];
-//    
-//    Article *modelPhysicalKnowledge=[[Article alloc]init];
-//    modelPhysicalKnowledge.articleId=@"2";
-//    modelPhysicalKnowledge.picUrl=@"http://mmbiz.qpic.cn/mmbiz_jpg/gOssv1gYMDGB4GEPqpTwzvNXoPKQfbibPQX8aBsD780hd1yM3kWELm9afTxBpeua9Uhqh8rEThibeSUzC4I5KIjQ/640?wx_fmt=jpeg&wxfrom=5&wx_lazy=1";
-//    modelPhysicalKnowledge.title=@"儿童家庭治疗中的八大观察";
-//    modelPhysicalKnowledge.author=@" 成成 大成心理工作室";
-//    modelPhysicalKnowledge.date=[NSNumber numberWithInt:(1234)];
-//    allDataFromServer=[[NSMutableArray alloc]init];
-//    
-//    
-//    if([@"zxxx" isEqualToString:type])
-////    for(int i=0;i<5;i++)
-//    [allDataFromServer addObject:model];
-//    else
-//        if([@"xlzs" isEqualToString:type])
-//            for(int i=0;i<5;i++)
-//                [allDataFromServer addObject:modelPhysicalKnowledge];
-    
-//    [allDataFromServer addObject:model];
+
     
     
     // 2.集成刷新控件
@@ -532,7 +485,6 @@
         [alert addAction:ok];
         [self presentViewController:alert animated:YES completion:nil];
     }];
-    
 }
 
 

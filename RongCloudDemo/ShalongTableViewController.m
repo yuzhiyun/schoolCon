@@ -31,55 +31,24 @@
 
 @implementation ShalongTableViewController{
     NSMutableArray *allDataFromServer;
-    
     UITableView *mTableView;
     //页面索引，分页查询数据，下拉刷新的时候需要使用到
     int pageIndex;
-
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     //数据默认为先加载第一页
     pageIndex=1;
     [self loadData:pageIndex orientation:@"up"];
-    
     self.title=@"岳麓沙龙";
     [self.navigationController.navigationBar setBarTintColor:[UIColor colorWithRed:3/255.0 green:121/255.0 blue:251/255.0 alpha:1.0]];
     [self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor],UITextAttributeTextColor,nil]];
     //    修改下一个界面返回按钮的title，注意这行代码每个页面都要写一遍，不是全局的
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:nil action:nil];
-    //防止与顶部重叠
-//    self.tableView.contentInset=UIEdgeInsetsMake(20.0f, 0.0f, 0.0f, 0.0f);
-
-//    Activity *model=[[Activity alloc]init];
-//    model.activityId=@"1";
-//    model.picUrl=@"http://mmbiz.qpic.cn/mmbiz_jpg/6qu8KwIJTLcqTxT8jqPOKCEAvGuhbFpzscsPC8FeDEYkQxsQ1AFSeJjYWgMeicQU2gJrgb3bhu7quicok24sLwIw/640?wx_fmt=jpeg&wxfrom=5&wx_lazy=1";
-//    model.title=@"在生活中找寻游赏，也找寻写作 | 舒国治五城巡讲";
-//    model.publisher=@"理想国、听道";
-//    model.place=@"厦门·纸的时代书店";
-//    model.date=@"2017-02-29";
-//    
-//    Activity *modelPhysicalActicity=[[Activity alloc]init];
-//    modelPhysicalActicity.activityId=@"1";
-//    modelPhysicalActicity.picUrl=@"https://imgsa.baidu.com/baike/c0%3Dbaike80%2C5%2C5%2C80%2C26/sign=cb319e894290f60310bd9415587bd87e/ac345982b2b7d0a24d471625c3ef76094a369aff.jpg";
-//    modelPhysicalActicity.title=@"长沙地面 | 儿童精神分析系统培训工作坊（第一阶)";
-//    modelPhysicalActicity.publisher=@" 大成心理工作室";
-//    modelPhysicalActicity.place=@"长沙市星沙向阳路金科时代 3栋613  ";
-//    modelPhysicalActicity.date=@"2017-02-29";
-//    allDataFromServer=[[NSMutableArray alloc]init];
-//    if([@"ylsl" isEqualToString:type])
-//    for(int i=0;i<5;i++)
-//        [allDataFromServer addObject:model];
-//    else
-//        for(int i=0;i<5;i++)
-//            [allDataFromServer addObject:modelPhysicalActicity];
-//    
-//
-
     // 2.集成刷新控件
     [self setupRefresh];
+    allDataFromServer= [[NSMutableArray alloc]init];
 }
 /**
  *  集成刷新控件
@@ -158,6 +127,8 @@
     // Dispose of any resources that can be recreated.
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    
+    mTableView=tableView;
 #warning Incomplete implementation, return the number of rows
     return [allDataFromServer count];
 }
@@ -168,14 +139,14 @@
         cell=[[ShalongTableViewCell init] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
     }
     Activity *model=[allDataFromServer objectAtIndex:indexPath.row];
-//    NSString *t1=[mData objectAtIndex:indexPath.row];
-//    cell.UILabelTitle.text=t1;
+    //    NSString *t1=[mData objectAtIndex:indexPath.row];
+    //    cell.UILabelTitle.text=t1;
     cell.UILabelTitle.text=model.title;
     cell.UILabelDate.text=model.date;
     cell.UILabelPlace.text=model.place;
     cell.UILabelPublisher.text=model.publisher;
-//    cell.UIImgCover.image=[UIImage imageNamed:[mImg objectAtIndex:indexPath.row]];
-//        加载图片,如果加载不到图片，就显示favorites.png
+    //    cell.UIImgCover.image=[UIImage imageNamed:[mImg objectAtIndex:indexPath.row]];
+    //        加载图片,如果加载不到图片，就显示favorites.png
     [cell.UIImgCover sd_setImageWithURL: model.picUrl placeholderImage:[UIImage imageNamed:@"favorites.png"]];
     return cell;
 }
@@ -186,12 +157,11 @@
     if([@"ylsl" isEqualToString:type])
         nextPage->pubString=@"http://mp.weixin.qq.com/s/uikPkoBVZkE5KXwCqrzscg";
     else
-    nextPage->pubString=@"https://mp.weixin.qq.com/s?__biz=MzI0NzcwMjk4OA==&mid=100000022&idx=1&sn=27cf85ac5608ce44155933b96a5ceb82&chksm=69aab5b55edd3ca379bfd80fef1a5a40f974fc4ff609751a10ce36d267d662c418df83c4a050&mpshare=1&scene=1&srcid=0109wYB7kXr9UDvmRYqExeBD&key=b4386489b84c1a425fed004ec36f553c36a2512955542db4ec3527929a8dc8ee8425aa3cd42627026c893c457e5890656757e099e3cc47b5938ed9444d874275789f09f4738713b1951b5959b668dd2a&ascene=0&uin=ODk4MzEwMTY5&devicetype=iMac+MacBookAir6%2C2+OSX+OSX+10.12.1+build(16B2555)&version=12010210&nettype=WIFI&fontScale=100&pass_ticket=gLigsYUageUfMfyUCRYEEUnvhAkH2%2BwYNaz83cLnA%2F3bXoIpzkMunbIBNAu2VYbw";
+        nextPage->pubString=@"https://mp.weixin.qq.com/s?__biz=MzI0NzcwMjk4OA==&mid=100000022&idx=1&sn=27cf85ac5608ce44155933b96a5ceb82&chksm=69aab5b55edd3ca379bfd80fef1a5a40f974fc4ff609751a10ce36d267d662c418df83c4a050&mpshare=1&scene=1&srcid=0109wYB7kXr9UDvmRYqExeBD&key=b4386489b84c1a425fed004ec36f553c36a2512955542db4ec3527929a8dc8ee8425aa3cd42627026c893c457e5890656757e099e3cc47b5938ed9444d874275789f09f4738713b1951b5959b668dd2a&ascene=0&uin=ODk4MzEwMTY5&devicetype=iMac+MacBookAir6%2C2+OSX+OSX+10.12.1+build(16B2555)&version=12010210&nettype=WIFI&fontScale=100&pass_ticket=gLigsYUageUfMfyUCRYEEUnvhAkH2%2BwYNaz83cLnA%2F3bXoIpzkMunbIBNAu2VYbw";
     //    传值
-//    nextPage->pubString=[mData objectAtIndex:indexPath.row];
+    //    nextPage->pubString=[mData objectAtIndex:indexPath.row];
     //UITabBarController和的UINavigationController结合使用,进入新的页面的时候，隐藏主页tabbarController的底部栏
     nextPage.hidesBottomBarWhenPushed=YES;
-    
     //跳转
     [self.navigationController pushViewController:nextPage animated:YES];
 }
@@ -253,7 +223,6 @@
                         UIAlertController *alert=[UIAlertController alertControllerWithTitle:nil message:@"抱歉,没有更多数据了" preferredStyle:UIAlertControllerStyleAlert];
                         UIAlertAction *ok=[UIAlertAction actionWithTitle:@"确认"
                                                                    style:UIAlertActionStyleDefault handler:nil];
-                        
                         //        信息框添加按键
                         [alert addAction:ok];
                         [self presentViewController:alert animated:YES completion:nil];
@@ -262,30 +231,34 @@
                     else{
                         
                         for(NSDictionary *item in  articleArray ){
-                            Article *model=[[Article alloc]init];
-                            model.articleId=item [@"id"];
+                            Activity *model=[[Activity alloc]init];
+                            model.activityId=item [@"id"];
                             model.picUrl=item [@"picurl"];
                             model.title=item [@"title"];
-                            model.author=item [@"author"];
-                            
-                            //                    注意，publishat是NSNumber 类型的，所以不要用字符串去接收，否则报错
-                            //                    -[__NSCFNumber rangeOfCharacterFromSet:]: unrecognized selector sent to instance 0x7fa5216589d0"，对于IOS开发感兴趣的同学可以参考一下： 这个算是类型的不匹配，就是把NSNumber类型的赋给字符串了自己还不知情，
-                            
-                            model.date=item [@"publishat"];
+                            model.publisher=item [@"author"];
                             
                             
-                            NSLog(@"******打印文章列表**********");
-                            NSLog(@"文章articleId是%@",model.articleId);
-                            NSLog(@"文章picUrl是%@",model.picUrl);
-                            NSLog(@"文章title是%@",model.title);
-                            NSLog(@"文章author是%@",model.author);
-                            NSLog(@"文章publishat是%i",model.date);
-                            //添加到数组以便显示到tableview
+                         /**
+                                *把时间搓NSNumber 转成用户看得懂的时间
+                                */
+                            NSNumber *date=item [@"starttime"];
+                            NSString *timeStamp2 =date.stringValue;
+                            long long int date1 = (long long int)[timeStamp2 intValue];
+                            NSDate *date2 = [NSDate dateWithTimeIntervalSince1970:date1];
+                            //用于格式化NSDate对象
+                            NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+                            //设置格式：zzz表示时区
+                            [dateFormatter setDateFormat:@"yyyy-MM-dd"];
+                            //NSDate转NSString
+                            NSString *currentDateString = [dateFormatter stringFromDate:date2];
+                            
+                            model.date=currentDateString;
+
                             NSLog(@"addObject之前");
                             if([orientation isEqualToString:@"up"])
                                 [allDataFromServer addObject:model];
                             else
-                                [allDataFromServer insertObject:model atIndex:0];
+                                [allDataFromServer addObject:model ];
                             NSLog(@"addObject之后");
                         }
                         NSLog(@"mDataArticle项数为%i",[allDataFromServer count]);
@@ -322,13 +295,6 @@
         }
         else
             NSLog(@"*****doc空***********");
-        
-        
-        
-        
-        
-        
-        
         //        NSLog([self DataTOjsonString:responseObject]);
         //          NSLog([self convertToJsonData:dic]);
         
@@ -348,7 +314,4 @@
         [alert addAction:ok];
         [self presentViewController:alert animated:YES completion:nil];
     }];}
-
-
-
 @end
