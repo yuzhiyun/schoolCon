@@ -234,7 +234,7 @@
 
 /* Begin PBXFileReference section */
 		461708771BF03D9C0081819C /* libopencore-amrnb.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libopencore-amrnb.a"; path = "framework/libopencore-amrnb.a"; sourceTree = "<group>"; };
-		461B27831B82DD7D00107001 /* Emoji.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Emoji.plist; path = framework/Emoji.plist; sourceTree = "<group>"; };
+		461B27831B82DD7D00107001 /* Emoji.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Emoji.plist; path = ../framework/Emoji.plist; sourceTree = "<group>"; };
 		461B27841B82DD7D00107001 /* RongCloud.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = RongCloud.bundle; path = framework/RongCloud.bundle; sourceTree = "<group>"; };
 		461B27881B82DDA000107001 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = framework/en.lproj/RongCloudKit.strings; sourceTree = SOURCE_ROOT; };
 		461B278A1B82DDAE00107001 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "framework/zh-Hans.lproj/RongCloudKit.strings"; sourceTree = SOURCE_ROOT; };
@@ -626,7 +626,6 @@
 				CD79C1F71E2502B400A9889F /* AFNetworking */,
 				CD2DCC501E09305D000C03E1 /* SDWebImage */,
 				CD2DCAE81DFD9043000C03E1 /* img */,
-				461B27831B82DD7D00107001 /* Emoji.plist */,
 				461B27841B82DD7D00107001 /* RongCloud.bundle */,
 				4698CBCD1AE232FF0006330E /* Frameworks */,
 				4698CBC91AE230600006330E /* Resouce */,
@@ -676,6 +675,7 @@
 			isa = PBXGroup;
 			children = (
 				461B27871B82DDA000107001 /* RongCloudKit.strings */,
+				461B27831B82DD7D00107001 /* Emoji.plist */,
 				4698CBA01AE22FCA0006330E /* Info.plist */,
 				4698CBA11AE22FCA0006330E /* main.m */,
 			);
