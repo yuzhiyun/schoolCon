@@ -53,6 +53,7 @@
     mDataKey=[[NSMutableArray alloc]init];
     
     [mDataKey addObject:@"修改电话"];
+    [mDataKey addObject:@"修改密码"];
     [mDataKey addObject:@"我的活动"];
     [mDataKey addObject:@"我的测试"];
     [mDataKey addObject:@"我的会员"];
@@ -60,6 +61,7 @@
     [mDataKey addObject:@"退出登录"];
     
     mDataImg=[[NSMutableArray alloc]init];
+    [mDataImg addObject:@"phone.png"];
     [mDataImg addObject:@"phone.png"];
     [mDataImg addObject:@"coffee_little.png"];
     [mDataImg addObject:@"test_litttle.png"];
@@ -328,8 +330,18 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
         nextPage.hidesBottomBarWhenPushed=YES;
         [self.navigationController pushViewController:nextPage animated:YES];
     }
-    //我的活动
+    //修改密码
     if(1==indexPath.row){
+//        //显示顶部导航
+//        self.navigationController.navigationBarHidden=NO;
+//        ShalongTableViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"ShalongTableViewController"];
+//        nextPage.hidesBottomBarWhenPushed=YES;
+//        [self.navigationController pushViewController:nextPage animated:YES];
+//
+        NSLog(@"修改密码");
+    }
+    //我的活动
+    if(2==indexPath.row){
         //显示顶部导航
         self.navigationController.navigationBarHidden=NO;
         ShalongTableViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"ShalongTableViewController"];
@@ -338,7 +350,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
         
     }
     //我的测试
-    if(2==indexPath.row){
+    if(3==indexPath.row){
         //显示顶部导航
         self.navigationController.navigationBarHidden=NO;
         PsychologyTableViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"PsychologyTableViewController"];
@@ -348,7 +360,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
     }
     
     //我的会员
-    if(3==indexPath.row){
+    if(4==indexPath.row){
         //显示顶部导航
         self.navigationController.navigationBarHidden=NO;
         VipViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"VipViewController"];
@@ -357,7 +369,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
         
     }
     //我的收藏
-    if(4==indexPath.row){
+    if(5==indexPath.row){
         //显示顶部导航
         self.navigationController.navigationBarHidden=NO;
         ArticleTableViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"ArticleTableViewController"];
