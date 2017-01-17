@@ -98,7 +98,7 @@
     //获取全局ip地址
     AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
     
-    NSString *urlString= [NSString stringWithFormat:@"http://%@/api/sys/user/login",myDelegate.ipString];
+    NSString *urlString= [NSString stringWithFormat:@"%@/api/sys/user/login",myDelegate.ipString];
     
     //创建数据请求的对象，不是单例
     AFHTTPRequestOperationManager *manager=[AFHTTPRequestOperationManager manager];

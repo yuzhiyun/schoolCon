@@ -87,8 +87,8 @@
     //获取全局ip地址
     AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
     
-    NSString *urlString= [NSString stringWithFormat:@"http://%@/api/sch/school/get?appId=03a8f0ea6a&appSecret=b4a01f5a7dd4416c",myDelegate.ipString];
-    
+    NSString *urlString= [NSString stringWithFormat:@"%@/api/sch/school/get?appId=03a8f0ea6a&appSecret=b4a01f5a7dd4416c",myDelegate.ipString];
+   
     //创建数据请求的对象，不是单例
     AFHTTPRequestOperationManager *manager=[AFHTTPRequestOperationManager manager];
     //设置响应数据的类型,如果是json数据，会自动帮你解析

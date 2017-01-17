@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface VipViewController : UIViewController
+@interface VipViewController : UIViewController<UITableViewDelegate, UITableViewDataSource>
 
 @end

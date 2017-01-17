@@ -51,7 +51,8 @@
     [hud show:YES];
     //获取全局ip地址
     AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
-    NSString *urlString= [NSString stringWithFormat:@"http://%@:8080/schoolCon/api/sys/sms/validate",myDelegate.ipString];
+    NSString *urlString= [NSString stringWithFormat:@"%@/api/sys/sms/validate",myDelegate.ipString];
+  
     //创建数据请求的对象，不是单例
     AFHTTPRequestOperationManager *manager=[AFHTTPRequestOperationManager manager];
     //设置响应数据的类型,如果是json数据，会自动帮你解析
@@ -100,6 +101,30 @@
         NSLog([doc objectForKey:@"msg"]);
         NSLog(@"%i",[doc objectForKey:@"code"]);
         
+        NSNumber *zero=[NSNumber numberWithInt:(0)];
+        NSNumber *code=[doc objectForKey:@"code"];
+        if([zero isEqualToNumber:code])
+        {
+            
+            UIAlertController *alert=[UIAlertController alertControllerWithTitle:nil message:@"验证码发送成功" preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction *ok=[UIAlertAction actionWithTitle:@"确认"
+                                                       style:UIAlertActionStyleDefault handler:nil];
+            
+            //        信息框添加按键
+            [alert addAction:ok];
+            [self presentViewController:alert animated:YES completion:nil];
+        
+        
+        }
+        else{
+            UIAlertController *alert=[UIAlertController alertControllerWithTitle:nil message:[doc objectForKey:@"msg"] preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction *ok=[UIAlertAction actionWithTitle:@"确认"
+                                                       style:UIAlertActionStyleDefault handler:nil];
+            
+            //        信息框添加按键
+            [alert addAction:ok];
+            [self presentViewController:alert animated:YES completion:nil];
+        }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         //隐藏圆形进度条
         [hud hide:YES];
@@ -148,8 +173,8 @@
     //获取全局ip地址
     AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
     
-    NSString *urlString= [NSString stringWithFormat:@"http://%@:8080/schoolCon/api/sys/user/activate",myDelegate.ipString];
-    
+    NSString *urlString= [NSString stringWithFormat:@"%@/api/sys/user/activate",myDelegate.ipString];
+   
     //创建数据请求的对象，不是单例
     AFHTTPRequestOperationManager *manager=[AFHTTPRequestOperationManager manager];
     //设置响应数据的类型,如果是json数据，会自动帮你解析
@@ -182,13 +207,35 @@
         NSData *data=[result dataUsingEncoding:NSUTF8StringEncoding];
         NSError *error=[[NSError alloc]init];
         NSDictionary *doc= [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
-        //        {
-        //         "msg" : "激活失败,该账号已经进行过激活",
-        //         "code" : 205
-        //         }
-        NSLog(@"服务器返回msg%@",[doc objectForKey:@"msg"]);
-        NSLog(@"服务器返回code%i",[doc objectForKey:@"code"]);
-        if([[doc objectForKey:@"msg"]isEqualToString:@"ok"]){
+
+//        NSLog(@"服务器返回msg%@",[doc objectForKey:@"msg"]);
+//        NSLog(@"服务器返回code%i",[doc objectForKey:@"code"]);
+//        NSData *data=[result dataUsingEncoding:NSUTF8StringEncoding];
+//        NSError *error=[[NSError alloc]init];
+//        NSDictionary *doc= [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
+//        
+//        //        "data" : [
+//        //                  {
+//        //                      "id" : "bb744859cadc4c85b3b5228723da8671",
+//        //                      "title" : "1",
+//        //                      "author" : "超级管理员",
+//        //                      "publishat" : 1484101843,
+//        //                      "picurl" : "\/schoolCon\/upload\/image\/20170111\/5rpblhora6i7prhqa1i7j48b15.14.02.png"
+//        //                  }
+//        //                  ]
+//        if(doc!=nil){
+//            NSLog(@"*****doc不为空***********");
+//            if([[doc objectForKey:@"code"] isKindOfClass:[NSNumber class]])
+//                NSLog(@"code 是 NSNumber");
+//            //判断code 是不是0
+//            NSNumber *zero=[NSNumber numberWithInt:(0)];
+//            NSNumber *code=[doc objectForKey:@"code"];
+//            if([zero isEqualToNumber:code])
+//            {
+                    NSNumber *zero=[NSNumber numberWithInt:(0)];
+                    NSNumber *code=[doc objectForKey:@"code"];
+                    if([zero isEqualToNumber:code])
+                    {
             
             //激活成功之后获取token
             AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
