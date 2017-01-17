@@ -28,10 +28,15 @@
     // [title addObject:@"活动"];
     //    [title addObject:@"分类4"];
     //    [title addObject:@"分类5"];
-    
+//    typedef NS_ENUM(NSUInteger, WMMenuViewStyle) {
+//        WMMenuViewStyleDefault,     // 默认
+//        WMMenuViewStyleLine,        // 带下划线 (若要选中字体大小不变，设置选中和非选中大小一样即可)
+//        WMMenuViewStyleFlood,       // 涌入效果 (填充)
+//        WMMenuViewStyleFloodHollow, // 涌入效果 (空心的)
+//    };
     if(self) {
         self.menuHeight = 35;
-        self.menuItemWidth = 100;
+        self.menuItemWidth = 75;
         self.menuViewStyle = WMMenuViewStyleLine;
         //        self.titles = [NSArray arrayWithObjects:@"读文说史", @"教育智慧",@"分类3",@"分类4",@"分类5", nil];
         self.titles=title;
