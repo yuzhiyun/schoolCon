@@ -15,6 +15,7 @@
 #import "JsonUtil.h"
 #import "MJRefresh.h"
 #import "Test.h"
+#import "TestResultViewController.h"
 #import "Alert.h"
 @interface TestViewController ()
 
@@ -169,12 +170,31 @@
             
             for(NSString *answer in answerArray)
                 NSLog(@"答案是%@",answerArray);
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示"
-                                                            message:@"已经是最后一题了，请提交答案"
-                                                           delegate:self
-                                                  cancelButtonTitle:@"确定"
-                                                  otherButtonTitles:nil];
-            [alert show];
+//            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示"
+//                                                            message:@"已经是最后一题了，请提交答案"
+//                                                           delegate:self
+//                                                  cancelButtonTitle:@"确定"
+//                                                  otherButtonTitles:nil];
+//            [alert show];
+            UIAlertController *alert=[UIAlertController alertControllerWithTitle:nil message:@"已经是最后一题了，请提交答案" preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction *ok=[UIAlertAction actionWithTitle:@"确认"
+                                                       style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){
+                                                       
+                                                           
+                                                           
+                                                           NSLog(@"");
+                                                           TestResultViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"TestResultViewController"];
+                                                           nextPage->testId=testId;
+                                                           nextPage->score=@"50";
+                                                           
+                                                           nextPage.hidesBottomBarWhenPushed=YES;
+                                                           [self.navigationController pushViewController:nextPage animated:YES];
+                                                       }];
+            
+            //        信息框添加按键
+            [alert addAction:ok];
+            [self presentViewController:alert animated:YES completion:nil];
+            
         }
     }
 }

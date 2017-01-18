@@ -228,6 +228,7 @@
 		CDF8EBD21E2F497A00BFD5EA /* home02.png in Resources */ = {isa = PBXBuildFile; fileRef = CDF8EBCD1E2F497A00BFD5EA /* home02.png */; };
 		CDF8EBD31E2F497A00BFD5EA /* home01.png in Resources */ = {isa = PBXBuildFile; fileRef = CDF8EBCE1E2F497A00BFD5EA /* home01.png */; };
 		CDF8EBD61E2F4D5200BFD5EA /* Test.m in Sources */ = {isa = PBXBuildFile; fileRef = CDF8EBD51E2F4D5200BFD5EA /* Test.m */; };
+		CDF8EBDB1E2F863E00BFD5EA /* TestResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDF8EBDA1E2F863E00BFD5EA /* TestResultViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -594,6 +595,8 @@
 		CDF8EBCE1E2F497A00BFD5EA /* home01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = home01.png; path = "../Users/qifeiqin/Downloads/图标/home01.png"; sourceTree = "<group>"; };
 		CDF8EBD51E2F4D5200BFD5EA /* Test.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Test.m; sourceTree = "<group>"; };
 		CDF8EBD71E2F4D5B00BFD5EA /* Test.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Test.h; sourceTree = "<group>"; };
+		CDF8EBD91E2F863E00BFD5EA /* TestResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestResultViewController.h; sourceTree = "<group>"; };
+		CDF8EBDA1E2F863E00BFD5EA /* TestResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestResultViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1065,6 +1068,7 @@
 		CD2DCC3A1E066ACA000C03E1 /* psychologyTest */ = {
 			isa = PBXGroup;
 			children = (
+				CDF8EBD81E2F85BD00BFD5EA /* testResult */,
 				CD6EAD031E288137009EC3A0 /* testIntroduction */,
 				CD2DCC9B1E0A2074000C03E1 /* concreteTest */,
 				CD2DCC3E1E066D5C000C03E1 /* psychologylist */,
@@ -1683,6 +1687,15 @@
 			name = testEntity;
 			sourceTree = "<group>";
 		};
+		CDF8EBD81E2F85BD00BFD5EA /* testResult */ = {
+			isa = PBXGroup;
+			children = (
+				CDF8EBD91E2F863E00BFD5EA /* TestResultViewController.h */,
+				CDF8EBDA1E2F863E00BFD5EA /* TestResultViewController.m */,
+			);
+			name = testResult;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1937,6 +1950,7 @@
 				CD2DCC931E0938AE000C03E1 /* FLAnimatedImage.m in Sources */,
 				CD2DCC351E065CE6000C03E1 /* ShalongTableViewController.m in Sources */,
 				CD2DCC941E0938AE000C03E1 /* FLAnimatedImageView.m in Sources */,
+				CDF8EBDB1E2F863E00BFD5EA /* TestResultViewController.m in Sources */,
 				CD2DCC8E1E09305D000C03E1 /* UIView+WebCacheOperation.m in Sources */,
 				CD2DCC821E09305D000C03E1 /* SDWebImageDecoder.m in Sources */,
 				CD79C2351E27240000A9889F /* UIScrollView+MJExtension.m in Sources */,

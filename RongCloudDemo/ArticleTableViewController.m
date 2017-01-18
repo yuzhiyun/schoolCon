@@ -209,7 +209,8 @@
             errorUser=@"主人，似乎没有网络喔！";
 
         [Alert showMessageAlert:errorUser view:self];
-    }];}
+    }];
+}
 
 
 #pragma mark - Table view data source

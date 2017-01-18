@@ -17,5 +17,6 @@
     NSString *pubString;
 @public
     NSString *testId;
+    
 }
 @end
