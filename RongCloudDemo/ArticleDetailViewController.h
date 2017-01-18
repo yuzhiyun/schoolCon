@@ -18,6 +18,8 @@
     
 @public
     NSString *pubString;
+@public
+    NSString *urlString;
     
 }
 @property (weak, nonatomic) IBOutlet UIWebView *UIWebViewArticle;

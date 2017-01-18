@@ -103,6 +103,11 @@
     AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
     
     NSString *urlString= [NSString stringWithFormat:@"%@/api/cms/article/getList",myDelegate.ipString];
+    
+    if([@"xlzs"isEqualToString:type])
+        urlString=[NSString stringWithFormat:@"%@/api/psy/knowledge/getList",myDelegate.ipString];
+
+    
     //创建数据请求的对象，不是单例
     AFHTTPRequestOperationManager *manager=[AFHTTPRequestOperationManager manager];
     //设置响应数据的类型,如果是json数据，会自动帮你解析
@@ -327,6 +332,15 @@
             Article *model=[allDataFromServer objectAtIndex:indexPath.row];
             nextPage->articleId=model.articleId;
             nextPage->title=model.title;
+            
+            NSString *urlString;
+            
+            if([@"xlzs" isEqualToString:type])
+                urlString=[NSString stringWithFormat:@"%@/api/psy/knowledge/getObject",myDelegate.ipString];
+            else
+                urlString=[NSString stringWithFormat:@"%@/api/cms/article/getObject",myDelegate.ipString];
+            nextPage->urlString=urlString;
+            
             nextPage.hidesBottomBarWhenPushed=YES;
             [self.navigationController pushViewController:nextPage animated:YES];
         }

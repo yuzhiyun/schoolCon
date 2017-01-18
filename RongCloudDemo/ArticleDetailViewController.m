@@ -35,7 +35,7 @@
     
     AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
     
-    NSString *urlString= [NSString stringWithFormat:@"%@/api/cms/article/getObject",myDelegate.ipString];
+//    NSString *urlString= [NSString stringWithFormat:@"%@/api/cms/article/getObject",myDelegate.ipString];
     
 
     NSURL *url = [NSURL URLWithString: urlString];
