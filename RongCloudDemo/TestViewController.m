@@ -54,58 +54,10 @@
     //    填充题目
     mAllData=[[NSMutableArray alloc]init];
     
-    //    for(int i=0;i<5;i++){
-//    NSMutableArray *mEntity=[[NSMutableArray alloc]init];
-//    
-//    [mEntity addObject:@"1、你是一个没有安全感的人吗？"];
-//    [mEntity addObject:@"是的"];
-//    [mEntity addObject:@"不是"];
-//    [mEntity addObject:@"一直都有安全感"];
-//    [mEntity addObject:@"偶尔"];
-//    
-//    [mAllData addObject:mEntity];
-//    
-//    NSMutableArray *mEntity2=[[NSMutableArray alloc]init];
-//    
-//    [mEntity2 addObject:@"2、你在面试中常常紧张的不知所措吗？"];
-//    [mEntity2 addObject:@"是的"];
-//    [mEntity2 addObject:@"不是"];
-//    [mEntity2 addObject:@"看具体情况"];
-//    [mEntity2 addObject:@"非常紧张，脑袋一片空白"];
-//    [mEntity2 addObject:@"偶尔"];
-//    [mEntity2 addObject:@"非常自信，不会紧张"];
-//    
-//    [mAllData addObject:mEntity2];
-    NSMutableArray *mEntity3=[[NSMutableArray alloc]init];
-//
-    [mEntity3 addObject:@"1、你是一个怀旧的人吗？"];
-    [mEntity3 addObject:@"是的"];
-    [mEntity3 addObject:@"不是"];
-    [mEntity3 addObject:@"不一定"];
-    [mEntity3 addObject:@"有时候会"];
-    
-    [mAllData addObject:mEntity3];
-    [self setTitle];
-    
-    
-//    answerArray=[NSMutableArray arrayWithCapacity:[mAllData count]];
-    answerArray=[[NSMutableArray alloc]init];
-    //填充-1到答案数组里面,之所以使用这种for循环，是因为i是int，[mAllData count]转不过来
-    
-    [answerArray addObject:@"-1"];
-//    NSLog(@"answerArray的大小%d",[answerArray count]);
-   
-    
 
-    
-    NSLog(@"answerArray的大小%i",[answerArray count]);
-//    [answerArray insertObject:@"1" atIndex:2];
-//    [answerArray removeObjectAtIndex:3];
-////
-//    for(NSString *s in answerArray)
-//        NSLog(s);
-    
-    
+//    [self setTitle];
+    answerArray=[[NSMutableArray alloc]init];
+//    [answerArray addObject:@"-1"];
     [self loadData];
 }
 
@@ -318,6 +270,8 @@
                     //填充-1到答案数组里面,之所以使用这种for循环，是因为i是int，[mAllData count]转不过来
                     [answerArray addObject:@"-1"];
                 }
+                
+                [self setTitle];
                 [mTableView reloadData];
                         NSLog(@"mAllData项数为%i",[mAllData count]);
                         NSLog(@"//更新界面");
