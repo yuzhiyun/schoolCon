@@ -10,7 +10,7 @@
 #import "ArticleTableViewController.h"
 
 #import "ShalongTableViewController.h"
-
+#import "AppDelegate.h"
 @interface EducationViewController ()
 
 @end
@@ -55,7 +55,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title=@"教育天地";
-    [self.navigationController.navigationBar setBarTintColor:[UIColor colorWithRed:3/255.0 green:121/255.0 blue:251/255.0 alpha:1.0]];
+    //   navigationBar背景
+    AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
+    [self.navigationController.navigationBar setBarTintColor:myDelegate.navigationBarColor];
     
     [self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor],UITextAttributeTextColor,nil]];
     

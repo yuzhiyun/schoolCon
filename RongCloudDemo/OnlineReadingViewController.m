@@ -59,8 +59,9 @@
     [super viewDidLoad];
     self.title=@"心理专区";
     
-    [self.navigationController.navigationBar setBarTintColor:[UIColor colorWithRed:3/255.0 green:121/255.0 blue:251/255.0 alpha:1.0]];
-    
+    //   navigationBar背景
+    AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
+    [self.navigationController.navigationBar setBarTintColor:myDelegate.navigationBarColor];
     [self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor],UITextAttributeTextColor,nil]];
     
     //    返回箭头和文字的颜色，只要写一次就行了，是全局的

@@ -22,6 +22,8 @@
     NSString *appSecret;
     NSString *schoolId;
     
+    UIColor *navigationBarColor;
+    
 }
 @property (strong, nonatomic) UIWindow *window;
 
@@ -33,6 +35,7 @@
 @property (nonatomic,strong)NSString *appId;
 @property (nonatomic,strong)NSString *appSecret;
 @property (nonatomic,strong)NSString *schoolId;
+@property (nonatomic,strong)UIColor *navigationBarColor;
 
 @end
 

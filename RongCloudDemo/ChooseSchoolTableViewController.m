@@ -33,8 +33,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title=@"选择学校";
-    //    navigationBar背景颜色
-    [self.navigationController.navigationBar setBarTintColor:[UIColor colorWithRed:3/255.0 green:121/255.0 blue:251/255.0 alpha:1.0]];
+    //   navigationBar背景
+    AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
+    [self.navigationController.navigationBar setBarTintColor:myDelegate.navigationBarColor];
     //      navigationBar标题颜色
     [self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor],UITextAttributeTextColor,nil]];
     
@@ -51,9 +52,9 @@
     
     [self loadData];
     
-    //    [mDataNotification addObject:@"长郡中学"]
-    //全局ip
-    AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
+
+   
+   
     
     NSLog(@"这里是ChooseSchoolTableViewController，全局ip地址是 %@",myDelegate.ipString);
     //去掉多余的UITableView分割线
@@ -319,7 +320,7 @@
     }
     School *model=[mDataSchool objectAtIndex:indexPath.row];
     cell.textLabel.text =model.schoolName;
-    cell.imageView.image=[UIImage imageNamed:@"school.png"];
+    cell.imageView.image=[UIImage imageNamed:@"Classroom.png"];
     
     cell.detailTextLabel.text=nil;
     return cell;

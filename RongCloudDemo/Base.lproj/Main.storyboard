@@ -913,7 +913,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="最近通知：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="drz-aV-UnE">
                                 <rect key="frame" x="8" y="359" width="76.5" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <color key="textColor" red="0.19807185059999999" green="0.66129513610000001" blue="0.98470920319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" red="0.19579985737800598" green="0.60821157693862915" blue="0.98520094156265259" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -2426,7 +2426,7 @@
                             <constraint firstItem="Te4-H4-W9P" firstAttribute="leading" secondItem="4M0-1O-46g" secondAttribute="leading" id="hrr-4Q-XAv"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="我的" image="me.png" id="xxm-t0-L12"/>
+                    <tabBarItem key="tabBarItem" title="我的" image="wode.png" selectedImage="wode_1.png" id="xxm-t0-L12"/>
                     <connections>
                         <outlet property="UIImageViewAvatar" destination="jZ3-or-ruq" id="zkP-eM-ORd"/>
                     </connections>
@@ -2455,13 +2455,13 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="到期时间" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qjA-lo-WrZ">
-                                <rect key="frame" x="110" y="59" width="69.5" height="21"/>
+                                <rect key="frame" x="110" y="59" width="70" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2017-03" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Iz-nG-tVd">
-                                <rect key="frame" x="299.5" y="59" width="65.5" height="21"/>
+                                <rect key="frame" x="299" y="59" width="66" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -2474,25 +2474,25 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="VIP特权" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oFd-wj-nDf">
-                                <rect key="frame" x="14" y="129" width="60.5" height="21"/>
+                                <rect key="frame" x="14" y="129" width="61" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="article2.png" translatesAutoresizingMaskIntoConstraints="NO" id="vA2-tn-d8X">
-                                <rect key="frame" x="19.5" y="160" width="50" height="50"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="vip_article.png" translatesAutoresizingMaskIntoConstraints="NO" id="vA2-tn-d8X">
+                                <rect key="frame" x="20" y="160" width="50" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="T39-dL-cFa"/>
                                     <constraint firstAttribute="width" constant="50" id="T6G-dR-3s4"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="精品文章" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nH0-mY-Y7K">
-                                <rect key="frame" x="14" y="223" width="69.5" height="21"/>
+                                <rect key="frame" x="14" y="223" width="70" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="clock2.png" translatesAutoresizingMaskIntoConstraints="NO" id="a5X-07-yrb">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="vip_clock.png" translatesAutoresizingMaskIntoConstraints="NO" id="a5X-07-yrb">
                                 <rect key="frame" x="19" y="389" width="50" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="xrh-EY-1MO"/>
@@ -2500,19 +2500,19 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="距离到期时间还有" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Tv-jv-rS9">
-                                <rect key="frame" x="104" y="403.5" width="139" height="21"/>
+                                <rect key="frame" x="104" y="404" width="139" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20天" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qlp-Yd-mAs">
-                                <rect key="frame" x="331" y="403.5" width="38" height="21"/>
+                                <rect key="frame" x="331" y="404" width="38" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.19807185059999999" green="0.66129513610000001" blue="0.98470920319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="亲爱的会员～" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0PW-7d-Bna">
-                                <rect key="frame" x="110" y="30" width="122.5" height="24"/>
+                                <rect key="frame" x="110" y="30" width="123" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -2999,7 +2999,7 @@
         <scene sceneID="jw4-TH-2En">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="7iO-1b-oOm" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="联系人" image="chat.png" id="tcr-kK-sun"/>
+                    <tabBarItem key="tabBarItem" title="联系人" image="pengyou.png" selectedImage="pengyou_1.png" id="tcr-kK-sun"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="I8o-Ae-yKu">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -3018,7 +3018,7 @@
         <scene sceneID="xZx-3J-YxM">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="eWY-IG-kwp" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="心理专区" image="study.png" id="FJi-jZ-LL0"/>
+                    <tabBarItem key="tabBarItem" title="心理专区" image="shequ.png" selectedImage="shequ_1.png" id="FJi-jZ-LL0"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="2Xp-JV-Aj8">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -3037,7 +3037,7 @@
         <scene sceneID="2sl-Un-lXG">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="JeT-1i-hec" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="首页" image="door.png" id="wTS-c3-Jnd">
+                    <tabBarItem key="tabBarItem" title="首页" image="xiaoyuan.png" selectedImage="xiaoyuan_1.png" id="wTS-c3-Jnd">
                         <inset key="imageInsets" minX="0.0" minY="1" maxX="1" maxY="1"/>
                     </tabBarItem>
                     <toolbarItems/>
@@ -3076,7 +3076,7 @@
         <scene sceneID="dXs-gp-vvF">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="0wT-o4-7qk" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="教育天地" image="study.png" id="Xaj-ZW-vc2"/>
+                    <tabBarItem key="tabBarItem" title="教育天地" image="daxue.png" selectedImage="daxue_1.png" id="Xaj-ZW-vc2"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="0Co-9F-HXC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -3096,12 +3096,10 @@
         <image name="2.png" width="600" height="400"/>
         <image name="3.jpg" width="263" height="191"/>
         <image name="4.jpg" width="290" height="174"/>
-        <image name="article2.png" width="128" height="115"/>
         <image name="avarta.jpg" width="121" height="121"/>
         <image name="bg.jpg" width="416" height="667"/>
-        <image name="chat.png" width="32" height="32"/>
-        <image name="clock2.png" width="128" height="128"/>
-        <image name="door.png" width="32" height="32"/>
+        <image name="daxue.png" width="24" height="24"/>
+        <image name="daxue_1.png" width="24" height="24"/>
         <image name="home01.png" width="114" height="114"/>
         <image name="home02.png" width="114" height="114"/>
         <image name="home03.png" width="114" height="114"/>
@@ -3109,12 +3107,20 @@
         <image name="home05.png" width="114" height="114"/>
         <image name="icon_tx.png" width="40" height="40"/>
         <image name="info.png" width="16" height="16"/>
-        <image name="me.png" width="32" height="32"/>
+        <image name="pengyou.png" width="24" height="24"/>
+        <image name="pengyou_1.png" width="24" height="24"/>
         <image name="rank2.png" width="128" height="128"/>
         <image name="selected2.png" width="32" height="32"/>
+        <image name="shequ.png" width="24" height="24"/>
+        <image name="shequ_1.png" width="24" height="24"/>
         <image name="study.jpg" width="175" height="240"/>
-        <image name="study.png" width="32" height="32"/>
         <image name="un_selected.png" width="32" height="32"/>
-        <image name="vip2.png" width="128" height="128"/>
+        <image name="vip2.png" width="96" height="96"/>
+        <image name="vip_article.png" width="96" height="96"/>
+        <image name="vip_clock.png" width="96" height="96"/>
+        <image name="wode.png" width="24" height="24"/>
+        <image name="wode_1.png" width="24" height="24"/>
+        <image name="xiaoyuan.png" width="24" height="24"/>
+        <image name="xiaoyuan_1.png" width="24" height="24"/>
     </resources>
 </document>

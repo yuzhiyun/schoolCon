@@ -8,6 +8,7 @@
 
 #import "ContactViewController.h"
 #import "GroupSendViewController.h"
+#import "AppDelegate.h"
 @interface ContactViewController ()
 
 @end
@@ -48,8 +49,9 @@
     [rightButton setTitleTextAttributes: [NSDictionary dictionaryWithObjectsAndKeys:[UIFont systemFontOfSize:17], UITextAttributeFont, [UIColor whiteColor], UITextAttributeTextColor, nil] forState:UIControlStateNormal];
     self.navigationItem.rightBarButtonItem=rightButton;
     
-    //背景色
-    [self.navigationController.navigationBar setBarTintColor:[UIColor colorWithRed:3/255.0 green:121/255.0 blue:251/255.0 alpha:1.0]];
+    //   navigationBar背景
+    AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
+    [self.navigationController.navigationBar setBarTintColor:myDelegate.navigationBarColor];
     //title颜色
     [self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor],UITextAttributeTextColor,nil]];
     
