@@ -7,16 +7,20 @@
 //
 
 #import <Foundation/Foundation.h>
+
 #import "Alert.h"
+#import "MBProgressHUD.h"
 
 @implementation Alert
 
-+(void)showMessageAlert:(NSString *)msg{
++(void)showMessageAlert:(NSString *)msg view:(UIViewController *)viewController{
     UIAlertController *alert=[UIAlertController alertControllerWithTitle:nil message:msg preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction *ok=[UIAlertAction actionWithTitle:@"确认"
                                                style:UIAlertActionStyleDefault handler:nil];
+    
     //        信息框添加按键
     [alert addAction:ok];
-    [alert presentViewController:alert animated:YES completion:nil];
+    [viewController presentViewController:alert animated:YES completion:nil];
+    
 }
 @end

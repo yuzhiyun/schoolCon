@@ -147,15 +147,7 @@
                         self.tableView.headerRefreshingText = @"亲，没有更多数据了";
                         else
                             self.tableView.footerRefreshingText = @"亲，没有更多数据了";
-                        UIAlertController *alert=[UIAlertController alertControllerWithTitle:nil message:@"抱歉,没有更多数据了" preferredStyle:UIAlertControllerStyleAlert];
-                        UIAlertAction *ok=[UIAlertAction actionWithTitle:@"确认"
-                                                                   style:UIAlertActionStyleDefault handler:nil];
-                        
-                        //        信息框添加按键
-                        [alert addAction:ok];
-                        [self presentViewController:alert animated:YES completion:nil];
-//                            Alert.
-//                            Alert.showMessageAlert(@"亲，没有更多数据了");
+                        [Alert showMessageAlert:@"亲，没有更多数据了" view:self];
                         
                     }
                     else{

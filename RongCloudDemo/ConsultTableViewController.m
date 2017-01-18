@@ -15,7 +15,6 @@
 
 @implementation ConsultTableViewController{
     NSMutableArray *mDataConsult;
-    
 }
 
 - (void)viewDidLoad {

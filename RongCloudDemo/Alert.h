@@ -12,5 +12,5 @@
 @interface  Alert:NSObject
 
 
-+(void)showMessageAlert:(NSString *)msg;
++(void)showMessageAlert:(NSString *)msg view:(UIViewController *)viewController;
 @end
