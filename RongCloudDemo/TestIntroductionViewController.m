@@ -47,7 +47,7 @@
     
     
     TestViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"TestViewController"];
-//    nextPage->pubString=[mDataNotification objectAtIndex:indexPath.row];
+    nextPage->testId=testId;
     nextPage.hidesBottomBarWhenPushed=YES;
     [self.navigationController pushViewController:nextPage animated:YES];
 }

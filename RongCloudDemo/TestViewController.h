@@ -12,14 +12,10 @@
     
     
     __weak IBOutlet UILabel *UILabelTitle;
-//    NSMutableArray *mData;
 
-    
-    
-    
 @public
     NSString *pubString;
-    
-    
+@public
+    NSString *testId;
 }
 @end
