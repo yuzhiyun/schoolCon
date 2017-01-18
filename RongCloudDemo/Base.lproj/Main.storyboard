@@ -2105,19 +2105,13 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="张馨元" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i5Z-Wb-AKQ">
-                                            <rect key="frame" x="93" y="11" width="86" height="23"/>
+                                            <rect key="frame" x="83" y="11" width="86" height="23"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="国家一级心理咨询师" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WUG-96-RnG">
-                                            <rect key="frame" x="195" y="11" width="156" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" red="0.41765149109999999" green="0.41765149109999999" blue="0.41765149109999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" tag="3" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="认知行为治疗" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HrK-UE-g8X">
-                                            <rect key="frame" x="195" y="48" width="92" height="18"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="3" contentMode="left" verticalHuggingPriority="251" text="认知行为治疗" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HrK-UE-g8X">
+                                            <rect key="frame" x="174" y="47" width="201" height="18"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <color key="textColor" red="0.53276797279999999" green="0.42813873819999998" blue="0.50877726570000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
@@ -2125,29 +2119,41 @@
                                         <imageView userInteractionEnabled="NO" tag="5" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avarta.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="Cod-CP-QSx">
                                             <rect key="frame" x="18" y="11" width="55" height="55"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="55" id="CiZ-Cj-9rr"/>
-                                                <constraint firstAttribute="height" constant="55" id="UOX-gX-W7M"/>
+                                                <constraint firstAttribute="height" constant="55" id="fKJ-8o-dyL"/>
+                                                <constraint firstAttribute="width" constant="55" id="ndP-k9-m6E"/>
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" tag="4" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" 擅长领域：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H9K-D9-v7G">
-                                            <rect key="frame" x="93" y="46.5" width="86" height="19.5"/>
+                                            <rect key="frame" x="83" y="46" width="86" height="20"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="86" id="esk-qP-fzO"/>
+                                            </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                             <color key="textColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="国家一级心理咨询师" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WUG-96-RnG">
+                                            <rect key="frame" x="174" y="11" width="201" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.41765149109999999" green="0.41765149109999999" blue="0.41765149109999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="Cod-CP-QSx" firstAttribute="top" secondItem="v6o-KA-D00" secondAttribute="top" constant="11" id="0YR-Xb-dkR"/>
-                                        <constraint firstItem="HrK-UE-g8X" firstAttribute="bottom" secondItem="H9K-D9-v7G" secondAttribute="bottom" id="3CZ-Ts-GbM"/>
-                                        <constraint firstItem="H9K-D9-v7G" firstAttribute="leading" secondItem="i5Z-Wb-AKQ" secondAttribute="leading" id="92W-0W-Vfz"/>
-                                        <constraint firstItem="i5Z-Wb-AKQ" firstAttribute="top" secondItem="Cod-CP-QSx" secondAttribute="top" id="9w0-yU-8Ej"/>
-                                        <constraint firstItem="Cod-CP-QSx" firstAttribute="leading" secondItem="v6o-KA-D00" secondAttribute="leading" constant="18" id="Ng0-z3-hIy"/>
-                                        <constraint firstItem="i5Z-Wb-AKQ" firstAttribute="leading" secondItem="Cod-CP-QSx" secondAttribute="trailing" constant="20" id="Qpi-GD-PuM"/>
-                                        <constraint firstItem="WUG-96-RnG" firstAttribute="leading" secondItem="i5Z-Wb-AKQ" secondAttribute="trailing" constant="16" id="RMe-db-DRq"/>
-                                        <constraint firstItem="H9K-D9-v7G" firstAttribute="width" secondItem="i5Z-Wb-AKQ" secondAttribute="width" id="VXC-YN-5AK"/>
-                                        <constraint firstItem="HrK-UE-g8X" firstAttribute="leading" secondItem="WUG-96-RnG" secondAttribute="leading" id="e82-AT-jqE"/>
-                                        <constraint firstItem="WUG-96-RnG" firstAttribute="top" secondItem="Cod-CP-QSx" secondAttribute="top" id="vvf-is-N9i"/>
-                                        <constraint firstItem="H9K-D9-v7G" firstAttribute="bottom" secondItem="Cod-CP-QSx" secondAttribute="bottom" id="zrp-QS-ij3"/>
+                                        <constraint firstItem="i5Z-Wb-AKQ" firstAttribute="leading" secondItem="Cod-CP-QSx" secondAttribute="trailing" constant="10" id="1Yo-cN-Fdm"/>
+                                        <constraint firstItem="WUG-96-RnG" firstAttribute="leading" secondItem="i5Z-Wb-AKQ" secondAttribute="trailing" constant="5" id="2XC-uA-57B"/>
+                                        <constraint firstItem="WUG-96-RnG" firstAttribute="top" secondItem="Cod-CP-QSx" secondAttribute="top" id="JJy-Sl-HDs"/>
+                                        <constraint firstItem="HrK-UE-g8X" firstAttribute="centerY" secondItem="H9K-D9-v7G" secondAttribute="centerY" id="N0h-wk-oKM"/>
+                                        <constraint firstItem="H9K-D9-v7G" firstAttribute="width" secondItem="i5Z-Wb-AKQ" secondAttribute="width" id="NbG-Xc-Upq"/>
+                                        <constraint firstItem="HrK-UE-g8X" firstAttribute="leading" secondItem="WUG-96-RnG" secondAttribute="leading" id="UaN-EX-QcL"/>
+                                        <constraint firstItem="Cod-CP-QSx" firstAttribute="top" secondItem="v6o-KA-D00" secondAttribute="top" constant="11" id="bdu-6C-adW"/>
+                                        <constraint firstItem="HrK-UE-g8X" firstAttribute="width" secondItem="WUG-96-RnG" secondAttribute="width" id="bwi-Hs-uCx"/>
+                                        <constraint firstItem="H9K-D9-v7G" firstAttribute="bottom" secondItem="Cod-CP-QSx" secondAttribute="bottom" id="c6q-HU-kUX"/>
+                                        <constraint firstAttribute="bottom" secondItem="Cod-CP-QSx" secondAttribute="bottom" constant="7" id="dNo-2g-pxf"/>
+                                        <constraint firstItem="H9K-D9-v7G" firstAttribute="leading" secondItem="i5Z-Wb-AKQ" secondAttribute="leading" id="kbQ-Xp-WSr"/>
+                                        <constraint firstItem="Cod-CP-QSx" firstAttribute="leading" secondItem="v6o-KA-D00" secondAttribute="leading" constant="18" id="qvJ-dI-eL4"/>
+                                        <constraint firstAttribute="trailing" secondItem="HrK-UE-g8X" secondAttribute="trailing" id="sg4-jy-bRF"/>
+                                        <constraint firstItem="i5Z-Wb-AKQ" firstAttribute="top" secondItem="Cod-CP-QSx" secondAttribute="top" id="yGE-He-fsg"/>
                                     </constraints>
                                 </tableViewCellContentView>
                             </tableViewCell>
