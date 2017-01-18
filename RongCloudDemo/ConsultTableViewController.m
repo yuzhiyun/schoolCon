@@ -196,11 +196,13 @@
 -(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
     
+    Consult *model=[allDataFromServer objectAtIndex:indexPath.row];
+    
     
     //根据storyboard id来获取目标页面
     ConcreteConsultViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"ConcreteConsultViewController"];
     
-    
+    nextPage->consultId=model.consultId;
     //    传值
 //    nextPage->pubString=[recipes objectAtIndex:indexPath.row];
     //UITabBarController和的UINavigationController结合使用,进入新的页面的时候，隐藏主页tabbarController的底部栏

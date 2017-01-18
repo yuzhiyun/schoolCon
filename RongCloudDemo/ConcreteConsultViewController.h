@@ -8,7 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ConcreteConsultViewController : UIViewController
+@interface ConcreteConsultViewController : UIViewController{
+    
+@public
+    NSString *consultId;
+}
 @property (weak, nonatomic) IBOutlet UIWebView *mUIWebViewConsult;
 
 
