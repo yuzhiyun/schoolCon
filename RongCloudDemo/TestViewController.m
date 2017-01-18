@@ -36,7 +36,7 @@
 //    int answerArray[200];
     
     
-    NSMutableArray *allDataFromServer;
+//    NSMutableArray *allDataFromServer;
     
 }
 
@@ -55,49 +55,48 @@
     mAllData=[[NSMutableArray alloc]init];
     
     //    for(int i=0;i<5;i++){
-    NSMutableArray *mEntity=[[NSMutableArray alloc]init];
-    
-    [mEntity addObject:@"1、你是一个没有安全感的人吗？"];
-    [mEntity addObject:@"是的"];
-    [mEntity addObject:@"不是"];
-    [mEntity addObject:@"一直都有安全感"];
-    [mEntity addObject:@"偶尔"];
-    
-    [mAllData addObject:mEntity];
-    
-    NSMutableArray *mEntity2=[[NSMutableArray alloc]init];
-    
-    [mEntity2 addObject:@"2、你在面试中常常紧张的不知所措吗？"];
-    [mEntity2 addObject:@"是的"];
-    [mEntity2 addObject:@"不是"];
-    [mEntity2 addObject:@"看具体情况"];
-    [mEntity2 addObject:@"非常紧张，脑袋一片空白"];
-    [mEntity2 addObject:@"偶尔"];
-    [mEntity2 addObject:@"非常自信，不会紧张"];
-    
-    [mAllData addObject:mEntity2];
+//    NSMutableArray *mEntity=[[NSMutableArray alloc]init];
+//    
+//    [mEntity addObject:@"1、你是一个没有安全感的人吗？"];
+//    [mEntity addObject:@"是的"];
+//    [mEntity addObject:@"不是"];
+//    [mEntity addObject:@"一直都有安全感"];
+//    [mEntity addObject:@"偶尔"];
+//    
+//    [mAllData addObject:mEntity];
+//    
+//    NSMutableArray *mEntity2=[[NSMutableArray alloc]init];
+//    
+//    [mEntity2 addObject:@"2、你在面试中常常紧张的不知所措吗？"];
+//    [mEntity2 addObject:@"是的"];
+//    [mEntity2 addObject:@"不是"];
+//    [mEntity2 addObject:@"看具体情况"];
+//    [mEntity2 addObject:@"非常紧张，脑袋一片空白"];
+//    [mEntity2 addObject:@"偶尔"];
+//    [mEntity2 addObject:@"非常自信，不会紧张"];
+//    
+//    [mAllData addObject:mEntity2];
     NSMutableArray *mEntity3=[[NSMutableArray alloc]init];
-    
-    [mEntity3 addObject:@"3、你是一个怀旧的人吗？"];
+//
+    [mEntity3 addObject:@"1、你是一个怀旧的人吗？"];
     [mEntity3 addObject:@"是的"];
     [mEntity3 addObject:@"不是"];
     [mEntity3 addObject:@"不一定"];
     [mEntity3 addObject:@"有时候会"];
     
     [mAllData addObject:mEntity3];
-     [self setTitle];
+    [self setTitle];
     
     
 //    answerArray=[NSMutableArray arrayWithCapacity:[mAllData count]];
     answerArray=[[NSMutableArray alloc]init];
+    //填充-1到答案数组里面,之所以使用这种for循环，是因为i是int，[mAllData count]转不过来
+    
+    [answerArray addObject:@"-1"];
 //    NSLog(@"answerArray的大小%d",[answerArray count]);
    
     
-    //填充-1到答案数组里面,之所以使用这种for循环，是因为i是int，[mAllData count]转不过来
-    for(NSString *s in mAllData){
-        NSLog(@"插入数据");
-        [answerArray addObject:@"-1"];
-    }
+
     
     NSLog(@"answerArray的大小%i",[answerArray count]);
 //    [answerArray insertObject:@"1" atIndex:2];
@@ -130,7 +129,13 @@
     //    此处存储一下这个tableView，以便在切换到下一个题目的时候，reload数据
     mTableView=tableView;
 #warning Incomplete implementation, return the number of rows
-    return [[mAllData  objectAtIndex:indexOfExercise] count]-1;
+    if(0==[mAllData count]){
+        return 0;
+        NSLog(@"****一开始是0*");
+    }
+    
+    else
+        return [[mAllData  objectAtIndex:indexOfExercise] count]-1;
 }
 
 
@@ -259,14 +264,7 @@
     AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
     
     NSString *urlString;
-    
-    
     urlString= [NSString stringWithFormat:@"%@/api/psy/test/getTest",myDelegate.ipString];
-    
-    
-    
-    
-    
     //创建数据请求的对象，不是单例
     AFHTTPRequestOperationManager *manager=[AFHTTPRequestOperationManager manager];
     //设置响应数据的类型,如果是json数据，会自动帮你解析
@@ -276,8 +274,6 @@
     // 请求参数
     NSDictionary *parameters = @{ @"appId":@"03a8f0ea6a",
                                   @"appSecret":@"b4a01f5a7dd4416c",
-                                  
-                                
                                   @"token":token,
                                   @"id":testId
                                   };
@@ -303,40 +299,37 @@
             NSNumber *code=[doc objectForKey:@"code"];
             if([zero isEqualToNumber:code])
             {
-                if(nil!=[doc allKeys]){
-                    
-                    NSArray *articleArray=[doc objectForKey:@"data"];
-                    if(0==[articleArray count]){
-                        
 
-                        [Alert showMessageAlert:@"抱歉,没有更多数据了" view:self];
+                
+                    NSDictionary *data=[doc objectForKey:@"data"];
+                NSArray *questionArray=[data objectForKey:@"psy_questions"];
+                for(NSDictionary *item in  questionArray){
+                    
+                    NSMutableArray *entity=[[NSMutableArray alloc]init];
+                    NSLog(@"*****************************************************************");
+                    [entity addObject:[item objectForKey:@"content"]];
+                    NSArray *optionArray=[item objectForKey:@"psy_options"];
+                    for(NSDictionary *item2 in  optionArray){
+                        [entity addObject:[item2 objectForKey:@"optionContent"]];
                     }
-                    else{
-//                        for(NSDictionary *item in  articleArray ){
-//                            Test *model=[[Test alloc]init];
-//                            model.testId=item [@"id"];
-//                            model.picUrl=item [@"picurl"];
-//                            model.title=item [@"title"];
-//                            NSLog(@"money1");
-//                            model.money=item [@"money"];
-//                            //                            NSLog(model.money);
-//                            NSLog(@"money2");
-//                            if([orientation isEqualToString:@"up"])
-//                                [allDataFromServer addObject:model];
-//                            else
-//                                [allDataFromServer addObject:model ];
-//                        }
-                        NSLog(@"mDataArticle项数为%i",[allDataFromServer count]);
+                    for(NSString * item in entity)
+                        NSLog(item);
+                    [mAllData addObject:entity];
+                    //填充-1到答案数组里面,之所以使用这种for循环，是因为i是int，[mAllData count]转不过来
+                    [answerArray addObject:@"-1"];
+                }
+                [mTableView reloadData];
+                        NSLog(@"mAllData项数为%i",[mAllData count]);
                         NSLog(@"//更新界面");
                         //更新界面
                         [mTableView reloadData];
-                    }
+//                    }
                     //            }
-                }
-                else
-                {
-                    [Alert showMessageAlert:@"抱歉，尚无文章可以阅读" view:self];
-                }
+//                }
+//                else
+//                {
+//                    [Alert showMessageAlert:@"抱歉，尚无文章可以阅读" view:self];
+//                }
             }
             
             else{
