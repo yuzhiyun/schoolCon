@@ -811,7 +811,7 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xv1-6b-fWK">
                                 <rect key="frame" x="218" y="251" width="64" height="64"/>
-                                <state key="normal" backgroundImage="emotion_test.png"/>
+                                <state key="normal" backgroundImage="home04.png"/>
                                 <connections>
                                     <action selector="vip:" destination="AzU-z8-ena" eventType="touchUpInside" id="dqE-pS-2sl"/>
                                 </connections>
@@ -821,7 +821,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="nDw-cz-f40" secondAttribute="height" multiplier="1:1" id="UDs-FF-9fC"/>
                                 </constraints>
-                                <state key="normal" backgroundImage="check_grade.png"/>
+                                <state key="normal" backgroundImage="home01.png"/>
                                 <connections>
                                     <action selector="enterQueryGrade:" destination="AzU-z8-ena" eventType="touchUpInside" id="fcX-YT-WLO"/>
                                 </connections>
@@ -840,7 +840,7 @@
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B4G-4R-Awm">
                                 <rect key="frame" x="147" y="251" width="64" height="64"/>
-                                <state key="normal" backgroundImage="emotion_test.png"/>
+                                <state key="normal" backgroundImage="home03.png"/>
                                 <connections>
                                     <action selector="physicalTest:" destination="AzU-z8-ena" eventType="touchUpInside" id="wdK-CN-UDw"/>
                                 </connections>
@@ -853,7 +853,7 @@
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hZe-hO-4Xu">
                                 <rect key="frame" x="289" y="251" width="64" height="64"/>
-                                <state key="normal" backgroundImage="emotion_activity.png"/>
+                                <state key="normal" backgroundImage="home05.png"/>
                                 <connections>
                                     <action selector="schoolMoments:" destination="AzU-z8-ena" eventType="touchUpInside" id="eoe-Lb-M4u"/>
                                 </connections>
@@ -864,7 +864,7 @@
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H4m-8R-ZPb">
                                 <rect key="frame" x="77" y="251" width="64" height="64"/>
-                                <state key="normal" backgroundImage="check_grade.png"/>
+                                <state key="normal" backgroundImage="home02.png"/>
                                 <connections>
                                     <action selector="classGroup:" destination="AzU-z8-ena" eventType="touchUpInside" id="a2g-yl-vNo"/>
                                 </connections>
@@ -2105,13 +2105,13 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="张馨元" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i5Z-Wb-AKQ">
-                                            <rect key="frame" x="83" y="11" width="86" height="23"/>
+                                            <rect key="frame" x="83" y="11" width="105" height="23"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" tag="3" contentMode="left" verticalHuggingPriority="251" text="认知行为治疗" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HrK-UE-g8X">
-                                            <rect key="frame" x="174" y="47" width="201" height="18"/>
+                                            <rect key="frame" x="193" y="47" width="182" height="18"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <color key="textColor" red="0.53276797279999999" green="0.42813873819999998" blue="0.50877726570000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
@@ -2124,16 +2124,16 @@
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" tag="4" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" 擅长领域：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H9K-D9-v7G">
-                                            <rect key="frame" x="83" y="46" width="86" height="20"/>
+                                            <rect key="frame" x="83" y="46" width="105" height="20"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="86" id="esk-qP-fzO"/>
+                                                <constraint firstAttribute="width" constant="105" id="esk-qP-fzO"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                             <color key="textColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="国家一级心理咨询师" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WUG-96-RnG">
-                                            <rect key="frame" x="174" y="11" width="201" height="21"/>
+                                            <rect key="frame" x="193" y="11" width="182" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="0.41765149109999999" green="0.41765149109999999" blue="0.41765149109999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
@@ -3066,11 +3066,13 @@
         <image name="avarta.jpg" width="121" height="121"/>
         <image name="bg.jpg" width="416" height="667"/>
         <image name="chat.png" width="32" height="32"/>
-        <image name="check_grade.png" width="64" height="64"/>
         <image name="clock2.png" width="128" height="128"/>
         <image name="door.png" width="32" height="32"/>
-        <image name="emotion_activity.png" width="64" height="64"/>
-        <image name="emotion_test.png" width="64" height="64"/>
+        <image name="home01.png" width="114" height="114"/>
+        <image name="home02.png" width="114" height="114"/>
+        <image name="home03.png" width="114" height="114"/>
+        <image name="home04.png" width="114" height="114"/>
+        <image name="home05.png" width="114" height="114"/>
         <image name="icon_tx.png" width="40" height="40"/>
         <image name="info.png" width="16" height="16"/>
         <image name="me.png" width="32" height="32"/>

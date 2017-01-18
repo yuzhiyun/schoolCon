@@ -157,7 +157,7 @@
         
         UIImageView  *mUIImageView=(UIImageView *)[cell viewWithTag:5];
         AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
-        [mUIImageView sd_setImageWithURL:[NSString stringWithFormat:@"%@%@",myDelegate.ipString,model.picUrl] placeholderImage:[UIImage imageNamed:@"favorites.png"]];
+        [mUIImageView sd_setImageWithURL:[NSString stringWithFormat:@"%@%@",myDelegate.ipString,model.picUrl] placeholderImage:[UIImage imageNamed:@"icon_tx.png"]];
 //    mUILabelSpecialty.text=[mDataConsult objectAtIndex:indexPath.row];
         
     }
