@@ -255,15 +255,17 @@
                 
                     NSDictionary *data=[doc objectForKey:@"data"];
                 NSArray *questionArray=[data objectForKey:@"psy_questions"];
+                int index=0;
                 for(NSDictionary *item in  questionArray){
-                    
-                    NSUInteger *index=[questionArray indexOfObject:item];
+                    index++;
+//                    NSUInteger *index=[questionArray indexOfObject:item];
                     NSMutableArray *entity=[[NSMutableArray alloc]init];
                     NSLog(@"*****************************************************************");
                     
                     NSString *content=[item objectForKey:@"content"];
                   
-                    [entity addObject:[NSString stringWithFormat:@"%d、%@", index+1 ,content]];
+                    //非常奇怪，这里数数是从8开始的，我就给他剪去7
+                    [entity addObject:[NSString stringWithFormat:@"%i、%@", index ,content]];
                     
                     
                     NSArray *optionArray=[item objectForKey:@"psy_options"];

@@ -348,6 +348,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
         self.navigationController.navigationBarHidden=NO;
         ShalongTableViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"ShalongTableViewController"];
         nextPage.hidesBottomBarWhenPushed=YES;
+        nextPage->type=@"ylsl";
         [self.navigationController pushViewController:nextPage animated:YES];
         
     }
