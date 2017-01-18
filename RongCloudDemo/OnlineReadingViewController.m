@@ -34,7 +34,7 @@
 
     if(self) {
         self.menuHeight = 35;
-        self.menuItemWidth = 100;
+        self.menuItemWidth =0.25*[[UIScreen mainScreen] bounds].size.width;
         self.menuViewStyle = WMMenuViewStyleLine;
         //        self.titles = [NSArray arrayWithObjects:@"读文说史", @"教育智慧",@"分类3",@"分类4",@"分类5", nil];
         self.titles=title;

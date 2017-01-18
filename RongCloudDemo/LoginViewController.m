@@ -19,7 +19,7 @@
 #import "Toast.h"
 #import "DataBaseNSUserDefaults.h"
 #import "JsonUtil.h"
-
+#import "Alert.h"
 #define JsonGet @"http://iappfree.candou.com:8080/free/applications/limited?currency=rmb&page=1"
 
 @interface LoginViewController ()
@@ -157,14 +157,7 @@
             
         }
         else{
-            
-            UIAlertController *alert=[UIAlertController alertControllerWithTitle:nil message: [doc objectForKey:@"msg"]preferredStyle:UIAlertControllerStyleAlert];
-            UIAlertAction *ok=[UIAlertAction actionWithTitle:@"确认"
-                                                       style:UIAlertActionStyleDefault handler:nil];
-            
-            //        信息框添加按键
-            [alert addAction:ok];
-            [self presentViewController:alert animated:YES completion:nil];
+            [Alert showMessageAlert:[doc objectForKey:@"msg"] view:self];
         }
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -173,13 +166,8 @@
         NSString *errorUser=[error.userInfo objectForKey:NSLocalizedDescriptionKey];
         if(error.code==-1009)
             errorUser=@"主人，似乎没有网络喔！";
-        UIAlertController *alert=[UIAlertController alertControllerWithTitle:nil message:errorUser preferredStyle:UIAlertControllerStyleAlert];
-        UIAlertAction *ok=[UIAlertAction actionWithTitle:@"确认"
-                                                   style:UIAlertActionStyleDefault handler:nil];
         
-        //        信息框添加按键
-        [alert addAction:ok];
-        [self presentViewController:alert animated:YES completion:nil];
+        [Alert showMessageAlert:errorUser view:self];
     }];
 }
 

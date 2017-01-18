@@ -14,6 +14,7 @@
 #import "AppDelegate.h"
 #import "AFNetworking.h"
 #import "School.h"
+#import "Alert.h"
 //#import "AppDelegate.h"
 //#import "MBProgressHUD.h"
 @interface ChooseSchoolTableViewController ()
@@ -146,13 +147,7 @@
         NSString *errorUser=[error.userInfo objectForKey:NSLocalizedDescriptionKey];
         if(error.code==-1009)
             errorUser=@"主人，似乎没有网络喔！";
-        UIAlertController *alert=[UIAlertController alertControllerWithTitle:nil message:errorUser preferredStyle:UIAlertControllerStyleAlert];
-        UIAlertAction *ok=[UIAlertAction actionWithTitle:@"确认"
-                                                   style:UIAlertActionStyleDefault handler:nil];
-        
-        //        信息框添加按键
-        [alert addAction:ok];
-        [self presentViewController:alert animated:YES completion:nil];
+        [Alert showMessageAlert:errorUser view:self];
     }];
 }
 

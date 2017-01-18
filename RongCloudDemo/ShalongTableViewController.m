@@ -25,6 +25,7 @@
 #import "Article.h"
 #import "JsonUtil.h"
 #import "MJRefresh.h"
+#import "Alert.h"
 @interface ShalongTableViewController ()
 
 @end
@@ -222,13 +223,7 @@
                             self.tableView.headerRefreshingText = @"亲，没有更多数据了";
                         else
                             self.tableView.footerRefreshingText = @"亲，没有更多数据了";
-                        UIAlertController *alert=[UIAlertController alertControllerWithTitle:nil message:@"抱歉,没有更多数据了" preferredStyle:UIAlertControllerStyleAlert];
-                        UIAlertAction *ok=[UIAlertAction actionWithTitle:@"确认"
-                                                                   style:UIAlertActionStyleDefault handler:nil];
-                        //        信息框添加按键
-                        [alert addAction:ok];
-                        [self presentViewController:alert animated:YES completion:nil];
-                        
+                        [Alert showMessageAlert:@"抱歉,没有更多数据了" view:self];
                     }
                     else{
                         
@@ -272,28 +267,13 @@
                 }
                 else
                 {
-                    UIAlertController *alert=[UIAlertController alertControllerWithTitle:nil message:@"抱歉，尚无文章可以阅读" preferredStyle:UIAlertControllerStyleAlert];
-                    UIAlertAction *ok=[UIAlertAction actionWithTitle:@"确认"
-                                                               style:UIAlertActionStyleDefault handler:nil];
-                    
-                    //        信息框添加按键
-                    [alert addAction:ok];
-                    [self presentViewController:alert animated:YES completion:nil];
-                    
+                     [Alert showMessageAlert:@"抱歉，尚无文章可以阅读" view:self];
                 }
             }
             
             else{
-                
-                UIAlertController *alert=[UIAlertController alertControllerWithTitle:nil message:[doc objectForKey:@"msg"] preferredStyle:UIAlertControllerStyleAlert];
-                UIAlertAction *ok=[UIAlertAction actionWithTitle:@"确认"
-                                                           style:UIAlertActionStyleDefault handler:nil];
-                //        信息框添加按键
-                [alert addAction:ok];
-                [self presentViewController:alert animated:YES completion:nil];
-                
+                [Alert showMessageAlert:[doc objectForKey:@"msg"]  view:self];
             }
-            
         }
         else
             NSLog(@"*****doc空***********");
@@ -308,12 +288,6 @@
         NSString *errorUser=[error.userInfo objectForKey:NSLocalizedDescriptionKey];
         if(error.code==-1009)
             errorUser=@"主人，似乎没有网络喔！";
-        UIAlertController *alert=[UIAlertController alertControllerWithTitle:nil message:errorUser preferredStyle:UIAlertControllerStyleAlert];
-        UIAlertAction *ok=[UIAlertAction actionWithTitle:@"确认"
-                                                   style:UIAlertActionStyleDefault handler:nil];
-        
-        //        信息框添加按键
-        [alert addAction:ok];
-        [self presentViewController:alert animated:YES completion:nil];
+        [Alert showMessageAlert:errorUser view:self];
     }];}
 @end
