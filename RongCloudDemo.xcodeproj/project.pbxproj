@@ -227,6 +227,7 @@
 		CDF8EBD11E2F497A00BFD5EA /* home05.png in Resources */ = {isa = PBXBuildFile; fileRef = CDF8EBCC1E2F497A00BFD5EA /* home05.png */; };
 		CDF8EBD21E2F497A00BFD5EA /* home02.png in Resources */ = {isa = PBXBuildFile; fileRef = CDF8EBCD1E2F497A00BFD5EA /* home02.png */; };
 		CDF8EBD31E2F497A00BFD5EA /* home01.png in Resources */ = {isa = PBXBuildFile; fileRef = CDF8EBCE1E2F497A00BFD5EA /* home01.png */; };
+		CDF8EBD61E2F4D5200BFD5EA /* Test.m in Sources */ = {isa = PBXBuildFile; fileRef = CDF8EBD51E2F4D5200BFD5EA /* Test.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -591,6 +592,8 @@
 		CDF8EBCC1E2F497A00BFD5EA /* home05.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = home05.png; path = "../Users/qifeiqin/Downloads/图标/home05.png"; sourceTree = "<group>"; };
 		CDF8EBCD1E2F497A00BFD5EA /* home02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = home02.png; path = "../Users/qifeiqin/Downloads/图标/home02.png"; sourceTree = "<group>"; };
 		CDF8EBCE1E2F497A00BFD5EA /* home01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = home01.png; path = "../Users/qifeiqin/Downloads/图标/home01.png"; sourceTree = "<group>"; };
+		CDF8EBD51E2F4D5200BFD5EA /* Test.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Test.m; sourceTree = "<group>"; };
+		CDF8EBD71E2F4D5B00BFD5EA /* Test.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Test.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1074,6 +1077,7 @@
 		CD2DCC3E1E066D5C000C03E1 /* psychologylist */ = {
 			isa = PBXGroup;
 			children = (
+				CDF8EBD41E2F4D3D00BFD5EA /* testEntity */,
 				CD6EACFB1E278497009EC3A0 /* test */,
 				CD2DCC4C1E067CB9000C03E1 /* cell */,
 				CD2DCC421E066F58000C03E1 /* PsychologyTableViewController.h */,
@@ -1670,6 +1674,15 @@
 			name = homePage;
 			sourceTree = "<group>";
 		};
+		CDF8EBD41E2F4D3D00BFD5EA /* testEntity */ = {
+			isa = PBXGroup;
+			children = (
+				CDF8EBD51E2F4D5200BFD5EA /* Test.m */,
+				CDF8EBD71E2F4D5B00BFD5EA /* Test.h */,
+			);
+			name = testEntity;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1880,6 +1893,7 @@
 				CD2DCC291E056D3C000C03E1 /* GroupSendTableViewCell.m in Sources */,
 				CD79C2341E27240000A9889F /* UIView+MJExtension.m in Sources */,
 				4698CBA51AE22FCA0006330E /* AppDelegate.m in Sources */,
+				CDF8EBD61E2F4D5200BFD5EA /* Test.m in Sources */,
 				CD79C1FB1E2502B400A9889F /* AFNetworkReachabilityManager.m in Sources */,
 				CD79C2021E2502B400A9889F /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				CD6EACF21E2765A2009EC3A0 /* Toast.m in Sources */,

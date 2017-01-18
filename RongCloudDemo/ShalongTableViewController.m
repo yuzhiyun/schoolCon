@@ -309,5 +309,6 @@
         if(error.code==-1009)
             errorUser=@"主人，似乎没有网络喔！";
         [Alert showMessageAlert:errorUser view:self];
-    }];}
+    }];
+}
 @end
