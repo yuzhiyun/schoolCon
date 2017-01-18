@@ -155,12 +155,24 @@
 }
 
 -(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    
     //根据storyboard id来获取目标页面
     DetailYuluViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"DetailYuluViewController"];
-    if([@"ylsl" isEqualToString:type])
-        nextPage->pubString=@"http://mp.weixin.qq.com/s/uikPkoBVZkE5KXwCqrzscg";
+    
+    AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
+    
+    Activity *model=[allDataFromServer objectAtIndex:indexPath.row];
+    nextPage->activityId=model.activityId;
+    nextPage->title=model.title;
+    
+    NSString *urlString;
+    
+    if([@"xlhd" isEqualToString:type])
+        urlString=[NSString stringWithFormat:@"%@/api/psy/activity/getObject",myDelegate.ipString];
     else
-        nextPage->pubString=@"https://mp.weixin.qq.com/s?__biz=MzI0NzcwMjk4OA==&mid=100000022&idx=1&sn=27cf85ac5608ce44155933b96a5ceb82&chksm=69aab5b55edd3ca379bfd80fef1a5a40f974fc4ff609751a10ce36d267d662c418df83c4a050&mpshare=1&scene=1&srcid=0109wYB7kXr9UDvmRYqExeBD&key=b4386489b84c1a425fed004ec36f553c36a2512955542db4ec3527929a8dc8ee8425aa3cd42627026c893c457e5890656757e099e3cc47b5938ed9444d874275789f09f4738713b1951b5959b668dd2a&ascene=0&uin=ODk4MzEwMTY5&devicetype=iMac+MacBookAir6%2C2+OSX+OSX+10.12.1+build(16B2555)&version=12010210&nettype=WIFI&fontScale=100&pass_ticket=gLigsYUageUfMfyUCRYEEUnvhAkH2%2BwYNaz83cLnA%2F3bXoIpzkMunbIBNAu2VYbw";
+        urlString=[NSString stringWithFormat:@"%@/api/cms/activity/getObject",myDelegate.ipString];
+    nextPage->urlString=urlString;
     //    传值
     //    nextPage->pubString=[mData objectAtIndex:indexPath.row];
     //UITabBarController和的UINavigationController结合使用,进入新的页面的时候，隐藏主页tabbarController的底部栏

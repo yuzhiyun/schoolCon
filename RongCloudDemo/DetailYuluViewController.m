@@ -8,6 +8,7 @@
 
 #import "DetailYuluViewController.h"
 #import "JoinViewController.h"
+#import "AppDelegate.h"
 @interface DetailYuluViewController ()
 
 @end
@@ -19,16 +20,21 @@
     
     
 //    self.title=pubString;
+    
+    AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
     /**
      * 显示网页
      */
-    NSString *url=pubString;
-    NSURL *nsUrl=[NSURL URLWithString:url];
-    NSURLRequest *request=[NSURLRequest requestWithURL:nsUrl];
+    NSURL *url = [NSURL URLWithString: urlString];
     
     
     
-    [_UIWebViewActivity loadRequest:request];
+    NSString *body = [NSString stringWithFormat: @"id=%@&token=%@&appId=%@&appSecret=%@", activityId,myDelegate.token,myDelegate.appId,myDelegate.appSecret];
+    
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc]initWithURL: url];
+    [request setHTTPMethod: @"POST"];
+    [request setHTTPBody: [body dataUsingEncoding: NSUTF8StringEncoding]];
+    [_UIWebViewActivity loadRequest: request];
     
     
     
