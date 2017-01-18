@@ -257,9 +257,15 @@
                 NSArray *questionArray=[data objectForKey:@"psy_questions"];
                 for(NSDictionary *item in  questionArray){
                     
+                    NSUInteger *index=[questionArray indexOfObject:item];
                     NSMutableArray *entity=[[NSMutableArray alloc]init];
                     NSLog(@"*****************************************************************");
-                    [entity addObject:[item objectForKey:@"content"]];
+                    
+                    NSString *content=[item objectForKey:@"content"];
+                  
+                    [entity addObject:[NSString stringWithFormat:@"%d、%@", index+1 ,content]];
+                    
+                    
                     NSArray *optionArray=[item objectForKey:@"psy_options"];
                     for(NSDictionary *item2 in  optionArray){
                         [entity addObject:[item2 objectForKey:@"optionContent"]];
