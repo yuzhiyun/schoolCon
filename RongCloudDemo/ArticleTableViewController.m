@@ -18,6 +18,7 @@
 #import "Article.h"
 #import "JsonUtil.h"
 #import "MJRefresh.h"
+#import "Alert.h"
 @interface ArticleTableViewController ()
 
 @end
@@ -153,6 +154,8 @@
                         //        信息框添加按键
                         [alert addAction:ok];
                         [self presentViewController:alert animated:YES completion:nil];
+//                            Alert.
+//                            Alert.showMessageAlert(@"亲，没有更多数据了");
                         
                     }
                     else{
@@ -263,7 +266,6 @@
     }
     
     AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
-    ;
     
     Article *model=[allDataFromServer objectAtIndex:indexPath.row];
     NSLog(@"cellForRowAtIndexPath");

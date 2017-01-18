@@ -25,6 +25,12 @@
         self.titles = [NSArray arrayWithObjects:@"消息", @"联系人",nil];
         //修改WMPageController 的title颜色为蓝色
         self.titleColorSelected = [UIColor colorWithRed:3/255.0 green:121/255.0 blue:251/255.0 alpha:1.0];
+        //被选中字体和未被选中大小一样
+        self.titleSizeSelected=self.titleSizeNormal;
+        //未被选中时候文字颜色
+        self.titleColorNormal=[UIColor lightGrayColor];
+        //设置menu 背景色
+        self.menuBGColor=[UIColor whiteColor];
 
     }
     

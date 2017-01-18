@@ -147,7 +147,9 @@
     cell.UILabelPublisher.text=model.publisher;
     //    cell.UIImgCover.image=[UIImage imageNamed:[mImg objectAtIndex:indexPath.row]];
     //        加载图片,如果加载不到图片，就显示favorites.png
-    [cell.UIImgCover sd_setImageWithURL: model.picUrl placeholderImage:[UIImage imageNamed:@"favorites.png"]];
+    
+    AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
+    [cell.UIImgCover sd_setImageWithURL: [NSString stringWithFormat:@"%@%@",myDelegate.ipString,model.picUrl] placeholderImage:[UIImage imageNamed:@"favorites.png"]];
     return cell;
 }
 

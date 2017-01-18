@@ -138,9 +138,10 @@
 }
 
 
-- (IBAction)main:(id)sender {
+-(void) enterMain{
     MainViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"MainViewController"];
     [self.navigationController pushViewController:nextPage animated:YES];
+
 }
 
 - (IBAction)login:(id)sender {
@@ -159,6 +160,8 @@
 }
 
 - (IBAction)active:(id)sender {
+    
+//    [self enterMain];
     ChooseSchoolTableViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"ChooseSchoolTableViewController"];
     nextPage->index=2;
     [self.navigationController pushViewController:nextPage animated:YES];

@@ -93,6 +93,7 @@
     //为图片添加手势
     [ self.UIImageViewAvatar addGestureRecognizer:singleTap];
 }
+
 //头像点击事件
 -(void)singleTapAction:(UIGestureRecognizer *) s{
     NSLog(@"单击了头像");

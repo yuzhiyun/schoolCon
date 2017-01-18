@@ -199,6 +199,7 @@
 		CDC26A151E2CD6680093B804 /* icon2-20@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = CDC26A141E2CD6680093B804 /* icon2-20@3x.png */; };
 		CDC26A181E2CF5D40093B804 /* icon_tx@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CDC26A161E2CF5D40093B804 /* icon_tx@2x.png */; };
 		CDC26A191E2CF5D40093B804 /* icon_tx@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = CDC26A171E2CF5D40093B804 /* icon_tx@3x.png */; };
+		CDC26A5D1E2F0ABD0093B804 /* Alert.m in Sources */ = {isa = PBXBuildFile; fileRef = CDC26A5C1E2F0ABD0093B804 /* Alert.m */; };
 		CDDE85371E20973800E5F03B /* ConsultTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDDE85361E20973800E5F03B /* ConsultTableViewController.m */; };
 		CDDE853B1E20B9C500E5F03B /* ActiveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDDE853A1E20B9C500E5F03B /* ActiveViewController.m */; };
 		CDDE853F1E20BA0200E5F03B /* ForgetPwdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDDE853E1E20BA0200E5F03B /* ForgetPwdViewController.m */; };
@@ -543,6 +544,8 @@
 		CDC26A141E2CD6680093B804 /* icon2-20@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon2-20@3x.png"; sourceTree = "<group>"; };
 		CDC26A161E2CF5D40093B804 /* icon_tx@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_tx@2x.png"; sourceTree = "<group>"; };
 		CDC26A171E2CF5D40093B804 /* icon_tx@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_tx@3x.png"; sourceTree = "<group>"; };
+		CDC26A5C1E2F0ABD0093B804 /* Alert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Alert.m; sourceTree = "<group>"; };
+		CDC26A5E1E2F0AC60093B804 /* Alert.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Alert.h; sourceTree = "<group>"; };
 		CDDE85351E20973800E5F03B /* ConsultTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConsultTableViewController.h; sourceTree = "<group>"; };
 		CDDE85361E20973800E5F03B /* ConsultTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConsultTableViewController.m; sourceTree = "<group>"; };
 		CDDE85391E20B9C500E5F03B /* ActiveViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActiveViewController.h; sourceTree = "<group>"; };
@@ -1273,6 +1276,7 @@
 		CD4EE2501E2200A9001882F7 /* utility */ = {
 			isa = PBXGroup;
 			children = (
+				CDC26A5A1E2F09FB0093B804 /* messageViewController */,
 				CD6EACF71E276F95009EC3A0 /* jsonUtil */,
 				CD6EACF31E276CED009EC3A0 /* NSUserDefaults */,
 				CD6EACEF1E276523009EC3A0 /* toast */,
@@ -1507,6 +1511,15 @@
 				CDC26A141E2CD6680093B804 /* icon2-20@3x.png */,
 			);
 			name = appIcon;
+			sourceTree = "<group>";
+		};
+		CDC26A5A1E2F09FB0093B804 /* messageViewController */ = {
+			isa = PBXGroup;
+			children = (
+				CDC26A5C1E2F0ABD0093B804 /* Alert.m */,
+				CDC26A5E1E2F0AC60093B804 /* Alert.h */,
+			);
+			name = messageViewController;
 			sourceTree = "<group>";
 		};
 		CDDE85341E20971700E5F03B /* consult */ = {
@@ -1797,6 +1810,7 @@
 				CD6EACF61E276D5C009EC3A0 /* DataBaseNSUserDefaults.m in Sources */,
 				CD3F247B1E223DEB0083293D /* EditPhoneViewController.m in Sources */,
 				CD79C2061E2502B400A9889F /* UIProgressView+AFNetworking.m in Sources */,
+				CDC26A5D1E2F0ABD0093B804 /* Alert.m in Sources */,
 				CD79C2011E2502B400A9889F /* AFNetworkActivityIndicatorManager.m in Sources */,
 				CD79C2031E2502B400A9889F /* UIAlertView+AFNetworking.m in Sources */,
 				CDDE85501E20E03700E5F03B /* JoinViewController.m in Sources */,
