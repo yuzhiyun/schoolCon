@@ -175,13 +175,14 @@
     
     return cell;
 }
-
-
-
 -(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    Test *model=[allDataFromServer objectAtIndex:indexPath.row];
+    
     //根据storyboard id来获取目标页面
     TestIntroductionViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"TestIntroductionViewController"];
 //    //    传值
+    nextPage->testId=model.testId;
 //    nextPage->pubString=[mDataNotification objectAtIndex:indexPath.row];
     //UITabBarController和的UINavigationController结合使用,进入新的页面的时候，隐藏主页tabbarController的底部栏
     nextPage.hidesBottomBarWhenPushed=YES;

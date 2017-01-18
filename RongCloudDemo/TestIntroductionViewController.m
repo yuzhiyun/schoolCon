@@ -8,6 +8,7 @@
 
 #import "TestIntroductionViewController.h"
 #import "TestViewController.h"
+#import "AppDelegate.h"
 @interface TestIntroductionViewController ()
 
 @end
@@ -19,13 +20,19 @@
     //    修改下一个界面返回按钮的title，注意这行代码每个页面都要写一遍，不是全局的
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:nil action:nil];
     /**
-     * 显示网页
+     *显示网页
      */
-    NSString *url=@"http://mp.weixin.qq.com/s/m3y2dvyWLxHoFskyX5aWPQ";
-    NSURL *nsUrl=[NSURL URLWithString:url];
-    NSURLRequest *request=[NSURLRequest requestWithURL:nsUrl];
+    AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
+    NSString *urlString=[NSString stringWithFormat:@"%@/api/psy/test/getObject",myDelegate.ipString];
+    NSURL *url = [NSURL URLWithString: urlString];
+    NSString *body = [NSString stringWithFormat: @"id=%@&token=%@&appId=%@&appSecret=%@", testId,myDelegate.token,myDelegate.appId,myDelegate.appSecret];
     
-    [_UIWebViewtest loadRequest:request];
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc]initWithURL: url];
+    [request setHTTPMethod: @"POST"];
+    [request setHTTPBody: [body dataUsingEncoding: NSUTF8StringEncoding]];
+    [_UIWebViewtest loadRequest: request];
+ 
+    
     
 
     // Do any additional setup after loading the view.

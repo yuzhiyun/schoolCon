@@ -20,14 +20,8 @@
     /**
      *显示网页
      */
-    
-    
-    
     AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
-    
-
     NSString *urlString=[NSString stringWithFormat:@"%@/api/psy/consultant/getObject",myDelegate.ipString];
-    
     NSURL *url = [NSURL URLWithString: urlString];
     NSString *body = [NSString stringWithFormat: @"id=%@&token=%@&appId=%@&appSecret=%@", consultId,myDelegate.token,myDelegate.appId,myDelegate.appSecret];
     

@@ -8,7 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TestIntroductionViewController : UIViewController
+@interface TestIntroductionViewController : UIViewController{
+
+@public
+    NSString *testId;
+}
 @property (weak, nonatomic) IBOutlet UIWebView *UIWebViewtest;
 
 @end
