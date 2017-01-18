@@ -223,7 +223,7 @@
         cell=[[Vp1TableViewCell init] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
     }
     
-    AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
+    
     
     Article *model=[allDataFromServer objectAtIndex:indexPath.row];
     NSLog(@"cellForRowAtIndexPath");
@@ -245,6 +245,8 @@
     NSString *currentDateString = [dateFormatter stringFromDate:date2];
     cell.UILabelDate.text=currentDateString;
     cell.UILabelAuthor.text= model.author;
+    
+    AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
     [cell.UIImgCover sd_setImageWithURL:[NSString stringWithFormat:@"%@%@",myDelegate.ipString,model.picUrl] placeholderImage:[UIImage imageNamed:@"favorites.png"]];
     //    [cell.UIImgCover sd_setImageWithURL:model.picUrl placeholderImage:[UIImage imageNamed:@"favorites.png"]];
     return cell;

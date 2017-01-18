@@ -9,24 +9,41 @@
 #import "ConsultTableViewController.h"
 #import "MJRefresh.h"
 #import "ConcreteConsultViewController.h"
+#import "Alert.h"
+#import "AppDelegate.h"
+#import "MBProgressHUD.h"
+#import "UIImageView+WebCache.h"
+#import "AFNetworking.h"
+#import "JsonUtil.h"
+#import "Consult.h"
+
 @interface ConsultTableViewController ()
 
 @end
 
 @implementation ConsultTableViewController{
-    NSMutableArray *mDataConsult;
+//    NSMutableArray *mDataConsult;
+    NSMutableArray *allDataFromServer;
+    UITableView *mTableView;
+    //页面索引，分页查询数据，下拉刷新的时候需要使用到
+    int pageIndex;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    mDataConsult=[[NSMutableArray alloc]init];
-    [mDataConsult addObject:@"初始数据"];
-    [mDataConsult addObject:@"初始数据"];
-    [mDataConsult addObject:@"初始数据"];
-    [mDataConsult addObject:@"初始数据"];
-    [mDataConsult addObject:@"初始数据"];
+//    mDataConsult=[[NSMutableArray alloc]init];
+//    [mDataConsult addObject:@"初始数据"];
+//    [mDataConsult addObject:@"初始数据"];
+//    [mDataConsult addObject:@"初始数据"];
+//    [mDataConsult addObject:@"初始数据"];
+//    [mDataConsult addObject:@"初始数据"];
     // 2.集成刷新控件
     [self setupRefresh];
+    
+    [self loadData:1 orientation:@"down"];
+    
+    allDataFromServer=[[NSMutableArray alloc]init];
+    
 }
 /**
  *  集成刷新控件
@@ -56,7 +73,7 @@
 {
     // 1.添加假数据
     for (int i = 0; i<5; i++) {
-        [mDataConsult insertObject:@"下拉刷新数据" atIndex:0];
+//        [mDataConsult insertObject:@"下拉刷新数据" atIndex:0];
     }
     
     // 2.模拟2秒后刷新表格UI（真实开发中，可以移除这段gcd代码）
@@ -73,7 +90,7 @@
 {
     // 1.添加假数据
     for (int i = 0; i<5; i++) {
-        [mDataConsult addObject:@"上拉刷新数据"];
+//        [mDataConsult addObject:@"上拉刷新数据"];
     }
     
     // 2.模拟2秒后刷新表格UI（真实开发中，可以移除这段gcd代码）
@@ -100,12 +117,15 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    
+    
+    mTableView=tableView;
 #warning Incomplete implementation, return the number of rows
     //第一段之显示一条数据
     if(0==section)
         return 1;
     else
-    return [mDataConsult count];
+    return [allDataFromServer count];
 }
 
 
@@ -122,17 +142,29 @@
     //    cell.imageView.image=[UIImage imageNamed:@"notice1.png"];
     
     if(1==indexPath.section){
+        
+        Consult *model=[allDataFromServer objectAtIndex:indexPath.row];
+        
+        
     
     UILabel *mUILabelName=(UILabel *)[cell viewWithTag:1];
-    mUILabelName.text=@"张新源";
+    mUILabelName.text=model.name;
     UILabel *mUILabelTitle=(UILabel *)[cell viewWithTag:2];
-    mUILabelTitle.text=@"一级心理咨询师";
+    mUILabelTitle.text=model.title;
     
     UILabel *mUILabelSpecialty=(UILabel *)[cell viewWithTag:3];
-    //mUILabelSpecialty.text=@"认知行为治疗";
-    mUILabelSpecialty.text=[mDataConsult objectAtIndex:indexPath.row];
+    mUILabelSpecialty.text=model.goodAt;
+        
+        UIImageView  *mUIImageView=(UIImageView *)[cell viewWithTag:5];
+        AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
+        [mUIImageView sd_setImageWithURL:[NSString stringWithFormat:@"%@%@",myDelegate.ipString,model.picUrl] placeholderImage:[UIImage imageNamed:@"favorites.png"]];
+//    mUILabelSpecialty.text=[mDataConsult objectAtIndex:indexPath.row];
+        
     }
     else{
+        
+        
+        
         
         
         UILabel *mUILabelName=(UILabel *)[cell viewWithTag:1];
@@ -175,6 +207,112 @@
     nextPage.hidesBottomBarWhenPushed=YES;
     //跳转
     [self.navigationController pushViewController:nextPage animated:YES];
+}
+
+
+#pragma mark 加载咨询师列表
+-(void)loadData:(int)pageIndex orientation:(NSString *) orientation {
+    MBProgressHUD *hud;
+    hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    //hud.color = [UIColor colorWithHexString:@"343637" alpha:0.5];
+    hud.labelText = @" 获取数据...";
+    [hud show:YES];
+    //获取全局ip地址
+    AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
+    
+    NSString *urlString= [NSString stringWithFormat:@"%@/api/psy/consultant/getList",myDelegate.ipString];
+    //创建数据请求的对象，不是单例
+    AFHTTPRequestOperationManager *manager=[AFHTTPRequestOperationManager manager];
+    //设置响应数据的类型,如果是json数据，会自动帮你解析
+    //注意setWithObjects后面的s不能少
+    manager.responseSerializer.acceptableContentTypes=[NSSet setWithObjects:@"application/json", nil];
+    NSString *token=myDelegate.token;
+    // 请求参数
+    NSDictionary *parameters = @{ @"appId":@"03a8f0ea6a",
+                                  @"appSecret":@"b4a01f5a7dd4416c",
+                                  @"pageNumber":[NSString stringWithFormat:@"%d",pageIndex],
+                                  @"token":token
+                                  };
+    
+    [manager POST:urlString parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        // (最好在刷新表格后调用)调用endRefreshing可以结束刷新状态
+        [self.tableView footerEndRefreshing];
+        [self.tableView headerEndRefreshing];
+        //隐藏圆形进度条
+        [hud hide:YES];
+        NSString *result=[JsonUtil DataTOjsonString:responseObject];
+        NSLog(@"***************返回结果***********************");
+        NSLog(result);
+        NSData *data=[result dataUsingEncoding:NSUTF8StringEncoding];
+        NSError *error=[[NSError alloc]init];
+        NSDictionary *doc= [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
+        if(doc!=nil){
+            NSLog(@"*****doc不为空***********");
+            if([[doc objectForKey:@"code"] isKindOfClass:[NSNumber class]])
+                NSLog(@"code 是 NSNumber");
+            //判断code 是不是0
+            NSNumber *zero=[NSNumber numberWithInt:(0)];
+            NSNumber *code=[doc objectForKey:@"code"];
+            if([zero isEqualToNumber:code])
+            {
+                if(nil!=[doc allKeys]){
+                    
+                    NSArray *articleArray=[doc objectForKey:@"data"];
+                    if(0==[articleArray count]){
+                        
+                        if([orientation isEqualToString:@"down"])
+                            self.tableView.headerRefreshingText = @"亲，没有更多数据了";
+                        else
+                            self.tableView.footerRefreshingText = @"亲，没有更多数据了";
+                        [Alert showMessageAlert:@"亲，没有更多数据了" view:self];
+                        
+                    }
+                    else{
+                        
+                        for(NSDictionary *item in  articleArray ){
+                            
+                            Consult *model=[[Consult alloc]init];
+                            model.consultId=item [@"id"];
+                            model.picUrl=item [@"picurl"];
+                            model.title=item [@"title"];
+                            model.name=item [@"name"];
+                            model.goodAt=item[@"goodat"];
+
+                            //添加到数组以便显示到tableview
+                            NSLog(@"addObject之前");
+                            if([orientation isEqualToString:@"up"])
+                                [allDataFromServer addObject:model];
+                            else
+                                [allDataFromServer insertObject:model atIndex:0];
+                            NSLog(@"addObject之后");
+                        }
+                        NSLog(@"mDataArticle项数为%i",[allDataFromServer count]);
+                        NSLog(@"//更新界面");
+                        //更新界面
+                        [mTableView reloadData];
+                    }
+                }
+                else
+                    [Alert showMessageAlert:@"抱歉，尚无文章可以阅读" view:self];
+            }
+            else
+                [Alert showMessageAlert:[doc objectForKey:@"msg"] view:self];
+        }
+        else
+            NSLog(@"*****doc空***********");
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [self.tableView footerEndRefreshing];
+        [self.tableView headerEndRefreshing];
+        //隐藏圆形进度条
+        [hud hide:YES];
+        NSString *errorUser=[error.userInfo objectForKey:NSLocalizedDescriptionKey];
+        if(error.code==-1009)
+            errorUser=@"主人，似乎没有网络喔！";
+        
+        [Alert showMessageAlert:errorUser view:self];
+    }];
+
 }
 //ConcreteConsultViewController
 @end

@@ -200,6 +200,7 @@
 		CDC26A181E2CF5D40093B804 /* icon_tx@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CDC26A161E2CF5D40093B804 /* icon_tx@2x.png */; };
 		CDC26A191E2CF5D40093B804 /* icon_tx@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = CDC26A171E2CF5D40093B804 /* icon_tx@3x.png */; };
 		CDC26A5D1E2F0ABD0093B804 /* Alert.m in Sources */ = {isa = PBXBuildFile; fileRef = CDC26A5C1E2F0ABD0093B804 /* Alert.m */; };
+		CDC26A621E2F1F8A0093B804 /* Consult.m in Sources */ = {isa = PBXBuildFile; fileRef = CDC26A611E2F1F8A0093B804 /* Consult.m */; };
 		CDDE85371E20973800E5F03B /* ConsultTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDDE85361E20973800E5F03B /* ConsultTableViewController.m */; };
 		CDDE853B1E20B9C500E5F03B /* ActiveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDDE853A1E20B9C500E5F03B /* ActiveViewController.m */; };
 		CDDE853F1E20BA0200E5F03B /* ForgetPwdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDDE853E1E20BA0200E5F03B /* ForgetPwdViewController.m */; };
@@ -546,6 +547,8 @@
 		CDC26A171E2CF5D40093B804 /* icon_tx@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_tx@3x.png"; sourceTree = "<group>"; };
 		CDC26A5C1E2F0ABD0093B804 /* Alert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Alert.m; sourceTree = "<group>"; };
 		CDC26A5E1E2F0AC60093B804 /* Alert.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Alert.h; sourceTree = "<group>"; };
+		CDC26A601E2F1F7D0093B804 /* Consult.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Consult.h; sourceTree = "<group>"; };
+		CDC26A611E2F1F8A0093B804 /* Consult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Consult.m; sourceTree = "<group>"; };
 		CDDE85351E20973800E5F03B /* ConsultTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConsultTableViewController.h; sourceTree = "<group>"; };
 		CDDE85361E20973800E5F03B /* ConsultTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConsultTableViewController.m; sourceTree = "<group>"; };
 		CDDE85391E20B9C500E5F03B /* ActiveViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActiveViewController.h; sourceTree = "<group>"; };
@@ -1522,9 +1525,19 @@
 			name = messageViewController;
 			sourceTree = "<group>";
 		};
+		CDC26A5F1E2F1F5C0093B804 /* consultEntity */ = {
+			isa = PBXGroup;
+			children = (
+				CDC26A601E2F1F7D0093B804 /* Consult.h */,
+				CDC26A611E2F1F8A0093B804 /* Consult.m */,
+			);
+			name = consultEntity;
+			sourceTree = "<group>";
+		};
 		CDDE85341E20971700E5F03B /* consult */ = {
 			isa = PBXGroup;
 			children = (
+				CDC26A5F1E2F1F5C0093B804 /* consultEntity */,
 				CDC26A051E2A6B7F0093B804 /* concreteConsult */,
 				CDDE85351E20973800E5F03B /* ConsultTableViewController.h */,
 				CDDE85361E20973800E5F03B /* ConsultTableViewController.m */,
@@ -1854,6 +1867,7 @@
 				CD3CF6A21E0D6788003599F5 /* TeacherNotUseCollectionViewController.m in Sources */,
 				CD2DCC8A1E09305D000C03E1 /* UIImage+WebP.m in Sources */,
 				CD79C2001E2502B400A9889F /* AFURLSessionManager.m in Sources */,
+				CDC26A621E2F1F8A0093B804 /* Consult.m in Sources */,
 				CD79C2081E2502B400A9889F /* UIWebView+AFNetworking.m in Sources */,
 				CDDE85371E20973800E5F03B /* ConsultTableViewController.m in Sources */,
 				CD79C2041E2502B400A9889F /* UIButton+AFNetworking.m in Sources */,
