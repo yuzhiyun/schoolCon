@@ -14,6 +14,7 @@
 #import "LoginViewController.h"
 #import "Toast.h"
 #import "JsonUtil.h"
+#import "Alert.h"
 @interface ForgetPwdViewController ()
 
 @end
@@ -108,13 +109,7 @@
         else
         {
             [hud hide:YES];
-            UIAlertController *alert=[UIAlertController alertControllerWithTitle:nil message:[doc objectForKey:@"msg"] preferredStyle:UIAlertControllerStyleAlert];
-            UIAlertAction *ok=[UIAlertAction actionWithTitle:@"确认"
-                                                       style:UIAlertActionStyleDefault handler:nil];
-            
-            //        信息框添加按键
-            [alert addAction:ok];
-            [self presentViewController:alert animated:YES completion:nil];
+            [Alert showMessageAlert:[doc objectForKey:@"msg"] view:self];
         }
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -123,13 +118,7 @@
         NSString *errorUser=[error.userInfo objectForKey:NSLocalizedDescriptionKey];
         if(error.code==-1009)
             errorUser=@"主人，似乎没有网络喔！";
-        UIAlertController *alert=[UIAlertController alertControllerWithTitle:nil message:errorUser preferredStyle:UIAlertControllerStyleAlert];
-        UIAlertAction *ok=[UIAlertAction actionWithTitle:@"确认"
-                                                   style:UIAlertActionStyleDefault handler:nil];
-        
-        //        信息框添加按键
-        [alert addAction:ok];
-        [self presentViewController:alert animated:YES completion:nil];
+        [Alert showMessageAlert:errorUser view:self];
     }];
 }
 
@@ -193,12 +182,7 @@
             [Toast showToast:@"短信已经发送" view:self.view];
         }
         else{
-            UIAlertController *alert=[UIAlertController alertControllerWithTitle:nil message: [doc objectForKey:@"msg"]preferredStyle:UIAlertControllerStyleAlert];
-            UIAlertAction *ok=[UIAlertAction actionWithTitle:@"确认"
-                                                       style:UIAlertActionStyleDefault handler:nil];
-            //信息框添加按键
-            [alert addAction:ok];
-            [self presentViewController:alert animated:YES completion:nil];
+             [Alert showMessageAlert:[doc objectForKey:@"msg"] view:self];
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         //隐藏圆形进度条
@@ -206,13 +190,7 @@
         NSString *errorUser=[error.userInfo objectForKey:NSLocalizedDescriptionKey];
         if(error.code==-1009)
             errorUser=@"主人，似乎没有网络喔！";
-        UIAlertController *alert=[UIAlertController alertControllerWithTitle:nil message:errorUser preferredStyle:UIAlertControllerStyleAlert];
-        UIAlertAction *ok=[UIAlertAction actionWithTitle:@"确认"
-                                                   style:UIAlertActionStyleDefault handler:nil];
-        
-        //        信息框添加按键
-        [alert addAction:ok];
-        [self presentViewController:alert animated:YES completion:nil];
+        [Alert showMessageAlert:errorUser view:self];
     }];
 }
 

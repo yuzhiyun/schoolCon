@@ -13,6 +13,7 @@
 #import "MBProgressHUD.h"
 #import "Toast.h"
 #import "JsonUtil.h"
+#import "Alert.h"
 //#define JsonGet @"http://192.168.229.1:8080/schoolCon/api/sys/sms/send?appId=03a8f0ea6a&appSecret=b4a01f5a7dd4416c&phone=12345&1564do12spa"
 @interface ActiveViewController ()
 
@@ -105,25 +106,12 @@
         NSNumber *code=[doc objectForKey:@"code"];
         if([zero isEqualToNumber:code])
         {
-            
-            UIAlertController *alert=[UIAlertController alertControllerWithTitle:nil message:@"验证码发送成功" preferredStyle:UIAlertControllerStyleAlert];
-            UIAlertAction *ok=[UIAlertAction actionWithTitle:@"确认"
-                                                       style:UIAlertActionStyleDefault handler:nil];
-            
-            //        信息框添加按键
-            [alert addAction:ok];
-            [self presentViewController:alert animated:YES completion:nil];
-        
-        
+            [Toast showToast:@"验证码发送成功" view:self.view];
         }
         else{
-            UIAlertController *alert=[UIAlertController alertControllerWithTitle:nil message:[doc objectForKey:@"msg"] preferredStyle:UIAlertControllerStyleAlert];
-            UIAlertAction *ok=[UIAlertAction actionWithTitle:@"确认"
-                                                       style:UIAlertActionStyleDefault handler:nil];
             
-            //        信息框添加按键
-            [alert addAction:ok];
-            [self presentViewController:alert animated:YES completion:nil];
+            [Alert showMessageAlert:[doc objectForKey:@"msg"]  view:self];
+
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         //隐藏圆形进度条
@@ -131,13 +119,7 @@
         NSString *errorUser=[error.userInfo objectForKey:NSLocalizedDescriptionKey];
         if(error.code==-1009)
             errorUser=@"主人，似乎没有网络喔！";
-        UIAlertController *alert=[UIAlertController alertControllerWithTitle:nil message:errorUser preferredStyle:UIAlertControllerStyleAlert];
-        UIAlertAction *ok=[UIAlertAction actionWithTitle:@"确认"
-                                                   style:UIAlertActionStyleDefault handler:nil];
-        
-        //        信息框添加按键
-        [alert addAction:ok];
-        [self presentViewController:alert animated:YES completion:nil];
+        [Alert showMessageAlert:errorUser view:self];
     }];
 }
 
@@ -208,30 +190,7 @@
         NSError *error=[[NSError alloc]init];
         NSDictionary *doc= [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
 
-//        NSLog(@"服务器返回msg%@",[doc objectForKey:@"msg"]);
-//        NSLog(@"服务器返回code%i",[doc objectForKey:@"code"]);
-//        NSData *data=[result dataUsingEncoding:NSUTF8StringEncoding];
-//        NSError *error=[[NSError alloc]init];
-//        NSDictionary *doc= [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
-//        
-//        //        "data" : [
-//        //                  {
-//        //                      "id" : "bb744859cadc4c85b3b5228723da8671",
-//        //                      "title" : "1",
-//        //                      "author" : "超级管理员",
-//        //                      "publishat" : 1484101843,
-//        //                      "picurl" : "\/schoolCon\/upload\/image\/20170111\/5rpblhora6i7prhqa1i7j48b15.14.02.png"
-//        //                  }
-//        //                  ]
-//        if(doc!=nil){
-//            NSLog(@"*****doc不为空***********");
-//            if([[doc objectForKey:@"code"] isKindOfClass:[NSNumber class]])
-//                NSLog(@"code 是 NSNumber");
-//            //判断code 是不是0
-//            NSNumber *zero=[NSNumber numberWithInt:(0)];
-//            NSNumber *code=[doc objectForKey:@"code"];
-//            if([zero isEqualToNumber:code])
-//            {
+
                     NSNumber *zero=[NSNumber numberWithInt:(0)];
                     NSNumber *code=[doc objectForKey:@"code"];
                     if([zero isEqualToNumber:code])
@@ -249,13 +208,7 @@
         }
         else
         {
-            UIAlertController *alert=[UIAlertController alertControllerWithTitle:nil message:[doc objectForKey:@"msg"] preferredStyle:UIAlertControllerStyleAlert];
-            UIAlertAction *ok=[UIAlertAction actionWithTitle:@"确认"
-                                                       style:UIAlertActionStyleDefault handler:nil];
-            
-            //        信息框添加按键
-            [alert addAction:ok];
-            [self presentViewController:alert animated:YES completion:nil];
+            [Alert showMessageAlert:[doc objectForKey:@"msg"] view:self];
         }
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -264,13 +217,7 @@
         NSString *errorUser=[error.userInfo objectForKey:NSLocalizedDescriptionKey];
         if(error.code==-1009)
             errorUser=@"主人，似乎没有网络喔！";
-        UIAlertController *alert=[UIAlertController alertControllerWithTitle:nil message:errorUser preferredStyle:UIAlertControllerStyleAlert];
-        UIAlertAction *ok=[UIAlertAction actionWithTitle:@"确认"
-                                                   style:UIAlertActionStyleDefault handler:nil];
-        
-        //        信息框添加按键
-        [alert addAction:ok];
-        [self presentViewController:alert animated:YES completion:nil];
+        [Alert showMessageAlert:errorUser view:self];
     }];
 }
 

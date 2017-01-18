@@ -40,7 +40,7 @@
     [self loadData:pageIndex orientation:@"up"];
     AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
     NSLog(@"token是%@",myDelegate.token);
-
+    
     
     
     // 2.集成刷新控件
@@ -144,7 +144,7 @@
                     if(0==[articleArray count]){
                         
                         if([orientation isEqualToString:@"down"])
-                        self.tableView.headerRefreshingText = @"亲，没有更多数据了";
+                            self.tableView.headerRefreshingText = @"亲，没有更多数据了";
                         else
                             self.tableView.footerRefreshingText = @"亲，没有更多数据了";
                         [Alert showMessageAlert:@"亲，没有更多数据了" view:self];
@@ -184,44 +184,15 @@
                         //更新界面
                         [mTableView reloadData];
                     }
-                    //            }
                 }
                 else
-                {
-                    UIAlertController *alert=[UIAlertController alertControllerWithTitle:nil message:@"抱歉，尚无文章可以阅读" preferredStyle:UIAlertControllerStyleAlert];
-                    UIAlertAction *ok=[UIAlertAction actionWithTitle:@"确认"
-                                                               style:UIAlertActionStyleDefault handler:nil];
-                    
-                    //        信息框添加按键
-                    [alert addAction:ok];
-                    [self presentViewController:alert animated:YES completion:nil];
-                    
-                }
+                    [Alert showMessageAlert:@"抱歉，尚无文章可以阅读" view:self];
             }
-            
-            else{
-                
-                UIAlertController *alert=[UIAlertController alertControllerWithTitle:nil message:[doc objectForKey:@"msg"] preferredStyle:UIAlertControllerStyleAlert];
-                UIAlertAction *ok=[UIAlertAction actionWithTitle:@"确认"
-                                                           style:UIAlertActionStyleDefault handler:nil];
-                //        信息框添加按键
-                [alert addAction:ok];
-                [self presentViewController:alert animated:YES completion:nil];
-                
-            }
-            
+            else
+                [Alert showMessageAlert:[doc objectForKey:@"msg"] view:self];
         }
         else
             NSLog(@"*****doc空***********");
-        
-        
-        
-        
-        
-        
-        
-        //        NSLog([self DataTOjsonString:responseObject]);
-        //          NSLog([self convertToJsonData:dic]);
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         [self.tableView footerEndRefreshing];
@@ -231,13 +202,8 @@
         NSString *errorUser=[error.userInfo objectForKey:NSLocalizedDescriptionKey];
         if(error.code==-1009)
             errorUser=@"主人，似乎没有网络喔！";
-        UIAlertController *alert=[UIAlertController alertControllerWithTitle:nil message:errorUser preferredStyle:UIAlertControllerStyleAlert];
-        UIAlertAction *ok=[UIAlertAction actionWithTitle:@"确认"
-                                                   style:UIAlertActionStyleDefault handler:nil];
-        
-        //        信息框添加按键
-        [alert addAction:ok];
-        [self presentViewController:alert animated:YES completion:nil];
+
+        [Alert showMessageAlert:errorUser view:self];
     }];}
 
 
@@ -280,7 +246,7 @@
     cell.UILabelDate.text=currentDateString;
     cell.UILabelAuthor.text= model.author;
     [cell.UIImgCover sd_setImageWithURL:[NSString stringWithFormat:@"%@%@",myDelegate.ipString,model.picUrl] placeholderImage:[UIImage imageNamed:@"favorites.png"]];
-//    [cell.UIImgCover sd_setImageWithURL:model.picUrl placeholderImage:[UIImage imageNamed:@"favorites.png"]];
+    //    [cell.UIImgCover sd_setImageWithURL:model.picUrl placeholderImage:[UIImage imageNamed:@"favorites.png"]];
     return cell;
 }
 
@@ -288,21 +254,21 @@
 -(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
     
-//    
-//    
-//    //根据storyboard id来获取目标页面
-//    ArticleDetailViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"ArticleDetailViewController"];
-//    if([@"zxxx" isEqualToString:type])
-//        nextPage->pubString=@"http://mp.weixin.qq.com/s/jSpB9hQupgs6e1x2MY5t2Q";
-//    else if([@"xlzs" isEqualToString:type])
-//        nextPage->pubString=@"https://mp.weixin.qq.com/s?__biz=MzI0NzcwMjk4OA==&mid=100000029&idx=2&sn=6fcdd1ace7f38c279ad876916d80467a&chksm=69aab5be5edd3ca82db4e67412703ef1a9ab237c1efdf2ea8dbbb27b44c41791108020b86c87&mpshare=1&scene=1&srcid=0109cHZBsWoocYL6bgSFbKx1&key=a5e15611f72562f201c7e53e7e775691a56c248eec550dea214f5f77d9770688f21b69cd6e81ece7783a4ed8811fdeaa1d2ab56858f5dc3d9ce28d63286da04194fb70e4fcbe13ba4110457861f09002&ascene=0&uin=ODk4MzEwMTY5&devicetype=iMac+MacBookAir6%2C2+OSX+OSX+10.12.1+build(16B2555)&version=12010210&nettype=WIFI&fontScale=100&pass_ticket=gLigsYUageUfMfyUCRYEEUnvhAkH2%2BwYNaz83cLnA%2F3bXoIpzkMunbIBNAu2VYbw";
-//    //    传值
-//    //    nextPage->pubString=[mData objectAtIndex:indexPath.row];
-//    //UITabBarController和的UINavigationController结合使用,进入新的页面的时候，隐藏主页tabbarController的底部栏
-//    nextPage.hidesBottomBarWhenPushed=YES;
-//    
-//    //跳转
-//    [self.navigationController pushViewController:nextPage animated:YES];
+    //
+    //
+    //    //根据storyboard id来获取目标页面
+    //    ArticleDetailViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"ArticleDetailViewController"];
+    //    if([@"zxxx" isEqualToString:type])
+    //        nextPage->pubString=@"http://mp.weixin.qq.com/s/jSpB9hQupgs6e1x2MY5t2Q";
+    //    else if([@"xlzs" isEqualToString:type])
+    //        nextPage->pubString=@"https://mp.weixin.qq.com/s?__biz=MzI0NzcwMjk4OA==&mid=100000029&idx=2&sn=6fcdd1ace7f38c279ad876916d80467a&chksm=69aab5be5edd3ca82db4e67412703ef1a9ab237c1efdf2ea8dbbb27b44c41791108020b86c87&mpshare=1&scene=1&srcid=0109cHZBsWoocYL6bgSFbKx1&key=a5e15611f72562f201c7e53e7e775691a56c248eec550dea214f5f77d9770688f21b69cd6e81ece7783a4ed8811fdeaa1d2ab56858f5dc3d9ce28d63286da04194fb70e4fcbe13ba4110457861f09002&ascene=0&uin=ODk4MzEwMTY5&devicetype=iMac+MacBookAir6%2C2+OSX+OSX+10.12.1+build(16B2555)&version=12010210&nettype=WIFI&fontScale=100&pass_ticket=gLigsYUageUfMfyUCRYEEUnvhAkH2%2BwYNaz83cLnA%2F3bXoIpzkMunbIBNAu2VYbw";
+    //    //    传值
+    //    //    nextPage->pubString=[mData objectAtIndex:indexPath.row];
+    //    //UITabBarController和的UINavigationController结合使用,进入新的页面的时候，隐藏主页tabbarController的底部栏
+    //    nextPage.hidesBottomBarWhenPushed=YES;
+    //
+    //    //跳转
+    //    [self.navigationController pushViewController:nextPage animated:YES];
     
     
     //    [self loadArticleData];
@@ -356,7 +322,7 @@
         if([[doc objectForKey:@"msg"] isEqualToString:@"会员"]){
             ArticleDetailViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"ArticleDetailViewController"];
             
-             Article *model=[allDataFromServer objectAtIndex:indexPath.row];
+            Article *model=[allDataFromServer objectAtIndex:indexPath.row];
             nextPage->articleId=model.articleId;
             nextPage->title=model.title;
             nextPage.hidesBottomBarWhenPushed=YES;
