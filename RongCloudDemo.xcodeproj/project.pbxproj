@@ -254,6 +254,7 @@
 		CDF8EC161E2FB10E00BFD5EA /* xiaoyuan@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CDF8EC001E2FB10E00BFD5EA /* xiaoyuan@2x.png */; };
 		CDF8EC171E2FB10E00BFD5EA /* xiaoyuan@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = CDF8EC011E2FB10E00BFD5EA /* xiaoyuan@3x.png */; };
 		CDF8EC191E2FB68C00BFD5EA /* Classroom.png in Resources */ = {isa = PBXBuildFile; fileRef = CDF8EC181E2FB68C00BFD5EA /* Classroom.png */; };
+		CDF8EC1F1E3062AD00BFD5EA /* me_pwd.png in Resources */ = {isa = PBXBuildFile; fileRef = CDF8EC1E1E3062AD00BFD5EA /* me_pwd.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -647,6 +648,7 @@
 		CDF8EC001E2FB10E00BFD5EA /* xiaoyuan@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "xiaoyuan@2x.png"; sourceTree = "<group>"; };
 		CDF8EC011E2FB10E00BFD5EA /* xiaoyuan@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "xiaoyuan@3x.png"; sourceTree = "<group>"; };
 		CDF8EC181E2FB68C00BFD5EA /* Classroom.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Classroom.png; sourceTree = "<group>"; };
+		CDF8EC1E1E3062AD00BFD5EA /* me_pwd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = me_pwd.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -828,6 +830,7 @@
 				CDF8EBEA1E2FB0FB00BFD5EA /* bottom */,
 				CDF8EBE01E2FA8BA00BFD5EA /* vip_clock.png */,
 				CDF8EBE81E2FABC900BFD5EA /* notice1.png */,
+				CDF8EC1E1E3062AD00BFD5EA /* me_pwd.png */,
 				CDF8EBDE1E2FA89500BFD5EA /* vip_article.png */,
 				CDF8EBDC1E2FA83500BFD5EA /* vip2.png */,
 				CDF8EBC91E2F496C00BFD5EA /* homePage */,
@@ -1894,6 +1897,7 @@
 				CD3F246D1E22339C0083293D /* 3.png in Resources */,
 				CD71A3701E29EA0D00396746 /* phoneConsult.png in Resources */,
 				CD2DCB7E1E03C7E7000C03E1 /* contacts_us.png in Resources */,
+				CDF8EC1F1E3062AD00BFD5EA /* me_pwd.png in Resources */,
 				CD3F24811E2263040083293D /* clock2.png in Resources */,
 				CD2DCAF01DFD9051000C03E1 /* list.jpg in Resources */,
 				CD3CF69E1E0D000E003599F5 /* emotion_activity.png in Resources */,

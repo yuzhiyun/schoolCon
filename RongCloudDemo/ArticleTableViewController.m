@@ -41,7 +41,10 @@
     AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
     NSLog(@"token是%@",myDelegate.token);
     
-    
+    //   navigationBar背景
+   
+    [self.navigationController.navigationBar setBarTintColor:myDelegate.navigationBarColor];
+
     
     // 2.集成刷新控件
     [self setupRefresh];
@@ -209,8 +212,7 @@
             errorUser=@"主人，似乎没有网络喔！";
 
         [Alert showMessageAlert:errorUser view:self];
-    }];
-}
+    }];}
 
 
 #pragma mark - Table view data source

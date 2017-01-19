@@ -36,7 +36,7 @@
     myDelegate.appId=@"03a8f0ea6a";
     myDelegate.appSecret=@"b4a01f5a7dd4416c";
     
-    myDelegate.navigationBarColor=[UIColor colorWithRed:30/255.0 green:185/255.0 blue:238/255.0 alpha:1.0];
+    myDelegate.navigationBarColor=[UIColor colorWithRed:44/255.0 green:191/255.0 blue:242/255.0 alpha:1.0];
     //初始化融云SDK
     [[RCIM sharedRCIM] initWithAppKey:RONGCLOUD_IM_APPKEY];
     /**

@@ -63,7 +63,7 @@
     
     mDataImg=[[NSMutableArray alloc]init];
     [mDataImg addObject:@"phone.png"];
-    [mDataImg addObject:@"phone.png"];
+    [mDataImg addObject:@"me_pwd.png"];
     [mDataImg addObject:@"coffee_little.png"];
     [mDataImg addObject:@"test_litttle.png"];
     

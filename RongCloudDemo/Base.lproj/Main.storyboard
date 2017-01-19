@@ -2260,8 +2260,8 @@
                                                     <constraint firstAttribute="width" constant="77" id="cHX-ab-kfw"/>
                                                 </constraints>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="吴鸿" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eiv-G1-wbz">
-                                                <rect key="frame" x="211" y="56" width="39" height="23"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="陈曦" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eiv-G1-wbz">
+                                                <rect key="frame" x="174" y="56" width="39" height="23"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -2280,7 +2280,7 @@
                                             <constraint firstItem="rr1-dz-B7d" firstAttribute="top" secondItem="jZ3-or-ruq" secondAttribute="bottom" constant="27" id="9s4-Rk-OP6"/>
                                             <constraint firstItem="eiv-G1-wbz" firstAttribute="centerY" secondItem="jZ3-or-ruq" secondAttribute="centerY" id="SfW-3B-KaL"/>
                                             <constraint firstAttribute="trailing" secondItem="rr1-dz-B7d" secondAttribute="trailing" id="Y6M-gz-4Rd"/>
-                                            <constraint firstItem="eiv-G1-wbz" firstAttribute="leading" secondItem="jZ3-or-ruq" secondAttribute="trailing" constant="87" id="dlB-gj-41K"/>
+                                            <constraint firstItem="eiv-G1-wbz" firstAttribute="leading" secondItem="jZ3-or-ruq" secondAttribute="trailing" constant="50" id="dlB-gj-41K"/>
                                             <constraint firstItem="rr1-dz-B7d" firstAttribute="leading" secondItem="BPL-mf-SdC" secondAttribute="leading" id="h32-dZ-0aM"/>
                                             <constraint firstAttribute="height" constant="140" id="reo-yB-ke4"/>
                                             <constraint firstItem="jZ3-or-ruq" firstAttribute="top" secondItem="BPL-mf-SdC" secondAttribute="top" constant="30" id="vph-NO-d5r"/>
@@ -2331,7 +2331,7 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="吴晓芳" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n9R-Zy-eoM">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="陈小曦" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n9R-Zy-eoM">
                                                         <rect key="frame" x="250" y="40" width="61" height="21"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="10"/>
@@ -2373,7 +2373,7 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="长郡中学" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2NB-iZ-E4b">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="雅礼中学" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2NB-iZ-E4b">
                                                         <rect key="frame" x="250" y="57" width="61" height="21"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="10"/>
