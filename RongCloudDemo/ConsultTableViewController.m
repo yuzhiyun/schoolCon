@@ -168,13 +168,13 @@
         
         
         UILabel *mUILabelName=(UILabel *)[cell viewWithTag:1];
-        mUILabelName.text=@"心理咨询热线";
+        mUILabelName.text=@"心理热线";
         UILabel *mUILabelTitle=(UILabel *)[cell viewWithTag:2];
         mUILabelTitle.text=@"";
         
         UILabel *mUILabelSpecialty=(UILabel *)[cell viewWithTag:3];
          UILabel *mUILabelSpecialtyLeft=(UILabel *)[cell viewWithTag:4];
-        mUILabelSpecialtyLeft.text=@"400-888-6666";
+        mUILabelSpecialtyLeft.text=@"400-888-666";
         //mUILabelSpecialty.text=@"认知行为治疗";
         mUILabelSpecialty.text=@"";
         
