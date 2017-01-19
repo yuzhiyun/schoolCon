@@ -255,6 +255,7 @@
 		CDF8EC271E3074C500BFD5EA /* 4.png in Resources */ = {isa = PBXBuildFile; fileRef = CDF8EC231E3074C500BFD5EA /* 4.png */; };
 		CDF8EC281E3074C500BFD5EA /* 3.png in Resources */ = {isa = PBXBuildFile; fileRef = CDF8EC241E3074C500BFD5EA /* 3.png */; };
 		CDF8EC291E3074C500BFD5EA /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = CDF8EC251E3074C500BFD5EA /* 1.png */; };
+		CDFB95711E3094AF00BFCF7F /* wechat.png in Resources */ = {isa = PBXBuildFile; fileRef = CDFB95701E3094AF00BFCF7F /* wechat.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -649,6 +650,7 @@
 		CDF8EC231E3074C500BFD5EA /* 4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 4.png; sourceTree = "<group>"; };
 		CDF8EC241E3074C500BFD5EA /* 3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 3.png; sourceTree = "<group>"; };
 		CDF8EC251E3074C500BFD5EA /* 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1.png; sourceTree = "<group>"; };
+		CDFB95701E3094AF00BFCF7F /* wechat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wechat.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -826,6 +828,7 @@
 		CD2DCAE81DFD9043000C03E1 /* img */ = {
 			isa = PBXGroup;
 			children = (
+				CDFB95701E3094AF00BFCF7F /* wechat.png */,
 				CDF8EC181E2FB68C00BFD5EA /* Classroom.png */,
 				CDF8EBEA1E2FB0FB00BFD5EA /* bottom */,
 				CDF8EBE01E2FA8BA00BFD5EA /* vip_clock.png */,
@@ -1918,6 +1921,7 @@
 				CD3CF6981E0C1502003599F5 /* phone.png in Resources */,
 				CD3CF6831E0C13E8003599F5 /* door.png in Resources */,
 				461B27851B82DD7D00107001 /* Emoji.plist in Resources */,
+				CDFB95711E3094AF00BFCF7F /* wechat.png in Resources */,
 				CD3CF6991E0C1502003599F5 /* vip.png in Resources */,
 				CD112A781E0E4B02004519B9 /* study.jpg in Resources */,
 				CD3CF69D1E0D000E003599F5 /* check_grade.png in Resources */,
@@ -2246,7 +2250,7 @@
 					"$(PROJECT_DIR)/framework",
 				);
 				INFOPLIST_FILE = RongCloudDemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2272,7 +2276,7 @@
 					"$(PROJECT_DIR)/framework",
 				);
 				INFOPLIST_FILE = RongCloudDemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
