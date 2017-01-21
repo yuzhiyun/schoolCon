@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="wbm-Eo-fp6">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="wbm-Eo-fp6">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
@@ -1667,27 +1667,32 @@
                                 <rect key="frame" x="46" y="437" width="283" height="50"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="微信支付" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Tk-qw-Dgk">
-                                        <rect key="frame" x="0.0" y="8" width="78" height="39"/>
+                                        <rect key="frame" x="54" y="13.5" width="78" height="23"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="selected2.png" translatesAutoresizingMaskIntoConstraints="NO" id="m6s-6u-N1P">
-                                        <rect key="frame" x="251" y="10" width="32" height="30"/>
+                                        <rect key="frame" x="251" y="9" width="32" height="32"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wechat.png" translatesAutoresizingMaskIntoConstraints="NO" id="v2v-Bn-MhS">
+                                        <rect key="frame" x="0.0" y="9" width="32" height="32"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="fzL-py-ZaU"/>
+                                            <constraint firstAttribute="height" constant="32" id="GR6-DF-cMQ"/>
+                                            <constraint firstAttribute="width" constant="32" id="c6v-0r-IvD"/>
                                         </constraints>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="9Tk-qw-Dgk" firstAttribute="top" secondItem="ljr-P9-Aqg" secondAttribute="top" constant="8" id="9KJ-DT-Nme"/>
+                                    <constraint firstAttribute="bottom" secondItem="v2v-Bn-MhS" secondAttribute="bottom" constant="9" id="Hbe-Az-p0z"/>
                                     <constraint firstAttribute="height" constant="50" id="HsB-Nf-ZbU"/>
-                                    <constraint firstItem="9Tk-qw-Dgk" firstAttribute="leading" secondItem="ljr-P9-Aqg" secondAttribute="leading" id="PUV-LA-ahz"/>
-                                    <constraint firstAttribute="trailing" secondItem="m6s-6u-N1P" secondAttribute="trailing" id="TsP-cs-qWb"/>
-                                    <constraint firstItem="m6s-6u-N1P" firstAttribute="top" secondItem="ljr-P9-Aqg" secondAttribute="top" constant="10" id="VqM-of-Ocm"/>
-                                    <constraint firstAttribute="bottom" secondItem="9Tk-qw-Dgk" secondAttribute="bottom" constant="3" id="ahT-yg-pdP"/>
-                                    <constraint firstAttribute="bottom" secondItem="m6s-6u-N1P" secondAttribute="bottom" constant="10" id="lWb-h3-Iih"/>
+                                    <constraint firstAttribute="trailing" secondItem="m6s-6u-N1P" secondAttribute="trailing" id="KfA-7d-IcW"/>
+                                    <constraint firstItem="9Tk-qw-Dgk" firstAttribute="centerY" secondItem="v2v-Bn-MhS" secondAttribute="centerY" id="M4U-CG-24e"/>
+                                    <constraint firstItem="v2v-Bn-MhS" firstAttribute="top" secondItem="ljr-P9-Aqg" secondAttribute="top" constant="9" id="Sar-MG-Ubf"/>
+                                    <constraint firstItem="9Tk-qw-Dgk" firstAttribute="leading" secondItem="v2v-Bn-MhS" secondAttribute="trailing" constant="22" id="X7x-zl-Ldn"/>
+                                    <constraint firstItem="v2v-Bn-MhS" firstAttribute="leading" secondItem="ljr-P9-Aqg" secondAttribute="leading" id="f7z-Cb-5aO"/>
+                                    <constraint firstItem="m6s-6u-N1P" firstAttribute="centerY" secondItem="v2v-Bn-MhS" secondAttribute="centerY" id="jKV-w4-cGc"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qmd-Lz-lnb">
@@ -2334,7 +2339,7 @@
             </objects>
             <point key="canvasLocation" x="4828" y="2578.5607196401802"/>
         </scene>
-        <!--我的-->
+        <!--Me View Controller-->
         <scene sceneID="AI1-Ft-ppB">
             <objects>
                 <viewController storyboardIdentifier="MeViewController" id="QVT-ha-nuJ" customClass="MeViewController" sceneMemberID="viewController">
@@ -2525,14 +2530,14 @@
                             <constraint firstItem="Te4-H4-W9P" firstAttribute="leading" secondItem="4M0-1O-46g" secondAttribute="leading" id="hrr-4Q-XAv"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="我的" image="wode.png" selectedImage="wode_1.png" id="xxm-t0-L12"/>
+                    <navigationItem key="navigationItem" id="EyD-eV-zqG"/>
                     <connections>
                         <outlet property="UIImageViewAvatar" destination="jZ3-or-ruq" id="zkP-eM-ORd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VKG-wi-6TQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7061.6000000000004" y="1038.5307346326838"/>
+            <point key="canvasLocation" x="7932" y="1047"/>
         </scene>
         <!--Vip View Controller-->
         <scene sceneID="Jke-44-945">
@@ -3087,7 +3092,7 @@
                         <segue destination="0wT-o4-7qk" kind="relationship" relationship="viewControllers" id="XUg-LI-nPm"/>
                         <segue destination="7iO-1b-oOm" kind="relationship" relationship="viewControllers" id="rVd-Z3-rxY"/>
                         <segue destination="eWY-IG-kwp" kind="relationship" relationship="viewControllers" id="dRr-36-0dI"/>
-                        <segue destination="QVT-ha-nuJ" kind="relationship" relationship="viewControllers" id="wWQ-PP-Qqd"/>
+                        <segue destination="CN5-b7-BNO" kind="relationship" relationship="viewControllers" id="wWQ-PP-Qqd"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SgT-Ym-CEw" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -3190,6 +3195,25 @@
             </objects>
             <point key="canvasLocation" x="1944.8" y="295.50224887556226"/>
         </scene>
+        <!--我的-->
+        <scene sceneID="nRw-qo-fEl">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="CN5-b7-BNO" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="我的" image="wode.png" selectedImage="wode_1.png" id="xxm-t0-L12"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Mki-te-v1p">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="QVT-ha-nuJ" kind="relationship" relationship="rootViewController" id="jc5-9Z-p2T"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mOq-3W-0bO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="7932" y="296"/>
+        </scene>
     </scenes>
     <resources>
         <image name="2.png" width="588" height="284"/>
@@ -3217,6 +3241,7 @@
         <image name="vip2.png" width="96" height="96"/>
         <image name="vip_article.png" width="96" height="96"/>
         <image name="vip_clock.png" width="96" height="96"/>
+        <image name="wechat.png" width="128" height="128"/>
         <image name="wode.png" width="24" height="24"/>
         <image name="wode_1.png" width="24" height="24"/>
         <image name="xiaoyuan.png" width="24" height="24"/>

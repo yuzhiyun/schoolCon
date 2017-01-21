@@ -18,6 +18,7 @@
 #import "EditPhoneViewController.h"
 #import "VipViewController.h"
 #import "DataBaseNSUserDefaults.h"
+#import "AppDelegate.h"
 @interface MeViewController (){
     NSMutableArray *mDataKey;
     NSMutableArray *mDataImg;
@@ -37,7 +38,11 @@
     
     [super viewDidLoad];
     self.title=@"我 的";
-    [self.navigationController.navigationBar setBarTintColor:[UIColor colorWithRed:3/255.0 green:121/255.0 blue:251/255.0 alpha:1.0]];
+
+    //   navigationBar背景
+    AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
+    [self.navigationController.navigationBar setBarTintColor:myDelegate.navigationBarColor];
+
     //      navigationBar标题颜色
     [self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor],UITextAttributeTextColor,nil]];
     
@@ -66,9 +71,7 @@
     [mDataImg addObject:@"me_pwd.png"];
     [mDataImg addObject:@"coffee_little.png"];
     [mDataImg addObject:@"test_litttle.png"];
-    
     [mDataImg addObject:@"vip.png"];
-    
     [mDataImg addObject:@"callect.png"];
     [mDataImg addObject:@"exit.png"];
     
@@ -381,9 +384,6 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
         [self.navigationController pushViewController:nextPage animated:YES];
         
     }
-    
-    
-    
 }
 //虽然viewDidLoad已经设置了隐藏，但是在进入下一个页面并返回此页面的时候，还是会出现，所以在这里再次隐藏
 -(void) viewDidAppear:(BOOL)animated{
