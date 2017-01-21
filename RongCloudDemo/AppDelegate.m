@@ -40,7 +40,7 @@
     //初始化融云SDK
     [[RCIM sharedRCIM] initWithAppKey:RONGCLOUD_IM_APPKEY];
     /**
-     * 推送处理1
+     * 推送处理
      */
     if ([application
          respondsToSelector:@selector(registerUserNotificationSettings:)]) {
@@ -58,35 +58,13 @@
         [application registerForRemoteNotificationTypes:myTypes];
     }
     
-//    // 初始化 ViewController。
-//    ViewController *viewController = [[ViewController alloc]initWithNibName:nil bundle:nil];
-//    
-//    // 初始化 UINavigationController。
-//    UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:viewController];
-//    
-//    // 设置背景颜色为黑色。
-//    [nav.navigationBar setBackgroundColor:[UIColor blackColor]];
-//    
-//    // 初始化 rootViewController。
-//    self.window.rootViewController = nav;
-//    
-//    self.window.backgroundColor = [UIColor whiteColor];
-//    [self.window makeKeyAndVisible];
-//    UIFont *font = [UIFont systemFontOfSize:19.f];
-//    NSDictionary *textAttributes = @{
-//                                     NSFontAttributeName : font,
-//                                     NSForegroundColorAttributeName : [UIColor whiteColor]
-//                                     };
-//    [[UINavigationBar appearance] setTitleTextAttributes:textAttributes];
-//    [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
-//    [[UINavigationBar appearance]
-//     setBarTintColor:[UIColor colorWithRed:(1 / 255.0f) green:(149 / 255.0f) blue:(255 / 255.0f) alpha:1]];
-//    
+
     [[NSNotificationCenter defaultCenter]
      addObserver:self
      selector:@selector(didReceiveMessageNotification:)
      name:RCKitDispatchMessageNotification
      object:nil];
+    
     [[RCIM sharedRCIM] setConnectionStatusDelegate:self];
     
     //登陆融云
@@ -103,23 +81,9 @@
     NSString*token=@"J0CpaUdo1MG+j57xWHh7Ah7iozBA2NK8M4ntPTJeFk4G5N1/m+10v6kSFcRGYeYkmsxMAm3kGX4RTYsqa9iIHg==";
     
     [[RCIM sharedRCIM] connectWithToken:token success:^(NSString *userId) {
-        //设置用户信息提供者,页面展现的用户头像及昵称都会从此代理取
-        [[RCIM sharedRCIM] setUserInfoDataSource:self];
-        NSLog(@"登录成功登录成功登录成功登录成功登录成功登录成功登录成功登录成功Login successfully with userId: %@.", userId);
-//        dispatch_async(dispatch_get_main_queue(), ^{
-//            ChatListViewController *chatListViewController = [[ChatListViewController alloc]init];
-//            
-//            /*
-//             *
-//             *  之前我在官方的demo基础上添加tab bar controller，但是总是打不开消息列表界面，在connect的回调函数中出现login error status:-1000错误
-//             *  其实这不算错误，谨记，因为我一个劲点击按钮，多次调用了connect函数，所以就报这个错误，
-//             *  最终找到问题所在了，第一次其实连接成功啦，只是我把navigationController删除了，但是呢，程序中页面跳转代码都使用了navigationController，
-//             *  这就导致这些页面跳转代码下一行代码无法执行，所以只要在main.storyboard中给起始页面添加一个*UINavigationController即可，一切搞定，
-//             */
-//            chatListViewController.hidesBottomBarWhenPushed=YES;
-//            [self.navigationController pushViewController:chatListViewController animated:YES];
-//        });
         
+
+        NSLog(@"登录成功登录成功登录成功登录成功登录成功登录成功登录成功登录成功Login successfully with userId: %@.", userId);
     } error:^(RCConnectErrorCode status) {
         NSLog(@"login error status: %ld.", (long)status);
     } tokenIncorrect:^{
