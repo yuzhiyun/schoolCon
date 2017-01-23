@@ -194,7 +194,18 @@
         return @"心理咨询师";
 }
 -(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    if(0==indexPath.section){
+        
+        NSLog(@"拨打电话");
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"tel://110"]];
+        
+        UIWebView * callWebview = [[UIWebView alloc]init];
+        
+        [callWebview loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"tel:10010"]]];
+        
+        [[UIApplication sharedApplication].keyWindow addSubview:callWebview];
     
+    }else{
     
     Consult *model=[allDataFromServer objectAtIndex:indexPath.row];
     
@@ -209,6 +220,7 @@
     nextPage.hidesBottomBarWhenPushed=YES;
     //跳转
     [self.navigationController pushViewController:nextPage animated:YES];
+    }
 }
 
 

@@ -105,7 +105,7 @@
     
     //    NSString *t1=[mTitle objectAtIndex:indexPath.row];
     //    [mItem1 objectAtIndex:indexOfExercise]
-    
+    cell.UILabelExerciseItem.numberOfLines=2;
     cell.UILabelExerciseItem.text=[mEntity objectAtIndex:indexPath.row+1];
     
     
