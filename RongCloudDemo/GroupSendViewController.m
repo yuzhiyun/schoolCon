@@ -71,7 +71,7 @@
     
     LinkMan *model2=[[LinkMan alloc]init];
     model2.type=@"private";
-    model2.LinkmanId=@"1";
+    model2.LinkmanId=@"2";
     model2.picUrl=@"http://img05.tooopen.com/images/20150202/sy_80219211654.jpg";
     model2.name=@"马小龙";
     model2.introduction=@"数学教师";
