@@ -256,6 +256,7 @@
                             model.picUrl=item [@"picurl"];
                             model.title=item [@"title"];
                             model.publisher=item [@"author"];
+                            model.place=item[@"place"];
                             
                             
                          /**

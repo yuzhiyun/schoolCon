@@ -96,6 +96,11 @@
 - (void)onSelectedTableRow:(RCConversationModelType)conversationModelType
          conversationModel:(RCConversationModel *)model
                atIndexPath:(NSIndexPath *)indexPath{
+    
+    //修改未读消息红色圆点的数字大小（我指的是在手机桌面上的圆点）
+    [UIApplication sharedApplication].applicationIconBadgeNumber =
+    [UIApplication sharedApplication].applicationIconBadgeNumber -   model.unreadMessageCount;
+    
     RCConversationViewController *conversationVC = [[RCConversationViewController alloc]init];
     conversationVC.conversationType = model.conversationType;
     conversationVC.targetId = model.targetId;
