@@ -276,7 +276,7 @@
 		461B27881B82DDA000107001 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = framework/en.lproj/RongCloudKit.strings; sourceTree = SOURCE_ROOT; };
 		461B278A1B82DDAE00107001 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "framework/zh-Hans.lproj/RongCloudKit.strings"; sourceTree = SOURCE_ROOT; };
 		46973E081AE698C9007BE79E /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
-		4698CB9C1AE22FCA0006330E /* School.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = School.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4698CB9C1AE22FCA0006330E /* SchoolCon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SchoolCon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4698CBA01AE22FCA0006330E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4698CBA11AE22FCA0006330E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		4698CBA31AE22FCA0006330E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -286,7 +286,7 @@
 		4698CBAA1AE22FCA0006330E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4698CBAC1AE22FCA0006330E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		4698CBAF1AE22FCA0006330E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		4698CBB51AE22FCA0006330E /* SchoolTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SchoolTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4698CBB51AE22FCA0006330E /* SchoolConTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SchoolConTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4698CBBA1AE22FCA0006330E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4698CBBB1AE22FCA0006330E /* RongCloudDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RongCloudDemoTests.m; sourceTree = "<group>"; };
 		4698CBD01AE233D60006330E /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
@@ -708,7 +708,7 @@
 				4698CBCD1AE232FF0006330E /* Frameworks */,
 				4698CBC91AE230600006330E /* Resouce */,
 				4698CB9E1AE22FCA0006330E /* schoolCon */,
-				4698CBB81AE22FCA0006330E /* RongCloudDemoTests */,
+				4698CBB81AE22FCA0006330E /* SchoolConTests */,
 				4698CB9D1AE22FCA0006330E /* Products */,
 			);
 			sourceTree = "<group>";
@@ -716,8 +716,8 @@
 		4698CB9D1AE22FCA0006330E /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				4698CB9C1AE22FCA0006330E /* School.app */,
-				4698CBB51AE22FCA0006330E /* SchoolTests.xctest */,
+				4698CB9C1AE22FCA0006330E /* SchoolCon.app */,
+				4698CBB51AE22FCA0006330E /* SchoolConTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -761,12 +761,13 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		4698CBB81AE22FCA0006330E /* RongCloudDemoTests */ = {
+		4698CBB81AE22FCA0006330E /* SchoolConTests */ = {
 			isa = PBXGroup;
 			children = (
 				4698CBBB1AE22FCA0006330E /* RongCloudDemoTests.m */,
 				4698CBB91AE22FCA0006330E /* Supporting Files */,
 			);
+			name = SchoolConTests;
 			path = RongCloudDemoTests;
 			sourceTree = "<group>";
 		};
@@ -1801,9 +1802,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		4698CB9B1AE22FCA0006330E /* School */ = {
+		4698CB9B1AE22FCA0006330E /* SchoolCon */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4698CBBF1AE22FCA0006330E /* Build configuration list for PBXNativeTarget "School" */;
+			buildConfigurationList = 4698CBBF1AE22FCA0006330E /* Build configuration list for PBXNativeTarget "SchoolCon" */;
 			buildPhases = (
 				4698CB981AE22FCA0006330E /* Sources */,
 				4698CB991AE22FCA0006330E /* Frameworks */,
@@ -1813,14 +1814,14 @@
 			);
 			dependencies = (
 			);
-			name = School;
+			name = SchoolCon;
 			productName = RongCloudDemo;
-			productReference = 4698CB9C1AE22FCA0006330E /* School.app */;
+			productReference = 4698CB9C1AE22FCA0006330E /* SchoolCon.app */;
 			productType = "com.apple.product-type.application";
 		};
-		4698CBB41AE22FCA0006330E /* SchoolTests */ = {
+		4698CBB41AE22FCA0006330E /* SchoolConTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4698CBC21AE22FCA0006330E /* Build configuration list for PBXNativeTarget "SchoolTests" */;
+			buildConfigurationList = 4698CBC21AE22FCA0006330E /* Build configuration list for PBXNativeTarget "SchoolConTests" */;
 			buildPhases = (
 				4698CBB11AE22FCA0006330E /* Sources */,
 				4698CBB21AE22FCA0006330E /* Frameworks */,
@@ -1831,9 +1832,9 @@
 			dependencies = (
 				4698CBB71AE22FCA0006330E /* PBXTargetDependency */,
 			);
-			name = SchoolTests;
+			name = SchoolConTests;
 			productName = RongCloudDemoTests;
-			productReference = 4698CBB51AE22FCA0006330E /* SchoolTests.xctest */;
+			productReference = 4698CBB51AE22FCA0006330E /* SchoolConTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -1856,7 +1857,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 4698CB971AE22FCA0006330E /* Build configuration list for PBXProject "School" */;
+			buildConfigurationList = 4698CB971AE22FCA0006330E /* Build configuration list for PBXProject "SchoolCon" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -1870,8 +1871,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				4698CB9B1AE22FCA0006330E /* School */,
-				4698CBB41AE22FCA0006330E /* SchoolTests */,
+				4698CB9B1AE22FCA0006330E /* SchoolCon */,
+				4698CBB41AE22FCA0006330E /* SchoolConTests */,
 			);
 		};
 /* End PBXProject section */
@@ -2140,7 +2141,7 @@
 /* Begin PBXTargetDependency section */
 		4698CBB71AE22FCA0006330E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 4698CB9B1AE22FCA0006330E /* School */;
+			target = 4698CB9B1AE22FCA0006330E /* SchoolCon */;
 			targetProxy = 4698CBB61AE22FCA0006330E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -2317,7 +2318,7 @@
 				INFOPLIST_FILE = RongCloudDemoTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/School.app/School";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SchoolCon.app/SchoolCon";
 			};
 			name = Debug;
 		};
@@ -2332,14 +2333,14 @@
 				INFOPLIST_FILE = RongCloudDemoTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/School.app/School";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SchoolCon.app/SchoolCon";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		4698CB971AE22FCA0006330E /* Build configuration list for PBXProject "School" */ = {
+		4698CB971AE22FCA0006330E /* Build configuration list for PBXProject "SchoolCon" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4698CBBD1AE22FCA0006330E /* Debug */,
@@ -2348,7 +2349,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4698CBBF1AE22FCA0006330E /* Build configuration list for PBXNativeTarget "School" */ = {
+		4698CBBF1AE22FCA0006330E /* Build configuration list for PBXNativeTarget "SchoolCon" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4698CBC01AE22FCA0006330E /* Debug */,
@@ -2357,7 +2358,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4698CBC21AE22FCA0006330E /* Build configuration list for PBXNativeTarget "SchoolTests" */ = {
+		4698CBC21AE22FCA0006330E /* Build configuration list for PBXNativeTarget "SchoolConTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4698CBC31AE22FCA0006330E /* Debug */,

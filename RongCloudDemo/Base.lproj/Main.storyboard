@@ -2604,8 +2604,8 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="mUITextFieldNew" destination="FYI-pR-AD3" id="mT2-g5-Iez"/>
-                        <outlet property="mUITextFieldOld" destination="FYI-pR-AD3" id="9KD-Ki-lVI"/>
+                        <outlet property="mUITextFieldNew" destination="FYI-pR-AD3" id="3fC-Xk-TNl"/>
+                        <outlet property="mUITextFieldOld" destination="a26-xt-Pw3" id="d5d-aZ-Q2z"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m4F-WE-ZCe" userLabel="First Responder" sceneMemberID="firstResponder"/>

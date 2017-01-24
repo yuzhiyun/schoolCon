@@ -68,28 +68,12 @@
     
     
 }
-//-(void)toast:(NSString *)str
-//
-//{
-//    MBProgressHUD *HUD = [[MBProgressHUD alloc] initWithView:self.view];
-//    [self.view addSubview:HUD];
-//    HUD.labelText = str;
-//    HUD.mode = MBProgressHUDModeText;
-//    [HUD showAnimated:YES whileExecutingBlock:^{
-//        
-//        sleep(1);
-//        
-//    } completionBlock:^{
-//        
-//        [HUD removeFromSuperview];
-//    }];
-//}
+
+
 
 //登录
 -(void)httpLogin{
-    //#import "AFNetworking.h"
-    //#import "AppDelegate.h"
-    //#import "MBProgressHUD.h"
+
     MBProgressHUD *hud;
     hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     //hud.color = [UIColor colorWithHexString:@"343637" alpha:0.5];
@@ -148,7 +132,7 @@
             AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
             myDelegate.token=[[doc objectForKey:@"data"]objectForKey:@"token"];
             myDelegate.phone=_UITextFieldUserName.text;
-            myDelegate.pwd=_UITextFieldPwd;
+            myDelegate.pwd=_UITextFieldPwd.text;
             NSLog(@"登录之后存储token%@",myDelegate.token);
             [DataBaseNSUserDefaults setData: myDelegate.token forkey:@"token"];
             

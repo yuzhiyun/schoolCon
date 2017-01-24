@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "4698CB9B1AE22FCA0006330E"
-               BuildableName = "School.app"
-               BlueprintName = "School"
-               ReferencedContainer = "container:School.xcodeproj">
+               BuildableName = "SchoolCon.app"
+               BlueprintName = "SchoolCon"
+               ReferencedContainer = "container:SchoolCon.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "4698CBB41AE22FCA0006330E"
-               BuildableName = "SchoolTests.xctest"
-               BlueprintName = "SchoolTests"
-               ReferencedContainer = "container:School.xcodeproj">
+               BuildableName = "SchoolConTests.xctest"
+               BlueprintName = "SchoolConTests"
+               ReferencedContainer = "container:SchoolCon.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -43,9 +43,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "4698CB9B1AE22FCA0006330E"
-            BuildableName = "School.app"
-            BlueprintName = "School"
-            ReferencedContainer = "container:School.xcodeproj">
+            BuildableName = "SchoolCon.app"
+            BlueprintName = "SchoolCon"
+            ReferencedContainer = "container:SchoolCon.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -66,9 +66,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "4698CB9B1AE22FCA0006330E"
-            BuildableName = "School.app"
-            BlueprintName = "School"
-            ReferencedContainer = "container:School.xcodeproj">
+            BuildableName = "SchoolCon.app"
+            BlueprintName = "SchoolCon"
+            ReferencedContainer = "container:SchoolCon.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -85,9 +85,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "4698CB9B1AE22FCA0006330E"
-            BuildableName = "School.app"
-            BlueprintName = "School"
-            ReferencedContainer = "container:School.xcodeproj">
+            BuildableName = "SchoolCon.app"
+            BlueprintName = "SchoolCon"
+            ReferencedContainer = "container:SchoolCon.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

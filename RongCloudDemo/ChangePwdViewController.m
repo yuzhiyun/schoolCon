@@ -29,12 +29,14 @@
     
     AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
     
+   // NSLog(myDelegate.pwd);
     
     if(0==_mUITextFieldOld.text.length||0==_mUITextFieldNew.text.length){
         
         [Toast showToast:@"请确保输入框不为空" view:self.view];
         
     }else if (![myDelegate.pwd isEqualToString:  _mUITextFieldOld.text]){
+        NSLog(myDelegate.pwd);
         [Toast showToast:@"旧密码输入错误" view:self.view];
     
     }else{

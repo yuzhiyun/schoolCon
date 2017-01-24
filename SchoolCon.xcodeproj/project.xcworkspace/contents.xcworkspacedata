@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:/demo-app-ios-quick-start-master/School.xcodeproj">
+      location = "self:/demo-app-ios-quick-start-master/SchoolCon.xcodeproj">
    </FileRef>
 </Workspace>
