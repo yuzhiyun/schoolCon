@@ -2789,22 +2789,34 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="您可以联系我们的管理员来更新电话：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WhP-ES-ih0">
-                                <rect key="frame" x="16" y="113" width="298" height="45"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入新的手机号" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cwc-5O-ys0">
+                                <rect key="frame" x="71.5" y="160" width="232" height="30"/>
                                 <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="15111356295" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XPV-Qb-3Dg">
-                                <rect key="frame" x="16" y="166" width="172" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.19807185059999999" green="0.66129513610000001" blue="0.98470920319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A4V-H1-X5j">
+                                <rect key="frame" x="226" y="198" width="77" height="30"/>
+                                <state key="normal" title="获取验证码"/>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入验证码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wNI-sX-1eq">
+                                <rect key="frame" x="71" y="236" width="232" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="wNI-sX-1eq" firstAttribute="width" secondItem="cwc-5O-ys0" secondAttribute="width" id="9c5-iM-sdr"/>
+                            <constraint firstItem="cwc-5O-ys0" firstAttribute="centerX" secondItem="NtD-bj-2Jc" secondAttribute="centerX" id="QxL-LD-Gnq"/>
+                            <constraint firstItem="A4V-H1-X5j" firstAttribute="top" secondItem="cwc-5O-ys0" secondAttribute="bottom" constant="8" id="cyJ-jf-mQx"/>
+                            <constraint firstItem="wNI-sX-1eq" firstAttribute="top" secondItem="A4V-H1-X5j" secondAttribute="bottom" constant="8" id="jCx-ob-RZB"/>
+                            <constraint firstItem="A4V-H1-X5j" firstAttribute="trailing" secondItem="cwc-5O-ys0" secondAttribute="trailing" id="rYM-7k-gZS"/>
+                            <constraint firstItem="cwc-5O-ys0" firstAttribute="width" secondItem="NtD-bj-2Jc" secondAttribute="width" multiplier="0.618" id="sqx-q2-MXf"/>
+                            <constraint firstItem="wNI-sX-1eq" firstAttribute="centerX" secondItem="NtD-bj-2Jc" secondAttribute="centerX" id="vOj-lR-EzQ"/>
+                            <constraint firstItem="cwc-5O-ys0" firstAttribute="top" secondItem="OE7-0c-JDg" secondAttribute="bottom" constant="140" id="xmx-6z-yQb"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oxq-aR-xlH" userLabel="First Responder" sceneMemberID="firstResponder"/>
