@@ -147,7 +147,8 @@
             //登录之后获取token
             AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
             myDelegate.token=[[doc objectForKey:@"data"]objectForKey:@"token"];
-            
+            myDelegate.phone=_UITextFieldUserName.text;
+            myDelegate.pwd=_UITextFieldPwd;
             NSLog(@"登录之后存储token%@",myDelegate.token);
             [DataBaseNSUserDefaults setData: myDelegate.token forkey:@"token"];
             

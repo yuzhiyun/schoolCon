@@ -19,6 +19,7 @@
 #import "VipViewController.h"
 #import "DataBaseNSUserDefaults.h"
 #import "AppDelegate.h"
+#import "ChangePwdViewController.h"
 @interface MeViewController (){
     NSMutableArray *mDataKey;
     NSMutableArray *mDataImg;
@@ -337,13 +338,14 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
     }
     //修改密码
     if(1==indexPath.row){
-//        //显示顶部导航
-//        self.navigationController.navigationBarHidden=NO;
-//        ShalongTableViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"ShalongTableViewController"];
-//        nextPage.hidesBottomBarWhenPushed=YES;
-//        [self.navigationController pushViewController:nextPage animated:YES];
-//
-        NSLog(@"修改密码");
+        //显示顶部导航
+        self.navigationController.navigationBarHidden=NO;
+        ChangePwdViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"ChangePwdViewController"];
+        nextPage.hidesBottomBarWhenPushed=YES;
+        [self.navigationController pushViewController:nextPage animated:YES];
+        //NSLog(@"修改密码");
+        
+        
     }
     //我的活动
     if(2==indexPath.row){

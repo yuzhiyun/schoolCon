@@ -22,6 +22,10 @@
     NSString *appSecret;
     NSString *schoolId;
     
+    NSString *userName;
+    NSString *phone;
+    NSString *pwd;
+    
     UIColor *navigationBarColor;
     
 }
@@ -35,6 +39,9 @@
 @property (nonatomic,strong)NSString *appId;
 @property (nonatomic,strong)NSString *appSecret;
 @property (nonatomic,strong)NSString *schoolId;
+@property (nonatomic,strong)NSString *userName;
+@property (nonatomic,strong)NSString *phone;
+@property (nonatomic,strong)NSString *pwd;
 @property (nonatomic,strong)UIColor *navigationBarColor;
 
 @end

@@ -1,0 +1,37 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "22C130F2DEC5B76426B95E8F1F33DB4C30E0510F+++FA772F6",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "1A18DCCBECC7573DACC19A2954C359E786A57B76+++CEA46D2" : 0,
+    "1A18DCCBECC7573DACC19A2954C359E786A57B76+++86FEBC6" : 0,
+    "22C130F2DEC5B76426B95E8F1F33DB4C30E0510F+++FA772F6" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "C48F8AE2-F00F-4F35-A549-54E69916AB95",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "1A18DCCBECC7573DACC19A2954C359E786A57B76+++CEA46D2" : "",
+    "1A18DCCBECC7573DACC19A2954C359E786A57B76+++86FEBC6" : "demo-app-ios-quick-start",
+    "22C130F2DEC5B76426B95E8F1F33DB4C30E0510F+++FA772F6" : "demo-app-ios-quick-start-master\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "RongCloudDemo",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "RongCloudDemo.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/rongcloud\/demo-app-ios-quick-start.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "1A18DCCBECC7573DACC19A2954C359E786A57B76+++86FEBC6"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/rongcloud\/demo-app-ios-quick-start.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "1A18DCCBECC7573DACC19A2954C359E786A57B76+++CEA46D2"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:yuzhiyun\/schoolCon.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "22C130F2DEC5B76426B95E8F1F33DB4C30E0510F+++FA772F6"
+    }
+  ]
+}
