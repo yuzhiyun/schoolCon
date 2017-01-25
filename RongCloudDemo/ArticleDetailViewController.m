@@ -9,6 +9,7 @@
 #import "ArticleDetailViewController.h"
 #import "CommentTableViewCell.h"
 #import "AppDelegate.h"
+#import "Toast.h"
 @interface ArticleDetailViewController ()
 
 @end
@@ -25,7 +26,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title=title;
-    
+    //处理软键盘遮挡输入框事件
+    _mUITextFieldCommnet.delegate=self;
     //自定义导航左右按钮
     UIBarButtonItem *rightButton = [[UIBarButtonItem alloc]initWithTitle:@"收藏" style:UIBarButtonItemStylePlain target:self action:@selector(rightBarButtonItemPressed:)];
     
@@ -44,22 +46,21 @@
     [request setHTTPMethod: @"POST"];
     [request setHTTPBody: [body dataUsingEncoding: NSUTF8StringEncoding]];
     [UIWebViewArticle loadRequest: request];
-    mDataUsername=[[NSMutableArray alloc]init];
-    [mDataUsername addObject:@"俞志云"];
-    [mDataUsername addObject:@"马小龙"];
-    [mDataUsername addObject:@"孙萌"];
-    [mDataUsername addObject:@"吴晓茎"];
-    [mDataUsername addObject:@"秦启飞"];
+
+}
+- (IBAction)sendComment:(id)sender {
     
-    mDataCommentContent=[[NSMutableArray alloc]init];
-    [mDataCommentContent addObject:@"这篇文章写的非常不错"];
-    [mDataCommentContent addObject:@"作者很有文化底蕴"];
-    [mDataCommentContent addObject:@"我知道，这是一位北大的知名学者"];
-    [mDataCommentContent addObject:@"很好的解决了我的困惑"];
-    [mDataCommentContent addObject:@"文章说出了我的心里话"];
-    
+    if(0==_mUITextFieldCommnet.text.length){
+        //这里的self.view 不应该这样传，输入框没有获取焦点时候，self指的是这个界面，但是获取焦点后，self指的是这个输入框，于是弹不出 toast
+        [Toast showToast:@"评论不能为空" view:self.view];
+        NSLog(@"显示toast");
+    }
+    NSLog(_mUITextFieldCommnet.text);
+    NSLog(@"%d",_mUITextFieldCommnet.text.length);
     
 }
+
+
 /**
  *  重载右边导航按钮的事件
  *
@@ -77,37 +78,34 @@
     //    self.title=pubString;
     // Dispose of any resources that can be recreated.
 }
--(NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    
-    return [mDataUsername count];
-}
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+//开始编辑输入框的时候，软键盘出现，执行此事件
+-(void)textFieldDidBeginEditing:(UITextField *)textField
 {
-    static NSString *simpleTableIdentifier = @"commentCell";
+    CGRect frame = textField.frame;
+    int offset = frame.origin.y +frame.size.height - (self.view.frame.size.height - 270);//键盘高度270
     
-    CommentTableViewCell *cell = (CommentTableViewCell*)[tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
+    NSTimeInterval animationDuration = 0.30f;
+    [UIView beginAnimations:@"ResizeForKeyboard" context:nil];
+    [UIView setAnimationDuration:animationDuration];
     
-    if (cell == nil) {
-        cell = [[CommentTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
-    }
+    //将视图的Y坐标向上移动offset个单位，以使下面腾出地方用于软键盘的显示
+    if(offset > 0)
+        self.view.frame = CGRectMake(0.0f, -offset, self.view.frame.size.width, self.view.frame.size.height);
     
-    cell.UILabelUsername.text = [mDataUsername objectAtIndex:indexPath.row];
-    cell.UILabelCommentContent.text = [mDataCommentContent objectAtIndex:indexPath.row];
-    cell.UILabelDate.text = @"2016/12/23";
-    cell.UIImgAvarta.image=[UIImage imageNamed:@"avarta.jpg"];
-    
-    
-    return cell;
+    [UIView commitAnimations];
 }
-/*
- #pragma mark - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- */
 
+//当用户按下return键或者按回车键，keyboard消失
+-(BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    return YES;
+}
+
+//输入框编辑完成以后，将视图恢复到原始状态
+-(void)textFieldDidEndEditing:(UITextField *)textField
+{
+    self.view.frame =CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
+}
 @end

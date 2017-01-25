@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ArticleDetailViewController : UIViewController<UITableViewDelegate, UITableViewDataSource>{
+@interface ArticleDetailViewController : UIViewController<UITableViewDelegate, UITableViewDataSource,UITextFieldDelegate>{
     
     
 @public
@@ -24,4 +24,5 @@
 }
 @property (weak, nonatomic) IBOutlet UIWebView *UIWebViewArticle;
 
+@property (weak, nonatomic) IBOutlet UITextField *mUITextFieldCommnet;
 @end

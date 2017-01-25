@@ -2110,6 +2110,9 @@
                                 <state key="normal" title="发送">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="sendComment:" destination="NWD-oZ-3Ut" eventType="touchUpInside" id="I0y-do-nBL"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入评论" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="q73-yf-06a">
                                 <rect key="frame" x="0.0" y="632" width="315" height="30"/>
@@ -2118,7 +2121,7 @@
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -2138,6 +2141,7 @@
                     <navigationItem key="navigationItem" id="wam-cP-gqd"/>
                     <connections>
                         <outlet property="UIWebViewArticle" destination="RcB-my-XTn" id="C9o-Gh-p9z"/>
+                        <outlet property="mUITextFieldCommnet" destination="q73-yf-06a" id="4OM-sJ-IIm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qmM-xi-VzZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
