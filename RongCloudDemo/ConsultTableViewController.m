@@ -67,40 +67,20 @@
     self.tableView.footerReleaseToRefreshText = @"松开马上加载更多数据了";
     self.tableView.footerRefreshingText = @"正在为您刷新。。。";
 }
-
 #pragma mark 开始进入刷新状态
 - (void)headerRereshing
 {
-    // 1.添加假数据
-    for (int i = 0; i<5; i++) {
-//        [mDataConsult insertObject:@"下拉刷新数据" atIndex:0];
-    }
+    self.tableView.headerRefreshingText = @"正在为您刷新。。。";
+    pageIndex++;
+    [self loadData:pageIndex orientation:@"down"];
     
-    // 2.模拟2秒后刷新表格UI（真实开发中，可以移除这段gcd代码）
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        // 刷新表格
-        [self.tableView reloadData];
-        
-        // (最好在刷新表格后调用)调用endRefreshing可以结束刷新状态
-        [self.tableView headerEndRefreshing];
-    });
 }
 
 - (void)footerRereshing
-{
-    // 1.添加假数据
-    for (int i = 0; i<5; i++) {
-//        [mDataConsult addObject:@"上拉刷新数据"];
-    }
+{  self.tableView.footerRefreshingText = @"正在为您刷新。。。";
     
-    // 2.模拟2秒后刷新表格UI（真实开发中，可以移除这段gcd代码）
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        // 刷新表格
-        [self.tableView reloadData];
-        
-        // (最好在刷新表格后调用)调用endRefreshing可以结束刷新状态
-        [self.tableView footerEndRefreshing];
-    });
+    pageIndex++;
+    [self loadData:pageIndex orientation:@"up"];
 }
 
 
@@ -282,7 +262,8 @@
                         
                     }
                     else{
-                        
+                        if([orientation isEqualToString:@"down"])
+                            [allDataFromServer removeAllObjects];
                         for(NSDictionary *item in  articleArray ){
                             
                             Consult *model=[[Consult alloc]init];
@@ -291,14 +272,8 @@
                             model.title=item [@"title"];
                             model.name=item [@"name"];
                             model.goodAt=item[@"goodat"];
-
                             //添加到数组以便显示到tableview
-                            NSLog(@"addObject之前");
-                            if([orientation isEqualToString:@"up"])
                                 [allDataFromServer addObject:model];
-                            else
-                                [allDataFromServer insertObject:model atIndex:0];
-                            NSLog(@"addObject之后");
                         }
                         NSLog(@"mDataArticle项数为%i",[allDataFromServer count]);
                         NSLog(@"//更新界面");
