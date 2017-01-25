@@ -253,13 +253,11 @@
                     
                     NSArray *articleArray=[doc objectForKey:@"data"];
                     if(0==[articleArray count]){
-                        
                         if([orientation isEqualToString:@"down"])
                             self.tableView.headerRefreshingText = @"亲，没有更多数据了";
                         else
                             self.tableView.footerRefreshingText = @"亲，没有更多数据了";
                         [Alert showMessageAlert:@"亲，没有更多数据了" view:self];
-                        
                     }
                     else{
                         if([orientation isEqualToString:@"down"])
@@ -284,8 +282,10 @@
                 else
                     [Alert showMessageAlert:@"抱歉，尚无文章可以阅读" view:self];
             }
-            else
+            else{
                 [Alert showMessageAlert:[doc objectForKey:@"msg"] view:self];
+                NSLog([doc objectForKey:@"msg"]);
+            }
         }
         else
             NSLog(@"*****doc空***********");
