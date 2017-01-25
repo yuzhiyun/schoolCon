@@ -19,6 +19,8 @@
     NSMutableArray *mDataUsername;
     //    NSMutableArray *mDataDate;
     NSMutableArray *mDataCommentContent;
+    
+    
 }
 
 @synthesize UIWebViewArticle;
@@ -51,7 +53,7 @@
 - (IBAction)sendComment:(id)sender {
     
     if(0==_mUITextFieldCommnet.text.length){
-        //这里的self.view 不应该这样传，输入框没有获取焦点时候，self指的是这个界面，但是获取焦点后，self指的是这个输入框，于是弹不出 toast
+        //输入框没有获取焦点的时候（点击软键盘的“完成”，就会失去焦点），可以弹出Toast，但是获取焦点后，弹不出 toast
         [Toast showToast:@"评论不能为空" view:self.view];
         NSLog(@"显示toast");
     }
