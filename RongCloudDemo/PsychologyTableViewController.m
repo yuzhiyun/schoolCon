@@ -77,53 +77,22 @@
     self.tableView.footerRefreshingText = @"正在为您刷新。。。";
 }
 
+
 #pragma mark 开始进入刷新状态
 - (void)headerRereshing
 {
-    PhysicalTest *model=[[PhysicalTest alloc]init];
-    model.testId=@"1";
-    model.picUrl=@"http://img05.tooopen.com/images/20150202/sy_80219211654.jpg";
-    model.title=@"下拉刷新数据";
-    model.price=@"600";
-    model.testNumber=@"1234";
-    // 1.添加假数据
-    for (int i = 0; i<5; i++) {
-        [allDataFromServer insertObject:model atIndex:0];
-    }
+    self.tableView.headerRefreshingText = @"正在为您刷新。。。";
+    pageIndex++;
+    [self loadData:pageIndex orientation:@"down"];
     
-    // 2.模拟2秒后刷新表格UI（真实开发中，可以移除这段gcd代码）
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        // 刷新表格
-        [self.tableView reloadData];
-        
-        // (最好在刷新表格后调用)调用endRefreshing可以结束刷新状态
-        [self.tableView headerEndRefreshing];
-    });
 }
 
 - (void)footerRereshing
-{
-    PhysicalTest *model=[[PhysicalTest alloc]init];
-    model.testId=@"1";
-    model.picUrl=@"http://img05.tooopen.com/images/20150202/sy_80219211654.jpg";
-    model.title=@"向上拉。。。。刷新数据";
-    model.price=@"600";
-    model.testNumber=@"1234";
-    // 1.添加假数据
-    for (int i = 0; i<5; i++) {
-        [allDataFromServer addObject:model];
-    }
+{  self.tableView.footerRefreshingText = @"正在为您刷新。。。";
     
-    // 2.模拟2秒后刷新表格UI（真实开发中，可以移除这段gcd代码）
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        // 刷新表格
-        [self.tableView reloadData];
-        
-        // (最好在刷新表格后调用)调用endRefreshing可以结束刷新状态
-        [self.tableView footerEndRefreshing];
-    });
+    pageIndex++;
+    [self loadData:pageIndex orientation:@"up"];
 }
-
 
 
 - (void)didReceiveMemoryWarning {
@@ -255,6 +224,10 @@
                         [Alert showMessageAlert:@"抱歉,没有更多数据了" view:self];
                     }
                     else{
+                        
+                        if([orientation isEqualToString:@"down"])
+                            [allDataFromServer removeAllObjects];
+                        
                         for(NSDictionary *item in  articleArray ){
                             Test *model=[[Test alloc]init];
                             model.testId=item [@"id"];
@@ -264,10 +237,7 @@
                             model.money=item [@"money"];
 //                            NSLog(model.money);
                             NSLog(@"money2");
-                            if([orientation isEqualToString:@"up"])
-                                [allDataFromServer addObject:model];
-                            else
-                                [allDataFromServer addObject:model ];
+                            [allDataFromServer addObject:model];
                         }
                         NSLog(@"mDataArticle项数为%i",[allDataFromServer count]);
                         NSLog(@"//更新界面");
