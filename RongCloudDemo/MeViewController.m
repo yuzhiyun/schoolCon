@@ -344,9 +344,8 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
         nextPage.hidesBottomBarWhenPushed=YES;
         [self.navigationController pushViewController:nextPage animated:YES];
         //NSLog(@"修改密码");
-        
-        
     }
+    
     //我的活动
     if(2==indexPath.row){
         //显示顶部导航

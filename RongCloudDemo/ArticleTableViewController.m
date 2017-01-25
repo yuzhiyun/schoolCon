@@ -160,6 +160,9 @@
                     }
                     else{
                         
+                        if([orientation isEqualToString:@"down"])
+                            [allDataFromServer removeAllObjects];
+                        
                         for(NSDictionary *item in  articleArray ){
                             Article *model=[[Article alloc]init];
                             model.articleId=item [@"id"];
@@ -181,10 +184,9 @@
                             NSLog(@"文章publishat是%i",model.date);
                             //添加到数组以便显示到tableview
                             NSLog(@"addObject之前");
-                            if([orientation isEqualToString:@"up"])
-                                [allDataFromServer addObject:model];
-                            else
-                                [allDataFromServer insertObject:model atIndex:0];
+                            
+                            [allDataFromServer addObject:model];
+
                             NSLog(@"addObject之后");
                         }
                         NSLog(@"mDataArticle项数为%i",[allDataFromServer count]);
