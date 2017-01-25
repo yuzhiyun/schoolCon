@@ -76,53 +76,20 @@
     self.tableView.footerReleaseToRefreshText = @"松开马上加载更多数据了";
     self.tableView.footerRefreshingText = @"正在为您刷新。。。";
 }
-
 #pragma mark 开始进入刷新状态
 - (void)headerRereshing
 {
-    Activity *model=[[Activity alloc]init];
-    model.activityId=@"1";
-    model.picUrl=@"http://mmbiz.qpic.cn/mmbiz_jpg/6qu8KwIJTLcqTxT8jqPOKCEAvGuhbFpzscsPC8FeDEYkQxsQ1AFSeJjYWgMeicQU2gJrgb3bhu7quicok24sLwIw/640?wx_fmt=jpeg&wxfrom=5&wx_lazy=1";
-    model.title=@"在生活中找寻游赏，也找寻写作 | 舒国治五城巡讲";
-    model.publisher=@"理想国、听道";
-    model.place=@"厦门·纸的时代书店";
-    model.date=@"2017-02-29";
-    // 1.添加假数据
-    for (int i = 0; i<5; i++) {
-        [allDataFromServer insertObject:model atIndex:0];
-    }
+    self.tableView.headerRefreshingText = @"正在为您刷新。。。";
+    pageIndex++;
+    [self loadData:pageIndex orientation:@"down"];
     
-    // 2.模拟2秒后刷新表格UI（真实开发中，可以移除这段gcd代码）
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        // 刷新表格
-        [self.tableView reloadData];
-        
-        // (最好在刷新表格后调用)调用endRefreshing可以结束刷新状态
-        [self.tableView headerEndRefreshing];
-    });
 }
 
 - (void)footerRereshing
-{
-    Activity *model=[[Activity alloc]init];
-    model.activityId=@"1";
-    model.picUrl=@"http://img05.tooopen.com/images/20150202/sy_80219211654.jpg";
-    model.title=@"长沙第一次岳麓活动";
-    model.publisher=@"中南大学软件学院";
-    model.place=@"向上拉。。。刷新数据";
-    model.date=@"2017-02-29";    // 1.添加假数据
-    for (int i = 0; i<5; i++) {
-        [allDataFromServer addObject:model];
-    }
+{  self.tableView.footerRefreshingText = @"正在为您刷新。。。";
     
-    // 2.模拟2秒后刷新表格UI（真实开发中，可以移除这段gcd代码）
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        // 刷新表格
-        [self.tableView reloadData];
-        
-        // (最好在刷新表格后调用)调用endRefreshing可以结束刷新状态
-        [self.tableView footerEndRefreshing];
-    });
+    pageIndex++;
+    [self loadData:pageIndex orientation:@"up"];
 }
 
 
@@ -249,6 +216,8 @@
                         [Alert showMessageAlert:@"抱歉,没有更多数据了" view:self];
                     }
                     else{
+                        if([orientation isEqualToString:@"down"])
+                            [allDataFromServer removeAllObjects];
                         
                         for(NSDictionary *item in  articleArray ){
                             Activity *model=[[Activity alloc]init];
@@ -272,26 +241,18 @@
                             [dateFormatter setDateFormat:@"yyyy-MM-dd"];
                             //NSDate转NSString
                             NSString *currentDateString = [dateFormatter stringFromDate:date2];
-                            
                             model.date=currentDateString;
-
-                            NSLog(@"addObject之前");
-                            if([orientation isEqualToString:@"up"])
-                                [allDataFromServer addObject:model];
-                            else
-                                [allDataFromServer addObject:model ];
-                            NSLog(@"addObject之后");
+                            [allDataFromServer addObject:model];
                         }
                         NSLog(@"mDataArticle项数为%i",[allDataFromServer count]);
                         NSLog(@"//更新界面");
                         //更新界面
                         [mTableView reloadData];
                     }
-                    //            }
                 }
                 else
                 {
-                     [Alert showMessageAlert:@"抱歉，尚无文章可以阅读" view:self];
+                     [Alert showMessageAlert:@"抱歉，尚无数据" view:self];
                 }
             }
             

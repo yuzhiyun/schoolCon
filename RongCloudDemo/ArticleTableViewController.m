@@ -183,11 +183,11 @@
                             NSLog(@"文章author是%@",model.author);
                             NSLog(@"文章publishat是%i",model.date);
                             //添加到数组以便显示到tableview
-                            NSLog(@"addObject之前");
+                            
                             
                             [allDataFromServer addObject:model];
 
-                            NSLog(@"addObject之后");
+                           
                         }
                         NSLog(@"mDataArticle项数为%i",[allDataFromServer count]);
                         NSLog(@"//更新界面");
