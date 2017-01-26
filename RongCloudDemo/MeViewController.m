@@ -323,10 +323,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
 //        信息框添加按键
         [alert addAction:ok];
         [alert addAction:cancel];
-        
         [self presentViewController:alert animated:YES completion:nil];
-        
-        
     }
     
     //修改电话
@@ -355,8 +352,8 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
         nextPage.hidesBottomBarWhenPushed=YES;
         nextPage->type=@"ylsl";
         [self.navigationController pushViewController:nextPage animated:YES];
-        
     }
+
     //我的测试
     if(3==indexPath.row){
         //显示顶部导航
@@ -364,7 +361,6 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
         PsychologyTableViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"PsychologyTableViewController"];
         nextPage.hidesBottomBarWhenPushed=YES;
         [self.navigationController pushViewController:nextPage animated:YES];
-        
     }
     
     //我的会员

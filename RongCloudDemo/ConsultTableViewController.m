@@ -177,11 +177,12 @@
     if(0==indexPath.section){
         
         NSLog(@"拨打电话");
-        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"tel://110"]];
+        //会直接拨打电话过去，而不仅仅是跳转到拨号界面
+    //[[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"tel://400-888-666"]];
+        //会有弹出框提醒用户是否拨打电话
+    UIWebView * callWebview = [[UIWebView alloc]init];
         
-        UIWebView * callWebview = [[UIWebView alloc]init];
-        
-        [callWebview loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"tel:10010"]]];
+        [callWebview loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"tel:400-888-666"]]];
         
         [[UIApplication sharedApplication].keyWindow addSubview:callWebview];
     
