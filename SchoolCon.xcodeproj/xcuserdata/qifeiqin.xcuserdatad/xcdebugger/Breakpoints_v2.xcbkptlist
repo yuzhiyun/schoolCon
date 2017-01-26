@@ -184,11 +184,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RongCloudDemo/MessageViewController.m"
-            timestampString = "506871505.080193"
+            timestampString = "507126920.814115"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "83"
-            endingLineNumber = "83"
+            startingLineNumber = "84"
+            endingLineNumber = "84"
             landmarkName = "-getGroupInfoWithGroupId:completion:"
             landmarkType = "7">
          </BreakpointContent>
