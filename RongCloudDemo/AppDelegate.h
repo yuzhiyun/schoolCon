@@ -18,6 +18,8 @@
     
     NSString *ipString;
     NSString *token;
+    //融云
+    NSString *rtoken;
     NSString *appId;
     NSString *appSecret;
     NSString *schoolId;
@@ -36,6 +38,7 @@
 @property (nonatomic)int *indexOnlineReadinng;
 @property (nonatomic,strong)NSString *ipString;
 @property (nonatomic,strong)NSString *token;
+@property (nonatomic,strong)NSString *rtoken;
 @property (nonatomic,strong)NSString *appId;
 @property (nonatomic,strong)NSString *appSecret;
 @property (nonatomic,strong)NSString *schoolId;
@@ -43,6 +46,7 @@
 @property (nonatomic,strong)NSString *phone;
 @property (nonatomic,strong)NSString *pwd;
 @property (nonatomic,strong)UIColor *navigationBarColor;
++(void)loginRongCloud :(NSString *) token;
 
 @end
 

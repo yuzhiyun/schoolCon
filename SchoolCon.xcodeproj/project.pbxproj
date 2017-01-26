@@ -1363,6 +1363,7 @@
 		CD4EE2501E2200A9001882F7 /* utility */ = {
 			isa = PBXGroup;
 			children = (
+				CD7FFDA81E3A2BA9003DE455 /* MyRongYun */,
 				CDC26A5A1E2F09FB0093B804 /* messageViewController */,
 				CD6EACF71E276F95009EC3A0 /* jsonUtil */,
 				CD6EACF31E276CED009EC3A0 /* NSUserDefaults */,
@@ -1571,6 +1572,13 @@
 				CD7FFDA61E3776E7003DE455 /* ChangePwdViewController.m */,
 			);
 			name = changePwd;
+			sourceTree = "<group>";
+		};
+		CD7FFDA81E3A2BA9003DE455 /* MyRongYun */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = MyRongYun;
 			sourceTree = "<group>";
 		};
 		CDC26A051E2A6B7F0093B804 /* concreteConsult */ = {

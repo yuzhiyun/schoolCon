@@ -306,7 +306,8 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
                                                        
 //                                                       NSLog(@"退出登录");
                                                        
-                                                           
+                                                       //桌面图标右上角红点设置为0
+                                                       [UIApplication sharedApplication].applicationIconBadgeNumber =0;
                                                            //根据storyboard id来获取目标页面
                                                            EntranceViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"EntranceViewController"];
                                                         nextPage.hidesBottomBarWhenPushed=YES;

@@ -133,16 +133,20 @@
             myDelegate.token=[[doc objectForKey:@"data"]objectForKey:@"token"];
             myDelegate.phone=_UITextFieldUserName.text;
             myDelegate.pwd=_UITextFieldPwd.text;
+            
+            myDelegate.rtoken=[[doc objectForKey:@"data"]objectForKey:@"rtoken"];
+            
             NSLog(@"登录之后存储token%@",myDelegate.token);
             [DataBaseNSUserDefaults setData: myDelegate.token forkey:@"token"];
+            NSLog(@"登录之后存储rtoken%@",myDelegate.rtoken);
+            [DataBaseNSUserDefaults setData: myDelegate.rtoken forkey:@"rtoken"];
             
             MainViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"MainViewController"];
             nextPage.hidesBottomBarWhenPushed=YES;
             [self.navigationController pushViewController:nextPage animated:YES];
             
             //获取融云的token，并且连接融云服务器
-            [self loginRongCloud:[[doc objectForKey:@"data"]objectForKey:@"rtoken"]];
-            
+            [AppDelegate   loginRongCloud:[[doc objectForKey:@"data"]objectForKey:@"rtoken"]];
             
         }
         else{
@@ -159,25 +163,7 @@
         [Alert showMessageAlert:errorUser view:self];
     }];
 }
-/**
- *登录融云
- */
--(void)loginRongCloud :(NSString *) token{
-    //登录融云服务器,开始阶段可以先从融云API调试网站获取，之后token需要通过服务器到融云服务器取。
-    //NSString *token=@"J0CpaUdo1MG+j57xWHh7Ah7iozBA2NK8M4ntPTJeFk4G5N1/m+10v6kSFcRGYeYkmsxMAm3kGX4RTYsqa9iIHg==";
-    NSLog(@"获取到融云的token是%@" ,token);
-    [[RCIM sharedRCIM] connectWithToken:token success:^(NSString *userId) {
-        
-        
-        NSLog(@"登录成功登录成功登录成功登录成功登录成功登录成功登录成功登录成功Login successfully with userId: %@.", userId);
-    } error:^(RCConnectErrorCode status) {
-        NSLog(@"登录融云服务器错误，login error status: %ld.", (long)status);
-        [Alert showMessageAlert:[NSString stringWithFormat:@"登录融云服务器错误，login error status: %ld.", (long)status] view:self];
-    } tokenIncorrect:^{
-        NSLog(@"token 无效 ，请确保生成token 使用的appkey 和初始化时的appkey 一致");
-        [Alert showMessageAlert:@"token 无效 ，请确保生成token 使用的appkey 和初始化时的appkey 一致" view:self];
-    }];
-}
+
 - (IBAction)forgetPwd:(id)sender {
     ForgetPwdViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"ForgetPwdViewController"];
     [self.navigationController pushViewController:nextPage animated:YES];

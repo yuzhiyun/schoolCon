@@ -31,26 +31,7 @@
     
     allDataFromServer=[[NSMutableArray alloc]init];
     
-    //    mDataUsername=[[NSMutableArray alloc]init];
-    //    [mDataUsername addObject:@"俞志云"];
-    //    [mDataUsername addObject:@"马小龙"];
-    //    [mDataUsername addObject:@"孙萌"];
-    //    [mDataUsername addObject:@"吴晓茎"];
-    //    [mDataUsername addObject:@"秦启飞"];
-    //
-    //    mDataRemark=[[NSMutableArray alloc]init];
-    //    [mDataRemark addObject:@"化学教师"];
-    //    [mDataRemark addObject:@"数学教师"];
-    //    [mDataRemark addObject:@"英语教师"];
-    //    [mDataRemark addObject:@"语文教师"];
-    //    [mDataRemark addObject:@"生物教师"];
-    //
-    //    mDataAvatar=[[NSMutableArray alloc]init];
-    //    [mDataAvatar addObject:@"1.jpg"];
-    //    [mDataAvatar addObject:@"2.jpg"];
-    //    [mDataAvatar addObject:@"3.jpg"];
-    //    [mDataAvatar addObject:@"4.jpg"];
-    //    [mDataAvatar addObject:@"5.jpg"];
+
     
     LinkMan *model=[[LinkMan alloc]init];
     model.type=@"private";

@@ -12,6 +12,7 @@
 #import "MainViewController.h"
 #import "AppDelegate.h"
 #import "MBProgressHUD.h"
+#import "Alert.h"
 #import "DataBaseNSUserDefaults.h"
 @interface EntranceViewController ()
 
@@ -59,7 +60,7 @@
 }
 
 -(void)viewWillAppear:(BOOL)animated{
-//    [self checkUserLogin];
+    [self checkUserLogin];
 }
 
 -(void)checkUserLogin{
@@ -91,13 +92,18 @@
         
         // 2.模拟2秒后（
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            
             [hud hide:YES];
+            
+            //连接融云服务器
+            [AppDelegate  loginRongCloud:[DataBaseNSUserDefaults getData:@"rtoken"]];
             MainViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"MainViewController"];
             nextPage.hidesBottomBarWhenPushed=YES;
             [self.navigationController pushViewController:nextPage animated:YES];
         });
     }
 }
+
 
 
 - (void)didReceiveMemoryWarning {
@@ -118,30 +124,15 @@
    [ alert addTextFieldWithConfigurationHandler:^(UITextField *textField){
         
         mUITextFieldIp=textField;
-        
+    
    }];
-    
-    
     [self  presentViewController:alert animated:YES completion:nil];
-    
-    
-    
-    
-    
-    
-    
-    
-                       
-                       
-    
-    
 }
 
 
 -(void) enterMain{
     MainViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"MainViewController"];
     [self.navigationController pushViewController:nextPage animated:YES];
-
 }
 
 - (IBAction)login:(id)sender {

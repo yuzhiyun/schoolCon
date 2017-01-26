@@ -12,6 +12,7 @@
 #import "ConnectRongyunViewController.h"
 #import <RongIMKit/RongIMKit.h>
 #import "Alert.h"
+#import "Toast.h"
 #define RONGCLOUD_IM_APPKEY @"qd46yzrf47sjf" //请换成您的appkey
 @interface AppDelegate ()
 
@@ -75,21 +76,21 @@
 /**
  *登录融云
  */
--(void)loginRongCloud{
++(void)loginRongCloud :(NSString *) token{
     //登录融云服务器,开始阶段可以先从融云API调试网站获取，之后token需要通过服务器到融云服务器取。
-    NSString *token=@"J0CpaUdo1MG+j57xWHh7Ah7iozBA2NK8M4ntPTJeFk4G5N1/m+10v6kSFcRGYeYkmsxMAm3kGX4RTYsqa9iIHg==";
+    //NSString *token=@"J0CpaUdo1MG+j57xWHh7Ah7iozBA2NK8M4ntPTJeFk4G5N1/m+10v6kSFcRGYeYkmsxMAm3kGX4RTYsqa9iIHg==";
     
     [[RCIM sharedRCIM] connectWithToken:token success:^(NSString *userId) {
         
 
         NSLog(@"登录成功登录成功登录成功登录成功登录成功登录成功登录成功登录成功Login successfully with userId: %@.", userId);
     } error:^(RCConnectErrorCode status) {
-        NSLog(@"login error status: %ld.", (long)status);
         
+        NSLog(@"login error status: %ld.", (long)status);
+        //[Toast showToast:<#(NSString *)#> view:<#(UIView *)#>
     } tokenIncorrect:^{
         NSLog(@"token 无效 ，请确保生成token 使用的appkey 和初始化时的appkey 一致");
     }];
-    
 }
 
 /**
