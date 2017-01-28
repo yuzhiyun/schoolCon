@@ -54,20 +54,20 @@
     //获取全局ip地址
     AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
     NSString *urlString= [NSString stringWithFormat:@"%@/api/sys/sms/validate",myDelegate.ipString];
-  
+    
     //创建数据请求的对象，不是单例
     AFHTTPRequestOperationManager *manager=[AFHTTPRequestOperationManager manager];
     //设置响应数据的类型,如果是json数据，会自动帮你解析
     manager.responseSerializer.acceptableContentTypes=[NSSet setWithObjects:@"application/json", nil];
     // 请求参数
-//    NSDictionary *parameters = @{
-//                                 @"appId":myDelegate.appId,
-//                                 @"appSecret":myDelegate.appSecret,
-//                                 @"schoolId":myDelegate.schoolId,
-//                                 @"phone":@"123456",
-//                                 @"pwd":@"123456",
-//                                 @"vcode":@"1234"
-//                                 };
+    //    NSDictionary *parameters = @{
+    //                                 @"appId":myDelegate.appId,
+    //                                 @"appSecret":myDelegate.appSecret,
+    //                                 @"schoolId":myDelegate.schoolId,
+    //                                 @"phone":@"123456",
+    //                                 @"pwd":@"123456",
+    //                                 @"vcode":@"1234"
+    //                                 };
     
     
     // 请求参数
@@ -77,7 +77,7 @@
                                  @"schoolId":myDelegate.schoolId,
                                  @"phone":_UITextFieldPhone.text
                                  };
-
+    
     [manager POST:urlString parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         //隐藏圆形进度条
         [hud hide:YES];
@@ -112,7 +112,7 @@
         else{
             
             [Alert showMessageAlert:[doc objectForKey:@"msg"]  view:self];
-
+            
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         //隐藏圆形进度条
@@ -129,18 +129,18 @@
 - (IBAction)active:(id)sender {
     
     if(_UITextFieldPhone.text.length == 0||_UITextFieldPwd.text.length==0||_UITextFieldVerifyCode==0){
-      
+        
         [Toast showToast:@"确保输入框不为空" view:self.view];
-//        NSLog(@"手机号不能为空");
+        //        NSLog(@"手机号不能为空");
     }
     
     else
-    
-    
-    [self httpActive];
-//    SetPwdAfterActiveViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"SetPwdAfterActiveViewController"];
-//    nextPage.hidesBottomBarWhenPushed=YES;
-//    [self.navigationController pushViewController:nextPage animated:YES];
+        
+        
+        [self httpActive];
+    //    SetPwdAfterActiveViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"SetPwdAfterActiveViewController"];
+    //    nextPage.hidesBottomBarWhenPushed=YES;
+    //    [self.navigationController pushViewController:nextPage animated:YES];
     
 }
 
@@ -157,7 +157,7 @@
     AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
     
     NSString *urlString= [NSString stringWithFormat:@"%@/api/sys/user/activate",myDelegate.ipString];
-   
+    
     //创建数据请求的对象，不是单例
     AFHTTPRequestOperationManager *manager=[AFHTTPRequestOperationManager manager];
     //设置响应数据的类型,如果是json数据，会自动帮你解析
@@ -190,30 +190,36 @@
         NSData *data=[result dataUsingEncoding:NSUTF8StringEncoding];
         NSError *error=[[NSError alloc]init];
         NSDictionary *doc= [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
-
-
-                    NSNumber *zero=[NSNumber numberWithInt:(0)];
-                    NSNumber *code=[doc objectForKey:@"code"];
-                    if([zero isEqualToNumber:code])
-                    {
+        
+        
+        NSNumber *zero=[NSNumber numberWithInt:(0)];
+        NSNumber *code=[doc objectForKey:@"code"];
+        if([zero isEqualToNumber:code])
+        {
             
             //激活成功之后获取token
             AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
             myDelegate.token=[[doc objectForKey:@"data"]objectForKey:@"token"];
             myDelegate.rtoken=[[doc objectForKey:@"data"]objectForKey:@"rtoken"];
-                        
-                        
-          
-        [DataBaseNSUserDefaults setData:myDelegate.token forkey:@"token"];
+            myDelegate.phone=_UITextFieldPhone.text;
+            myDelegate.pwd=_UITextFieldPwd.text;
+            
+            NSLog(@"激活之后存储token%@",myDelegate.token);
+            [DataBaseNSUserDefaults setData: myDelegate.token forkey:@"token"];
+            NSLog(@"激活之后存储rtoken%@",myDelegate.rtoken);
+            [DataBaseNSUserDefaults setData: myDelegate.rtoken forkey:@"rtoken"];
+            [DataBaseNSUserDefaults setData: myDelegate.phone forkey:@"phone"];
+            [DataBaseNSUserDefaults setData: myDelegate.pwd forkey:@"pwd"];
+            
             MainViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"MainViewController"];
             nextPage.hidesBottomBarWhenPushed=YES;
             [self.navigationController pushViewController:nextPage animated:YES];
             //获取融云的token，并且连接融云服务器
             [AppDelegate   loginRongCloud:[[doc objectForKey:@"data"]objectForKey:@"rtoken"]];
-                        
-                        
-                        
-                        
+            
+            
+            
+            
         }
         else
         {

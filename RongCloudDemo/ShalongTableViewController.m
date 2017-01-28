@@ -26,6 +26,8 @@
 #import "JsonUtil.h"
 #import "MJRefresh.h"
 #import "Alert.h"
+#import "LoginViewController.h"
+#import "DataBaseNSUserDefaults.h"
 @interface ShalongTableViewController ()
 
 @end
@@ -257,7 +259,31 @@
             }
             
             else{
-                [Alert showMessageAlert:[doc objectForKey:@"msg"]  view:self];
+                //判断code 是不是-2,如果是那么token失效，需要让用户重新登录
+                if([[NSNumber numberWithInt:(-2)] isEqualToNumber:[doc objectForKey:@"code"]]){
+                    
+                    MBProgressHUD *hud;
+                    hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+                    //hud.color = [UIColor colorWithHexString:@"343637" alpha:0.5];
+                    hud.labelText = @"登录状态失效，正在前往登录。。。";
+                    [hud show:YES];
+                    
+                    // 2.模拟2秒后（
+                    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                        
+                        [hud hide:YES];
+                        LoginViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
+                        nextPage.hidesBottomBarWhenPushed=YES;
+                        nextPage->isFromTokenInValid=YES;
+                        nextPage->phone=[DataBaseNSUserDefaults getData:@"phone"];
+                        nextPage->pwd=[DataBaseNSUserDefaults getData:@"pwd"];
+                        [self.navigationController pushViewController:nextPage animated:YES];
+                    });
+                    
+             
+                }
+                else
+                    [Alert showMessageAlert:[doc objectForKey:@"msg"]  view:self];
             }
         }
         else

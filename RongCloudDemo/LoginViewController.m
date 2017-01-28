@@ -34,19 +34,23 @@
     //    头像圆形
     self.UIImageViewAvatar.layer.masksToBounds = YES;
     self.UIImageViewAvatar.layer.cornerRadius = self.UIImageViewAvatar.frame.size.height / 2 ;
-    
     //    隐藏返回按钮navigationController的navigationBar
     //    self.navigationController.navigationBarHidden=YES;
-    
     //    [self loadData];
-    
     //处理软键盘遮挡输入框事件
     _UITextFieldUserName.delegate=self;
     _UITextFieldPwd.delegate=self;
-    
-    
+    //默认是陈曦的，以后记得去掉
     _UITextFieldUserName.text=@"18075156565";
     _UITextFieldPwd.text=@"12345";
+    if(phone!=nil && pwd!=nil){
+        _UITextFieldUserName.text=phone;
+        _UITextFieldPwd.text=pwd;
+    }
+    //隐藏顶部栏，不准返回上一个页面
+    if(isFromTokenInValid){
+        self.navigationController.navigationBarHidden=YES;
+    }
 }
 
 
@@ -140,6 +144,9 @@
             [DataBaseNSUserDefaults setData: myDelegate.token forkey:@"token"];
             NSLog(@"登录之后存储rtoken%@",myDelegate.rtoken);
             [DataBaseNSUserDefaults setData: myDelegate.rtoken forkey:@"rtoken"];
+            [DataBaseNSUserDefaults setData: myDelegate.phone forkey:@"phone"];
+            [DataBaseNSUserDefaults setData: myDelegate.pwd forkey:@"pwd"];
+            
             
             MainViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"MainViewController"];
             nextPage.hidesBottomBarWhenPushed=YES;

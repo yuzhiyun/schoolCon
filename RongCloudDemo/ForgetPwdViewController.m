@@ -15,6 +15,7 @@
 #import "Toast.h"
 #import "JsonUtil.h"
 #import "Alert.h"
+#import "DataBaseNSUserDefaults.h"
 @interface ForgetPwdViewController ()
 
 @end
@@ -96,6 +97,10 @@
         NSLog(@"服务器返回code%i",[doc objectForKey:@"code"]);
         if([[doc objectForKey:@"msg"]isEqualToString:@"ok"]){
             
+            
+            //存储数据
+            myDelegate.pwd=_UITextFieldNewPwd.text;
+            [DataBaseNSUserDefaults setData: myDelegate.pwd forkey:@"pwd"];
             NSLog(@"修改密码成功");
             hud.labelText = @"修改密码成功，正在前往登录页面。";
             // 2.模拟2秒后（

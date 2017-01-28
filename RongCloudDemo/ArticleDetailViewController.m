@@ -97,7 +97,6 @@
     //将视图的Y坐标向上移动offset个单位，以使下面腾出地方用于软键盘的显示
     if(offset > 0)
         self.view.frame = CGRectMake(0.0f, -offset, self.view.frame.size.width, self.view.frame.size.height);
-    
     [UIView commitAnimations];
 }
 
