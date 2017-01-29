@@ -257,17 +257,14 @@
                      [Alert showMessageAlert:@"抱歉，尚无数据" view:self];
                 }
             }
-            
             else{
                 //判断code 是不是-2,如果是那么token失效，需要让用户重新登录
                 if([[NSNumber numberWithInt:(-2)] isEqualToNumber:[doc objectForKey:@"code"]]){
-                    
                     MBProgressHUD *hud;
                     hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
                     //hud.color = [UIColor colorWithHexString:@"343637" alpha:0.5];
                     hud.labelText = @"登录状态失效，正在前往登录。。。";
                     [hud show:YES];
-                    
                     // 2.模拟2秒后（
                     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                         
@@ -279,19 +276,19 @@
                         nextPage->pwd=[DataBaseNSUserDefaults getData:@"pwd"];
                         [self.navigationController pushViewController:nextPage animated:YES];
                     });
-                    
-             
                 }
-                else
-                    [Alert showMessageAlert:[doc objectForKey:@"msg"]  view:self];
+                else{
+                    NSString *msg=[NSString stringWithFormat:@"code是%d ： %@",[doc objectForKey:@"code"],[doc objectForKey:@"msg"]];
+                    //[Alert showMessageAlert:[doc objectForKey:@"msg"]  view:self];
+                    [Alert showMessageAlert:msg  view:self];
+                }
             }
         }
         else
             NSLog(@"*****doc空***********");
         //        NSLog([self DataTOjsonString:responseObject]);
         //          NSLog([self convertToJsonData:dic]);
-        
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error){
         [self.tableView footerEndRefreshing];
         [self.tableView headerEndRefreshing];
         //隐藏圆形进度条
