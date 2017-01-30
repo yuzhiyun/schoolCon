@@ -201,6 +201,8 @@
             NSLog(@"*****doc不为空***********");
             if([[doc objectForKey:@"code"] isKindOfClass:[NSNumber class]])
                 NSLog(@"code 是 NSNumber");
+            
+            //NSLog([doc objectForKey:@"code"]);
             //判断code 是不是0
             NSNumber *zero=[NSNumber numberWithInt:(0)];
             NSNumber *code=[doc objectForKey:@"code"];
@@ -259,7 +261,7 @@
             }
             else{
                 //判断code 是不是-2,如果是那么token失效，需要让用户重新登录
-                if([[NSNumber numberWithInt:(-2)] isEqualToNumber:[doc objectForKey:@"code"]]){
+                if([[NSNumber numberWithInt:(-1)] isEqualToNumber:[doc objectForKey:@"code"]]){
                     MBProgressHUD *hud;
                     hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
                     //hud.color = [UIColor colorWithHexString:@"343637" alpha:0.5];
