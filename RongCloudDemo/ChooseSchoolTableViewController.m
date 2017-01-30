@@ -15,6 +15,7 @@
 #import "AFNetworking.h"
 #import "School.h"
 #import "Alert.h"
+#import "DataBaseNSUserDefaults.h"
 //#import "AppDelegate.h"
 //#import "MBProgressHUD.h"
 @interface ChooseSchoolTableViewController ()
@@ -332,6 +333,8 @@
     School *school=[mDataSchool objectAtIndex:indexPath.row];
      AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
     myDelegate.schoolId=school.schoolId;
+    
+    [DataBaseNSUserDefaults setData: myDelegate.schoolId forkey:@"schoolId"];
     //登录
     if(1==self->index){
         //根据storyboard id来获取目标页面

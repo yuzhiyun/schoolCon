@@ -210,6 +210,7 @@
             [DataBaseNSUserDefaults setData: myDelegate.rtoken forkey:@"rtoken"];
             [DataBaseNSUserDefaults setData: myDelegate.phone forkey:@"phone"];
             [DataBaseNSUserDefaults setData: myDelegate.pwd forkey:@"pwd"];
+            [DataBaseNSUserDefaults setData: myDelegate.schoolId forkey:@"schoolId"];
             
             MainViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"MainViewController"];
             nextPage.hidesBottomBarWhenPushed=YES;

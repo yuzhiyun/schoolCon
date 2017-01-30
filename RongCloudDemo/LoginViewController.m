@@ -100,17 +100,22 @@
     pwd=_UITextFieldPwd.text;
     
     
-    
+    NSLog(userName);
+    NSLog(pwd);
+    NSLog(myDelegate.appId);
+    NSLog(myDelegate.appSecret);
+   // NSLog(myDelegate.schoolId);
     // 请求参数
     NSDictionary *parameters = @{
                                  @"appId":myDelegate.appId,
                                  @"appSecret":myDelegate.appSecret,
-                                 @"schoolId":myDelegate.schoolId,
+                                 @"schoolId":[DataBaseNSUserDefaults getData:@"schoolId"],
                                  //                                 @"loginname":@"superadmin",
                                  @"loginname":userName,
                                  //                                 @"vcode":@"1234",
                                  @"pwd":pwd
                                  };
+    
     [manager POST:urlString parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         //隐藏圆形进度条
         [hud hide:YES];
@@ -144,9 +149,10 @@
             [DataBaseNSUserDefaults setData: myDelegate.token forkey:@"token"];
             NSLog(@"登录之后存储rtoken%@",myDelegate.rtoken);
             [DataBaseNSUserDefaults setData: myDelegate.rtoken forkey:@"rtoken"];
+            
             [DataBaseNSUserDefaults setData: myDelegate.phone forkey:@"phone"];
             [DataBaseNSUserDefaults setData: myDelegate.pwd forkey:@"pwd"];
-            
+            [DataBaseNSUserDefaults setData: myDelegate.schoolId forkey:@"schoolId"];
             
             MainViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"MainViewController"];
             nextPage.hidesBottomBarWhenPushed=YES;
