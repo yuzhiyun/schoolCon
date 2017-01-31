@@ -104,7 +104,7 @@
     NSLog(pwd);
     NSLog(myDelegate.appId);
     NSLog(myDelegate.appSecret);
-   // NSLog(myDelegate.schoolId);
+    NSLog([DataBaseNSUserDefaults getData:@"schoolId"]);
     // 请求参数
     NSDictionary *parameters = @{
                                  @"appId":myDelegate.appId,
@@ -152,7 +152,7 @@
             
             [DataBaseNSUserDefaults setData: myDelegate.phone forkey:@"phone"];
             [DataBaseNSUserDefaults setData: myDelegate.pwd forkey:@"pwd"];
-            [DataBaseNSUserDefaults setData: myDelegate.schoolId forkey:@"schoolId"];
+            //[DataBaseNSUserDefaults setData: myDelegate.schoolId forkey:@"schoolId"];
             
             MainViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"MainViewController"];
             nextPage.hidesBottomBarWhenPushed=YES;
