@@ -8,8 +8,8 @@
 #import <UIKit/UIKit.h>
 #import <RongIMLib/RongIMLib.h>
 #import <RongIMKit/RongIMKit.h>
-
-@interface AppDelegate : UIResponder <UIApplicationDelegate,RCIMConnectionStatusDelegate>
+#import "JPUSHService.h"
+@interface AppDelegate : UIResponder <UIApplicationDelegate,RCIMConnectionStatusDelegate,JPUSHRegisterDelegate>
 {
 //   全局变量  在线学习的viewpager的上部导航栏title
     NSMutableArray *onlineReadinngTitle;
