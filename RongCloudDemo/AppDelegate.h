@@ -30,6 +30,9 @@
     
     UIColor *navigationBarColor;
     
+    
+     NSMutableArray *linkManArray;
+    
 }
 @property (strong, nonatomic) UIWindow *window;
 
@@ -45,6 +48,7 @@
 @property (nonatomic,strong)NSString *userName;
 @property (nonatomic,strong)NSString *phone;
 @property (nonatomic,strong)NSString *pwd;
+@property (nonatomic,strong)NSMutableArray *linkManArray;
 @property (nonatomic,strong)UIColor *navigationBarColor;
 +(void)loginRongCloud :(NSString *) token;
 

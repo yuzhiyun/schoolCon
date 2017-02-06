@@ -184,6 +184,11 @@
                             model.name=item [@"name"];
                             [allDataFromServer addObject:model];
                         }
+                        
+                        //保存数据在群发页面使用
+                        AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
+                        myDelegate.linkManArray=allDataFromServer;
+                        
                         NSLog(@"allDataFromServer项数为%i",[allDataFromServer count]);
                         NSLog(@"//更新界面");
                         //更新界面

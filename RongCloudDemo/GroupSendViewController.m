@@ -11,6 +11,7 @@
 #import <RongIMKit/RongIMKit.h>
 #import "LinkMan.h"
 #import "UIImageView+WebCache.h"
+#import "AppDelegate.h"
 #import "SendMessageViewController.h"
 @interface GroupSendViewController ()
 
@@ -61,6 +62,8 @@
     //    [mDataAvatar addObject:@"3.jpg"];
     //    [mDataAvatar addObject:@"4.jpg"];
     //    [mDataAvatar addObject:@"5.jpg"];
+    /*
+     
     LinkMan *model1=[[LinkMan alloc]init];
     model1.type=@"private";
     model1.LinkmanId=@"321";
@@ -76,18 +79,26 @@
     model2.name=@"马小龙";
     model2.introduction=@"数学教师";
     
+     
     LinkMan *model3=[[LinkMan alloc]init];
     model3.type=@"private";
     model3.LinkmanId=@"3";
     model3.picUrl=@"http://img05.tooopen.com/images/20150202/sy_80219211654.jpg";
     model3.name=@"孙秦晓茎";
     model3.introduction=@"语文教师";
-    
+   
+     
     allDataFromServer=[[NSMutableArray alloc]init];
     [allDataFromServer addObject:model1];
     [allDataFromServer addObject:model2];
     [allDataFromServer addObject:model3];
-    
+
+    */
+     allDataFromServer=[[NSMutableArray alloc]init];
+     AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
+    allDataFromServer=myDelegate.linkManArray;
+   //去除掉最后一项，因为最后一项是班级群啊
+    [allDataFromServer removeObjectAtIndex:[allDataFromServer count]-1];
     //没有被初始化，导致了一些未知错误，但是这个变量 竟然可以使用，程序不崩溃
     indexOfSelectedUser=[[NSMutableArray alloc]init];
     //初始化勾选记录的数组,用yes或者 no来判断联系人是不是被勾选
