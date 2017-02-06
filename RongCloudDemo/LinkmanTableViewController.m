@@ -30,6 +30,8 @@
     NSMutableArray *mDataAvatar;
     
     NSMutableArray *allDataFromServer;
+    
+    UITableView *mTableView;
 }
 
 - (void)viewDidLoad {
@@ -46,6 +48,7 @@
 }
 
 -(NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+       mTableView=tableView;
     return [allDataFromServer count];
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -55,6 +58,7 @@
     if (cell == nil) {
         cell = [[LinkmanTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
     }
+    
     LinkMan *model=[allDataFromServer objectAtIndex:indexPath.row];
     cell.UILabelName.text =model.name;
     cell.UILabelRemark.text = model.introduction;
@@ -157,29 +161,33 @@
                     
                     NSArray *array=[doc objectForKey:@"data"];
                     if(0==[array count]){
-                        
-                        [Alert showMessageAlert:@"抱歉,没有更多数据了" view:self];
+                        [Alert showMessageAlert:@"抱歉,没有数据" view:self];
                     }
                     else{
-                        
-                       // if([orientation isEqualToString:@"down"])
-                            [allDataFromServer removeAllObjects];
-                        
-                       /* for(NSDictionary *item in  articleArray ){
-                            LinkMan *model=[[Test alloc]init];
-                            model.testId=item [@"id"];
-                            model.picUrl=item [@"picurl"];
-                            model.title=item [@"title"];
-                            NSLog(@"money1");
-                            model.money=item [@"money"];
-                            //                            NSLog(model.money);
-                            NSLog(@"money2");
+                        //单聊联系人信息
+                        NSArray *contactsArray=[[doc objectForKey:@"data"] objectForKey:@"contacts"];
+                       for(NSDictionary *item in  contactsArray ){
+                            LinkMan *model=[[LinkMan alloc]init];
+                            model.LinkmanId=item [@"userId"];
+                            //model.picUrl=item [@"picurl"];
+                            model.introduction=item [@"remark"];
+                            model.name=item [@"name"];
+                            model.type= @"private";
                             [allDataFromServer addObject:model];
                         }
-                        NSLog(@"mDataArticle项数为%i",[allDataFromServer count]);
+                        //群聊联系人信息
+                        NSArray *groupsArray=[[doc objectForKey:@"data"] objectForKey:@"groups"];
+                        for(NSDictionary *item in  groupsArray ){
+                            LinkMan *model=[[LinkMan alloc]init];
+                            model.LinkmanId=item [@"id"];
+                            //model.picUrl=item [@"picurl"];
+                            model.name=item [@"name"];
+                            [allDataFromServer addObject:model];
+                        }
+                        NSLog(@"allDataFromServer项数为%i",[allDataFromServer count]);
                         NSLog(@"//更新界面");
                         //更新界面
-                        [mTableView reloadData];*/
+                        [mTableView reloadData];
                     }
                     //            }
                 }
