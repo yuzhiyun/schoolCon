@@ -92,13 +92,10 @@
     [allDataFromServer addObject:model1];
     [allDataFromServer addObject:model2];
     [allDataFromServer addObject:model3];
-
     */
      allDataFromServer=[[NSMutableArray alloc]init];
      AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
     allDataFromServer=myDelegate.linkManArray;
-   //去除掉最后一项，因为最后一项是班级群啊
-    [allDataFromServer removeObjectAtIndex:[allDataFromServer count]-1];
     //没有被初始化，导致了一些未知错误，但是这个变量 竟然可以使用，程序不崩溃
     indexOfSelectedUser=[[NSMutableArray alloc]init];
     //初始化勾选记录的数组,用yes或者 no来判断联系人是不是被勾选

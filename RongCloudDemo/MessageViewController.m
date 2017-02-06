@@ -7,16 +7,28 @@
 //
 
 #import "MessageViewController.h"
-
+#import "AFNetworking.h"
+#import "AppDelegate.h"
+#import "JsonUtil.h"
+#import "MBProgressHUD.h"
+#import "LinkMan.h"
+#import "Alert.h"
 @interface MessageViewController ()
 
 @end
 
-@implementation MessageViewController
+@implementation MessageViewController{
+    NSMutableArray *allDataFromServer;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    /**由于防止用户未进入联系人页面就直接点击群发，这样在群发页面就没有联系人信息了
+     * 所以我在消息页面就把联系人信息获取下来
+     */
+    allDataFromServer= [[NSMutableArray alloc]init];
+    [self loadData];
     /**
      *要显示用户信息和群组信息，首先需要实现两个协议，然后设置代理为这个类，然后实现两个函数
      *- (void)getUserInfoWithUserId:(NSString *)userId completion:(void (^)(RCUserInfo *))completion
@@ -158,5 +170,119 @@
  // Pass the selected object to the new view controller.
  }
  */
+#pragma mark 加载联系人列表
+-(void)loadData {
+    MBProgressHUD *hud;
+    hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    //hud.color = [UIColor colorWithHexString:@"343637" alpha:0.5];
+    hud.labelText = @" 获取数据...";
+    [hud show:YES];
+    //获取全局ip地址
+    AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
+    
+    NSString *urlString;
+    
+    urlString= [NSString stringWithFormat:@"%@/api/sys/user/contacts",myDelegate.ipString];
+    
+    
+    //创建数据请求的对象，不是单例
+    AFHTTPRequestOperationManager *manager=[AFHTTPRequestOperationManager manager];
+    //设置响应数据的类型,如果是json数据，会自动帮你解析
+    //注意setWithObjects后面的s不能少
+    manager.responseSerializer.acceptableContentTypes=[NSSet setWithObjects:@"application/json", nil];
+    NSString *token=myDelegate.token;
+    // 请求参数
+    NSDictionary *parameters = @{ @"appId":@"03a8f0ea6a",
+                                  @"appSecret":@"b4a01f5a7dd4416c",
+                                  
+                                  //@"pageNumber":[NSString stringWithFormat:@"%d",pageIndex],
+                                  @"token":token
+                                  };
+    
+    [manager POST:urlString parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        //隐藏圆形进度条
+        [hud hide:YES];
+        NSString *result=[JsonUtil DataTOjsonString:responseObject];
+        NSLog(@"***************返回结果***********************");
+        NSLog(result);
+        NSData *data=[result dataUsingEncoding:NSUTF8StringEncoding];
+        NSError *error=[[NSError alloc]init];
+        NSDictionary *doc= [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
+        if(doc!=nil){
+            NSLog(@"*****doc不为空***********");
+            if([[doc objectForKey:@"code"] isKindOfClass:[NSNumber class]])
+                NSLog(@"code 是 NSNumber");
+            //判断code 是不是0
+            NSNumber *zero=[NSNumber numberWithInt:(0)];
+            NSNumber *code=[doc objectForKey:@"code"];
+            if([zero isEqualToNumber:code])
+            {
+                if(nil!=[doc allKeys]){
+                    
+                    NSArray *array=[doc objectForKey:@"data"];
+                    if(0==[array count]){
+                        [Alert showMessageAlert:@"抱歉,没有数据" view:self];
+                    }
+                    else{
+                        //单聊联系人信息
+                        NSArray *contactsArray=[[doc objectForKey:@"data"] objectForKey:@"contacts"];
+                        for(NSDictionary *item in  contactsArray ){
+                            LinkMan *model=[[LinkMan alloc]init];
+                            model.LinkmanId=item [@"userId"];
+                            //model.picUrl=item [@"picurl"];
+                            model.introduction=item [@"remark"];
+                            model.name=item [@"name"];
+                            model.type= @"private";
+                            [allDataFromServer addObject:model];
+                        }
+                        //群聊联系人信息
+                        NSArray *groupsArray=[[doc objectForKey:@"data"] objectForKey:@"groups"];
+                        for(NSDictionary *item in  groupsArray ){
+                            LinkMan *model=[[LinkMan alloc]init];
+                            model.LinkmanId=item [@"id"];
+                            //model.picUrl=item [@"picurl"];
+                            model.name=item [@"name"];
+                            [allDataFromServer addObject:model];
+                        }
+                        
+                        //保存数据在群发页面使用
+                        AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
+                        myDelegate.linkManArray=allDataFromServer;
+                        //去除掉最后一项，因为最后一项是班级群啊
+                        [myDelegate.linkManArray removeObjectAtIndex:[myDelegate.linkManArray count]-1];
+                        
+                        NSLog(@"allDataFromServer项数为%i",[allDataFromServer count]);
+                        
+                        
+                       // [mTableView reloadData];
+                    }
+                    //            }
+                }
+                else
+                {
+                    [Alert showMessageAlert:@"抱歉，尚无文章可以阅读" view:self];
+                }
+            }
+            
+            else{
+                [Alert showMessageAlert:[doc objectForKey:@"msg"]  view:self];
+            }
+        }
+        else
+            NSLog(@"*****doc空***********");
+        //        NSLog([self DataTOjsonString:responseObject]);
+        //          NSLog([self convertToJsonData:dic]);
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        
+        
+        //隐藏圆形进度条
+        [hud hide:YES];
+        NSString *errorUser=[error.userInfo objectForKey:NSLocalizedDescriptionKey];
+        if(error.code==-1009)
+            errorUser=@"主人，似乎没有网络喔！";
+        [Alert showMessageAlert:errorUser view:self];
+    }];
+}
 
 @end

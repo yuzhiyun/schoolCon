@@ -38,7 +38,10 @@
     [super viewDidLoad];
     
     allDataFromServer=[[NSMutableArray alloc]init];
-    [self loadData];
+    //保存数据在群发页面使用
+    AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
+    allDataFromServer=myDelegate.linkManArray;
+    //[self loadData];
     
 }
 
@@ -110,6 +113,7 @@
         [self.navigationController pushViewController:chat animated:YES];
     }
 }
+/*
 #pragma mark 加载联系人列表
 -(void)loadData {
     MBProgressHUD *hud;
@@ -223,6 +227,6 @@
     }];
 }
 
-
+*/
 
 @end
