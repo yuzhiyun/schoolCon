@@ -2218,7 +2218,7 @@
 				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.sukclub.school;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "fb775aa7-8554-435c-83fe-5028c6917a99";
+				PROVISIONING_PROFILE = "d8590b7b-ddf6-4ecd-89a4-d8f541f6ee17";
 				PROVISIONING_PROFILE_SPECIFIER = "4YFU9633V4.com.sukclub.school-develop";
 				"PROVISIONING_PROFILE_SPECIFIER[sdk=*]" = "";
 			};
@@ -2230,7 +2230,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = SchoolCon.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 4YFU9633V4;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2249,6 +2249,8 @@
 				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.sukclub.school;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "fb775aa7-8554-435c-83fe-5028c6917a99";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Release;
 		};

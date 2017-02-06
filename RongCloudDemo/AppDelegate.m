@@ -31,6 +31,11 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
     
+    /**
+     *JPush
+     *
+     *
+     */
     //Required
     //notice: 3.0.0及以后版本注册可以这样写，也可以继续用之前的注册方式
     JPUSHRegisterEntity * entity = [[JPUSHRegisterEntity alloc] init];
@@ -65,7 +70,6 @@
 //    172.27.35.7
     myDelegate.appId=@"03a8f0ea6a";
     myDelegate.appSecret=@"b4a01f5a7dd4416c";
-    
     myDelegate.navigationBarColor=[UIColor colorWithRed:44/255.0 green:191/255.0 blue:242/255.0 alpha:1.0];
     //初始化融云SDK
     [[RCIM sharedRCIM] initWithAppKey:RONGCLOUD_IM_APPKEY];
@@ -154,7 +158,7 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
     /// Required - 注册 DeviceToken
     [JPUSHService registerDeviceToken:deviceToken];
     
-    NSLog(@"didRegisterForRemoteNotificationsWithDeviceToken 成功");
+    //NSLog(@"didRegisterForRemoteNotificationsWithDeviceToken 成功");
 }
 
 /**
