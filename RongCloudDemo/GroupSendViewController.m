@@ -41,61 +41,14 @@
     UIBarButtonItem *rightButton = [[UIBarButtonItem alloc]initWithTitle:@"确定" style:UIBarButtonItemStylePlain target:self action:@selector(rightBarButtonItemPressed:)];
     [rightButton setTitleTextAttributes: [NSDictionary dictionaryWithObjectsAndKeys:[UIFont systemFontOfSize:17], UITextAttributeFont, [UIColor whiteColor], UITextAttributeTextColor, nil] forState:UIControlStateNormal];
     self.navigationItem.rightBarButtonItem=rightButton;
+
     
-    //    mDataUsername=[[NSMutableArray alloc]init];
-    //    [mDataUsername addObject:@"俞志云"];
-    //    [mDataUsername addObject:@"马小龙"];
-    //    [mDataUsername addObject:@"孙萌"];
-    //    [mDataUsername addObject:@"吴晓茎"];
-    //    [mDataUsername addObject:@"秦启飞"];
-    //
-    //    mDataRemark=[[NSMutableArray alloc]init];
-    //    [mDataRemark addObject:@"化学教师"];
-    //    [mDataRemark addObject:@"数学教师"];
-    //    [mDataRemark addObject:@"英语教师"];
-    //    [mDataRemark addObject:@"语文教师"];
-    //    [mDataRemark addObject:@"生物教师"];
-    //
-    //    mDataAvatar=[[NSMutableArray alloc]init];
-    //    [mDataAvatar addObject:@"1.jpg"];
-    //    [mDataAvatar addObject:@"2.jpg"];
-    //    [mDataAvatar addObject:@"3.jpg"];
-    //    [mDataAvatar addObject:@"4.jpg"];
-    //    [mDataAvatar addObject:@"5.jpg"];
-    /*
-     
-    LinkMan *model1=[[LinkMan alloc]init];
-    model1.type=@"private";
-    model1.LinkmanId=@"321";
-    model1.picUrl=@"http://avatar.csdn.net/B/A/4/1_yuzhiyun3536.jpg";
-    model1.name=@"俞志云";
-    model1.introduction=@"化学教师";
-    
-    
-    LinkMan *model2=[[LinkMan alloc]init];
-    model2.type=@"private";
-    model2.LinkmanId=@"2";
-    model2.picUrl=@"http://img05.tooopen.com/images/20150202/sy_80219211654.jpg";
-    model2.name=@"马小龙";
-    model2.introduction=@"数学教师";
-    
-     
-    LinkMan *model3=[[LinkMan alloc]init];
-    model3.type=@"private";
-    model3.LinkmanId=@"3";
-    model3.picUrl=@"http://img05.tooopen.com/images/20150202/sy_80219211654.jpg";
-    model3.name=@"孙秦晓茎";
-    model3.introduction=@"语文教师";
-   
-     
-    allDataFromServer=[[NSMutableArray alloc]init];
-    [allDataFromServer addObject:model1];
-    [allDataFromServer addObject:model2];
-    [allDataFromServer addObject:model3];
-    */
      allDataFromServer=[[NSMutableArray alloc]init];
      AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
-    allDataFromServer=myDelegate.linkManArray;
+    //去除最后一项，因为群发消息对象不包含班级群
+    for(LinkMan *model in myDelegate.linkManArray)
+        [allDataFromServer addObject:model];
+    [allDataFromServer removeObjectAtIndex:[allDataFromServer count]-1];
     //没有被初始化，导致了一些未知错误，但是这个变量 竟然可以使用，程序不崩溃
     indexOfSelectedUser=[[NSMutableArray alloc]init];
     //初始化勾选记录的数组,用yes或者 no来判断联系人是不是被勾选

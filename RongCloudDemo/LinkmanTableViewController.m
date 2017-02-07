@@ -18,6 +18,7 @@
 #import "JsonUtil.h"
 #import "MBProgressHUD.h"
 #import "Alert.h"
+#import "MJRefresh.h"
 @interface LinkmanTableViewController ()
 
 @end
@@ -43,15 +44,58 @@
     allDataFromServer=myDelegate.linkManArray;
     //[self loadData];
     
+    if(0==[myDelegate.linkManArray count]){
+        allDataFromServer=[[NSMutableArray alloc]init];
+        [Alert showMessageAlert:@"尚无联系人信息，请下拉刷新" view:self];
+    }
+    
+    
+    // 2.集成刷新控件
+    [self setupRefresh];
+
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+/**
+ *  集成刷新控件
+ */
+- (void)setupRefresh
+{
+    // 1.下拉刷新(进入刷新状态就会调用self的headerRereshing)
+    //    [self.tableView addHeaderWithTarget:self action:@selector(headerRereshing)];
+    // dateKey用于存储刷新时间，可以保证不同界面拥有不同的刷新时间
+    [self.tableView addHeaderWithTarget:self action:@selector(headerRereshing) dateKey:@"table"];
+    
+    // 2.上拉加载更多(进入刷新状态就会调用self的footerRereshing)
+    [self.tableView addFooterWithTarget:self action:@selector(footerRereshing)];
+    
+    // 设置文字(也可以不设置,默认的文字在MJRefreshConst中修改)
+    self.tableView.headerPullToRefreshText = @"下拉可以刷新了";
+    self.tableView.headerReleaseToRefreshText = @"松开马上刷新了";
+    self.tableView.headerRefreshingText = @"正在为您刷新。。。";
+    
+    self.tableView.footerPullToRefreshText = @"上拉可以加载更多数据了";
+    self.tableView.footerReleaseToRefreshText = @"松开马上加载更多数据了";
+    self.tableView.footerRefreshingText = @"正在为您刷新。。。";
+}
+
+#pragma mark 开始进入刷新状态
+- (void)headerRereshing
+{
+    self.tableView.headerRefreshingText = @"正在为您刷新。。。";
+    
+    [self loadData];
+    
+}
 
 -(NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
        mTableView=tableView;
+    
     return [allDataFromServer count];
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -61,7 +105,9 @@
     if (cell == nil) {
         cell = [[LinkmanTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
     }
-    
+    //AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
+    //allDataFromServer=myDelegate.linkManArray;
+
     LinkMan *model=[allDataFromServer objectAtIndex:indexPath.row];
     cell.UILabelName.text =model.name;
     cell.UILabelRemark.text = model.introduction;
@@ -113,7 +159,7 @@
         [self.navigationController pushViewController:chat animated:YES];
     }
 }
-/*
+
 #pragma mark 加载联系人列表
 -(void)loadData {
     MBProgressHUD *hud;
@@ -144,6 +190,9 @@
                                   };
     
     [manager POST:urlString parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        // (最好在刷新表格后调用)调用endRefreshing可以结束刷新状态
+        [self.tableView footerEndRefreshing];
+        [self.tableView headerEndRefreshing];
         //隐藏圆形进度条
         [hud hide:YES];
         NSString *result=[JsonUtil DataTOjsonString:responseObject];
@@ -170,6 +219,7 @@
                     else{
                         //单聊联系人信息
                         NSArray *contactsArray=[[doc objectForKey:@"data"] objectForKey:@"contacts"];
+                        //[allDataFromServer removeAllObjects];
                        for(NSDictionary *item in  contactsArray ){
                             LinkMan *model=[[LinkMan alloc]init];
                             model.LinkmanId=item [@"userId"];
@@ -177,6 +227,7 @@
                             model.introduction=item [@"remark"];
                             model.name=item [@"name"];
                             model.type= @"private";
+                           NSLog(model.name);
                             [allDataFromServer addObject:model];
                         }
                         //群聊联系人信息
@@ -186,23 +237,21 @@
                             model.LinkmanId=item [@"id"];
                             //model.picUrl=item [@"picurl"];
                             model.name=item [@"name"];
+                            NSLog(model.name);
                             [allDataFromServer addObject:model];
                         }
-                        
                         //保存数据在群发页面使用
                         AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
                         myDelegate.linkManArray=allDataFromServer;
-                        
                         NSLog(@"allDataFromServer项数为%i",[allDataFromServer count]);
                         NSLog(@"//更新界面");
                         //更新界面
                         [mTableView reloadData];
                     }
-                    //            }
                 }
                 else
                 {
-                    [Alert showMessageAlert:@"抱歉，尚无文章可以阅读" view:self];
+                    [Alert showMessageAlert:@"抱歉，尚无数据" view:self];
                 }
             }
             
@@ -217,7 +266,8 @@
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         
-        
+        [self.tableView footerEndRefreshing];
+        [self.tableView headerEndRefreshing];
         //隐藏圆形进度条
         [hud hide:YES];
         NSString *errorUser=[error.userInfo objectForKey:NSLocalizedDescriptionKey];
@@ -227,6 +277,6 @@
     }];
 }
 
-*/
+
 
 @end

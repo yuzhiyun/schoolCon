@@ -112,7 +112,6 @@
             completion(groupInfo);
         }
     }
-    
 }
 /*!
  点击会话列表中Cell的回调
