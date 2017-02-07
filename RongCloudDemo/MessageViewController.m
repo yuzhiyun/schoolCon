@@ -45,8 +45,6 @@
                                         @(ConversationType_GROUP),
                                         @(ConversationType_APPSERVICE),
                                         @(ConversationType_SYSTEM)]];
-    
-    // Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning {
@@ -64,20 +62,26 @@
 - (void)getUserInfoWithUserId:(NSString *)userId completion:(void (^)(RCUserInfo *))completion{
     
     
+    NSLog(@"getUserInfoWithUserId被调用几次");
     //这个是本人
     if([@"56e339ee76a94fb79963b694164ef70d" isEqualToString:userId]){
         RCUserInfo *userInfo=[[RCUserInfo alloc]initWithUserId:userId name:@"本人" portrait:@"http://img05.tooopen.com/images/20150202/sy_80219211654.jpg"];
         completion(userInfo);
-    
+        
     }
     if([@"321" isEqualToString:userId]){
         RCUserInfo *userInfo2=[[RCUserInfo alloc]initWithUserId:userId name:@"俞志云" portrait:@"http://avatar.csdn.net/B/A/4/1_yuzhiyun3536.jpg"];
         completion(userInfo2);
     }
     
+    AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
     
-    
-    
+    for(LinkMan *item in myDelegate.linkManArray){
+        if([userId isEqualToString:item.LinkmanId  ]){
+            RCUserInfo *userInfo=[[RCUserInfo alloc]initWithUserId:userId name:item.name portrait:@"http://img05.tooopen.com/images/20150202/sy_80219211654.jpg"];
+            completion(userInfo);
+        }
+    }
 }
 /*!
  获取群组信息
@@ -95,6 +99,18 @@
     if([@"1" isEqualToString:groupId]){
         RCGroup *groupInfo =[[RCGroup alloc] initWithGroupId:@"1" groupName:@"初二3班班群" portraitUri:@"http://img.blog.csdn.net/20170113192304511?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQveXV6aGl5dW4zNTM2/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast"];
         completion(groupInfo);
+    }
+    
+    AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
+    
+   
+
+    
+    for(LinkMan *model in myDelegate.linkManArray){
+        if([model.LinkmanId isEqualToString:groupId]){
+           RCGroup *groupInfo =[[RCGroup alloc] initWithGroupId:model.LinkmanId groupName:model.name portraitUri:@"http://img.blog.csdn.net/20170113192304511?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQveXV6aGl5dW4zNTM2/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast"];
+            completion(groupInfo);
+        }
     }
     
 }
@@ -144,32 +160,6 @@
 }
 
 
-/**
- *此方法中要提供给融云用户的信息，建议缓存到本地，然后改方法每次从您的缓存返回
- */
-//- (void)getUserInfoWithUserId:(NSString *)userId completion:(void(^)(RCUserInfo* userInfo))completion
-//{
-//    //此处为了演示写了一个用户信息
-//    if ([@"1" isEqual:userId]) {
-//        RCUserInfo *user = [[RCUserInfo alloc]init];
-//        user.userId = @"1";
-//        user.name = @"测试1";
-//        user.portraitUri = @"https://ss0.baidu.com/73t1bjeh1BF3odCf/it/u=1756054607,4047938258&fm=96&s=94D712D20AA1875519EB37BE0300C008";
-//
-//        return completion(user);
-//    }
-//}
-
-
-/*
- #pragma mark - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- */
 #pragma mark 加载联系人列表
 -(void)loadData {
     MBProgressHUD *hud;
@@ -244,17 +234,19 @@
                             model.name=item [@"name"];
                             [allDataFromServer addObject:model];
                         }
+                        //强制刷新界面
+                        [self.conversationListTableView reloadData];
                         
                         //保存数据在群发页面使用
                         AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
                         myDelegate.linkManArray=allDataFromServer;
                         //去除掉最后一项，因为最后一项是班级群啊
-                        [myDelegate.linkManArray removeObjectAtIndex:[myDelegate.linkManArray count]-1];
+                        //[myDelegate.linkManArray removeObjectAtIndex:[myDelegate.linkManArray count]-1];
                         
                         NSLog(@"allDataFromServer项数为%i",[allDataFromServer count]);
                         
                         
-                       // [mTableView reloadData];
+                        // [mTableView reloadData];
                     }
                     //            }
                 }
