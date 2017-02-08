@@ -13,7 +13,10 @@
 #import <RongIMKit/RongIMKit.h>
 #import "Alert.h"
 #import "Toast.h"
+#import "LoginViewController.h"
 // 引入JPush功能所需头文件
+#import "MBProgressHUD.h"
+#import "DataBaseNSUserDefaults.h"
 #import "JPUSHService.h"
 // iOS10注册APNs所需头文件
 #ifdef NSFoundationVersionNumber_iOS_9_x_Max
@@ -133,6 +136,26 @@
     } tokenIncorrect:^{
         NSLog(@"token 无效 ，请确保生成token 使用的appkey 和初始化时的appkey 一致");
     }];
+}
+
++(void)reLogin :(UIViewController *)viewController{
+    MBProgressHUD *hud;
+    hud = [MBProgressHUD showHUDAddedTo:viewController.view animated:YES];
+    //hud.color = [UIColor colorWithHexString:@"343637" alpha:0.5];
+    hud.labelText = @"登录状态失效，正在前往登录。。。";
+    [hud show:YES];
+    // 2.模拟2秒后（
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        
+        [hud hide:YES];
+        LoginViewController *nextPage= [viewController.storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
+        nextPage.hidesBottomBarWhenPushed=YES;
+        nextPage->isFromTokenInValid=YES;
+        nextPage->phone=[DataBaseNSUserDefaults getData:@"phone"];
+        nextPage->pwd=[DataBaseNSUserDefaults getData:@"pwd"];
+        [viewController.navigationController pushViewController:nextPage animated:YES];
+        
+    });
 }
 
 /**

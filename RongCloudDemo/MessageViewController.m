@@ -161,11 +161,11 @@
 
 #pragma mark 加载联系人列表
 -(void)loadData {
-    MBProgressHUD *hud;
-    hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    //MBProgressHUD *hud;
+    //hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     //hud.color = [UIColor colorWithHexString:@"343637" alpha:0.5];
-    hud.labelText = @" 获取数据...";
-    [hud show:YES];
+    //hud.labelText = @" 获取数据...";
+    //[hud show:YES];
     //获取全局ip地址
     AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
     
@@ -190,7 +190,7 @@
     
     [manager POST:urlString parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         //隐藏圆形进度条
-        [hud hide:YES];
+       // [hud hide:YES];
         NSString *result=[JsonUtil DataTOjsonString:responseObject];
         NSLog(@"***************返回结果***********************");
         NSLog(result);
@@ -207,7 +207,6 @@
             if([zero isEqualToNumber:code])
             {
                 if(nil!=[doc allKeys]){
-                    
                     NSArray *array=[doc objectForKey:@"data"];
                     if(0==[array count]){
                         [Alert showMessageAlert:@"抱歉,没有数据" view:self];
@@ -254,9 +253,15 @@
                     [Alert showMessageAlert:@"抱歉，尚无文章可以阅读" view:self];
                 }
             }
-            
             else{
-                [Alert showMessageAlert:[doc objectForKey:@"msg"]  view:self];
+                //判断code 是不是-1,如果是那么token失效，需要让用户重新登录
+                if([[NSNumber numberWithInt:(-1)] isEqualToNumber:[doc objectForKey:@"code"]]){
+                    [AppDelegate reLogin:self];
+                }
+                else{
+                    NSString *msg=[NSString stringWithFormat:@"code是%d ： %@",[doc objectForKey:@"code"],[doc objectForKey:@"msg"]];
+                    [Alert showMessageAlert:msg  view:self];
+                }
             }
         }
         else
@@ -268,7 +273,7 @@
         
         
         //隐藏圆形进度条
-        [hud hide:YES];
+       // [hud hide:YES];
         NSString *errorUser=[error.userInfo objectForKey:NSLocalizedDescriptionKey];
         if(error.code==-1009)
             errorUser=@"主人，似乎没有网络喔！";

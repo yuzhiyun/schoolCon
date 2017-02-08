@@ -219,7 +219,7 @@
                     else{
                         //单聊联系人信息
                         NSArray *contactsArray=[[doc objectForKey:@"data"] objectForKey:@"contacts"];
-                        //[allDataFromServer removeAllObjects];
+                        [allDataFromServer removeAllObjects];
                        for(NSDictionary *item in  contactsArray ){
                             LinkMan *model=[[LinkMan alloc]init];
                             model.LinkmanId=item [@"userId"];

@@ -28,6 +28,7 @@
         [yArray addObject:[NSString stringWithFormat:@"%.2lf",50.0+arc4random_uniform(50)]];
     }
     
+    
     WSLineChartView *wsLine = [[WSLineChartView alloc]initWithFrame:CGRectMake(0, self.navigationController.navigationBar.bounds.size.height+[[UIApplication sharedApplication] statusBarFrame].size.height, self.view.frame.size.width, self.view.frame.size.height-self.navigationController.navigationBar.bounds.size.height-[[UIApplication sharedApplication] statusBarFrame].size.height) xTitleArray:xArray yValueArray:yArray yMax:100 yMin:0];
     
     [self.view addSubview:wsLine];

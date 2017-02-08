@@ -51,6 +51,7 @@
 @property (nonatomic,strong)NSMutableArray *linkManArray;
 @property (nonatomic,strong)UIColor *navigationBarColor;
 +(void)loginRongCloud :(NSString *) token;
-
+//token失效重新登录
++(void)reLogin :(UIViewController *)viewController;
 @end
 
