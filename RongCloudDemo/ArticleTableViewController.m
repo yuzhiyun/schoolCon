@@ -201,15 +201,13 @@
             else
             {
                 
-                //判断code 是不是-1,如果是那么token失效，需要让用户重新登录
-                if([[NSNumber numberWithInt:(-1)] isEqualToNumber:[doc objectForKey:@"code"]]){
+                if([@"token invalid" isEqualToString:[doc objectForKey:@"msg"]]){
                     [AppDelegate reLogin:self];
                 }
                 else{
                     NSString *msg=[NSString stringWithFormat:@"code是%d ： %@",[doc objectForKey:@"code"],[doc objectForKey:@"msg"]];
                     [Alert showMessageAlert:msg  view:self];
                 }
-            
             }
         }
         else

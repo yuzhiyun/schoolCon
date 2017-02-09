@@ -214,7 +214,9 @@
                     
                     NSArray *array=[doc objectForKey:@"data"];
                     if(0==[array count]){
+                        
                         [Alert showMessageAlert:@"抱歉,没有数据" view:self];
+                        
                     }
                     else{
                         //单聊联系人信息
@@ -256,7 +258,16 @@
             }
             
             else{
-                [Alert showMessageAlert:[doc objectForKey:@"msg"]  view:self];
+                
+                
+               // [Alert showMessageAlert:[doc objectForKey:@"msg"]  view:self];
+                if([@"token invalid" isEqualToString:[doc objectForKey:@"msg"]]){
+                    [AppDelegate reLogin:self];
+                }
+                else{
+                    NSString *msg=[NSString stringWithFormat:@"code是%d ： %@",[doc objectForKey:@"code"],[doc objectForKey:@"msg"]];
+                    [Alert showMessageAlert:msg  view:self];
+                }
             }
         }
         else
