@@ -282,7 +282,7 @@
     //    if([@"zxxx" isEqualToString:type])
     //        nextPage->pubString=@"http://mp.weixin.qq.com/s/jSpB9hQupgs6e1x2MY5t2Q";
     //    else if([@"xlzs" isEqualToString:type])
-    //        nextPage->pubString=@"https://mp.weixin.qq.com/s?__biz=MzI0NzcwMjk4OA==&mid=100000029&idx=2&sn=6fcdd1ace7f38c279ad876916d80467a&chksm=69aab5be5edd3ca82db4e67412703ef1a9ab237c1efdf2ea8dbbb27b44c41791108020b86c87&mpshare=1&scene=1&srcid=0109cHZBsWoocYL6bgSFbKx1&key=a5e15611f72562f201c7e53e7e775691a56c248eec550dea214f5f77d9770688f21b69cd6e81ece7783a4ed8811fdeaa1d2ab56858f5dc3d9ce28d63286da04194fb70e4fcbe13ba4110457861f09002&ascene=0&uin=ODk4MzEwMTY5&devicetype=iMac+MacBookAir6%2C2+OSX+OSX+10.12.1+build(16B2555)&version=12010210&nettype=WIFI&fontScale=100&pass_ticket=gLigsYUageUfMfyUCRYEEUnvhAkH2%2BwYNaz83cLnA%2F3bXoIpzkMunbIBNAu2VYbw";
+    //        nextPage->pubString=@"ontScale=100&pass_ticket=gLigsYUageUfMfyUCRYEEUnvhAkH2%2BwYNaz83cLnA%2F3bXoIpzkMunbIBNAu2VYbw";
     //    //    传值
     //    //    nextPage->pubString=[mData objectAtIndex:indexPath.row];
     //    //UITabBarController和的UINavigationController结合使用,进入新的页面的时候，隐藏主页tabbarController的底部栏
@@ -315,7 +315,6 @@
 //                                 @"appSecret": @"b4a01f5a7dd4416c",
 //                                 @"token":myDelegate.token
 //                                 };
-    
 //    [manager POST:urlString parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
 //        //隐藏圆形进度条
 //        [hud hide:YES];
@@ -326,10 +325,6 @@
 //        /**
 //         *开始解析json
 //         */
-//        
-//        
-//        
-//        //
 //        //        //NSString *result=[self DataTOjsonString:responseObject];
 //        NSData *data=[result dataUsingEncoding:NSUTF8StringEncoding];
 //        NSError *error=[[NSError alloc]init];

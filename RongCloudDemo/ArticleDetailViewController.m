@@ -20,6 +20,7 @@
     NSMutableArray *mDataUsername;
     //    NSMutableArray *mDataDate;
     NSMutableArray *mDataCommentContent;
+    int keyBoardHeight;
     
     
 }
@@ -87,19 +88,35 @@
 //开始编辑输入框的时候，软键盘出现，执行此事件
 -(void)textFieldDidBeginEditing:(UITextField *)textField
 {
-    CGRect frame = textField.frame;
-    int offset = frame.origin.y +frame.size.height - (self.view.frame.size.height - 270);//键盘高度270
-    
-    NSTimeInterval animationDuration = 0.30f;
-    [UIView beginAnimations:@"ResizeForKeyboard" context:nil];
-    [UIView setAnimationDuration:animationDuration];
-    
-    //将视图的Y坐标向上移动offset个单位，以使下面腾出地方用于软键盘的显示
-    if(offset > 0)
-        self.view.frame = CGRectMake(0.0f, -offset, self.view.frame.size.width, self.view.frame.size.height);
-    [UIView commitAnimations];
-}
+    // 2.模拟2秒后（
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        CGRect frame = textField.frame;
+        int offset = frame.origin.y +frame.size.height - (self.view.frame.size.height - 300);//键盘高度270
+        
+        NSTimeInterval animationDuration = 0.30f;
+        [UIView beginAnimations:@"ResizeForKeyboard" context:nil];
+        [UIView setAnimationDuration:animationDuration];
+        
+        //将视图的Y坐标向上移动offset个单位，以使下面腾出地方用于软键盘的显示
+        if(offset > 0)
+            self.view.frame = CGRectMake(0.0f, -offset, self.view.frame.size.width, self.view.frame.size.height);
+        [UIView commitAnimations];
 
+        
+    });
+    
+    
+}
+//当键盘出现或改变时调用
+- (void)keyboardWillShow:(NSNotification *)aNotification
+{
+    //获取键盘的高度
+    NSDictionary *userInfo = [aNotification userInfo];
+    NSValue *aValue = [userInfo objectForKey:UIKeyboardFrameEndUserInfoKey];
+    CGRect keyboardRect = [aValue CGRectValue];
+    keyBoardHeight = keyboardRect.size.height;
+    NSLog(@"%i",keyBoardHeight);
+}
 //当用户按下return键或者按回车键，keyboard消失
 -(BOOL)textFieldShouldReturn:(UITextField *)textField
 {
