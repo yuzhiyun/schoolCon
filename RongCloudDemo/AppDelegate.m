@@ -1,10 +1,4 @@
-//
-//  AppDelegate.m
-//  RongCloudDemo
-//
-//  Created by 杜立召 on 15/4/18.
-//  Copyright (c) 2015年 dlz. All rights reserved.
-//
+
 
 #import "AppDelegate.h"
 #import <UIKit/UIKit.h>

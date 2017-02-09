@@ -455,17 +455,11 @@
                                  @"appSecret": @"b4a01f5a7dd4416c",
                                  @"token":myDelegate.token
                                  };
-    
-    
     [manager POST:urlString parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         //隐藏圆形进度条
         [hud hide:YES];
-        
         NSLog(@"***************返回结果***********************");
         NSLog([JsonUtil DataTOjsonString:responseObject]);
-        //        NSLog([self DataTOjsonString:responseObject]);
-        //          NSLog([self convertToJsonData:dic]);
-        
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         //隐藏圆形进度条
         [hud hide:YES];
