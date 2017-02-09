@@ -52,7 +52,7 @@
     
     // 2.集成刷新控件
     [self setupRefresh];
-
+    
     
     
 }
@@ -94,7 +94,7 @@
 }
 
 -(NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-       mTableView=tableView;
+    mTableView=tableView;
     
     return [allDataFromServer count];
 }
@@ -107,7 +107,7 @@
     }
     //AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
     //allDataFromServer=myDelegate.linkManArray;
-
+    
     LinkMan *model=[allDataFromServer objectAtIndex:indexPath.row];
     cell.UILabelName.text =model.name;
     cell.UILabelRemark.text = model.introduction;
@@ -135,7 +135,7 @@
                                   };
     [manager POST:urlString parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
-    
+        
         
         NSString *result=[JsonUtil DataTOjsonString:responseObject];
         NSLog(@"***************返回结果***********************");
@@ -212,11 +212,11 @@
             errorUser=@"主人，似乎没有网络喔！";
         [Alert showMessageAlert:errorUser view:self];
     }];
-
     
     
     
-    }
+    
+}
 
 #pragma mark 加载联系人列表
 -(void)loadData {
@@ -231,7 +231,7 @@
     NSString *urlString;
     
     urlString= [NSString stringWithFormat:@"%@/api/sys/user/contacts",myDelegate.ipString];
-
+    
     
     //创建数据请求的对象，不是单例
     AFHTTPRequestOperationManager *manager=[AFHTTPRequestOperationManager manager];
@@ -280,14 +280,14 @@
                         //单聊联系人信息
                         NSArray *contactsArray=[[doc objectForKey:@"data"] objectForKey:@"contacts"];
                         [allDataFromServer removeAllObjects];
-                       for(NSDictionary *item in  contactsArray ){
+                        for(NSDictionary *item in  contactsArray ){
                             LinkMan *model=[[LinkMan alloc]init];
                             model.LinkmanId=item [@"userId"];
                             //model.picUrl=item [@"picurl"];
                             model.introduction=item [@"remark"];
                             model.name=item [@"name"];
                             model.type= @"private";
-                           NSLog(model.name);
+                            NSLog(model.name);
                             [allDataFromServer addObject:model];
                         }
                         //群聊联系人信息
@@ -318,7 +318,7 @@
             else{
                 
                 
-               // [Alert showMessageAlert:[doc objectForKey:@"msg"]  view:self];
+                // [Alert showMessageAlert:[doc objectForKey:@"msg"]  view:self];
                 if([@"token invalid" isEqualToString:[doc objectForKey:@"msg"]]){
                     [AppDelegate reLogin:self];
                 }
