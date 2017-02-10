@@ -2455,6 +2455,15 @@
                     <navigationItem key="navigationItem" id="EyD-eV-zqG"/>
                     <connections>
                         <outlet property="UIImageViewAvatar" destination="jZ3-or-ruq" id="zkP-eM-ORd"/>
+                        <outlet property="mUILabelClass" destination="3sg-ZC-2NX" id="rXM-tg-MXv"/>
+                        <outlet property="mUILabelHeadTeacher" destination="yQv-E0-3g3" id="fPt-IS-mFT"/>
+                        <outlet property="mUILabelKeyClass" destination="XKR-4q-g83" id="fcT-Xc-Gbg"/>
+                        <outlet property="mUILabelKeyHeadTeacher" destination="TTe-k4-zBe" id="hal-6k-wxs"/>
+                        <outlet property="mUILabelKeySchool" destination="hOE-vh-Sf1" id="P2R-NJ-qkR"/>
+                        <outlet property="mUILabelKeyStudentName" destination="3p8-bd-HUw" id="Puq-T1-Dkm"/>
+                        <outlet property="mUILabelSchool" destination="2NB-iZ-E4b" id="BGf-RK-oHn"/>
+                        <outlet property="mUILabelStudentName" destination="n9R-Zy-eoM" id="p2o-nh-egq"/>
+                        <outlet property="mUILabelUname" destination="eiv-G1-wbz" id="JD6-cR-Sfc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VKG-wi-6TQ" userLabel="First Responder" sceneMemberID="firstResponder"/>

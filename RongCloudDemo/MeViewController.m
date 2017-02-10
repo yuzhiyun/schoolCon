@@ -19,7 +19,10 @@
 #import "VipViewController.h"
 #import "DataBaseNSUserDefaults.h"
 #import "AppDelegate.h"
+#import "Alert.h"
+#import "AFNetworking.h"
 #import "ChangePwdViewController.h"
+#import "JsonUtil.h"
 @interface MeViewController (){
     NSMutableArray *mDataKey;
     NSMutableArray *mDataImg;
@@ -96,6 +99,24 @@
     UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(singleTapAction:)];
     //为图片添加手势
     [ self.UIImageViewAvatar addGestureRecognizer:singleTap];
+    
+    
+    [self getUserInfo];
+    
+    //[DataBaseNSUserDefaults setData: [[doc objectForKey:@"data"]objectForKey:@"type"] forkey:@"userType"];
+    //NSNumber *zero=[NSNumber numberWithInt:(0)];
+    //NSNumber *code=[doc objectForKey:@"code"];
+    //if([zero isEqualToNumber:code])
+    
+
+    NSNumber *userType=[DataBaseNSUserDefaults getData:@"userType"];
+    //这是老师
+    if([[NSNumber numberWithInt:(0)] isEqualToNumber:userType]){
+        _mUILabelKeyStudentName.text=@"";
+        _mUILabelKeyClass.text=@"";
+        _mUILabelKeyHeadTeacher.text=@"教学学科";
+    }
+        
 }
 
 //头像点击事件
@@ -388,6 +409,80 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
     //    隐藏返回按钮navigationController的navigationBar
     self.navigationController.navigationBarHidden=YES;
 }
+//获取用户个人信息
+-(void) getUserInfo{
+    AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
+    NSString *urlString= [NSString stringWithFormat:@"%@/api/sys/user/myInfo",myDelegate.ipString];
+    AFHTTPRequestOperationManager *manager=[AFHTTPRequestOperationManager manager];
+    manager.responseSerializer.acceptableContentTypes=[NSSet setWithObjects:@"application/json", nil];
+    NSString *token=myDelegate.token;
+    // 请求参数
+    NSDictionary *parameters = @{ @"appId":@"03a8f0ea6a",
+                                  @"appSecret":@"b4a01f5a7dd4416c",
+                                  @"token":token
+                                  };
+    [manager POST:urlString parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        
+        
+        NSString *result=[JsonUtil DataTOjsonString:responseObject];
+        NSLog(@"***************返回结果***********************");
+        NSLog(result);
+        NSData *data=[result dataUsingEncoding:NSUTF8StringEncoding];
+        NSError *error=[[NSError alloc]init];
+        NSDictionary *doc= [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
+        if(doc!=nil){
+            NSLog(@"*****doc不为空***********");
+            //判断code 是不是0
+            NSNumber *zero=[NSNumber numberWithInt:(0)];
+            NSNumber *code=[doc objectForKey:@"code"];
+            if([zero isEqualToNumber:code])
+            {
+                NSNumber *userType=[DataBaseNSUserDefaults getData:@"userType"];
+                //这是老师
+                if([[NSNumber numberWithInt:(0)] isEqualToNumber:userType]){
+                   _mUILabelHeadTeacher.text=[[doc objectForKey:@"data"] objectForKey:@"course"];
+                    _mUILabelStudentName.text=@"";
+                    _mUILabelClass.text=@"";
+                }
+                else{
+                    //_mUILabelUname.text=[[doc objectForKey:@"data"] objectForKey:@"name"];
+                    _mUILabelStudentName.text=[[doc objectForKey:@"data"] objectForKey:@"studentName"];
+                    _mUILabelHeadTeacher.text=[[doc objectForKey:@"data"] objectForKey:@"teacher"];
+                    _mUILabelClass.text=[[doc objectForKey:@"data"] objectForKey:@"class"];
+                }
+                _mUILabelSchool.text=[[doc objectForKey:@"data"] objectForKey:@"school"];
+                _mUILabelUname.text=[[doc objectForKey:@"data"] objectForKey:@"name"];
+            }
+            else{
+                if([@"token invalid" isEqualToString:[doc objectForKey:@"msg"]]){
+                    [AppDelegate reLogin:self];
+                }
+                else{
+                    NSString *msg=[NSString stringWithFormat:@"code是%d ： %@",[doc objectForKey:@"code"],[doc objectForKey:@"msg"]];
+                    NSNumber *zero=[NSNumber numberWithInt:(0)];
+                    if([[NSNumber numberWithInt:(-2)] isEqualToNumber:[doc objectForKey:@"code"]]){
+                        [Alert showMessageAlert:@"抱歉，您不是会员或会员已到期，无法进行此操作，请在“我的会员”页面中进行充值"  view:self];
+                    }
+                    
+                }
+            }
+        }
+        else
+            NSLog(@"*****doc空***********");
+        
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSString *errorUser=[error.userInfo objectForKey:NSLocalizedDescriptionKey];
+        if(error.code==-1009)
+            errorUser=@"主人，似乎没有网络喔！";
+        [Alert showMessageAlert:errorUser view:self];
+    }];
+    
+    
+}
+
+
 
 
 

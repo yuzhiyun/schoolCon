@@ -89,7 +89,7 @@
 -(void)textFieldDidBeginEditing:(UITextField *)textField
 {
     // 2.模拟2秒后（
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+    //dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         CGRect frame = textField.frame;
         int offset = frame.origin.y +frame.size.height - (self.view.frame.size.height - 300);//键盘高度270
         
@@ -103,7 +103,7 @@
         [UIView commitAnimations];
 
         
-    });
+   // });
     
     
 }

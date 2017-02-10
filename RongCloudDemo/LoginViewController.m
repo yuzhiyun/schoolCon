@@ -52,7 +52,7 @@
      *老师
      *13892431124 是会员
      */
-    _UITextFieldUserName.text=@"13879652442";
+    _UITextFieldUserName.text=@"13892431124";
     _UITextFieldPwd.text=@"123456";
 
     if(phone!=nil && pwd!=nil){
@@ -164,6 +164,7 @@
             
             [DataBaseNSUserDefaults setData: myDelegate.phone forkey:@"phone"];
             [DataBaseNSUserDefaults setData: myDelegate.pwd forkey:@"pwd"];
+            [DataBaseNSUserDefaults setData: [[doc objectForKey:@"data"]objectForKey:@"type"] forkey:@"userType"];
             //[DataBaseNSUserDefaults setData: myDelegate.schoolId forkey:@"schoolId"];
             
             MainViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"MainViewController"];
