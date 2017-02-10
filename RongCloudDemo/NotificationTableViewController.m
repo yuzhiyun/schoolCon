@@ -18,6 +18,7 @@
 #import "JsonUtil.h"
 #import "MJRefresh.h"
 #import "Alert.h"
+#import "Notification.h"
 @interface NotificationTableViewController ()
 
 @end
@@ -39,14 +40,7 @@
 
     
     allDataFromServer=[[NSMutableArray alloc]init];
-//    [mDataNotification addObject:@"明天开运动会"];
-//    [mDataNotification addObject:@"今晚不用上课"];
-//    [mDataNotification addObject:@"明天开运动会"];
-//    [mDataNotification addObject:@"今晚不用上课"];
-//    [mDataNotification addObject:@"明天开运动会"];
-//    [mDataNotification addObject:@"今晚不用上课"];
-    //    recipes = [NSArray arrayWithObjects:@"Egg Benedict",@"Ham and Cheese Panini","yuzhiyun",nil];
-    // Do any additional setup after loading the view.
+
     
     [self loadData:pageIndex orientation:@"up"];
 }
@@ -96,8 +90,8 @@
             {
                 if(nil!=[doc allKeys]){
                     
-                    NSArray *articleArray=[doc objectForKey:@"data"];
-                    if(0==[articleArray count]){
+                    NSArray *array=[doc objectForKey:@"data"];
+                    if(0==[array count]){
                         
                         if([orientation isEqualToString:@"down"])
                             self.tableView.headerRefreshingText = @"亲，没有更多数据了";
@@ -107,37 +101,36 @@
                     }
                     else{
                         
-//                        for(NSDictionary *item in  articleArray ){
-//                            Activity *model=[[Activity alloc]init];
-//                            model.activityId=item [@"id"];
-//                            model.picUrl=item [@"picurl"];
-//                            model.title=item [@"title"];
-//                            model.publisher=item [@"author"];
-//                            
-//                            
-//                            /**
-//                             *把时间搓NSNumber 转成用户看得懂的时间
-//                             */
-//                            NSNumber *date=item [@"starttime"];
-//                            NSString *timeStamp2 =date.stringValue;
-//                            long long int date1 = (long long int)[timeStamp2 intValue];
-//                            NSDate *date2 = [NSDate dateWithTimeIntervalSince1970:date1];
-//                            //用于格式化NSDate对象
-//                            NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-//                            //设置格式：zzz表示时区
-//                            [dateFormatter setDateFormat:@"yyyy-MM-dd"];
-//                            //NSDate转NSString
-//                            NSString *currentDateString = [dateFormatter stringFromDate:date2];
-//                            
-//                            model.date=currentDateString;
-//                            
-//                            NSLog(@"addObject之前");
-//                            if([orientation isEqualToString:@"up"])
-//                                [allDataFromServer addObject:model];
-//                            else
-//                                [allDataFromServer addObject:model ];
-//                            NSLog(@"addObject之后");
-//                        }
+                        for(NSDictionary *item in  array ){
+                            Notification *model=[[Notification alloc]init];
+                            model.id=item [@"id"];
+                            model.title=item [@"title"];
+                            model.author=item [@"author"];
+                            model.type=item [@"type"];
+                            
+                            /**
+                                  *把时间搓NSNumber 转成用户看得懂的时间
+                                  */
+                            NSNumber *date=item [@"publishat"];
+                           NSString *timeStamp2 =date.stringValue;
+                            long long int date1 = (long long int)[timeStamp2 intValue];
+                            NSDate *date2 = [NSDate dateWithTimeIntervalSince1970:date1];
+                            //用于格式化NSDate对象
+                            NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+                            //设置格式：zzz表示时区
+                            [dateFormatter setDateFormat:@"yyyy-MM-dd"];
+                            //NSDate转NSString
+                            NSString *currentDateString = [dateFormatter stringFromDate:date2];
+                            
+                            model.publishat=currentDateString;
+                            
+                            
+                            if([orientation isEqualToString:@"up"])
+                                [allDataFromServer addObject:model];
+                            else
+                                [allDataFromServer addObject:model ];
+                            NSLog(@"addObject之后");
+                       }
                         NSLog(@"mDataArticle项数为%i",[allDataFromServer count]);
                         NSLog(@"//更新界面");
                         //更新界面
@@ -147,7 +140,7 @@
                 }
                 else
                 {
-                    [Alert showMessageAlert:@"抱歉，尚无文章可以阅读" view:self];
+                    [Alert showMessageAlert:@"抱歉，尚无数据" view:self];
                 }
             }
             
@@ -204,14 +197,17 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:simpleTableIdentifier];
     }
     
-    cell.textLabel.text = [allDataFromServer objectAtIndex:indexPath.row];
+    Notification *model=[allDataFromServer objectAtIndex:indexPath.row];
+    
+    cell.textLabel.text = model.title;
     cell.imageView.image=[UIImage imageNamed:@"notice1.png"];
-    cell.detailTextLabel.text=@"2017/12/21";
+    cell.detailTextLabel.text=model.publishat;
     return cell;
 }
 -(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
     DetailNotificationViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"DetailNotificationViewController"];
-    nextPage->pubString=[allDataFromServer objectAtIndex:indexPath.row];
+    //nextPage->pubString=[allDataFromServer objectAtIndex:indexPath.row];
     nextPage.hidesBottomBarWhenPushed=YES;
     [self.navigationController pushViewController:nextPage animated:YES];
 }
