@@ -212,6 +212,8 @@
             [DataBaseNSUserDefaults setData: myDelegate.pwd forkey:@"pwd"];
             [DataBaseNSUserDefaults setData: myDelegate.schoolId forkey:@"schoolId"];
             
+            [DataBaseNSUserDefaults setData: [[doc objectForKey:@"data"]objectForKey:@"type"] forkey:@"userType"];
+            
             MainViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"MainViewController"];
             nextPage.hidesBottomBarWhenPushed=YES;
             [self.navigationController pushViewController:nextPage animated:YES];

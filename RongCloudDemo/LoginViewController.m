@@ -1,11 +1,3 @@
-//
-//  LoginViewController.m
-//  RongCloudDemo
-//
-//  Created by 秦启飞 on 2016/12/24.
-//  Copyright © 2016年 dlz. All rights reserved.
-//
-
 #import "LoginViewController.h"
 #import "HomePageViewController.h"
 #import "MainViewController.h"
@@ -43,8 +35,6 @@
     //默认是陈曦的，以后记得去掉
     //_UITextFieldUserName.text=@"18075156565";
     //_UITextFieldPwd.text=@"12345";
-    
-    
     /**
      *家长
      *13879652442  不是会员
@@ -54,7 +44,6 @@
      */
     _UITextFieldUserName.text=@"13892431124";
     _UITextFieldPwd.text=@"123456";
-
     if(phone!=nil && pwd!=nil){
         _UITextFieldUserName.text=phone;
         _UITextFieldPwd.text=pwd;
@@ -64,16 +53,10 @@
         self.navigationController.navigationBarHidden=YES;
     }
 }
-
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-
-
-
 - (IBAction)login:(id)sender {
     
     if(0==_UITextFieldUserName.text.length||0==_UITextFieldPwd.text.length)
@@ -81,12 +64,7 @@
         [Toast showToast:@"用户名密码不能为空" view:self.view];
     else
         [self httpLogin];
-    
-    
 }
-
-
-
 //登录
 -(void)httpLogin{
 
@@ -189,14 +167,10 @@
         [Alert showMessageAlert:errorUser view:self];
     }];
 }
-
 - (IBAction)forgetPwd:(id)sender {
     ForgetPwdViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"ForgetPwdViewController"];
     [self.navigationController pushViewController:nextPage animated:YES];
 }
-
-
-
 //开始编辑输入框的时候，软键盘出现，执行此事件
 -(void)textFieldDidBeginEditing:(UITextField *)textField
 {
@@ -213,25 +187,15 @@
     
     [UIView commitAnimations];
 }
-
 //当用户按下return键或者按回车键，keyboard消失
 -(BOOL)textFieldShouldReturn:(UITextField *)textField
 {
     [textField resignFirstResponder];
     return YES;
 }
-
 //输入框编辑完成以后，将视图恢复到原始状态
 -(void)textFieldDidEndEditing:(UITextField *)textField
 {
     self.view.frame =CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
 }
-
-
-
-
-
-
-
-
 @end

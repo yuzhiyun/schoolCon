@@ -11,6 +11,8 @@
 #import "AppDelegate.h"
 #import "Toast.h"
 #import "Alert.h"
+#import "AFNetworking.h"
+#import "JsonUtil.h"
 @interface ArticleDetailViewController ()
 
 @end
@@ -37,20 +39,20 @@
     
     [rightButton setTitleTextAttributes: [NSDictionary dictionaryWithObjectsAndKeys:[UIFont systemFontOfSize:17], UITextAttributeFont, [UIColor whiteColor], UITextAttributeTextColor, nil] forState:UIControlStateNormal];
     self.navigationItem.rightBarButtonItem=rightButton;
-
+    
     
     AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
     NSURL *url = [NSURL URLWithString: urlString];
-
     
-
+    
+    
     NSString *body = [NSString stringWithFormat: @"id=%@&token=%@&appId=%@&appSecret=%@", articleId,myDelegate.token,myDelegate.appId,myDelegate.appSecret];
     
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc]initWithURL: url];
     [request setHTTPMethod: @"POST"];
     [request setHTTPBody: [body dataUsingEncoding: NSUTF8StringEncoding]];
     [UIWebViewArticle loadRequest: request];
-
+    
 }
 - (IBAction)sendComment:(id)sender {
     
@@ -60,9 +62,65 @@
         //[Toast showToast:@"评论不能为空" view:self.view];
         [Alert showMessageAlert:@"评论不能为空" view:self];
         NSLog(@"显示toast");
+    }else{
+        AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
+        NSString *urlString= [NSString stringWithFormat:@"%@//api/cms/comment/postObject",myDelegate.ipString];
+        AFHTTPRequestOperationManager *manager=[AFHTTPRequestOperationManager manager];
+        manager.responseSerializer.acceptableContentTypes=[NSSet setWithObjects:@"application/json", nil];
+        NSString *token=myDelegate.token;
+        // 请求参数
+        NSDictionary *parameters = @{ @"appId":@"03a8f0ea6a",
+                                      @"appSecret":@"b4a01f5a7dd4416c",
+                                      @"token":token
+                                      };
+        
+        [manager POST:urlString parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            
+            
+            
+            NSString *result=[JsonUtil DataTOjsonString:responseObject];
+            NSLog(@"***************返回结果***********************");
+            NSLog(result);
+            NSData *data=[result dataUsingEncoding:NSUTF8StringEncoding];
+            NSError *error=[[NSError alloc]init];
+            NSDictionary *doc= [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
+            if(doc!=nil){
+                NSLog(@"*****doc不为空***********");
+                //判断code 是不是0
+                NSNumber *zero=[NSNumber numberWithInt:(0)];
+                NSNumber *code=[doc objectForKey:@"code"];
+                if([zero isEqualToNumber:code])
+                {
+                    
+                    [Alert showMessageAlert:@"评论成功，评论正在后台审核！"  view:self];
+                    
+                }
+                else{
+                    if([@"token invalid" isEqualToString:[doc objectForKey:@"msg"]]){
+                        [AppDelegate reLogin:self];
+                    }
+                    else{
+                        NSString *msg=[NSString stringWithFormat:@"code是%d ： %@",[doc objectForKey:@"code"],[doc objectForKey:@"msg"]];
+                        NSNumber *zero=[NSNumber numberWithInt:(0)];
+                        if([[NSNumber numberWithInt:(-2)] isEqualToNumber:[doc objectForKey:@"code"]]){
+                            [Alert showMessageAlert:@"抱歉，您不是会员或会员已到期，无法进行此操作，请在“我的会员”页面中进行充值"  view:self];
+                        }
+                        
+                    }
+                }
+            }
+            else
+                NSLog(@"*****doc空***********");
+            
+            
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            NSString *errorUser=[error.userInfo objectForKey:NSLocalizedDescriptionKey];
+            if(error.code==-1009)
+                errorUser=@"主人，似乎没有网络喔！";
+            [Alert showMessageAlert:errorUser view:self];
+        }];
+        
     }
-    NSLog(_mUITextFieldCommnet.text);
-    NSLog(@"%d",_mUITextFieldCommnet.text.length);
     
 }
 
@@ -74,6 +132,66 @@
  */
 -(void)rightBarButtonItemPressed:(id)sender
 {
+    AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
+    NSString *urlString= [NSString stringWithFormat:@"%@/api/cms/article/collectObject",myDelegate.ipString];
+    AFHTTPRequestOperationManager *manager=[AFHTTPRequestOperationManager manager];
+    manager.responseSerializer.acceptableContentTypes=[NSSet setWithObjects:@"application/json", nil];
+    NSString *token=myDelegate.token;
+    // 请求参数
+    NSDictionary *parameters = @{ @"appId":@"03a8f0ea6a",
+                                  @"appSecret":@"b4a01f5a7dd4416c",
+                                  @"token":token
+                                  };
+    
+    [manager POST:urlString parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        
+        
+        NSString *result=[JsonUtil DataTOjsonString:responseObject];
+        NSLog(@"***************返回结果***********************");
+        NSLog(result);
+        NSData *data=[result dataUsingEncoding:NSUTF8StringEncoding];
+        NSError *error=[[NSError alloc]init];
+        NSDictionary *doc= [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
+        if(doc!=nil){
+            NSLog(@"*****doc不为空***********");
+            //判断code 是不是0
+            NSNumber *zero=[NSNumber numberWithInt:(0)];
+            NSNumber *code=[doc objectForKey:@"code"];
+            if([zero isEqualToNumber:code])
+            {
+                
+                 [Alert showMessageAlert:@"收藏成功"  view:self];
+                
+                
+            }
+            else{
+                if([@"token invalid" isEqualToString:[doc objectForKey:@"msg"]]){
+                    [AppDelegate reLogin:self];
+                }
+                else{
+                    NSString *msg=[NSString stringWithFormat:@"code是%d ： %@",[doc objectForKey:@"code"],[doc objectForKey:@"msg"]];
+                    NSNumber *zero=[NSNumber numberWithInt:(0)];
+                    if([[NSNumber numberWithInt:(-2)] isEqualToNumber:[doc objectForKey:@"code"]]){
+                        [Alert showMessageAlert:@"抱歉，您不是会员或会员已到期，无法进行此操作，请在“我的会员”页面中进行充值"  view:self];
+                    }
+                    
+                }
+            }
+        }
+        else
+            NSLog(@"*****doc空***********");
+        
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSString *errorUser=[error.userInfo objectForKey:NSLocalizedDescriptionKey];
+        if(error.code==-1009)
+            errorUser=@"主人，似乎没有网络喔！";
+        [Alert showMessageAlert:errorUser view:self];
+    }];
+    
+    
+    
     
     NSLog(@"收藏");
 }
@@ -90,20 +208,20 @@
 {
     // 2.模拟2秒后（
     //dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        CGRect frame = textField.frame;
-        int offset = frame.origin.y +frame.size.height - (self.view.frame.size.height - 300);//键盘高度270
-        
-        NSTimeInterval animationDuration = 0.30f;
-        [UIView beginAnimations:@"ResizeForKeyboard" context:nil];
-        [UIView setAnimationDuration:animationDuration];
-        
-        //将视图的Y坐标向上移动offset个单位，以使下面腾出地方用于软键盘的显示
-        if(offset > 0)
-            self.view.frame = CGRectMake(0.0f, -offset, self.view.frame.size.width, self.view.frame.size.height);
-        [UIView commitAnimations];
-
-        
-   // });
+    CGRect frame = textField.frame;
+    int offset = frame.origin.y +frame.size.height - (self.view.frame.size.height - 300);//键盘高度270
+    
+    NSTimeInterval animationDuration = 0.30f;
+    [UIView beginAnimations:@"ResizeForKeyboard" context:nil];
+    [UIView setAnimationDuration:animationDuration];
+    
+    //将视图的Y坐标向上移动offset个单位，以使下面腾出地方用于软键盘的显示
+    if(offset > 0)
+        self.view.frame = CGRectMake(0.0f, -offset, self.view.frame.size.width, self.view.frame.size.height);
+    [UIView commitAnimations];
+    
+    
+    // });
     
     
 }
