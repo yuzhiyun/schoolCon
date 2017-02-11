@@ -186,6 +186,16 @@
                             model.date=item [@"publishat"];
                             
                             
+                            //由于我的收藏那里获得的数据和文章json数据的key有一点区别,我需要重新设置一下
+                            if([@"jiaoyu"isEqualToString:type]||[@"xinli"isEqualToString:type]){
+                                model.articleId=item [@"id"];
+                                model.picUrl=item [@"picurl"];
+                                model.title=item [@"articlename"];
+                                model.author=item [@"author"];
+                                model.date=item [@"at"];
+                            }
+                            
+                                
                             NSLog(@"******打印文章列表**********");
                             NSLog(@"文章articleId是%@",model.articleId);
                             NSLog(@"文章picUrl是%@",model.picUrl);
