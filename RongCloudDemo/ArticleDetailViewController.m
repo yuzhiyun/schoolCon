@@ -78,8 +78,6 @@
         
         [manager POST:urlString parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
             
-            
-            
             NSString *result=[JsonUtil DataTOjsonString:responseObject];
             NSLog(@"***************返回结果***********************");
             NSLog(result);
@@ -141,7 +139,19 @@
     NSString *token=myDelegate.token;
     NSLog(@"显示收藏的参数");
     //NSLog(<#NSString * _Nonnull format, ...#>)；
+  
+    
+    //转换一下articleType
+    if([@"xlzs" isEqualToString:article.articleType])
+        article.articleType=@"xinli";
+    else if([@"zxxx" isEqualToString:article.articleType])
+        article.articleType=@"jiaoyu";
+    
     NSLog(article.articleType);
+    NSLog(article.title);
+    NSLog(article.articleId);
+    NSLog(article.picUrl);
+    
     // 请求参数
     NSDictionary *parameters = @{ @"appId":@"03a8f0ea6a",
                                   @"appSecret":@"b4a01f5a7dd4416c",

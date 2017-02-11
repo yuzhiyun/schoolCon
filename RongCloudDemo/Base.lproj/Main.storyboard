@@ -2543,6 +2543,42 @@
             </objects>
             <point key="canvasLocation" x="8716" y="1049.3253373313344"/>
         </scene>
+        <!--My Collect View Controller-->
+        <scene sceneID="Sjz-V7-mjv">
+            <objects>
+                <viewController storyboardIdentifier="MyCollectViewController" id="VHH-ek-hqe" customClass="MyCollectViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="kCV-ca-ST0"/>
+                        <viewControllerLayoutGuide type="bottom" id="eyB-Wz-CME"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="0RM-o9-gpP">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rZV-Zw-jC4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="7932" y="1998"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="wkD-mQ-WSZ">
+            <objects>
+                <viewController id="KFG-kd-ZgG" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Qrw-Ok-t2y"/>
+                        <viewControllerLayoutGuide type="bottom" id="zig-rs-zKq"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="1CX-1L-Uw5">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="M8q-AM-ozh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="8716" y="1997"/>
+        </scene>
         <!--Vip View Controller-->
         <scene sceneID="Jke-44-945">
             <objects>

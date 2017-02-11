@@ -168,6 +168,8 @@
 		CD79C2341E27240000A9889F /* UIView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = CD79C22A1E27240000A9889F /* UIView+MJExtension.m */; };
 		CD79C2351E27240000A9889F /* UIScrollView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = CD79C22C1E27240000A9889F /* UIScrollView+MJExtension.m */; };
 		CD7D5EF41E4E039F0082CF37 /* Notification.m in Sources */ = {isa = PBXBuildFile; fileRef = CD7D5EF31E4E039F0082CF37 /* Notification.m */; };
+		CD7D5EFA1E4F3D610082CF37 /* MyCollectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD7D5EF91E4F3D610082CF37 /* MyCollectViewController.m */; };
+		CD7D5EFD1E4F3D7A0082CF37 /* MyActivityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD7D5EFC1E4F3D7A0082CF37 /* MyActivityViewController.m */; };
 		CD7FFDA71E3776E7003DE455 /* ChangePwdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD7FFDA61E3776E7003DE455 /* ChangePwdViewController.m */; };
 		CDC26A081E2A6BEF0093B804 /* ConcreteConsultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDC26A071E2A6BEF0093B804 /* ConcreteConsultViewController.m */; };
 		CDC26A0C1E2B4E220093B804 /* ChooseYearViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDC26A0B1E2B4E220093B804 /* ChooseYearViewController.m */; };
@@ -521,6 +523,10 @@
 		CD79C22C1E27240000A9889F /* UIScrollView+MJExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+MJExtension.m"; sourceTree = "<group>"; };
 		CD7D5EF31E4E039F0082CF37 /* Notification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Notification.m; sourceTree = "<group>"; };
 		CD7D5EF51E4E03B60082CF37 /* Notification.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Notification.h; sourceTree = "<group>"; };
+		CD7D5EF81E4F3D610082CF37 /* MyCollectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCollectViewController.h; sourceTree = "<group>"; };
+		CD7D5EF91E4F3D610082CF37 /* MyCollectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyCollectViewController.m; sourceTree = "<group>"; };
+		CD7D5EFB1E4F3D7A0082CF37 /* MyActivityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyActivityViewController.h; sourceTree = "<group>"; };
+		CD7D5EFC1E4F3D7A0082CF37 /* MyActivityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyActivityViewController.m; sourceTree = "<group>"; };
 		CD7FFDA51E3776E7003DE455 /* ChangePwdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChangePwdViewController.h; sourceTree = "<group>"; };
 		CD7FFDA61E3776E7003DE455 /* ChangePwdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChangePwdViewController.m; sourceTree = "<group>"; };
 		CDC26A061E2A6BEF0093B804 /* ConcreteConsultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConcreteConsultViewController.h; sourceTree = "<group>"; };
@@ -940,6 +946,8 @@
 		CD2DCB131E025B7D000C03E1 /* me */ = {
 			isa = PBXGroup;
 			children = (
+				CD7D5EF71E4F3D460082CF37 /* myActivity */,
+				CD7D5EF61E4F3D3B0082CF37 /* myCollect */,
 				CD7FFDA41E3776AF003DE455 /* changePwd */,
 				CD3F24781E223DCD0083293D /* editPhone */,
 				CD3F24741E223D540083293D /* vip */,
@@ -1561,6 +1569,24 @@
 			name = rotate;
 			sourceTree = "<group>";
 		};
+		CD7D5EF61E4F3D3B0082CF37 /* myCollect */ = {
+			isa = PBXGroup;
+			children = (
+				CD7D5EF81E4F3D610082CF37 /* MyCollectViewController.h */,
+				CD7D5EF91E4F3D610082CF37 /* MyCollectViewController.m */,
+			);
+			name = myCollect;
+			sourceTree = "<group>";
+		};
+		CD7D5EF71E4F3D460082CF37 /* myActivity */ = {
+			isa = PBXGroup;
+			children = (
+				CD7D5EFB1E4F3D7A0082CF37 /* MyActivityViewController.h */,
+				CD7D5EFC1E4F3D7A0082CF37 /* MyActivityViewController.m */,
+			);
+			name = myActivity;
+			sourceTree = "<group>";
+		};
 		CD7FFDA41E3776AF003DE455 /* changePwd */ = {
 			isa = PBXGroup;
 			children = (
@@ -2079,6 +2105,7 @@
 				CD2DCC4F1E067CD3000C03E1 /* PsychologyTableViewCell.m in Sources */,
 				CD2DCC831E09305D000C03E1 /* SDWebImageDownloader.m in Sources */,
 				CDC26A081E2A6BEF0093B804 /* ConcreteConsultViewController.m in Sources */,
+				CD7D5EFD1E4F3D7A0082CF37 /* MyActivityViewController.m in Sources */,
 				CD2DCC7D1E09305D000C03E1 /* NSData+ImageContentType.m in Sources */,
 				CD2DCC441E066F58000C03E1 /* PsychologyTableViewController.m in Sources */,
 				CD2DCB641E02DF4A000C03E1 /* NotificationTableViewController.m in Sources */,
@@ -2096,6 +2123,7 @@
 				CDC26A101E2B51050093B804 /* CCZTableButton.m in Sources */,
 				CD79C2051E2502B400A9889F /* UIImageView+AFNetworking.m in Sources */,
 				CD2DCC7F1E09305D000C03E1 /* SDImageCache.m in Sources */,
+				CD7D5EFA1E4F3D610082CF37 /* MyCollectViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -23,6 +23,7 @@
 #import "AFNetworking.h"
 #import "ChangePwdViewController.h"
 #import "JsonUtil.h"
+#import "MyCollectViewController.h"
 @interface MeViewController (){
     NSMutableArray *mDataKey;
     NSMutableArray *mDataImg;
@@ -396,8 +397,8 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
     if(5==indexPath.row){
         //显示顶部导航
         self.navigationController.navigationBarHidden=NO;
-        ArticleTableViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"ArticleTableViewController"];
-        nextPage->type=@"zxxx";
+        MyCollectViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"MyCollectViewController"];
+        
         nextPage.hidesBottomBarWhenPushed=YES;
         [self.navigationController pushViewController:nextPage animated:YES];
         

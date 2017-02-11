@@ -42,9 +42,9 @@
     NSLog(@"token是%@",myDelegate.token);
     
     //   navigationBar背景
-   
+    
     [self.navigationController.navigationBar setBarTintColor:myDelegate.navigationBarColor];
-
+    
     
     // 2.集成刷新控件
     [self setupRefresh];
@@ -109,7 +109,10 @@
     
     if([@"xlzs"isEqualToString:type])
         urlString=[NSString stringWithFormat:@"%@/api/psy/knowledge/getList",myDelegate.ipString];
-
+    else if([@"jiaoyu"isEqualToString:type]||[@"xinli"isEqualToString:type])
+        urlString=[NSString stringWithFormat:@"%@/api/rcd/article/getMyCollect",myDelegate.ipString];
+    
+    
     
     //创建数据请求的对象，不是单例
     AFHTTPRequestOperationManager *manager=[AFHTTPRequestOperationManager manager];
@@ -117,13 +120,20 @@
     //注意setWithObjects后面的s不能少
     manager.responseSerializer.acceptableContentTypes=[NSSet setWithObjects:@"application/json", nil];
     NSString *token=myDelegate.token;
+    
+    
+   
+        
     // 请求参数
     NSDictionary *parameters = @{ @"appId":@"03a8f0ea6a",
                                   @"appSecret":@"b4a01f5a7dd4416c",
                                   @"channelType":type,
                                   @"pageNumber":[NSString stringWithFormat:@"%d",pageIndex],
-                                  @"token":token
+                                  @"token":token,
+                                  @"articleType":type,
                                   };
+    
+    
     
     [manager POST:urlString parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         // (最好在刷新表格后调用)调用endRefreshing可以结束刷新状态
@@ -186,8 +196,8 @@
                             
                             
                             [allDataFromServer addObject:model];
-
-                           
+                            
+                            
                         }
                         NSLog(@"mDataArticle项数为%i",[allDataFromServer count]);
                         NSLog(@"//更新界面");
@@ -221,7 +231,7 @@
         NSString *errorUser=[error.userInfo objectForKey:NSLocalizedDescriptionKey];
         if(error.code==-1009)
             errorUser=@"主人，似乎没有网络喔！";
-
+        
         [Alert showMessageAlert:errorUser view:self];
     }];
 }
@@ -275,205 +285,28 @@
 #pragma mark 文章点击事件
 -(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    
-    //
-    //
-    //    //根据storyboard id来获取目标页面
-    //    ArticleDetailViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"ArticleDetailViewController"];
-    //    if([@"zxxx" isEqualToString:type])
-    //        nextPage->pubString=@"http://mp.weixin.qq.com/s/jSpB9hQupgs6e1x2MY5t2Q";
-    //    else if([@"xlzs" isEqualToString:type])
-    //        nextPage->pubString=@"ontScale=100&pass_ticket=gLigsYUageUfMfyUCRYEEUnvhAkH2%2BwYNaz83cLnA%2F3bXoIpzkMunbIBNAu2VYbw";
-    //    //    传值
-    //    //    nextPage->pubString=[mData objectAtIndex:indexPath.row];
-    //    //UITabBarController和的UINavigationController结合使用,进入新的页面的时候，隐藏主页tabbarController的底部栏
-    //    nextPage.hidesBottomBarWhenPushed=YES;
-    //
-    //    //跳转
-    //    [self.navigationController pushViewController:nextPage animated:YES];
-    
-    
-    //    [self loadArticleData];
-//    MBProgressHUD *hud;
-//    hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-//    //hud.color = [UIColor colorWithHexString:@"343637" alpha:0.5];
-//    hud.labelText = @" 获取数据...";
-//    [hud show:YES];
-//    //获取全局ip地址
     AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
-//
-//    NSString *urlString= [NSString stringWithFormat:@"%@/api/sys/user/validateVip",myDelegate.ipString];
-//    
-//    //创建数据请求的对象，不是单例
-//    AFHTTPRequestOperationManager *manager=[AFHTTPRequestOperationManager manager];
-//    //设置响应数据的类型,如果是json数据，会自动帮你解析
-//    //注意setWithObjects后面的s不能少
-//    //    manager.responseSerializer.acceptableContentTypes=[NSSet setWithObjects:@"application/json", nil];
-//    // 请求参数
-//    NSDictionary *parameters = @{
-//                                 //                                 @"id": @"bb744859cadc4c85b3b5228723da8671",
-//                                 @"appId": @"03a8f0ea6a",
-//                                 @"appSecret": @"b4a01f5a7dd4416c",
-//                                 @"token":myDelegate.token
-//                                 };
-//    [manager POST:urlString parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
-//        //隐藏圆形进度条
-//        [hud hide:YES];
-//        NSString *result=[JsonUtil DataTOjsonString:responseObject];
-//        
-//        NSLog(@"***************返回结果***********************");
-//        NSLog(result);
-//        /**
-//         *开始解析json
-//         */
-//        //        //NSString *result=[self DataTOjsonString:responseObject];
-//        NSData *data=[result dataUsingEncoding:NSUTF8StringEncoding];
-//        NSError *error=[[NSError alloc]init];
-//        NSDictionary *doc= [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
-//        //        {
-//        //         "msg" : "激活失败,该账号已经进行过激活",
-//        //         "code" : 205
-//        //         }
-//        NSLog(@"服务器返回msg%@",[doc objectForKey:@"msg"]);
-//        NSLog(@"服务器返回code%@",[doc objectForKey:@"code"]);
-//        NSNumber *code=0;
-//        if([[doc objectForKey:@"msg"] isEqualToString:@"会员"]){
     
-            
-            
-            ArticleDetailViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"ArticleDetailViewController"];
-            
-            Article *model=[allDataFromServer objectAtIndex:indexPath.row];
-            nextPage->articleId=model.articleId;
-            nextPage->title=model.title;
-            
-            NSString *urlString;
-            
+    ArticleDetailViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"ArticleDetailViewController"];
+    
+    Article *model=[allDataFromServer objectAtIndex:indexPath.row];
+    nextPage->articleId=model.articleId;
+    nextPage->title=model.title;
+    
+    NSString *urlString;
+    
     if([@"xlzs" isEqualToString:type]){
-                urlString=[NSString stringWithFormat:@"%@/api/psy/knowledge/getObject",myDelegate.ipString];
+        urlString=[NSString stringWithFormat:@"%@/api/psy/knowledge/getObject",myDelegate.ipString];
         model.articleType=@"xlzs";
     }
     else{
-                urlString=[NSString stringWithFormat:@"%@/api/cms/article/getObject",myDelegate.ipString];
+        urlString=[NSString stringWithFormat:@"%@/api/cms/article/getObject",myDelegate.ipString];
         model.articleType=@"zxxx";
     }
-            nextPage->urlString=urlString;
-            nextPage->article=model;
-            nextPage.hidesBottomBarWhenPushed=YES;
-            [self.navigationController pushViewController:nextPage animated:YES];
-//        }
-//        else
-//        {
-//            UIAlertController *alert=[UIAlertController alertControllerWithTitle:nil message:@"您不是VIP，无法查看精品文章" preferredStyle:UIAlertControllerStyleAlert];
-//            UIAlertAction *ok=[UIAlertAction actionWithTitle:@"确认"
-//                                                       style:UIAlertActionStyleDefault handler:nil];
-//            
-//            //        信息框添加按键
-//            [alert addAction:ok];
-//            [self presentViewController:alert animated:YES completion:nil];
-//        }
-//        
-//        
-//        
-//        
-//        
-//    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-//        //隐藏圆形进度条
-//        [hud hide:YES];
-//        NSString *errorUser=[error.userInfo objectForKey:NSLocalizedDescriptionKey];
-//        if(error.code==-1009)
-//            errorUser=@"主人，似乎没有网络喔！";
-//        UIAlertController *alert=[UIAlertController alertControllerWithTitle:nil message:errorUser preferredStyle:UIAlertControllerStyleAlert];
-//        UIAlertAction *ok=[UIAlertAction actionWithTitle:@"确认"
-//                                                   style:UIAlertActionStyleDefault handler:nil];
-//        //        信息框添加按键
-//        [alert addAction:ok];
-//        [self presentViewController:alert animated:YES completion:nil];
-//    }];
-    
-    
-    //    [self verifyVip];
-    
-    
+    nextPage->urlString=urlString;
+    nextPage->article=model;
+    nextPage.hidesBottomBarWhenPushed=YES;
+    [self.navigationController pushViewController:nextPage animated:YES];
     
 }
-//-(void)verifyVip (NSInteger *){
-//
-//
-//
-//
-//    //根据storyboard id来获取目标页面
-//    ArticleDetailViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"ArticleDetailViewController"];
-//    //    传值
-//    nextPage->pubString=[mData objectAtIndex:indexPath.row];
-//    //UITabBarController和的UINavigationController结合使用,进入新的页面的时候，隐藏主页tabbarController的底部栏
-//    nextPage.hidesBottomBarWhenPushed=YES;
-//
-//    //跳转
-//    [self.navigationController pushViewController:nextPage animated:YES];
-//}
-
-//-(NSString*)DataTOjsonString:(id)object
-//{
-//    NSString *jsonString = nil;
-//    NSError *error;
-//    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:object
-//                                                       options:NSJSONWritingPrettyPrinted // Pass 0 if you don't care about the readability of the generated string
-//                                                         error:&error];
-//    if (! jsonData) {
-//        NSLog(@"Got an error: %@", error);
-//    } else {
-//        jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
-//    }
-//    return jsonString;
-//}
-/*
-#pragma mark
--(void)loadArticleData{
-    //#import "AFNetworking.h"
-    //#import "AppDelegate.h"
-    //#import "MBProgressHUD.h"
-    MBProgressHUD *hud;
-    hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    //hud.color = [UIColor colorWithHexString:@"343637" alpha:0.5];
-    hud.labelText = @" 获取数据...";
-    [hud show:YES];
-    //获取全局ip地址
-    AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
-    
-    NSString *urlString= [NSString stringWithFormat:@"http://%@:8080/schoolCon/api/cms/article/getObject",myDelegate.ipString];
-    
-    //创建数据请求的对象，不是单例
-    AFHTTPRequestOperationManager *manager=[AFHTTPRequestOperationManager manager];
-    //设置响应数据的类型,如果是json数据，会自动帮你解析
-    //注意setWithObjects后面的s不能少
-    //    manager.responseSerializer.acceptableContentTypes=[NSSet setWithObjects:@"application/json", nil];
-    // 请求参数
-    NSDictionary *parameters = @{
-                                 @"id": @"bb744859cadc4c85b3b5228723da8671",
-                                 @"appId": @"03a8f0ea6a",
-                                 @"appSecret": @"b4a01f5a7dd4416c",
-                                 @"token":myDelegate.token
-                                 };
-    [manager POST:urlString parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        //隐藏圆形进度条
-        [hud hide:YES];
-        NSLog(@"***************返回结果***********************");
-        NSLog([JsonUtil DataTOjsonString:responseObject]);
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        //隐藏圆形进度条
-        [hud hide:YES];
-        NSString *errorUser=[error.userInfo objectForKey:NSLocalizedDescriptionKey];
-        if(error.code==-1009)
-            errorUser=@"主人，似乎没有网络喔！";
-        UIAlertController *alert=[UIAlertController alertControllerWithTitle:nil message:errorUser preferredStyle:UIAlertControllerStyleAlert];
-        UIAlertAction *ok=[UIAlertAction actionWithTitle:@"确认"
-                                                   style:UIAlertActionStyleDefault handler:nil];
-        //        信息框添加按键
-        [alert addAction:ok];
-        [self presentViewController:alert animated:YES completion:nil];
-    }];
-}
-
-*/
 @end
