@@ -589,7 +589,6 @@
                                 </state>
                                 <connections>
                                     <action selector="gradeTrend:" destination="zXM-xa-MlP" eventType="touchUpInside" id="Ebk-df-3hr"/>
-                                    <action selector="query:" destination="zXM-xa-MlP" eventType="touchUpInside" id="nF0-YP-0kH"/>
                                 </connections>
                             </button>
                         </subviews>
