@@ -188,7 +188,7 @@
                             
                             //由于我的收藏那里获得的数据和文章json数据的key有一点区别,我需要重新设置一下
                             if([@"jiaoyu"isEqualToString:type]||[@"xinli"isEqualToString:type]){
-                                model.articleId=item [@"id"];
+                                model.articleId=item [@"articleid"];
                                 model.picUrl=item [@"picurl"];
                                 model.title=item [@"articlename"];
                                 model.author=item [@"author"];
@@ -305,16 +305,19 @@
     
     NSString *urlString;
     
-    if([@"xlzs" isEqualToString:type]){
+    if([@"xlzs" isEqualToString:type]||[@"xinli" isEqualToString:type]){
         urlString=[NSString stringWithFormat:@"%@/api/psy/knowledge/getObject",myDelegate.ipString];
-        model.articleType=@"xlzs";
+        //model.articleType=@"xlzs";
     }
     else{
         urlString=[NSString stringWithFormat:@"%@/api/cms/article/getObject",myDelegate.ipString];
-        model.articleType=@"zxxx";
+       // model.articleType=@"zxxx";
     }
+    
+    
     nextPage->urlString=urlString;
     nextPage->article=model;
+    nextPage->type=type;
     nextPage.hidesBottomBarWhenPushed=YES;
     [self.navigationController pushViewController:nextPage animated:YES];
     

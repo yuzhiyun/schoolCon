@@ -34,13 +34,17 @@
     self.title=title;
     //处理软键盘遮挡输入框事件
     _mUITextFieldCommnet.delegate=self;
+    
+    //如果属于我的收藏，那么不能再显示收藏按钮
+    if([@"xlzs" isEqualToString:type]||[@"zxxx" isEqualToString:type])
+    {
     //自定义导航左右按钮
     UIBarButtonItem *rightButton = [[UIBarButtonItem alloc]initWithTitle:@"收藏" style:UIBarButtonItemStylePlain target:self action:@selector(rightBarButtonItemPressed:)];
     
     [rightButton setTitleTextAttributes: [NSDictionary dictionaryWithObjectsAndKeys:[UIFont systemFontOfSize:17], UITextAttributeFont, [UIColor whiteColor], UITextAttributeTextColor, nil] forState:UIControlStateNormal];
     self.navigationItem.rightBarButtonItem=rightButton;
     
-    
+    }
     AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
     NSURL *url = [NSURL URLWithString: urlString];
     

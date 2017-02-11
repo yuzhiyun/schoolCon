@@ -23,6 +23,9 @@
     
 @public
     Article *article;
+    
+@public
+    NSString *type;
 }
 @property (weak, nonatomic) IBOutlet UIWebView *UIWebViewArticle;
 
