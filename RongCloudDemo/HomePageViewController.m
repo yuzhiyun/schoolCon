@@ -25,6 +25,9 @@
 #import "LinkMan.h"
 #import "ChooseYearViewController.h"
 #import "AppDelegate.h"
+#import "AFNetworking.h"
+#import "JsonUtil.h"
+#import "Alert.h"
 @interface HomePageViewController ()
 //轮播图组件
 @property (nonatomic, strong) CycleScrollView *scrollView;
@@ -85,6 +88,8 @@ _articleUrlArray=@[@"http://mp.weixin.qq.com/s/m3y2dvyWLxHoFskyX5aWPQ",@"http://
     [recipes addObject:@"今晚不用上课"];
 //    recipes = [NSArray arrayWithObjects:@"Egg Benedict",@"Ham and Cheese Panini","yuzhiyun",nil];
     // Do any additional setup after loading the view.
+    
+    [self getRotateAndNotification];
 }
 //轮播图数量
 - (NSInteger)numberOfPages
@@ -290,32 +295,95 @@ _articleUrlArray=@[@"http://mp.weixin.qq.com/s/m3y2dvyWLxHoFskyX5aWPQ",@"http://
     
 }
 
-//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-//    
-//    
-//    
-//    [[segue destinationViewController] setMDetailString: @"传值过去"];
-//    
-//    NSLog(@"能跳转吗？prepareForSegue");
-//    
-//    
-//    
-//    
-//    
-//    // Get the new view controller using [segue destinationViewController].
-//    // Pass the selected object to the new view controller.
-//}
+-(void ) getRotateAndNotification{
+    
+    
 
-
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    
+    
+    
+    
+    
+    //获取全局ip地址
+    AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
+    NSString *urlString;
+    urlString= [NSString stringWithFormat:@"%@/api/sch/notice/getList",myDelegate.ipString];
+    //创建数据请求的对象，不是单例
+    AFHTTPRequestOperationManager *manager=[AFHTTPRequestOperationManager manager];
+    //设置响应数据的类型,如果是json数据，会自动帮你解析
+    //注意setWithObjects后面的s不能少
+    manager.responseSerializer.acceptableContentTypes=[NSSet setWithObjects:@"application/json", nil];
+    NSString *token=myDelegate.token;
+    // 请求参数
+    NSDictionary *parameters = @{ @"appId":@"03a8f0ea6a",
+                                  @"appSecret":@"b4a01f5a7dd4416c",
+                                  @"token":token
+                                  };
+    [manager POST:urlString parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        // (最好在刷新表格后调用)调用endRefreshing可以结束刷新状态
+        
+        NSString *result=[JsonUtil DataTOjsonString:responseObject];
+        NSLog(@"***************返回结果***********************");
+        NSLog(result);
+        NSData *data=[result dataUsingEncoding:NSUTF8StringEncoding];
+        NSError *error=[[NSError alloc]init];
+        NSDictionary *doc= [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
+        if(doc!=nil){
+            NSLog(@"*****doc不为空***********");
+            if([[doc objectForKey:@"code"] isKindOfClass:[NSNumber class]])
+                NSLog(@"code 是 NSNumber");
+            //判断code 是不是0
+            NSNumber *zero=[NSNumber numberWithInt:(0)];
+            NSNumber *code=[doc objectForKey:@"code"];
+            if([zero isEqualToNumber:code])
+            {
+                
+                if(nil!=[doc allKeys]){
+                    
+                    NSArray *array=[doc objectForKey:@"data"];
+                    if(0==[array count]){
+                        
+                        [Alert showMessageAlert:@"抱歉,没有更多数据了" view:self];
+                    }
+                    else{
+                        
+                        for(NSDictionary *item in  array ){
+                            
+                        }
+                        //NSLog(@"mDataArticle项数为%i",[allDataFromServer count]);
+                        NSLog(@"//更新界面");
+                        //更新界面
+                        //[mTableView reloadData];
+                    }
+                    //            }
+                }
+                else
+                {
+                    [Alert showMessageAlert:@"抱歉，尚无数据" view:self];
+                }
+            }
+            else{
+                if([@"token invalid" isEqualToString:[doc objectForKey:@"msg"]]){
+                    [AppDelegate reLogin:self];
+                }
+                else{
+                    NSString *msg=[NSString stringWithFormat:@"code是%d ： %@",[doc objectForKey:@"code"],[doc objectForKey:@"msg"]];
+                    [Alert showMessageAlert:msg  view:self];
+                }
+            }
+        }
+        else
+            NSLog(@"*****doc空***********");
+        //        NSLog([self DataTOjsonString:responseObject]);
+        //          NSLog([self convertToJsonData:dic]);
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        ;
+       
+        NSString *errorUser=[error.userInfo objectForKey:NSLocalizedDescriptionKey];
+        if(error.code==-1009)
+            errorUser=@"主人，似乎没有网络喔！";
+        [Alert showMessageAlert:errorUser view:self];
+    }];
 }
-*/
-
 @end

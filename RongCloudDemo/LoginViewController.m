@@ -12,7 +12,7 @@
 #import "DataBaseNSUserDefaults.h"
 #import "JsonUtil.h"
 #import "Alert.h"
-#define JsonGet @"http://iappfree.candou.com:8080/free/applications/limited?currency=rmb&page=1"
+
 
 @interface LoginViewController ()
 

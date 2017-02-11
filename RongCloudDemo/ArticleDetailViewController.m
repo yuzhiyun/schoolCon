@@ -71,7 +71,9 @@
         // 请求参数
         NSDictionary *parameters = @{ @"appId":@"03a8f0ea6a",
                                       @"appSecret":@"b4a01f5a7dd4416c",
-                                      @"token":token
+                                      @"token":token,
+                                      @"content":_mUITextFieldCommnet.text,
+                                      @"articleId":articleId
                                       };
         
         [manager POST:urlString parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
@@ -137,10 +139,17 @@
     AFHTTPRequestOperationManager *manager=[AFHTTPRequestOperationManager manager];
     manager.responseSerializer.acceptableContentTypes=[NSSet setWithObjects:@"application/json", nil];
     NSString *token=myDelegate.token;
+    NSLog(@"显示收藏的参数");
+    //NSLog(<#NSString * _Nonnull format, ...#>)；
+    NSLog(article.articleType);
     // 请求参数
     NSDictionary *parameters = @{ @"appId":@"03a8f0ea6a",
                                   @"appSecret":@"b4a01f5a7dd4416c",
-                                  @"token":token
+                                  @"token":token,
+                                  @"articleId":article.articleId,
+                                  @"articleName":article.title,
+                                  @"articleType":article.articleType,
+                                  @"picurl":article.picUrl
                                   };
     
     [manager POST:urlString parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {

@@ -11,6 +11,7 @@
 
 @interface  Article:NSObject
 @property (nonatomic,copy)NSString *articleId;
+@property (nonatomic,copy)NSString *articleType;
 @property (nonatomic,copy)NSString *picUrl;
 @property (nonatomic,copy)NSString *title;
 @property (nonatomic,copy)NSString *author;

@@ -223,7 +223,8 @@
             errorUser=@"主人，似乎没有网络喔！";
 
         [Alert showMessageAlert:errorUser view:self];
-    }];}
+    }];
+}
 
 
 #pragma mark - Table view data source
@@ -348,12 +349,16 @@
             
             NSString *urlString;
             
-            if([@"xlzs" isEqualToString:type])
+    if([@"xlzs" isEqualToString:type]){
                 urlString=[NSString stringWithFormat:@"%@/api/psy/knowledge/getObject",myDelegate.ipString];
-            else
+        model.articleType=@"xlzs";
+    }
+    else{
                 urlString=[NSString stringWithFormat:@"%@/api/cms/article/getObject",myDelegate.ipString];
+        model.articleType=@"zxxx";
+    }
             nextPage->urlString=urlString;
-            
+            nextPage->article=model;
             nextPage.hidesBottomBarWhenPushed=YES;
             [self.navigationController pushViewController:nextPage animated:YES];
 //        }
@@ -422,7 +427,7 @@
 //    }
 //    return jsonString;
 //}
-
+/*
 #pragma mark
 -(void)loadArticleData{
     //#import "AFNetworking.h"
@@ -470,5 +475,5 @@
     }];
 }
 
-
+*/
 @end

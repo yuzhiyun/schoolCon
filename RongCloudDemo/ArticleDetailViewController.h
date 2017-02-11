@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "Article.h"
 @interface ArticleDetailViewController : UIViewController<UITableViewDelegate, UITableViewDataSource,UITextFieldDelegate>{
     
     
@@ -21,6 +21,8 @@
 @public
     NSString *urlString;
     
+@public
+    Article *article;
 }
 @property (weak, nonatomic) IBOutlet UIWebView *UIWebViewArticle;
 

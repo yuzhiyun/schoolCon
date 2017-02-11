@@ -114,9 +114,8 @@
     if([[NSNumber numberWithInt:(0)] isEqualToNumber:userType]){
         _mUILabelKeyStudentName.text=@"";
         _mUILabelKeyClass.text=@"";
-        _mUILabelKeyHeadTeacher.text=@"教学学科";
+        _mUILabelKeyHeadTeacher.text=@"教学学科:";
     }
-        
 }
 
 //头像点击事件
