@@ -233,7 +233,11 @@
     return cell;
 }
 -(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    
+    Notification *model=[mDataExam objectAtIndex:indexPath.row];
     TeacherNotUseCollectionViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"TeacherNotUseCollectionViewController"];
+    nextPage->mExamId=model.id;
     nextPage.hidesBottomBarWhenPushed=YES;
     [self.navigationController pushViewController:nextPage animated:YES];
 }

@@ -170,6 +170,7 @@
 		CD7D5EF41E4E039F0082CF37 /* Notification.m in Sources */ = {isa = PBXBuildFile; fileRef = CD7D5EF31E4E039F0082CF37 /* Notification.m */; };
 		CD7D5EFA1E4F3D610082CF37 /* MyCollectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD7D5EF91E4F3D610082CF37 /* MyCollectViewController.m */; };
 		CD7D5EFD1E4F3D7A0082CF37 /* MyActivityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD7D5EFC1E4F3D7A0082CF37 /* MyActivityViewController.m */; };
+		CD7D5F001E4F6BD80082CF37 /* StudentGrade.m in Sources */ = {isa = PBXBuildFile; fileRef = CD7D5EFF1E4F6BD80082CF37 /* StudentGrade.m */; };
 		CD7FFDA71E3776E7003DE455 /* ChangePwdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD7FFDA61E3776E7003DE455 /* ChangePwdViewController.m */; };
 		CDC26A081E2A6BEF0093B804 /* ConcreteConsultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDC26A071E2A6BEF0093B804 /* ConcreteConsultViewController.m */; };
 		CDC26A0C1E2B4E220093B804 /* ChooseYearViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDC26A0B1E2B4E220093B804 /* ChooseYearViewController.m */; };
@@ -527,6 +528,8 @@
 		CD7D5EF91E4F3D610082CF37 /* MyCollectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyCollectViewController.m; sourceTree = "<group>"; };
 		CD7D5EFB1E4F3D7A0082CF37 /* MyActivityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyActivityViewController.h; sourceTree = "<group>"; };
 		CD7D5EFC1E4F3D7A0082CF37 /* MyActivityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyActivityViewController.m; sourceTree = "<group>"; };
+		CD7D5EFF1E4F6BD80082CF37 /* StudentGrade.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StudentGrade.m; sourceTree = "<group>"; };
+		CD7D5F011E4F6BE20082CF37 /* StudentGrade.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StudentGrade.h; sourceTree = "<group>"; };
 		CD7FFDA51E3776E7003DE455 /* ChangePwdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChangePwdViewController.h; sourceTree = "<group>"; };
 		CD7FFDA61E3776E7003DE455 /* ChangePwdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChangePwdViewController.m; sourceTree = "<group>"; };
 		CDC26A061E2A6BEF0093B804 /* ConcreteConsultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConcreteConsultViewController.h; sourceTree = "<group>"; };
@@ -1234,6 +1237,7 @@
 		CD2DCCAC1E0A6F86000C03E1 /* queryGrade */ = {
 			isa = PBXGroup;
 			children = (
+				CD7D5EFE1E4F6BB90082CF37 /* studentGrade */,
 				CDC26A091E2B4E120093B804 /* chooseYear */,
 				CDE5AED31E1FCC7C0059D310 /* parents */,
 				CD2DCCB01E0A728D000C03E1 /* teacher */,
@@ -1585,6 +1589,15 @@
 				CD7D5EFC1E4F3D7A0082CF37 /* MyActivityViewController.m */,
 			);
 			name = myActivity;
+			sourceTree = "<group>";
+		};
+		CD7D5EFE1E4F6BB90082CF37 /* studentGrade */ = {
+			isa = PBXGroup;
+			children = (
+				CD7D5EFF1E4F6BD80082CF37 /* StudentGrade.m */,
+				CD7D5F011E4F6BE20082CF37 /* StudentGrade.h */,
+			);
+			name = studentGrade;
 			sourceTree = "<group>";
 		};
 		CD7FFDA41E3776AF003DE455 /* changePwd */ = {
@@ -2102,6 +2115,7 @@
 				CD71A36E1E29C48000396746 /* SendMessageViewController.m in Sources */,
 				CD7FFDA71E3776E7003DE455 /* ChangePwdViewController.m in Sources */,
 				CD79C1FF1E2502B400A9889F /* AFURLResponseSerialization.m in Sources */,
+				CD7D5F001E4F6BD80082CF37 /* StudentGrade.m in Sources */,
 				CD2DCC4F1E067CD3000C03E1 /* PsychologyTableViewCell.m in Sources */,
 				CD2DCC831E09305D000C03E1 /* SDWebImageDownloader.m in Sources */,
 				CDC26A081E2A6BEF0093B804 /* ConcreteConsultViewController.m in Sources */,

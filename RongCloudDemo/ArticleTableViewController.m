@@ -307,10 +307,11 @@
     
     if([@"xlzs" isEqualToString:type]||[@"xinli" isEqualToString:type]){
         urlString=[NSString stringWithFormat:@"%@/api/psy/knowledge/getObject",myDelegate.ipString];
+        model.articleType=@"xlzs";
     }
     else{
         urlString=[NSString stringWithFormat:@"%@/api/cms/article/getObject",myDelegate.ipString];
-       // model.articleType=@"zxxx";
+        model.articleType=@"zxxx";
     }
     
     

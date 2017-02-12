@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TeacherNotUseCollectionViewController : UIViewController<UITableViewDelegate, UITableViewDataSource>
+@interface TeacherNotUseCollectionViewController : UIViewController<UITableViewDelegate, UITableViewDataSource>{
+    
+@public NSString *mExamId;
+}
+
 
 @end
