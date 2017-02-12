@@ -42,7 +42,7 @@
      *老师
      *13892431124 是会员
      */
-    _UITextFieldUserName.text=@"13892431124";
+    _UITextFieldUserName.text=@"13879652442";
     _UITextFieldPwd.text=@"123456";
     if(phone!=nil && pwd!=nil){
         _UITextFieldUserName.text=phone;

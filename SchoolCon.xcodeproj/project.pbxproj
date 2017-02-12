@@ -171,6 +171,7 @@
 		CD7D5EFA1E4F3D610082CF37 /* MyCollectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD7D5EF91E4F3D610082CF37 /* MyCollectViewController.m */; };
 		CD7D5EFD1E4F3D7A0082CF37 /* MyActivityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD7D5EFC1E4F3D7A0082CF37 /* MyActivityViewController.m */; };
 		CD7D5F001E4F6BD80082CF37 /* StudentGrade.m in Sources */ = {isa = PBXBuildFile; fileRef = CD7D5EFF1E4F6BD80082CF37 /* StudentGrade.m */; };
+		CD7D5F051E50BE940082CF37 /* Subject.m in Sources */ = {isa = PBXBuildFile; fileRef = CD7D5F041E50BE940082CF37 /* Subject.m */; };
 		CD7FFDA71E3776E7003DE455 /* ChangePwdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD7FFDA61E3776E7003DE455 /* ChangePwdViewController.m */; };
 		CDC26A081E2A6BEF0093B804 /* ConcreteConsultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDC26A071E2A6BEF0093B804 /* ConcreteConsultViewController.m */; };
 		CDC26A0C1E2B4E220093B804 /* ChooseYearViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDC26A0B1E2B4E220093B804 /* ChooseYearViewController.m */; };
@@ -530,6 +531,8 @@
 		CD7D5EFC1E4F3D7A0082CF37 /* MyActivityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyActivityViewController.m; sourceTree = "<group>"; };
 		CD7D5EFF1E4F6BD80082CF37 /* StudentGrade.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StudentGrade.m; sourceTree = "<group>"; };
 		CD7D5F011E4F6BE20082CF37 /* StudentGrade.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StudentGrade.h; sourceTree = "<group>"; };
+		CD7D5F041E50BE940082CF37 /* Subject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Subject.m; sourceTree = "<group>"; };
+		CD7D5F061E50BE9D0082CF37 /* Subject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Subject.h; sourceTree = "<group>"; };
 		CD7FFDA51E3776E7003DE455 /* ChangePwdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChangePwdViewController.h; sourceTree = "<group>"; };
 		CD7FFDA61E3776E7003DE455 /* ChangePwdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChangePwdViewController.m; sourceTree = "<group>"; };
 		CDC26A061E2A6BEF0093B804 /* ConcreteConsultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConcreteConsultViewController.h; sourceTree = "<group>"; };
@@ -1237,12 +1240,11 @@
 		CD2DCCAC1E0A6F86000C03E1 /* queryGrade */ = {
 			isa = PBXGroup;
 			children = (
+				CD7D5F021E50BE3B0082CF37 /* selectSubject */,
 				CD7D5EFE1E4F6BB90082CF37 /* studentGrade */,
 				CDC26A091E2B4E120093B804 /* chooseYear */,
 				CDE5AED31E1FCC7C0059D310 /* parents */,
 				CD2DCCB01E0A728D000C03E1 /* teacher */,
-				CD2DCCAD1E0A6FF9000C03E1 /* QueryGradeTableViewController.h */,
-				CD2DCCAE1E0A6FF9000C03E1 /* QueryGradeTableViewController.m */,
 			);
 			name = queryGrade;
 			sourceTree = "<group>";
@@ -1598,6 +1600,25 @@
 				CD7D5F011E4F6BE20082CF37 /* StudentGrade.h */,
 			);
 			name = studentGrade;
+			sourceTree = "<group>";
+		};
+		CD7D5F021E50BE3B0082CF37 /* selectSubject */ = {
+			isa = PBXGroup;
+			children = (
+				CD7D5F031E50BE780082CF37 /* subject */,
+				CD2DCCAD1E0A6FF9000C03E1 /* QueryGradeTableViewController.h */,
+				CD2DCCAE1E0A6FF9000C03E1 /* QueryGradeTableViewController.m */,
+			);
+			name = selectSubject;
+			sourceTree = "<group>";
+		};
+		CD7D5F031E50BE780082CF37 /* subject */ = {
+			isa = PBXGroup;
+			children = (
+				CD7D5F041E50BE940082CF37 /* Subject.m */,
+				CD7D5F061E50BE9D0082CF37 /* Subject.h */,
+			);
+			name = subject;
 			sourceTree = "<group>";
 		};
 		CD7FFDA41E3776AF003DE455 /* changePwd */ = {
@@ -2086,6 +2107,7 @@
 				CD2DCB8D1E03E837000C03E1 /* CommentTableViewCell.m in Sources */,
 				CD2DCC151E05507C000C03E1 /* ContactViewController.m in Sources */,
 				CD3F24941E2273D00083293D /* WSLineChartView.m in Sources */,
+				CD7D5F051E50BE940082CF37 /* Subject.m in Sources */,
 				CD2DCCB31E0A72AF000C03E1 /* TeacherViewController.m in Sources */,
 				CD2DCC931E0938AE000C03E1 /* FLAnimatedImage.m in Sources */,
 				CD2DCC351E065CE6000C03E1 /* ShalongTableViewController.m in Sources */,

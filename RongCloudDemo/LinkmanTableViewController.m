@@ -44,10 +44,8 @@
     allDataFromServer=myDelegate.linkManArray;
     //[self loadData];
     
-    if(0==[myDelegate.linkManArray count]){
-        allDataFromServer=[[NSMutableArray alloc]init];
-        [Alert showMessageAlert:@"尚无联系人信息，请下拉刷新" view:self];
-    }
+    
+    
     
     
     // 2.集成刷新控件
@@ -56,7 +54,15 @@
     
     
 }
-
+-(void) viewWillAppear:(BOOL)animated{
+    AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
+    if(0==[myDelegate.linkManArray count]){
+        
+         allDataFromServer=[[NSMutableArray alloc]init];
+        [Alert showMessageAlert:@"尚无联系人信息，请下拉刷新" view:self];
+        
+    }
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
