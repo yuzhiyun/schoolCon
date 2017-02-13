@@ -190,19 +190,24 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    static NSString *simpleTableIdentifier = @"SimpleTableCell";
+    static NSString *simpleTableIdentifier = @"cell";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
     
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:simpleTableIdentifier];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
     }
     
     Notification *model=[allDataFromServer objectAtIndex:indexPath.row];
+    UIImageView *image=[cell viewWithTag:0];
+    UILabel *mUILabelTitle=[cell viewWithTag:1];
+    UILabel *mUILabelDate=[cell viewWithTag:2];
     
-    cell.textLabel.text = model.title;
-    cell.imageView.image=[UIImage imageNamed:@"notice1.png"];
-    cell.detailTextLabel.text=model.publishat;
+    
+    image.image=[UIImage imageNamed:@"notice1.png"];
+    mUILabelTitle.text = model.title;
+    
+    mUILabelDate.text=model.publishat;
     return cell;
 }
 -(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
