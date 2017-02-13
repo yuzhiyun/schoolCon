@@ -156,7 +156,6 @@
             NSNumber *code=[doc objectForKey:@"code"];
             if([zero isEqualToNumber:code])
             {
-                
                 LinkMan *model=[allDataFromServer objectAtIndex:indexPath.row];
                 if([@"private" isEqualToString: model.type]){
                     //新建一个聊天会话View Controller对象
