@@ -132,7 +132,6 @@
                         if([[NSNumber numberWithInt:(-2)] isEqualToNumber:[doc objectForKey:@"code"]]){
                             [Alert showMessageAlert:@"抱歉，您不是会员或会员已到期，无法进行此操作，请在“我的会员”页面中进行充值"  view:self];
                         }
-                        
                     }
                 }
             }
@@ -146,21 +145,12 @@
                 errorUser=@"主人，似乎没有网络喔！";
             [Alert showMessageAlert:errorUser view:self];
         }];
-        
-        
-        
-
-        
-        
     }
-    
-    
 }
 
 
 #pragma mark 返回某个index对应的页面，该页面从Storyboard中获取
 - (UIViewController *)pageController:(WMPageController *)pageController viewControllerAtIndex:(NSInteger)index {
-    
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     UIViewController *controller1 = [storyboard instantiateViewControllerWithIdentifier:@"vp1_contact"]; //这里的identifer是我们之前设置的StoryboardID
     UIViewController *controller2 = [storyboard instantiateViewControllerWithIdentifier:@"vp2_contact"]; //这里的identifer是我们之前设置的StoryboardID
@@ -168,25 +158,12 @@
     
     if(0==index)
         return controller1;
-//    else if(1==index)
-//        return controller2;
     else
         return controller2;
-    
 }
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

@@ -185,16 +185,18 @@
                                                            NSLog(@"");
                                                            TestResultViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"TestResultViewController"];
                                                            nextPage->testId=testId;
+                                                           nextPage->testName=testName;
+                                                           nextPage->picUrl=picUrl;
+                                                           
+                                                           
                                                            nextPage->score=@"50";
                                                            
                                                            nextPage.hidesBottomBarWhenPushed=YES;
                                                            [self.navigationController pushViewController:nextPage animated:YES];
                                                        }];
-            
-            //        信息框添加按键
+            //信息框添加按键
             [alert addAction:ok];
             [self presentViewController:alert animated:YES completion:nil];
-            
         }
     }
 }
@@ -249,7 +251,6 @@
                                   @"token":token,
                                   @"id":testId
                                   };
-    
     [manager POST:urlString parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         // (最好在刷新表格后调用)调用endRefreshing可以结束刷新状态
 //        [self.tableView footerEndRefreshing];
@@ -292,8 +293,8 @@
                     for(NSDictionary *item2 in  optionArray){
                         [entity addObject:[item2 objectForKey:@"optionContent"]];
                     }
-                    for(NSString * item in entity)
-                        NSLog(item);
+                    //for(NSString * item in entity)
+                      //  NSLog(item);
                     [mAllData addObject:entity];
                     //填充-1到答案数组里面,之所以使用这种for循环，是因为i是int，[mAllData count]转不过来
                     [answerArray addObject:@"-1"];
@@ -305,17 +306,17 @@
                         NSLog(@"//更新界面");
                         //更新界面
                         [mTableView reloadData];
-//                    }
-                    //            }
-//                }
-//                else
-//                {
-//                    [Alert showMessageAlert:@"抱歉，尚无文章可以阅读" view:self];
-//                }
+
             }
             
             else{
-                [Alert showMessageAlert:[doc objectForKey:@"msg"]  view:self];
+                if([@"token invalid" isEqualToString:[doc objectForKey:@"msg"]]){
+                    [AppDelegate reLogin:self];
+                }
+                else{
+                    NSString *msg=[NSString stringWithFormat:@"code是%d ： %@",[doc objectForKey:@"code"],[doc objectForKey:@"msg"]];
+                    [Alert showMessageAlert:msg  view:self];
+                }
             }
         }
         else

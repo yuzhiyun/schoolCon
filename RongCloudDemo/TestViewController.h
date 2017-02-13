@@ -17,6 +17,9 @@
     NSString *pubString;
 @public
     NSString *testId;
-    
+@public
+    NSString *testName;
+@public
+    NSString *picUrl;
 }
 @end

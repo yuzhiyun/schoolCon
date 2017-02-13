@@ -47,7 +47,10 @@
     
     
     TestViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"TestViewController"];
+    //nextPage->testId=testId;
     nextPage->testId=testId;
+    nextPage->testName=testName;
+    nextPage->picUrl=picUrl;
     nextPage.hidesBottomBarWhenPushed=YES;
     [self.navigationController pushViewController:nextPage animated:YES];
 }

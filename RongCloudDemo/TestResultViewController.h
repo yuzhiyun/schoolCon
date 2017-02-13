@@ -13,6 +13,11 @@
 @public
     NSString *testId;
 @public
+    NSString *testName;
+@public
+    NSString *picUrl;
+
+@public
     NSString *score;
 }
 @property (weak, nonatomic) IBOutlet UIWebView *mUIWebView;

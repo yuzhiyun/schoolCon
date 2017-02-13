@@ -152,6 +152,9 @@
     TestIntroductionViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"TestIntroductionViewController"];
 //    //    传值
     nextPage->testId=model.testId;
+    nextPage->testName=model.title;
+    nextPage->picUrl=model.picUrl;
+    
 //    nextPage->pubString=[mDataNotification objectAtIndex:indexPath.row];
     //UITabBarController和的UINavigationController结合使用,进入新的页面的时候，隐藏主页tabbarController的底部栏
     nextPage.hidesBottomBarWhenPushed=YES;

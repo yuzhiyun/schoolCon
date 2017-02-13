@@ -59,7 +59,9 @@
     NSDictionary *parameters = @{ @"appId":@"03a8f0ea6a",
                                   @"appSecret":@"b4a01f5a7dd4416c",
                                   @"token":token,
-                                  @"id":testId,
+                                  @"testId":testId,
+                                  @"testName":testName,
+                                  @"picurl":picUrl,
                                   @"score":score
                                   };
     
