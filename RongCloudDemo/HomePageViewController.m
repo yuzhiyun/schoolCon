@@ -84,7 +84,7 @@ _articleUrlArray=@[@"http://mp.weixin.qq.com/s/m3y2dvyWLxHoFskyX5aWPQ",@"http://
     recipes=[[NSMutableArray alloc]init];
     
     [recipes addObject:@"明天开运动会"];
-    [recipes addObject:@"系统升级，明早恢复"];
+    [recipes addObject:@"系统升级"];
     [recipes addObject:@"今晚不用上课"];
 //    recipes = [NSArray arrayWithObjects:@"Egg Benedict",@"Ham and Cheese Panini","yuzhiyun",nil];
     // Do any additional setup after loading the view.
@@ -262,10 +262,16 @@ _articleUrlArray=@[@"http://mp.weixin.qq.com/s/m3y2dvyWLxHoFskyX5aWPQ",@"http://
     cell.imageView.image=[UIImage imageNamed:@"notice1.png"];
     cell.detailTextLabel.text=@"2017/12/21";
 //    cell.tes
-    
-    cell.textLabel.text = [recipes objectAtIndex:indexPath.row];
+    NSString * title=[recipes objectAtIndex:indexPath.row];
+    //截取字符串
+    if(title.length>8){
+        title=[title substringToIndex:8];
+        title=[NSString stringWithFormat:@"%@...",title];
+    }
+    cell.textLabel.text =title;
     return cell;
 }
+
 -(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
     
