@@ -67,37 +67,43 @@
     if(![@"请输入消息" isEqualToString:   _UITextViewMessage.text]){
         
         
-        for(LinkMan *model in dataSelectedLinkman){
+        
+        for(int i=0;i<[dataSelectedLinkman count];i++ ){
             
+            LinkMan *model =[dataSelectedLinkman objectAtIndex:i];
             NSString *content=_UITextViewMessage.text;
+            
             //初始化文本消息
             RCTextMessage *txtMsg = [RCTextMessage messageWithContent:content];
             [[RCIMClient sharedRCIMClient]  sendMessage:ConversationType_PRIVATE targetId:model.LinkmanId content:txtMsg pushContent:content success:^(long messageId) {
-                //            [alert setMessage:@"发送成功"];
-                //            [alert show];
+                
                 NSLog(@"给%@发送消息成功",model.name);
             } error:^(RCErrorCode nErrorCode, long messageId) {
                 NSLog(@"群发失败！！！！");
                 flag=1;
             }];
+            //添加5人/次 程序，因为融云只支持每秒发送5次消息
+            if(0==(i+1)%5){
+                //什么事都不做，就是延迟一秒
+                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                    
+                    NSLog(@"延迟一秒钟");
+                   
+                });
+
+                
+            }
         }
+        
         UIAlertController *alert=[UIAlertController alertControllerWithTitle:nil message:@"群发成功,点击确认回到主页" preferredStyle:UIAlertControllerStyleAlert];
         UIAlertAction *ok=[UIAlertAction actionWithTitle:@"确认"
                                                    style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){
-                                                       
-                                                       // 模拟2秒后刷新
-                                                       //dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                                                        
                                                        NSLog(@"跳回主页面");
                                                        
                                                        MainViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"MainViewController"];
                                                        
                                                        [self.navigationController pushViewController:nextPage animated:YES];
-                                                       
-                                                       
-                                                       //                                                   });
-                                                       
-                                                       
                                                        
                                                    }];
         
@@ -121,9 +127,9 @@
         //        信息框添加按键
         [alert addAction:ok];
         
- [self presentViewController:alert animated:YES completion:nil];
-    
-    
+        [self presentViewController:alert animated:YES completion:nil];
+        
+        
     }
     
 }
