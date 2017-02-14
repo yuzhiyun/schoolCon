@@ -54,7 +54,11 @@
     //获取全局ip地址
     AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
     NSString *urlString;
-    urlString= [NSString stringWithFormat:@"%@/api/sch/notice/getList",myDelegate.ipString];
+    if([@"notice" isEqualToString:type])
+        urlString= [NSString stringWithFormat:@"%@/api/sch/notice/getList",myDelegate.ipString];
+    else
+         urlString= [NSString stringWithFormat:@"%@/api/sch/event/getList",myDelegate.ipString];
+        
     //创建数据请求的对象，不是单例
     AFHTTPRequestOperationManager *manager=[AFHTTPRequestOperationManager manager];
     //设置响应数据的类型,如果是json数据，会自动帮你解析

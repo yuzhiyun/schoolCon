@@ -257,6 +257,9 @@
     nextPage->mExamId=model.articleId;
     nextPage.hidesBottomBarWhenPushed=YES;
     [self.navigationController pushViewController:nextPage animated:YES];
+    
+    
+    
 }
 
 

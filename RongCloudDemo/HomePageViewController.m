@@ -168,14 +168,11 @@ _articleUrlArray=@[@"http://mp.weixin.qq.com/s/m3y2dvyWLxHoFskyX5aWPQ",@"http://
 
 //跳转到所有通知页面
 - (IBAction)btnEnterAllNotifications:(id)sender {
-    //根据storyboard id来获取目标页面
+    
     NotificationTableViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"NotificationTableViewController"];
-//    传值
-    //UITabBarController和的UINavigationController结合使用,进入新的页面的时候，隐藏主页tabbarController的底部栏
     nextPage->type=@"notice";
     nextPage.hidesBottomBarWhenPushed=YES;
-    //跳转
-        [self.navigationController pushViewController:nextPage animated:YES];
+    [self.navigationController pushViewController:nextPage animated:YES];
 }
 //跳转到心理测评
 - (IBAction)btnEnterPsychology:(id)sender {
@@ -197,9 +194,17 @@ _articleUrlArray=@[@"http://mp.weixin.qq.com/s/m3y2dvyWLxHoFskyX5aWPQ",@"http://
 
 
 - (IBAction)schoolMoments:(id)sender {
+    /*
     SchoolMomentsTableViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"SchoolMomentsTableViewController"];
     nextPage.hidesBottomBarWhenPushed=YES;
     [self.navigationController pushViewController:nextPage animated:YES];
+    */
+    
+    NotificationTableViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"NotificationTableViewController"];
+    nextPage->type=@"schoolMoments";
+    nextPage.hidesBottomBarWhenPushed=YES;
+    [self.navigationController pushViewController:nextPage animated:YES];
+
 }
 
 
