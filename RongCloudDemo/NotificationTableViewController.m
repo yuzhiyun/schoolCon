@@ -152,7 +152,13 @@
             }
             
             else{
-                [Alert showMessageAlert:[doc objectForKey:@"msg"]  view:self];
+                if([@"token invalid" isEqualToString:[doc objectForKey:@"msg"]]){
+                    [AppDelegate reLogin:self];
+                }
+                else{
+                    NSString *msg=[NSString stringWithFormat:@"code是%d ： %@",[doc objectForKey:@"code"],[doc objectForKey:@"msg"]];
+                    [Alert showMessageAlert:msg  view:self];
+                }
             }
         }
         else

@@ -31,14 +31,10 @@
     NSMutableArray *mAllData;
     //用于刷新tableView
     UITableView *mTableView;
-    
     //    int answerArray
     NSMutableArray *answerArray;
-//    int answerArray[200];
-    
-    
-//    NSMutableArray *allDataFromServer;
-    
+    //记录测试题目的每个选项的分数
+    NSMutableArray *scoreArray;
 }
 
 - (void)viewDidLoad {
@@ -58,6 +54,7 @@
 
 //    [self setTitle];
     answerArray=[[NSMutableArray alloc]init];
+    scoreArray=[[NSMutableArray alloc]init];
 //    [answerArray addObject:@"-1"];
     [self loadData];
 }
@@ -167,9 +164,31 @@
         else{
             indexOfExercise--;
             
+            //打印自己的作答选项
             
-            for(NSString *answer in answerArray)
-                NSLog(@"答案是%@",answerArray);
+            
+            NSNumber *total=[NSNumber numberWithInt:(0)];
+            for(int i=0;i<[answerArray count];i++){
+                NSString *answer=[answerArray objectAtIndex:i];
+                NSLog(@"答案是%@", answer);
+                NSLog(@"答案对应的分数是%@",[[scoreArray objectAtIndex:i] objectAtIndex: [answer intValue]]);
+                
+                NSNumber *a=[[scoreArray objectAtIndex:i] objectAtIndex: [answer intValue]];
+                //NSLog(@"分%i",[a intValue]);
+                total=[NSNumber numberWithInt:([total intValue]+[a intValue])];;
+            }
+            
+            NSLog(@"总分%i",[total intValue]);
+                
+            //打印自己选项对应的分数
+            //NSMutableArray *scoreArray;
+            /*
+            for(NSMutableArray *scoreItem in scoreArray){
+                for(NSString *score in scoreItem)
+                    NSLog(@"答案对应的分数是%@",score);
+            }
+            */
+            
 //            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示"
 //                                                            message:@"已经是最后一题了，请提交答案"
 //                                                           delegate:self
@@ -189,7 +208,7 @@
                                                            nextPage->picUrl=picUrl;
                                                            
                                                            
-                                                           nextPage->score=@"50";
+                                                           nextPage->score=[NSString  stringWithFormat:@"%i",[total intValue]];
                                                            
                                                            nextPage.hidesBottomBarWhenPushed=YES;
                                                            [self.navigationController pushViewController:nextPage animated:YES];
@@ -282,7 +301,7 @@
                     index++;
 //                    NSUInteger *index=[questionArray indexOfObject:item];
                     NSMutableArray *entity=[[NSMutableArray alloc]init];
-                    NSLog(@"*****************************************************************");
+                 //   NSLog(@"*****************************************************************");
                     
                     NSString *content=[item objectForKey:@"content"];
                   
@@ -291,9 +310,17 @@
                     
                     
                     NSArray *optionArray=[item objectForKey:@"psy_options"];
+                    //记录分数
+                    NSMutableArray *scoreItem=[[NSMutableArray alloc]init];
+                    
                     for(NSDictionary *item2 in  optionArray){
                         [entity addObject:[item2 objectForKey:@"optionContent"]];
+                        //记录分数
+                        [scoreItem addObject:[item2 objectForKey:@"optionScore"]];
                     }
+                    //记录分数
+                    [scoreArray addObject:scoreItem];
+                    
                     //for(NSString * item in entity)
                       //  NSLog(item);
                     [mAllData addObject:entity];
