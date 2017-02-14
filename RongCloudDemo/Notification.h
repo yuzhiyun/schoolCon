@@ -10,7 +10,7 @@
 
 @interface  Notification:NSObject
 
-@property (nonatomic,copy)NSString *id;
+@property (nonatomic,copy)NSString *articleId;
 @property (nonatomic,copy)NSString *title;
 @property (nonatomic,copy)NSString *author;
 @property (nonatomic,copy)NSString *publishat;

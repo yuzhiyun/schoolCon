@@ -8,6 +8,7 @@
 //
 
 #import "DetailNotificationViewController.h"
+#import "AppDelegate.h"
 
 @interface DetailNotificationViewController ()
 
@@ -19,15 +20,24 @@
     [super viewDidLoad];
     self.title=pubString;
     
+    
+   // /api/sys/notice/getObject
+    
+    
     /**
      * 显示网页
      */
-    NSString *url=@"http://mp.weixin.qq.com/s/m3y2dvyWLxHoFskyX5aWPQ";
-    NSURL *nsUrl=[NSURL URLWithString:url];
-    NSURLRequest *request=[NSURLRequest requestWithURL:nsUrl];
+    AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
+    NSURL *url = [NSURL URLWithString: urlString];
     
-    [_UIWebViewNotify loadRequest:request];
     
+    
+    NSString *body = [NSString stringWithFormat: @"id=%@&token=%@&appId=%@&appSecret=%@", articleId,myDelegate.token,myDelegate.appId,myDelegate.appSecret];
+    
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc]initWithURL: url];
+    [request setHTTPMethod: @"POST"];
+    [request setHTTPBody: [body dataUsingEncoding: NSUTF8StringEncoding]];
+    [_UIWebViewNotify loadRequest: request];
     
     
     

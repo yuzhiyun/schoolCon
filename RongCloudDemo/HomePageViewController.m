@@ -172,6 +172,7 @@ _articleUrlArray=@[@"http://mp.weixin.qq.com/s/m3y2dvyWLxHoFskyX5aWPQ",@"http://
     NotificationTableViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"NotificationTableViewController"];
 //    传值
     //UITabBarController和的UINavigationController结合使用,进入新的页面的时候，隐藏主页tabbarController的底部栏
+    nextPage->type=@"notice";
     nextPage.hidesBottomBarWhenPushed=YES;
     //跳转
         [self.navigationController pushViewController:nextPage animated:YES];

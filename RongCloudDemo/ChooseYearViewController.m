@@ -140,7 +140,7 @@
                             for(NSDictionary *item in  array ){
                                 //暂时用Notification这个类代替一下 考试类，
                                 Notification *model=[[Notification alloc]init];
-                                model.id=item [@"id"];
+                                model.articleId=item [@"id"];
                                 model.title=item [@"name"];
                                 model.publishat=item [@"date"];
                                
@@ -254,7 +254,7 @@
     
     Notification *model=[mDataExam objectAtIndex:indexPath.row];
     TeacherNotUseCollectionViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"TeacherNotUseCollectionViewController"];
-    nextPage->mExamId=model.id;
+    nextPage->mExamId=model.articleId;
     nextPage.hidesBottomBarWhenPushed=YES;
     [self.navigationController pushViewController:nextPage animated:YES];
 }

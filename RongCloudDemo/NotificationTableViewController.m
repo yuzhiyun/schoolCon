@@ -67,6 +67,9 @@
                                   @"pageNumber":[NSString stringWithFormat:@"%d",pageIndex],
                                   @"token":token
                                   };
+    
+    
+    
     [manager POST:urlString parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         // (最好在刷新表格后调用)调用endRefreshing可以结束刷新状态
         [self.tableView footerEndRefreshing];
@@ -103,7 +106,7 @@
                         
                         for(NSDictionary *item in  array ){
                             Notification *model=[[Notification alloc]init];
-                            model.id=item [@"id"];
+                            model.articleId=item [@"id"];
                             model.title=item [@"title"];
                             model.author=item [@"author"];
                             model.type=item [@"type"];
@@ -197,7 +200,7 @@
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
     }
-    
+
     Notification *model=[allDataFromServer objectAtIndex:indexPath.row];
     UIImageView *image=[cell viewWithTag:0];
     UILabel *mUILabelTitle=[cell viewWithTag:1];
@@ -212,8 +215,25 @@
 }
 -(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
+    Notification *model= [allDataFromServer objectAtIndex:indexPath.row];
+    
+    
     DetailNotificationViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"DetailNotificationViewController"];
     //nextPage->pubString=[allDataFromServer objectAtIndex:indexPath.row];
+    
+    AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
+    NSString *urlString;
+    
+    if([@"notice" isEqualToString:type])
+        urlString=[NSString stringWithFormat:@"%@/api/sys/notice/getObject",myDelegate.ipString];
+    else
+        urlString=[NSString stringWithFormat:@"%@/api/sch/event/getObject",myDelegate.ipString];
+    
+    nextPage->urlString=urlString;
+    nextPage->articleId=model.articleId;
+    
+
+    
     nextPage.hidesBottomBarWhenPushed=YES;
     [self.navigationController pushViewController:nextPage animated:YES];
 }

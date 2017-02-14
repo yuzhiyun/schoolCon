@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface NotificationTableViewController : UITableViewController
+@interface NotificationTableViewController : UITableViewController{
+    
+@public NSString *type;
+}
 
 @end
