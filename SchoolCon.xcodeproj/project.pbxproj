@@ -194,6 +194,8 @@
 		CDE5AEC21E1132330059D310 /* bg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CDE5AEC11E1132330059D310 /* bg.jpg */; };
 		CDE5AED21E1FC2330059D310 /* EducationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDE5AED11E1FC2330059D310 /* EducationViewController.m */; };
 		CDE5AED61E1FCC990059D310 /* ParentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDE5AED51E1FCC990059D310 /* ParentsViewController.m */; };
+		CDF2EF601E5488D100A499AE /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CDF2EF5B1E5488D100A499AE /* libWeChatSDK.a */; };
+		CDF2EF611E5488D100A499AE /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = CDF2EF5C1E5488D100A499AE /* README.txt */; };
 		CDF8EBCF1E2F497A00BFD5EA /* home04.png in Resources */ = {isa = PBXBuildFile; fileRef = CDF8EBCA1E2F497A00BFD5EA /* home04.png */; };
 		CDF8EBD01E2F497A00BFD5EA /* home03.png in Resources */ = {isa = PBXBuildFile; fileRef = CDF8EBCB1E2F497A00BFD5EA /* home03.png */; };
 		CDF8EBD11E2F497A00BFD5EA /* home05.png in Resources */ = {isa = PBXBuildFile; fileRef = CDF8EBCC1E2F497A00BFD5EA /* home05.png */; };
@@ -572,6 +574,11 @@
 		CDE5AED11E1FC2330059D310 /* EducationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EducationViewController.m; sourceTree = SOURCE_ROOT; };
 		CDE5AED41E1FCC990059D310 /* ParentsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParentsViewController.h; sourceTree = "<group>"; };
 		CDE5AED51E1FCC990059D310 /* ParentsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParentsViewController.m; sourceTree = "<group>"; };
+		CDF2EF5B1E5488D100A499AE /* libWeChatSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeChatSDK.a; sourceTree = "<group>"; };
+		CDF2EF5C1E5488D100A499AE /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
+		CDF2EF5D1E5488D100A499AE /* WechatAuthSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WechatAuthSDK.h; sourceTree = "<group>"; };
+		CDF2EF5E1E5488D100A499AE /* WXApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApi.h; sourceTree = "<group>"; };
+		CDF2EF5F1E5488D100A499AE /* WXApiObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApiObject.h; sourceTree = "<group>"; };
 		CDF8EBCA1E2F497A00BFD5EA /* home04.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = home04.png; path = "../Users/qifeiqin/Downloads/图标/home04.png"; sourceTree = "<group>"; };
 		CDF8EBCB1E2F497A00BFD5EA /* home03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = home03.png; path = "../Users/qifeiqin/Downloads/图标/home03.png"; sourceTree = "<group>"; };
 		CDF8EBCC1E2F497A00BFD5EA /* home05.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = home05.png; path = "../Users/qifeiqin/Downloads/图标/home05.png"; sourceTree = "<group>"; };
@@ -638,6 +645,7 @@
 				4698CBE91AE234810006330E /* CoreMedia.framework in Frameworks */,
 				4698CBE71AE2346C0006330E /* CoreTelephony.framework in Frameworks */,
 				4698CBE51AE234610006330E /* CoreVideo.framework in Frameworks */,
+				CDF2EF601E5488D100A499AE /* libWeChatSDK.a in Frameworks */,
 				4698CBE31AE234560006330E /* libc++.dylib in Frameworks */,
 				4698CBFD1AE237AB0006330E /* RongIMLib.framework in Frameworks */,
 				461708781BF03D9C0081819C /* libopencore-amrnb.a in Frameworks */,
@@ -694,6 +702,7 @@
 		4698CB9E1AE22FCA0006330E /* schoolCon */ = {
 			isa = PBXGroup;
 			children = (
+				CDF2EF5A1E5488D100A499AE /* wexin */,
 				CD4EE2501E2200A9001882F7 /* utility */,
 				CDE5AEAC1E1008E50059D310 /* main */,
 				CD112A7B1E0E9990004519B9 /* login */,
@@ -1804,6 +1813,18 @@
 			name = parents;
 			sourceTree = "<group>";
 		};
+		CDF2EF5A1E5488D100A499AE /* wexin */ = {
+			isa = PBXGroup;
+			children = (
+				CDF2EF5B1E5488D100A499AE /* libWeChatSDK.a */,
+				CDF2EF5C1E5488D100A499AE /* README.txt */,
+				CDF2EF5D1E5488D100A499AE /* WechatAuthSDK.h */,
+				CDF2EF5E1E5488D100A499AE /* WXApi.h */,
+				CDF2EF5F1E5488D100A499AE /* WXApiObject.h */,
+			);
+			path = wexin;
+			sourceTree = "<group>";
+		};
 		CDF8EBC91E2F496C00BFD5EA /* homePage */ = {
 			isa = PBXGroup;
 			children = (
@@ -1955,6 +1976,7 @@
 				CDC26A191E2CF5D40093B804 /* icon_tx@3x.png in Resources */,
 				CD2DCAF11DFD9051000C03E1 /* avarta.jpg in Resources */,
 				CDF8EBD01E2F497A00BFD5EA /* home03.png in Resources */,
+				CDF2EF611E5488D100A499AE /* README.txt in Resources */,
 				CDF8EBD31E2F497A00BFD5EA /* home01.png in Resources */,
 				CDF8EC061E2FB10E00BFD5EA /* daxue@2x.png in Resources */,
 				CDF8EC131E2FB10E00BFD5EA /* wode@3x.png in Resources */,
@@ -2308,8 +2330,14 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/framework",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/RongCloudDemo/WeXinSDK",
+					"$(PROJECT_DIR)/RongCloudDemo/wexin",
 				);
 				OTHER_LDFLAGS = "";
+				"OTHER_LDFLAGS[arch=*]" = (
+					"-Objc",
+					"-all_load",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.sukclub.school;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "d8590b7b-ddf6-4ecd-89a4-d8f541f6ee17";
@@ -2339,8 +2367,14 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/framework",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/RongCloudDemo/WeXinSDK",
+					"$(PROJECT_DIR)/RongCloudDemo/wexin",
 				);
 				OTHER_LDFLAGS = "";
+				"OTHER_LDFLAGS[arch=*]" = (
+					"-Objc",
+					"-all_load",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.sukclub.school;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "fb775aa7-8554-435c-83fe-5028c6917a99";
