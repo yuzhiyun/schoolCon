@@ -35,12 +35,14 @@
     //默认是陈曦的，以后记得去掉
     //_UITextFieldUserName.text=@"18075156565";
     //_UITextFieldPwd.text=@"12345";
+    
     /**
      *家长
      *13879652442  不是会员
      *13272029954
      *老师
      *13892431124 是会员
+     *15222222222 密码12345
      */
     _UITextFieldUserName.text=@"13879652442";
     _UITextFieldPwd.text=@"123456";
