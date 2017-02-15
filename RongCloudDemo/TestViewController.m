@@ -198,9 +198,6 @@
             UIAlertController *alert=[UIAlertController alertControllerWithTitle:nil message:@"已经是最后一题了，请提交答案" preferredStyle:UIAlertControllerStyleAlert];
             UIAlertAction *ok=[UIAlertAction actionWithTitle:@"确认"
                                                        style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){
-                                                       
-                                                           
-                                                           
                                                            NSLog(@"");
                                                            TestResultViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"TestResultViewController"];
                                                            nextPage->testId=testId;

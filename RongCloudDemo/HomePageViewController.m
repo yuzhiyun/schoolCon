@@ -28,6 +28,7 @@
 #import "AFNetworking.h"
 #import "JsonUtil.h"
 #import "Alert.h"
+#import "Notification.h"
 @interface HomePageViewController ()
 //轮播图组件
 @property (nonatomic, strong) CycleScrollView *scrollView;
@@ -40,6 +41,8 @@
 @implementation HomePageViewController{
 
     NSMutableArray *recipes;
+    NSMutableArray *mDataGroups;
+    
 
     
     
@@ -82,6 +85,7 @@ _articleUrlArray=@[@"http://mp.weixin.qq.com/s/m3y2dvyWLxHoFskyX5aWPQ",@"http://
 
 
     recipes=[[NSMutableArray alloc]init];
+    mDataGroups=[[NSMutableArray alloc]init];
     
     [recipes addObject:@"明天开运动会"];
     [recipes addObject:@"系统升级"];
@@ -146,26 +150,81 @@ _articleUrlArray=@[@"http://mp.weixin.qq.com/s/m3y2dvyWLxHoFskyX5aWPQ",@"http://
 //}
 
 - (IBAction)classGroup:(id)sender {
-    LinkMan *group=[[LinkMan alloc]init];
-    group.type=@"group";
-    group.LinkmanId=@"1";
-    group.picUrl=@"http://img05.tooopen.com/images/20150202/sy_80219211654.jpg";
-    group.name=@"初二3班班群";
-    group.introduction=@"";
-    //新建一个聊天会话View Controller对象
-    RCConversationViewController *chat = [[RCConversationViewController alloc]init];
-    //设置会话的类型，如单聊、讨论组、群聊、聊天室、客服、公众服务会话等
-    chat.conversationType = ConversationType_GROUP;
-    //设置会话的目标会话ID。（单聊、客服、公众服务会话为对方的ID，讨论组、群聊、聊天室为会话的ID）
-    chat.targetId = group.LinkmanId;
-    //设置聊天会话界面要显示的标题
-    chat.title = group.name;
-    //设置隐藏底部栏
-    chat.hidesBottomBarWhenPushed=YES;
-    //显示聊天会话界面
-    [self.navigationController pushViewController:chat animated:YES];
-}
+    
+    
 
+    if(0==[mDataGroups count])
+        [Alert  showMessageAlert:@"你还没有班群" view:self];
+    else if (1==[mDataGroups count]){
+        Notification *model=[mDataGroups objectAtIndex:0];
+
+        LinkMan *group=[[LinkMan alloc]init];
+        group.type=@"group";
+        group.LinkmanId=model.articleId;
+        group.name=model.title;
+        //新建一个聊天会话View Controller对象
+        RCConversationViewController *chat = [[RCConversationViewController alloc]init];
+        //设置会话的类型，如单聊、讨论组、群聊、聊天室、客服、公众服务会话等
+        chat.conversationType = ConversationType_GROUP;
+        //设置会话的目标会话ID。（单聊、客服、公众服务会话为对方的ID，讨论组、群聊、聊天室为会话的ID）
+        chat.targetId = group.LinkmanId;
+        //设置聊天会话界面要显示的标题
+        chat.title = group.name;
+        //设置隐藏底部栏
+        chat.hidesBottomBarWhenPushed=YES;
+        //显示聊天会话界面
+        [self.navigationController pushViewController:chat animated:YES];
+        
+
+    }
+    else{
+        //弹出对话框
+        UIActionSheet *actionSheet = [[UIActionSheet alloc]
+                                      initWithTitle:@"请选择班群"
+                                      delegate:self
+                                      cancelButtonTitle:@"取消"
+                                      destructiveButtonTitle:nil
+                                      otherButtonTitles:nil];
+        actionSheet.actionSheetStyle = UIBarStyleDefault;
+        for(Notification *model in mDataGroups)
+            [actionSheet addButtonWithTitle:model.title];
+        [actionSheet showInView:self.view];
+    }
+    
+    
+   
+}
+//UIActionSheet对话框选择监听事件
+-(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    NSLog(@"选择年级对话框监听事件,您选择了%i",buttonIndex);
+    
+    //NSLog([grade objectAtIndex:buttonIndex]);
+    //if(buttonIndex!=[mDataSemester count]-1)
+    if(buttonIndex!=0){
+        
+        
+        Notification *model=[mDataGroups objectAtIndex:buttonIndex-1];
+        
+        LinkMan *group=[[LinkMan alloc]init];
+        group.type=@"group";
+        group.LinkmanId=model.articleId;
+        group.name=model.title;
+        //新建一个聊天会话View Controller对象
+        RCConversationViewController *chat = [[RCConversationViewController alloc]init];
+        //设置会话的类型，如单聊、讨论组、群聊、聊天室、客服、公众服务会话等
+        chat.conversationType = ConversationType_GROUP;
+        //设置会话的目标会话ID。（单聊、客服、公众服务会话为对方的ID，讨论组、群聊、聊天室为会话的ID）
+        chat.targetId = group.LinkmanId;
+        //设置聊天会话界面要显示的标题
+        chat.title = group.name;
+        //设置隐藏底部栏
+        chat.hidesBottomBarWhenPushed=YES;
+        //显示聊天会话界面
+        [self.navigationController pushViewController:chat animated:YES];
+        
+    }
+}
 //跳转到所有通知页面
 - (IBAction)btnEnterAllNotifications:(id)sender {
     
@@ -232,7 +291,7 @@ _articleUrlArray=@[@"http://mp.weixin.qq.com/s/m3y2dvyWLxHoFskyX5aWPQ",@"http://
     
     
 }
-
+/*
 //UIActionSheet对话框选择监听事件
 -(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {
@@ -246,6 +305,8 @@ _articleUrlArray=@[@"http://mp.weixin.qq.com/s/m3y2dvyWLxHoFskyX5aWPQ",@"http://
         [self.navigationController pushViewController:nextPage animated:YES];
     
 }
+
+*/
 -(NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
 
     
@@ -319,7 +380,7 @@ _articleUrlArray=@[@"http://mp.weixin.qq.com/s/m3y2dvyWLxHoFskyX5aWPQ",@"http://
     //获取全局ip地址
     AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
     NSString *urlString;
-    urlString= [NSString stringWithFormat:@"%@/api/sch/notice/getList",myDelegate.ipString];
+    urlString= [NSString stringWithFormat:@"%@/api/sys/lunbo/getList",myDelegate.ipString];
     //创建数据请求的对象，不是单例
     AFHTTPRequestOperationManager *manager=[AFHTTPRequestOperationManager manager];
     //设置响应数据的类型,如果是json数据，会自动帮你解析
@@ -359,7 +420,13 @@ _articleUrlArray=@[@"http://mp.weixin.qq.com/s/m3y2dvyWLxHoFskyX5aWPQ",@"http://
                     }
                     else{
                         
-                        for(NSDictionary *item in  array ){
+                        for(NSDictionary *item in  [[doc objectForKey:@"data"] objectForKey:@"groups" ]){
+                            //使用这个类暂时代替一下group类
+                            Notification *model=[[Notification alloc]init];
+                            model.title=item[@"name"];
+                            model.articleId=item[@"id"];
+                            [mDataGroups addObject:model];
+                            
                             
                         }
                         //NSLog(@"mDataArticle项数为%i",[allDataFromServer count]);
