@@ -12,6 +12,8 @@
 @public
     //判断是否是因为TokenInValid才跳转到这个界面的
     Boolean isFromTokenInValid;
+    
+    
 @public
     //发生TokenInValid的界面传值过来
     NSString *phone;
