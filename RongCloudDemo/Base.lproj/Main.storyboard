@@ -2776,6 +2776,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A4V-H1-X5j">
                                 <rect key="frame" x="226" y="198" width="77" height="30"/>
                                 <state key="normal" title="获取验证码"/>
+                                <connections>
+                                    <action selector="getVCode:" destination="L6S-1Q-T3I" eventType="touchUpInside" id="pym-DC-TVQ"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入验证码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wNI-sX-1eq">
                                 <rect key="frame" x="71" y="236" width="232" height="30"/>
@@ -2783,12 +2786,25 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U6w-gJ-ROY">
+                                <rect key="frame" x="71.5" y="316" width="232" height="30"/>
+                                <color key="backgroundColor" red="0.19807185059999999" green="0.66129513610000001" blue="0.98470920319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="确认">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="ok:" destination="L6S-1Q-T3I" eventType="touchUpInside" id="KUG-uX-61c"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="wNI-sX-1eq" firstAttribute="width" secondItem="cwc-5O-ys0" secondAttribute="width" id="9c5-iM-sdr"/>
+                            <constraint firstItem="U6w-gJ-ROY" firstAttribute="centerX" secondItem="NtD-bj-2Jc" secondAttribute="centerX" id="F85-iF-UoM"/>
                             <constraint firstItem="cwc-5O-ys0" firstAttribute="centerX" secondItem="NtD-bj-2Jc" secondAttribute="centerX" id="QxL-LD-Gnq"/>
+                            <constraint firstItem="U6w-gJ-ROY" firstAttribute="width" secondItem="wNI-sX-1eq" secondAttribute="width" id="R5y-8p-3Pc"/>
                             <constraint firstItem="A4V-H1-X5j" firstAttribute="top" secondItem="cwc-5O-ys0" secondAttribute="bottom" constant="8" id="cyJ-jf-mQx"/>
+                            <constraint firstItem="U6w-gJ-ROY" firstAttribute="top" secondItem="wNI-sX-1eq" secondAttribute="bottom" constant="50" id="fFS-Xb-x4D"/>
                             <constraint firstItem="wNI-sX-1eq" firstAttribute="top" secondItem="A4V-H1-X5j" secondAttribute="bottom" constant="8" id="jCx-ob-RZB"/>
                             <constraint firstItem="A4V-H1-X5j" firstAttribute="trailing" secondItem="cwc-5O-ys0" secondAttribute="trailing" id="rYM-7k-gZS"/>
                             <constraint firstItem="cwc-5O-ys0" firstAttribute="width" secondItem="NtD-bj-2Jc" secondAttribute="width" multiplier="0.618" id="sqx-q2-MXf"/>
@@ -2796,6 +2812,10 @@
                             <constraint firstItem="cwc-5O-ys0" firstAttribute="top" secondItem="OE7-0c-JDg" secondAttribute="bottom" constant="140" id="xmx-6z-yQb"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="mUITextFieldNewPhone" destination="cwc-5O-ys0" id="yPy-dJ-caK"/>
+                        <outlet property="mUITextFieldVCode" destination="wNI-sX-1eq" id="OX1-Y6-NEE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oxq-aR-xlH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface EditPhoneViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UITextField *mUITextFieldNewPhone;
+@property (weak, nonatomic) IBOutlet UITextField *mUITextFieldVCode;
 
 @end
