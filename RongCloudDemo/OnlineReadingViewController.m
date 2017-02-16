@@ -88,6 +88,7 @@
     
     
     PsychologyTableViewController *controller0 = (PsychologyTableViewController *)[storyboard instantiateViewControllerWithIdentifier:@"PsychologyTableViewController"];//这里的identifer是我们之前设置的StoryboardID
+    controller0->type=@"xlcs";
     
     ArticleTableViewController *controller1 = (ArticleTableViewController *)[storyboard instantiateViewControllerWithIdentifier:@"ArticleTableViewController"];
     

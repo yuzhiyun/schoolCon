@@ -143,7 +143,7 @@
                                 <rect key="frame" x="28" y="314" width="174" height="52"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="中度焦虑" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1jf-2m-FMj">
+                            <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="中度焦虑" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1jf-2m-FMj">
                                 <rect key="frame" x="53" y="135" width="173.5" height="51.5"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="43"/>
@@ -674,6 +674,7 @@
                                     <outlet property="UILabelNumOfTest" destination="Yfv-zT-eqr" id="bXf-cg-SAf"/>
                                     <outlet property="UILabelPrice" destination="AjD-UX-UcP" id="adl-jX-RfF"/>
                                     <outlet property="UILabelTitle" destination="Y2H-Na-ffJ" id="8ZY-zC-bNL"/>
+                                    <outlet property="mUILabelPriceKey" destination="Uhz-9Q-QYD" id="46R-Fr-ngB"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

@@ -17,6 +17,13 @@
         
     @public
         NSString *pubString;
+    /**
+     *xlcs   心理测试
+     *wdcs   我的测试
+     */
+@public
+    NSString *type;
+
     
     
 }

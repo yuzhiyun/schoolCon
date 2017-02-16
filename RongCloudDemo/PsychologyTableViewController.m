@@ -23,6 +23,7 @@
 #import "JsonUtil.h"
 #import "MJRefresh.h"
 #import "Test.h"
+#import "TestResultViewController.h"
 #import "Alert.h"
 @interface PsychologyTableViewController ()
 
@@ -127,6 +128,9 @@
 //    NSString *money = [numberFormatter stringFromNumber:model.money];
     
 //    cell.UILabelPrice.text=[NSString stringWithFormat:@"%@",  model.money];
+    if ([@"wdcs" isEqualToString:type]) {
+        cell.mUILabelPriceKey.text=@"分数";
+    }
     cell.UILabelPrice.text= model.money.stringValue;
     
 //    cell.UILabelNumOfTest.text=[NSString stringWithFormat:@"%i",  model.testNumber];
@@ -148,6 +152,15 @@
     
     Test *model=[allDataFromServer objectAtIndex:indexPath.row];
     
+    
+    
+        
+    //
+        
+    
+    if([@"xlcs" isEqualToString:type]){
+    
+
     //根据storyboard id来获取目标页面
     TestIntroductionViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"TestIntroductionViewController"];
 //    //    传值
@@ -160,6 +173,21 @@
     nextPage.hidesBottomBarWhenPushed=YES;
     //跳转
     [self.navigationController pushViewController:nextPage animated:YES];
+    }
+    
+    else if ([@"wdcs" isEqualToString:type]){
+        TestResultViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"TestResultViewController"];
+        nextPage->testId=model.testId;
+        nextPage->testName=model.title;
+        nextPage->picUrl=model.picUrl;
+        
+        
+        nextPage->score=model.money;
+        
+        nextPage.hidesBottomBarWhenPushed=YES;
+        [self.navigationController pushViewController:nextPage animated:YES];
+    }
+    
 }
 #pragma mark 加载活动列表
 -(void)loadData:(int)pageIndex orientation:(NSString *) orientation {
@@ -173,8 +201,10 @@
     
     NSString *urlString;
     
-        
-        urlString= [NSString stringWithFormat:@"%@/api/psy/test/getList",myDelegate.ipString];
+        if([@"xlcs" isEqualToString:type])
+            urlString= [NSString stringWithFormat:@"%@/api/psy/test/getList",myDelegate.ipString];
+    else if ([@"wdcs" isEqualToString:type])
+        urlString= [NSString stringWithFormat:@"%@/api/rcd/test/getMyTest",myDelegate.ipString];
     
         
        
@@ -233,6 +263,10 @@
                         
                         for(NSDictionary *item in  articleArray ){
                             Test *model=[[Test alloc]init];
+                            if([@"xlcs" isEqualToString:type]){
+
+                            
+
                             model.testId=item [@"id"];
                             model.picUrl=item [@"picurl"];
                             model.title=item [@"title"];
@@ -240,6 +274,14 @@
                             model.money=item [@"money"];
 //                            NSLog(model.money);
                             NSLog(@"money2");
+                            }
+                            else if ([@"wdcs" isEqualToString:type]){
+                                model.testId=item [@"testid"];
+                                model.picUrl=item [@"picurl"];
+                                model.title=item [@"testname"];
+                                NSLog(@"money1");
+                                model.money=item [@"score"];
+                            }
                             [allDataFromServer addObject:model];
                         }
                         NSLog(@"mDataArticle项数为%i",[allDataFromServer count]);

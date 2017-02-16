@@ -13,5 +13,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *UILabelPrice;
 @property (weak, nonatomic) IBOutlet UILabel *UILabelNumOfTest;
 @property (weak, nonatomic) IBOutlet UIImageView *UIImageViewCover;
+@property (weak, nonatomic) IBOutlet UILabel *mUILabelPriceKey;
 
 @end

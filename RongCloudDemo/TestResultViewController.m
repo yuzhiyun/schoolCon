@@ -93,37 +93,12 @@
                     }
                     else{
                         
-//                        for(NSDictionary *item in  articleArray ){
-//                            Article *model=[[Article alloc]init];
-//                            model.articleId=item [@"id"];
-//                            model.picUrl=item [@"picurl"];
-//                            model.title=item [@"title"];
-//                            model.author=item [@"author"];
-//                            
-//                            //                    注意，publishat是NSNumber 类型的，所以不要用字符串去接收，否则报错
-//                            //                    -[__NSCFNumber rangeOfCharacterFromSet:]: unrecognized selector sent to instance 0x7fa5216589d0"，对于IOS开发感兴趣的同学可以参考一下： 这个算是类型的不匹配，就是把NSNumber类型的赋给字符串了自己还不知情，
-//                            
-//                            model.date=item [@"publishat"];
-//                            
-//                            
-//                            NSLog(@"******打印文章列表**********");
-//                            NSLog(@"文章articleId是%@",model.articleId);
-//                            NSLog(@"文章picUrl是%@",model.picUrl);
-//                            NSLog(@"文章title是%@",model.title);
-//                            NSLog(@"文章author是%@",model.author);
-//                            NSLog(@"文章publishat是%i",model.date);
-//                            //添加到数组以便显示到tableview
-//                            NSLog(@"addObject之前");
-//                            if([orientation isEqualToString:@"up"])
-//                                [allDataFromServer addObject:model];
-//                            else
-//                                [allDataFromServer insertObject:model atIndex:0];
-//                            NSLog(@"addObject之后");
-//                        }
-//                        NSLog(@"mDataArticle项数为%i",[allDataFromServer count]);
+                        UILabel *mUILabelResult=[self.view viewWithTag:1];
+                        mUILabelResult.text=[[[doc objectForKey:@"data"]objectForKey:@"psy_grading"]objectForKey:@"result"];
+                        
+
                         NSLog(@"//更新界面");
-                        //更新界面
-//                        [mTableView reloadData];
+
                     }
                 }
                 else
