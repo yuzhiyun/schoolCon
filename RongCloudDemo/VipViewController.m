@@ -98,6 +98,14 @@
                 [WXApi sendReq:req];
                 //日志输出
                 NSLog(@"appid=%@\npartid=%@\nprepayid=%@\nnoncestr=%@\ntimestamp=%ld\npackage=%@\nsign=%@",[dict objectForKey:@"appid"],req.partnerId,req.prepayId,req.nonceStr,(long)req.timeStamp,req.package,req.sign );
+                /*
+                partnerid
+                prepayid
+                noncestr
+                timestamp
+                package
+                sign
+                 */
                 //return @"";
             }else{
                 NSLog( [dict objectForKey:@"retmsg"]);
