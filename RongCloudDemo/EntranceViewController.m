@@ -101,6 +101,8 @@
             nextPage.hidesBottomBarWhenPushed=YES;
             [self.navigationController pushViewController:nextPage animated:YES];
         });
+        
+        
     }
 }
 

@@ -24,6 +24,14 @@
 #import "ChangePwdViewController.h"
 #import "JsonUtil.h"
 #import "MyCollectViewController.h"
+#import "QiniuSDK.h"
+#import "zxGenarateToken.h"
+
+
+#define AK @"JzWNSxy7lSq0lxfkDsecHAS559e0pBXAMIrVnLNu"
+#define SK @"QSrCQ_Jd737zh8mww-tvfvMQX9bCDvNlXoE7WikL"
+#define KscopeName @"schoolcon"
+
 @interface MeViewController (){
     NSMutableArray *mDataKey;
     NSMutableArray *mDataImg;
@@ -43,7 +51,7 @@
     
     [super viewDidLoad];
     self.title=@"我 的";
-
+    [self QiNiuUploadImage:nil];
     //   navigationBar背景
     AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
     [self.navigationController.navigationBar setBarTintColor:myDelegate.navigationBarColor];
@@ -189,8 +197,45 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
         hud.labelText = @"上传头像中...";
         [hud show:YES];
         //上传头像
-        [self UploadImage:scaleImage];
+        //[self UploadImage:scaleImage];
+       // [self QiNiuUploadImage:scaleImage];
+        
     }
+}
+-(void)QiNiuUploadImage:(UIImage  *)image2{
+    
+    
+    
+    
+    zxGenarateToken *genetoken=[[zxGenarateToken alloc]init];
+    NSString *token= [genetoken returnQiniuTokenWithAk:AK sk:SK scopeName:KscopeName];
+    NSLog(@"token:%@",token);
+    
+    //        NSString *token=@"EJyvPPQiFEBvdmQsmAZhIiRyn7iNp7d_rCm4fh__:NDAgfOENeObsFUNXGeTV1mpuBGM=:eyJzY29wZSI6InFpbml1dGV4dCIsImRlYWRsaW5lIjoxNDU3OTI0MTMxfQ==";
+    QNUploadManager  *upManager=[[QNUploadManager alloc]init];
+    UIImage *image=[UIImage imageNamed:@"info.png"];
+    NSArray *imageArr=@[image];
+    NSMutableArray *dataArray=[[NSMutableArray alloc]init];
+    
+    for (UIImage *image1 in imageArr) {
+        NSData *data=UIImagePNGRepresentation(image1);
+        [dataArray addObject:data];
+    }
+    
+    NSMutableArray *urlArry=[[NSMutableArray alloc]init];
+    NSInteger i=90;
+    for (NSData *data in dataArray) {
+        i++;
+        [upManager putData:data key:[NSString stringWithFormat:@"zxin%ld",i] token:token complete:^(QNResponseInfo *info, NSString *key, NSDictionary *resp) {
+            NSLog(@"info %@",info);
+            NSLog(@"resp %@",resp);
+            if (resp!=nil) {
+                [urlArry addObject:[resp objectForKey:@"key"]];
+            }
+        } option:nil];
+    }
+    
+    
 }
 
 //头像上传
