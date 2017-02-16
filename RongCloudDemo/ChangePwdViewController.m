@@ -103,10 +103,6 @@
                 
                 //        信息框添加按键
                 [alert addAction:ok];
-                
-                
-                
-                
                 [self presentViewController:alert animated:YES completion:nil];
             }
             else{

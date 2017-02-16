@@ -27,8 +27,8 @@
 @interface MeViewController (){
     NSMutableArray *mDataKey;
     NSMutableArray *mDataImg;
-    NSData *selectedImgData;
-    UIImage *image;
+    //NSData *selectedImgData;
+    //UIImage *image;
     //上传头像进度条，就是一个劲旋转的进度
     MBProgressHUD *hud;
 }
@@ -181,77 +181,52 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
         [info objectForKey:UIImagePickerControllerOriginalImage];
         
         UIImage *scaleImage = [self scaleImage:originImage toScale:0.8];
-        selectedImgData = UIImageJPEGRepresentation(scaleImage, 0.00001);
+        //selectedImgData = UIImageJPEGRepresentation(scaleImage, 0.00001);
+        //image = [UIImage imageWithData:selectedImgData];
+        [self dismissViewControllerAnimated:YES completion:nil];
+        hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        //hud.color = [UIColor colorWithHexString:@"343637" alpha:0.5];
+        hud.labelText = @"上传头像中...";
+        [hud show:YES];
+        //上传头像
+        [self UploadImage:scaleImage];
     }
-    
-    image = [UIImage imageWithData:selectedImgData];
-    [self dismissViewControllerAnimated:YES completion:nil];
-    hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    //hud.color = [UIColor colorWithHexString:@"343637" alpha:0.5];
-    hud.labelText = @"上传头像中...";
-    [hud show:YES];
-    
-    
-    
-    
-    /*
-    [RCDHTTPTOOL uploadImageToQiNiu:[RCIM sharedRCIM].currentUserInfo.userId
-                          ImageData:data
-                            success:^(NSString *url) {
-                                [RCDHTTPTOOL
-                                 setUserPortraitUri:url
-                                 complete:^(BOOL result) {
-                                     if (result == YES) {
-                                         [RCIM sharedRCIM].currentUserInfo.portraitUri = url;
-                                         RCUserInfo *userInfo =
-                                         [RCIM sharedRCIM].currentUserInfo;
-                                         userInfo.portraitUri = url;
-                                         [DEFAULTS setObject:url forKey:@"userPortraitUri"];
-                                         [DEFAULTS synchronize];
-                                         [[RCIM sharedRCIM]
-                                          refreshUserInfoCache:userInfo
-                                          withUserId:[RCIM sharedRCIM]
-                                          .currentUserInfo.userId];
-                                         [[RCDataBaseManager shareInstance]
-                                          insertUserToDB:userInfo];
-                                         [[NSNotificationCenter defaultCenter]
-                                          postNotificationName:@"setCurrentUserPortrait"
-                                          object:image];
-                                         dispatch_async(dispatch_get_main_queue(), ^{
-                                             [self.tableView reloadData];
-                                             //关闭HUD
-                                             [hud hide:YES];
-                                         });
-                                     }
-                                     if (result == NO) {
-                                         //关闭HUD
-                                         [hud hide:YES];
-                                         UIAlertView *alert = [[UIAlertView alloc]
-                                                               initWithTitle:nil
-                                                               message:@"上传头像失败"
-                                                               delegate:self
-                                                               cancelButtonTitle:@"确定"
-                                                               otherButtonTitles:nil];
-                                         [alert show];
-                                     }
-                                 }];
-                                
-                            }
-                            failure:^(NSError *err) {
-                                //关闭HUD
-                                [hud hide:YES];
-                                UIAlertView *alert =
-                                [[UIAlertView alloc] initWithTitle:nil
-                                                           message:@"上传头像失败"
-                                                          delegate:self
-                                                 cancelButtonTitle:@"确定"
-                                                 otherButtonTitles:nil];
-                                [alert show];
-                            }];
-     
-     */
 }
-
+//头像上传
+-(void)UploadImage:(UIImage  *)image
+{
+    AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
+    NSString *urlString= [NSString stringWithFormat:@"%@/api/sys/user/image",myDelegate.ipString];
+    
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    // 请求参数
+    NSDictionary *parameters = @{ @"appId":@"03a8f0ea6a",
+                                  @"appSecret":@"b4a01f5a7dd4416c",
+                                  @"token":myDelegate.token
+                                 // ,@"Filedata":
+                                  
+                                  };
+    NSData *imageData =UIImageJPEGRepresentation(image,1);
+    
+    [manager POST:urlString parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+        
+        
+        //NSData *imageData=UIImageJPEGRepresentation(image, 0.7);
+        [formData appendPartWithFileData:imageData name:@"file" fileName:@"head.jpg" mimeType:@"image/jpeg"];
+        
+    } success:^(AFHTTPRequestOperation *operation, id responseObject) {
+       // [hud hide:YES];
+        //成功后处理
+        //NSLog(@"Success: %@", responseObject);
+        NSLog(@"Success");
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+       // [hud hide:YES];
+         NSLog(@"Error");
+        //NSLog(@"Error: %@", error);
+    }];
+}
 - (UIImage *)scaleImage:(UIImage *)tempImage toScale:(float)scaleSize {
     UIGraphicsBeginImageContext(CGSizeMake(tempImage.size.width * scaleSize,
                                            tempImage.size.height * scaleSize));
