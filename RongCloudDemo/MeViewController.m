@@ -192,6 +192,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
         [self UploadImage:scaleImage];
     }
 }
+
 //头像上传
 -(void)UploadImage:(UIImage  *)image
 {
@@ -205,7 +206,6 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
                                   @"appSecret":@"b4a01f5a7dd4416c",
                                   @"token":myDelegate.token
                                  // ,@"Filedata":
-                                  
                                   };
     NSData *imageData =UIImageJPEGRepresentation(image,1);
     
@@ -227,6 +227,8 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
         //NSLog(@"Error: %@", error);
     }];
 }
+
+
 - (UIImage *)scaleImage:(UIImage *)tempImage toScale:(float)scaleSize {
     UIGraphicsBeginImageContext(CGSizeMake(tempImage.size.width * scaleSize,
                                            tempImage.size.height * scaleSize));
