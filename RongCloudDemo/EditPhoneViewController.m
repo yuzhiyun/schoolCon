@@ -15,6 +15,7 @@
 #import "JsonUtil.h"
 #import "MJRefresh.h"
 #import "LoginViewController.h"
+#import "DataBaseNSUserDefaults.h"
 #import "Alert.h"
 @interface EditPhoneViewController ()
 
@@ -85,7 +86,6 @@
             if([zero isEqualToNumber:code])
             {
                 //陈涛 15084731465  64785
-                
                 [Alert showMessageAlert:@"验证码短信已经发送到你的手机" view:self];
             }
             else{
@@ -166,8 +166,24 @@
             if([zero isEqualToNumber:code])
             {
                 //陈涛 15084731465  64785
+                //[Alert showMessageAlert:@"修改手机号成功" view:self];
                 
-                [Alert showMessageAlert:@"修改手机号成功" view:self];
+                UIAlertController *alert=[UIAlertController alertControllerWithTitle:nil message:@"修改手机号成功" preferredStyle:UIAlertControllerStyleAlert];
+                UIAlertAction *ok=[UIAlertAction actionWithTitle:@"确认"
+                                                           style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){
+                                                               NSLog(@"跳回LoginViewController");
+                                                               LoginViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
+                                                               nextPage->isFromTokenInValid=true;
+                                                               [DataBaseNSUserDefaults setData:_mUITextFieldNewPhone.text forkey:@"phone"];
+                                                               nextPage->phone=[DataBaseNSUserDefaults getData:@"phone"];
+                                                               nextPage->pwd=[DataBaseNSUserDefaults getData:@"pwd"];
+                                                               
+                                                               [self.navigationController pushViewController:nextPage animated:YES];
+                                                           }];
+                
+                //信息框添加按键
+                [alert addAction:ok];
+                [self presentViewController:alert animated:YES completion:nil];
             }
             else{
                 [Alert showMessageAlert:[doc objectForKey:@"msg"] view:self];

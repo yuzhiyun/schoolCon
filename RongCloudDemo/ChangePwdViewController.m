@@ -16,6 +16,7 @@
 #import "MJRefresh.h"
 #import "LoginViewController.h"
 #import "Alert.h"
+#import "DataBaseNSUserDefaults.h"
 @interface ChangePwdViewController ()
 
 @end
@@ -93,6 +94,9 @@
                                                                
                                                                LoginViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
                                                                nextPage->isFromTokenInValid=true;
+                                                               nextPage->phone=[DataBaseNSUserDefaults getData:@"phone"];
+                                                               [DataBaseNSUserDefaults setData:@"" forkey:@"pwd"];
+                                                               nextPage->pwd=[DataBaseNSUserDefaults getData:@"pwd"];
                                                                [self.navigationController pushViewController:nextPage animated:YES];
                                                                
                                                            }];
