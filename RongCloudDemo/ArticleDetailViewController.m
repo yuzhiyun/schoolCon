@@ -71,6 +71,8 @@
         NSString *urlString= [NSString stringWithFormat:@"%@//api/cms/comment/postObject",myDelegate.ipString];
         AFHTTPRequestOperationManager *manager=[AFHTTPRequestOperationManager manager];
         manager.responseSerializer.acceptableContentTypes=[NSSet setWithObjects:@"application/json", nil];
+        //避免乱码
+        [manager.requestSerializer setValue:@"application/x-www-form-urlencoded; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
         NSString *token=myDelegate.token;
         // 请求参数
         NSDictionary *parameters = @{ @"appId":@"03a8f0ea6a",

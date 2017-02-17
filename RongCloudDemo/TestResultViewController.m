@@ -27,7 +27,7 @@
     [super viewDidLoad];
     
     [self loadData];
-    // Do any additional setup after loading the view.
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -54,6 +54,10 @@
     //设置响应数据的类型,如果是json数据，会自动帮你解析
     //注意setWithObjects后面的s不能少
     manager.responseSerializer.acceptableContentTypes=[NSSet setWithObjects:@"application/json", nil];
+    //避免乱码
+    [manager.requestSerializer setValue:@"application/x-www-form-urlencoded; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+     
+     
     NSString *token=myDelegate.token;
     // 请求参数
     NSDictionary *parameters = @{ @"appId":@"03a8f0ea6a",
@@ -64,6 +68,11 @@
                                   @"picurl":picUrl,
                                   @"score":score
                                   };
+    NSLog(@"******************************");
+    NSLog(testId);
+    NSLog(testName);
+    NSLog(picUrl);
+    
     
     [manager POST:urlString parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         //隐藏圆形进度条
