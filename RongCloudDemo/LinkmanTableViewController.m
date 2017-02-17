@@ -111,7 +111,7 @@
     if (cell == nil) {
         cell = [[LinkmanTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
     }
-    //AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
+    AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
     //allDataFromServer=myDelegate.linkManArray;
     
     LinkMan *model=[allDataFromServer objectAtIndex:indexPath.row];
@@ -119,7 +119,10 @@
     cell.UILabelRemark.text = model.introduction;
     //    cell.UIImgAvatar.image=[UIImage imageNamed:[mDataAvatar objectAtIndex:indexPath.row]];
     if([@"private" isEqualToString: model.type]){
-        [cell.UIImgAvatar sd_setImageWithURL:model.picUrl placeholderImage:[UIImage imageNamed:@"favorites.png"]];
+        
+        
+        NSString *picUrl=[NSString stringWithFormat:@"%@%@",myDelegate.ipString,model.picUrl];
+        [cell.UIImgAvatar sd_setImageWithURL:picUrl placeholderImage:[UIImage imageNamed:@"favorites.png"]];
     }
     else
         cell.UIImgAvatar.image=[UIImage imageNamed:@"group.png"];
@@ -288,7 +291,7 @@
                         for(NSDictionary *item in  contactsArray ){
                             LinkMan *model=[[LinkMan alloc]init];
                             model.LinkmanId=item [@"userId"];
-                            //model.picUrl=item [@"picurl"];
+                            model.picUrl=item [@"picurl"];
                             model.introduction=item [@"remark"];
                             model.name=item [@"name"];
                             model.type= @"private";

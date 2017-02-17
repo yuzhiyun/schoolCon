@@ -64,6 +64,7 @@
     
     NSLog(@"getUserInfoWithUserId被调用几次");
     //这个是本人
+    /*
     if([@"56e339ee76a94fb79963b694164ef70d" isEqualToString:userId]){
         RCUserInfo *userInfo=[[RCUserInfo alloc]initWithUserId:userId name:@"本人" portrait:@"http://img05.tooopen.com/images/20150202/sy_80219211654.jpg"];
         completion(userInfo);
@@ -73,12 +74,15 @@
         RCUserInfo *userInfo2=[[RCUserInfo alloc]initWithUserId:userId name:@"俞志云" portrait:@"http://avatar.csdn.net/B/A/4/1_yuzhiyun3536.jpg"];
         completion(userInfo2);
     }
+    */
     
     AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
     
     for(LinkMan *item in myDelegate.linkManArray){
         if([userId isEqualToString:item.LinkmanId  ]){
-            RCUserInfo *userInfo=[[RCUserInfo alloc]initWithUserId:userId name:item.name portrait:@"http://img05.tooopen.com/images/20150202/sy_80219211654.jpg"];
+            
+              NSString *picUrl=[NSString stringWithFormat:@"%@%@",myDelegate.ipString,item.picUrl];
+            RCUserInfo *userInfo=[[RCUserInfo alloc]initWithUserId:userId name:item.name portrait:picUrl];
             completion(userInfo);
         }
     }
@@ -272,7 +276,7 @@
                         for(NSDictionary *item in  contactsArray ){
                             LinkMan *model=[[LinkMan alloc]init];
                             model.LinkmanId=item [@"userId"];
-                            //model.picUrl=item [@"picurl"];
+                            model.picUrl=item [@"picurl"];
                             model.introduction=item [@"remark"];
                             model.name=item [@"name"];
                             model.type= @"private";
