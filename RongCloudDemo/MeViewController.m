@@ -51,7 +51,7 @@
     
     [super viewDidLoad];
     self.title=@"我 的";
-    [self QiNiuUploadImage:nil];
+    //[self QiNiuUploadImage:nil];
     //   navigationBar背景
     AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
     [self.navigationController.navigationBar setBarTintColor:myDelegate.navigationBarColor];
@@ -198,7 +198,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
         [hud show:YES];
         //上传头像
         //[self UploadImage:scaleImage];
-       // [self QiNiuUploadImage:scaleImage];
+       [self QiNiuUploadImage:scaleImage];
         
     }
 }
@@ -227,8 +227,9 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
     for (NSData *data in dataArray) {
         i++;
         [upManager putData:data key:[NSString stringWithFormat:@"zxin%ld",i] token:token complete:^(QNResponseInfo *info, NSString *key, NSDictionary *resp) {
-            NSLog(@"info %@",info);
-            NSLog(@"resp %@",resp);
+            
+            NSLog(@"*************************info %@",info);
+            NSLog(@"*************************resp %@",resp);
             if (resp!=nil) {
                 [urlArry addObject:[resp objectForKey:@"key"]];
             }
@@ -263,8 +264,8 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
     } success:^(AFHTTPRequestOperation *operation, id responseObject) {
        // [hud hide:YES];
         //成功后处理
-        //NSLog(@"Success: %@", responseObject);
-        NSLog(@"Success");
+        NSLog(@"Success: %@", responseObject);
+        NSLog(@"上传图片Success");
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
        // [hud hide:YES];
