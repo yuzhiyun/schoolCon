@@ -63,6 +63,12 @@
     //根据storyboard id来获取目标页面
     JoinViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"JoinViewController"];
 
+    nextPage->activityId=activityId;
+    nextPage->activityType=activityType;
+    nextPage->activityName=activityName;
+    nextPage->picurl=picurl;
+    
+    
     nextPage.hidesBottomBarWhenPushed=YES;
     
     //跳转

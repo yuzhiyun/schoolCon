@@ -12,7 +12,15 @@
     
     
 @public
-    NSString *activityId;
+    NSString  *activityId;
+@public
+    NSString  *activityType;
+@public
+    NSString  *activityName;
+@public
+    NSString *picurl;
+
+    
 @public
     NSString *title;
     
@@ -20,6 +28,7 @@
     NSString *pubString;
 @public
     NSString *urlString;
+    
 }
 @property (weak, nonatomic) IBOutlet UIWebView *UIWebViewActivity;
 

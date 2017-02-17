@@ -19,7 +19,7 @@
  3，我的活动-岳麓沙龙---------myylsl
  4，我的活动-心理活动---------myxlhd
 */
-    @public
+@public
     NSString *type;
     
 }

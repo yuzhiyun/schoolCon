@@ -1715,6 +1715,7 @@
                                 </state>
                                 <connections>
                                     <action selector="join:" destination="Vib-Ax-2vh" eventType="touchUpInside" id="fbR-lJ-MHT"/>
+                                    <action selector="pay:" destination="OJg-Ve-D1O" eventType="touchUpInside" id="eqj-Xm-iYq"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -1775,6 +1776,15 @@
                             <constraint firstItem="sEm-HG-njl" firstAttribute="leading" secondItem="oxz-YZ-r9w" secondAttribute="leading" id="vee-Ok-O58"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="mUILabelDate" destination="a7V-Bt-KmV" id="Xvr-RA-F0y"/>
+                        <outlet property="mUILabelHost" destination="TgG-dt-Aas" id="2UM-c3-1zH"/>
+                        <outlet property="mUILabelPlace" destination="jOE-O4-oFW" id="K1A-wO-IF7"/>
+                        <outlet property="mUILabelPrice" destination="X6V-eP-6kn" id="d35-ut-bQ7"/>
+                        <outlet property="mUILabelTitle" destination="1Hs-7H-V0u" id="M7c-v7-1h4"/>
+                        <outlet property="mUITextFieldPhone" destination="I0i-mD-j8k" id="F8d-Pn-Lsp"/>
+                        <outlet property="mUITextFieldRemark" destination="mml-SV-CCl" id="qaE-fM-UWA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vdx-I2-V2O" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

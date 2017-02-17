@@ -74,6 +74,7 @@
         //避免乱码
         [manager.requestSerializer setValue:@"application/x-www-form-urlencoded; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
         NSString *token=myDelegate.token;
+        
         // 请求参数
         NSDictionary *parameters = @{ @"appId":@"03a8f0ea6a",
                                       @"appSecret":@"b4a01f5a7dd4416c",
@@ -82,7 +83,7 @@
                                       @"articleId":articleId
                                       };
         
-        [manager POST:urlString parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        [manager POST:urlString parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject){
             
             NSString *result=[JsonUtil DataTOjsonString:responseObject];
             NSLog(@"***************返回结果***********************");

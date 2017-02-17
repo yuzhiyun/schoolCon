@@ -1090,7 +1090,6 @@
 				CD2DCB871E03E7BE000C03E1 /* ArticleDetailViewController.h */,
 				CD2DCB881E03E7BE000C03E1 /* ArticleDetailViewController.m */,
 				CD2DCB8E1E04E831000C03E1 /* OnlineReadingViewController.h */,
-				CDDE854D1E20E02800E5F03B /* join */,
 				CD2DCB8F1E04E832000C03E1 /* OnlineReadingViewController.m */,
 			);
 			name = psychology;
@@ -1134,6 +1133,7 @@
 		CD2DCB951E0506C5000C03E1 /* detailYuelushalong */ = {
 			isa = PBXGroup;
 			children = (
+				CDDE854D1E20E02800E5F03B /* join */,
 				CD2DCC371E066137000C03E1 /* DetailYuluViewController.h */,
 				CD2DCC381E066137000C03E1 /* DetailYuluViewController.m */,
 			);

@@ -136,6 +136,9 @@
     
     Activity *model=[allDataFromServer objectAtIndex:indexPath.row];
     nextPage->activityId=model.activityId;
+    nextPage->activityType=type;
+    nextPage->activityName=model.title;
+    nextPage->picurl=model.picUrl;
     nextPage->title=model.title;
     
     NSString *urlString;
@@ -283,7 +286,9 @@
         //隐藏圆形进度条
         [hud hide:YES];
         NSString *errorUser=[error.userInfo objectForKey:NSLocalizedDescriptionKey];
-        if(error.code==-1009)
+        if(-1009==error.code||-1016==error.code)
+           
+
             errorUser=@"主人，似乎没有网络喔！";
         [Alert showMessageAlert:errorUser view:self];
     }];
