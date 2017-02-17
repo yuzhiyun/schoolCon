@@ -163,8 +163,8 @@ didDismissWithButtonIndex:(NSInteger)buttonIndex {
             } else {
                 NSLog(@"模拟器无法连接相机");
             }
-            //[self presentViewController:picker animated:YES completion:nil];
-            [Alert showMessageAlert:@"暂时不支持拍照，请选择我的相册" view:self];
+            [self presentViewController:picker animated:YES completion:nil];
+            //[Alert showMessageAlert:@"暂时不支持拍照，请选择我的相册" view:self];
             break;
         case 1:
             picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
