@@ -204,6 +204,10 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
         
     }
 }
+/**
+ *我还做了七牛的上传头像功能，但是好像token错了，本来是服务端传递token给我的，
+ *现在自己客户端生成，但是仍旧错了，以后改吧
+ */
 -(void)QiNiuUploadImage:(UIImage  *)image2{
     
     

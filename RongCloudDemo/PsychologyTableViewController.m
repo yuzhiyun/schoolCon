@@ -130,7 +130,13 @@
 //    cell.UILabelPrice.text=[NSString stringWithFormat:@"%@",  model.money];
     if ([@"wdcs" isEqualToString:type]) {
         cell.mUILabelPriceKey.text=@"分数";
+        cell.mUILabelTestNumKey.text=model.testNumber;
+        cell.UILabelNumOfTest.text=@"";
     }
+    else
+        cell.UILabelNumOfTest.text=model.testNumber;
+    
+    
     cell.UILabelPrice.text= model.money.stringValue;
     
 //    cell.UILabelNumOfTest.text=[NSString stringWithFormat:@"%i",  model.testNumber];
@@ -272,6 +278,8 @@
                             model.title=item [@"title"];
                             NSLog(@"money1");
                             model.money=item [@"money"];
+                            NSNumber *tem=item [@"joinpeoplenumber"];
+                                model.testNumber=tem.stringValue;
 //                            NSLog(model.money);
                             NSLog(@"money2");
                             }
@@ -281,6 +289,24 @@
                                 model.title=item [@"testname"];
                                 NSLog(@"money1");
                                 model.money=item [@"score"];
+                                //用显示心理测试页面测试人数的label显示时间
+                               
+                                
+                                /**
+                                 *把时间搓NSNumber 转成用户看得懂的时间
+                                 */
+                                NSNumber *date=item [@"at"];
+                                NSString *timeStamp2 =date.stringValue;
+                                long long int date1 = (long long int)[timeStamp2 intValue];
+                                NSDate *date2 = [NSDate dateWithTimeIntervalSince1970:date1];
+                                //用于格式化NSDate对象
+                                NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+                                //设置格式：zzz表示时区
+                                [dateFormatter setDateFormat:@"yyyy-MM-dd"];
+                                //NSDate转NSString
+                                NSString *currentDateString = [dateFormatter stringFromDate:date2];
+
+                                model.testNumber=currentDateString;
                             }
                             [allDataFromServer addObject:model];
                         }

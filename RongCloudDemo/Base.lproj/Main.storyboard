@@ -675,6 +675,7 @@
                                     <outlet property="UILabelPrice" destination="AjD-UX-UcP" id="adl-jX-RfF"/>
                                     <outlet property="UILabelTitle" destination="Y2H-Na-ffJ" id="8ZY-zC-bNL"/>
                                     <outlet property="mUILabelPriceKey" destination="Uhz-9Q-QYD" id="46R-Fr-ngB"/>
+                                    <outlet property="mUILabelTestNumKey" destination="sbV-ZA-ki2" id="aFh-JD-m7M"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
