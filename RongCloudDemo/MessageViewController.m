@@ -64,12 +64,13 @@
     
     NSLog(@"getUserInfoWithUserId被调用几次");
     //这个是本人
-    /*
-    if([@"56e339ee76a94fb79963b694164ef70d" isEqualToString:userId]){
+    
+    if([@"2466bc07e8d74e1db6ac2b80cfeb0bb3" isEqualToString:userId]){
         RCUserInfo *userInfo=[[RCUserInfo alloc]initWithUserId:userId name:@"本人" portrait:@"http://img05.tooopen.com/images/20150202/sy_80219211654.jpg"];
         completion(userInfo);
         
     }
+    /*
     if([@"321" isEqualToString:userId]){
         RCUserInfo *userInfo2=[[RCUserInfo alloc]initWithUserId:userId name:@"俞志云" portrait:@"http://avatar.csdn.net/B/A/4/1_yuzhiyun3536.jpg"];
         completion(userInfo2);
@@ -77,6 +78,7 @@
     */
     
     AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
+    
     
     for(LinkMan *item in myDelegate.linkManArray){
         if([userId isEqualToString:item.LinkmanId  ]){

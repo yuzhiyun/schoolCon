@@ -122,7 +122,7 @@
         
         
         NSString *picUrl=[NSString stringWithFormat:@"%@%@",myDelegate.ipString,model.picUrl];
-        [cell.UIImgAvatar sd_setImageWithURL:picUrl placeholderImage:[UIImage imageNamed:@"favorites.png"]];
+        [cell.UIImgAvatar sd_setImageWithURL:picUrl placeholderImage:[UIImage imageNamed:@"icon_tx.png"]];
     }
     else
         cell.UIImgAvatar.image=[UIImage imageNamed:@"group.png"];
