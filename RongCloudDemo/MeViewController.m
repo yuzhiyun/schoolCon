@@ -28,8 +28,8 @@
 #import "zxGenarateToken.h"
 
 
-#define AK @"JzWNSxy7lSq0lxfkDsecHAS559e0pBXAMIrVnLNu"
-#define SK @"QSrCQ_Jd737zh8mww-tvfvMQX9bCDvNlXoE7WikL"
+#define AK @"Pgclum_hLBU2FKsYZbRijZgZ8p2PpwlsfloLTGrP"
+#define SK @"GUF391mp5WDKRtxnSFQ0X1qBuXEEkXPHYZ2Q8x2f"
 #define KscopeName @"schoolcon"
 
 @interface MeViewController (){
@@ -197,8 +197,8 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
         hud.labelText = @"上传头像中...";
         [hud show:YES];
         //上传头像
-        //[self UploadImage:scaleImage];
-       [self QiNiuUploadImage:scaleImage];
+        [self UploadImage:scaleImage];
+       //[self QiNiuUploadImage:scaleImage];
         
     }
 }
@@ -228,8 +228,8 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
         i++;
         [upManager putData:data key:[NSString stringWithFormat:@"zxin%ld",i] token:token complete:^(QNResponseInfo *info, NSString *key, NSDictionary *resp) {
             
-            NSLog(@"*************************info %@",info);
-            NSLog(@"*************************resp %@",resp);
+            //NSLog(@"*************************info %@",info);
+            //NSLog(@"*************************resp %@",resp);
             if (resp!=nil) {
                 [urlArry addObject:[resp objectForKey:@"key"]];
             }
@@ -251,15 +251,15 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
     NSDictionary *parameters = @{ @"appId":@"03a8f0ea6a",
                                   @"appSecret":@"b4a01f5a7dd4416c",
                                   @"token":myDelegate.token
-                                 // ,@"Filedata":
+                                 // ,@"Filedata":@"head.jpg"
                                   };
     NSData *imageData =UIImageJPEGRepresentation(image,1);
     
-    [manager POST:urlString parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+    [manager POST:urlString parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
         
         
         //NSData *imageData=UIImageJPEGRepresentation(image, 0.7);
-        [formData appendPartWithFileData:imageData name:@"file" fileName:@"head.jpg" mimeType:@"image/jpeg"];
+        [formData appendPartWithFileData:imageData name:@"Filedata" fileName:@"head.jpg" mimeType:@"image/jpeg"];
         
     } success:^(AFHTTPRequestOperation *operation, id responseObject) {
        // [hud hide:YES];
