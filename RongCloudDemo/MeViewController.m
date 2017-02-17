@@ -21,6 +21,7 @@
 #import "AppDelegate.h"
 #import "Alert.h"
 #import "AFNetworking.h"
+#import "Toast.h"
 #import "ChangePwdViewController.h"
 #import "JsonUtil.h"
 #import "MyCollectViewController.h"
@@ -254,7 +255,8 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
                                  // ,@"Filedata":@"head.jpg"
                                   };
     NSData *imageData =UIImageJPEGRepresentation(image,1);
-    
+
+
     [manager POST:urlString parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
         
         
@@ -262,15 +264,49 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
         [formData appendPartWithFileData:imageData name:@"Filedata" fileName:@"head.jpg" mimeType:@"image/jpeg"];
         
     } success:^(AFHTTPRequestOperation *operation, id responseObject) {
-       // [hud hide:YES];
+        [hud hide:YES];
         //成功后处理
-        NSLog(@"Success: %@", responseObject);
-        NSLog(@"上传图片Success");
+        //NSLog(@"Success: %@", responseObject);
+        //NSLog(@"上传图片Success");
+        NSString *result=[JsonUtil DataTOjsonString:responseObject];
+        NSLog(@"***************返回结果***********************");
+        NSLog(result);
+        NSData *data=[result dataUsingEncoding:NSUTF8StringEncoding];
+        NSError *error=[[NSError alloc]init];
+        NSDictionary *doc= [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
+        if(doc!=nil){
+            NSLog(@"*****doc不为空***********");
+            //判断code 是不是0
+            NSNumber *zero=[NSNumber numberWithInt:(0)];
+            NSNumber *code=[doc objectForKey:@"code"];
+            if([zero isEqualToNumber:code])
+            {
+                //[Alert showMessageAlert:@"头像更换成功"  view:self];
+                [Toast showToast:@"头像更换成功" view:self.view];
+                //头像
+                NSString *picUrl=[NSString stringWithFormat:@"%@%@",myDelegate.ipString,[[doc objectForKey:@"data"] objectForKey:@"purl"]];
+                [self.UIImageViewAvatar sd_setImageWithURL:picUrl placeholderImage:[UIImage imageNamed:@"favorites.png"]];
+            }
+            else{
+                if([@"token invalid" isEqualToString:[doc objectForKey:@"msg"]]){
+                    [AppDelegate reLogin:self];
+                }
+                else{
+                    NSString *msg=[NSString stringWithFormat:@"code是%d ： %@",[doc objectForKey:@"code"],[doc objectForKey:@"msg"]];
+                    [Alert showMessageAlert:msg  view:self];
+                }
+            }
+        }
+        else
+            NSLog(@"*****doc空***********");
+
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-       // [hud hide:YES];
-         NSLog(@"Error");
-        //NSLog(@"Error: %@", error);
+       [hud hide:YES];
+        NSString *errorUser=[error.userInfo objectForKey:NSLocalizedDescriptionKey];
+        if(error.code==-1009)
+            errorUser=@"主人，似乎没有网络喔！";
+        [Alert showMessageAlert:errorUser view:self];
     }];
 }
 
@@ -479,6 +515,11 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
                 }
                 _mUILabelSchool.text=[[doc objectForKey:@"data"] objectForKey:@"school"];
                 _mUILabelUname.text=[[doc objectForKey:@"data"] objectForKey:@"name"];
+                
+                //头像
+                NSString *picUrl=[NSString stringWithFormat:@"%@%@",myDelegate.ipString,[[doc objectForKey:@"data"] objectForKey:@"purl"]];
+                [self.UIImageViewAvatar sd_setImageWithURL:picUrl placeholderImage:[UIImage imageNamed:@"favorites.png"]];
+                
             }
             else{
                 if([@"token invalid" isEqualToString:[doc objectForKey:@"msg"]]){
