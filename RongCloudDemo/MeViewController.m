@@ -56,11 +56,11 @@
     //   navigationBar背景
     AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
     [self.navigationController.navigationBar setBarTintColor:myDelegate.navigationBarColor];
-
+    
     //      navigationBar标题颜色
     [self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor],UITextAttributeTextColor,nil]];
     
-
+    
     //    隐藏返回按钮navigationController的navigationBar
     self.navigationController.navigationBarHidden=YES;
     
@@ -72,11 +72,17 @@
     
     mDataKey=[[NSMutableArray alloc]init];
     
+    NSNumber *userType=[DataBaseNSUserDefaults getData:@"userType"];
+    
     [mDataKey addObject:@"修改电话"];
     [mDataKey addObject:@"修改密码"];
     [mDataKey addObject:@"我的活动"];
     [mDataKey addObject:@"我的测试"];
-    [mDataKey addObject:@"我的会员"];
+    //不是老师
+    if(![[NSNumber numberWithInt:(0)] isEqualToNumber:userType]){
+        
+        [mDataKey addObject:@"我的会员"];
+    }
     [mDataKey addObject:@"我的收藏"];
     [mDataKey addObject:@"退出登录"];
     
@@ -85,7 +91,10 @@
     [mDataImg addObject:@"me_pwd.png"];
     [mDataImg addObject:@"coffee_little.png"];
     [mDataImg addObject:@"test_litttle.png"];
-    [mDataImg addObject:@"vip.png"];
+    //不是老师
+    if(![[NSNumber numberWithInt:(0)] isEqualToNumber:userType]){
+        [mDataImg addObject:@"vip.png"];
+    }
     [mDataImg addObject:@"callect.png"];
     [mDataImg addObject:@"exit.png"];
     
@@ -104,7 +113,7 @@
     self.UIImageViewAvatar.layer.cornerRadius = self.UIImageViewAvatar.frame.size.height / 2 ;
     
     //给图片添加点击事件更换图片
-     self.UIImageViewAvatar.userInteractionEnabled = YES;//打开用户交互
+    self.UIImageViewAvatar.userInteractionEnabled = YES;//打开用户交互
     //初始化一个手势
     UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(singleTapAction:)];
     //为图片添加手势
@@ -118,8 +127,8 @@
     //NSNumber *code=[doc objectForKey:@"code"];
     //if([zero isEqualToNumber:code])
     
-
-    NSNumber *userType=[DataBaseNSUserDefaults getData:@"userType"];
+    
+    
     //这是老师
     if([[NSNumber numberWithInt:(0)] isEqualToNumber:userType]){
         _mUILabelKeyStudentName.text=@"";
@@ -132,7 +141,7 @@
 -(void)singleTapAction:(UIGestureRecognizer *) s{
     NSLog(@"单击了头像");
     if([self dealWithNetworkStatus])
-       [self changePortrait];
+        [self changePortrait];
 }
 
 - (void)changePortrait {
@@ -200,7 +209,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
         [hud show:YES];
         //上传头像
         [self UploadImage:scaleImage];
-       //[self QiNiuUploadImage:scaleImage];
+        //[self QiNiuUploadImage:scaleImage];
         
     }
 }
@@ -257,11 +266,11 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
     NSDictionary *parameters = @{ @"appId":@"03a8f0ea6a",
                                   @"appSecret":@"b4a01f5a7dd4416c",
                                   @"token":myDelegate.token
-                                 // ,@"Filedata":@"head.jpg"
+                                  // ,@"Filedata":@"head.jpg"
                                   };
     NSData *imageData =UIImageJPEGRepresentation(image,1);
-
-
+    
+    
     [manager POST:urlString parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
         
         
@@ -304,10 +313,10 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
         }
         else
             NSLog(@"*****doc空***********");
-
+        
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-       [hud hide:YES];
+        [hud hide:YES];
         NSString *errorUser=[error.userInfo objectForKey:NSLocalizedDescriptionKey];
         if(error.code==-1009)
             errorUser=@"主人，似乎没有网络喔！";
@@ -358,7 +367,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
 }
 
 -(NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
- 
+    
     return [mDataKey count];
 }
 
@@ -389,15 +398,15 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
                                                        //清除token
                                                        [DataBaseNSUserDefaults removeData:@"token"];
                                                        
-//                                                       NSLog(@"退出登录");
+                                                       //                                                       NSLog(@"退出登录");
                                                        
                                                        //桌面图标右上角红点设置为0
                                                        [UIApplication sharedApplication].applicationIconBadgeNumber =0;
-                                                           //根据storyboard id来获取目标页面
-                                                           EntranceViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"EntranceViewController"];
-                                                        nextPage.hidesBottomBarWhenPushed=YES;
-                                                           //跳转
-                                                           [self.navigationController pushViewController:nextPage animated:YES];
+                                                       //根据storyboard id来获取目标页面
+                                                       EntranceViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"EntranceViewController"];
+                                                       nextPage.hidesBottomBarWhenPushed=YES;
+                                                       //跳转
+                                                       [self.navigationController pushViewController:nextPage animated:YES];
                                                    }];
         
         UIAlertAction *cancel=[UIAlertAction actionWithTitle:@"取消"
@@ -405,7 +414,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
                                                            
                                                            [alert dismissViewControllerAnimated:YES completion:nil];
                                                        }];
-//        信息框添加按键
+        //        信息框添加按键
         [alert addAction:ok];
         [alert addAction:cancel];
         [self presentViewController:alert animated:YES completion:nil];
@@ -438,7 +447,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
         nextPage->type=@"ylsl";
         [self.navigationController pushViewController:nextPage animated:YES];
     }
-
+    
     //我的测试
     if(3==indexPath.row){
         //显示顶部导航
@@ -451,17 +460,22 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
         [self.navigationController pushViewController:nextPage animated:YES];
     }
     
-    //我的会员
-    if(4==indexPath.row){
-        //显示顶部导航
-        self.navigationController.navigationBarHidden=NO;
-        VipViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"VipViewController"];
-        nextPage.hidesBottomBarWhenPushed=YES;
-        [self.navigationController pushViewController:nextPage animated:YES];
-        
+    NSNumber *userType=[DataBaseNSUserDefaults getData:@"userType"];
+    
+    //不是老师
+    if(![[NSNumber numberWithInt:(0)] isEqualToNumber:userType]){
+        //我的会员
+        if(4==indexPath.row){
+            //显示顶部导航
+            self.navigationController.navigationBarHidden=NO;
+            VipViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"VipViewController"];
+            nextPage.hidesBottomBarWhenPushed=YES;
+            [self.navigationController pushViewController:nextPage animated:YES];
+            
+        }
     }
     //我的收藏
-    if(5==indexPath.row){
+    if([mDataKey count]-2==indexPath.row){
         //显示顶部导航
         self.navigationController.navigationBarHidden=NO;
         MyCollectViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"MyCollectViewController"];
@@ -508,7 +522,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
                 NSNumber *userType=[DataBaseNSUserDefaults getData:@"userType"];
                 //这是老师
                 if([[NSNumber numberWithInt:(0)] isEqualToNumber:userType]){
-                   _mUILabelHeadTeacher.text=[[doc objectForKey:@"data"] objectForKey:@"course"];
+                    _mUILabelHeadTeacher.text=[[doc objectForKey:@"data"] objectForKey:@"course"];
                     _mUILabelStudentName.text=@"";
                     _mUILabelClass.text=@"";
                 }
@@ -542,7 +556,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSString *errorUser=[error.userInfo objectForKey:NSLocalizedDescriptionKey];
-         if(-1009==error.code||-1016==error.code)
+        if(-1009==error.code||-1016==error.code)
             errorUser=@"主人，似乎没有网络喔！";
         [Alert showMessageAlert:errorUser view:self];
     }];
