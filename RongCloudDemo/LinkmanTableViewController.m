@@ -59,7 +59,8 @@
     if(0==[myDelegate.linkManArray count]){
         
          allDataFromServer=[[NSMutableArray alloc]init];
-        [Alert showMessageAlert:@"尚无联系人信息，请下拉刷新" view:self];
+        //[Alert showMessageAlert:@"尚无联系人信息，请下拉刷新" view:self];
+        [self loadData];
         
     }
 }

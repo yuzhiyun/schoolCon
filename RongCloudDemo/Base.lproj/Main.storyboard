@@ -1790,38 +1790,6 @@
             </objects>
             <point key="canvasLocation" x="1943.2" y="2685.6071964017992"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="81o-Bh-vCD">
-            <objects>
-                <viewController id="TL1-re-A1a" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="F7c-zz-unn"/>
-                        <viewControllerLayoutGuide type="bottom" id="FkF-NS-IkV"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="oO0-G5-j8z">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="a18-dh-Thp">
-                                <rect key="frame" x="16" y="84" width="343" height="478"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="请勾选联系人" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gLR-UM-HED">
-                                <rect key="frame" x="56" y="41" width="104" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="NXG-5Y-2NY" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2804" y="2579"/>
-        </scene>
         <!--Online Reading View Controller-->
         <scene sceneID="npc-Wb-qi7">
             <objects>
@@ -1853,9 +1821,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="72" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="CKb-1j-fQg">
-                                <rect key="frame" x="0.0" y="89" width="375" height="578"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="72" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="CKb-1j-fQg">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="72" id="cje-V4-Px4" customClass="GroupSendTableViewCell">
@@ -1919,6 +1886,12 @@
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="CKb-1j-fQg" secondAttribute="trailing" id="CZS-Rp-KbX"/>
+                            <constraint firstItem="CKb-1j-fQg" firstAttribute="leading" secondItem="eri-9F-Qee" secondAttribute="leading" id="Gwc-ae-eKK"/>
+                            <constraint firstItem="CKb-1j-fQg" firstAttribute="top" secondItem="f5B-J7-ONg" secondAttribute="bottom" id="JXZ-KI-cdR"/>
+                            <constraint firstItem="b7h-Xv-EdE" firstAttribute="top" secondItem="CKb-1j-fQg" secondAttribute="bottom" id="ktN-e5-fFf"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ipo-1l-OYf" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2065,9 +2038,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="e3q-tJ-2kP">
-                                <rect key="frame" x="0.0" y="59" width="375" height="130"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e3q-tJ-2kP">
+                                <rect key="frame" x="0.0" y="20" width="375" height="130"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="你将发消息给3位朋友" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0mQ-VC-ELO">
                                         <rect key="frame" x="33" y="28" width="214" height="21"/>
@@ -2085,16 +2057,29 @@
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="130" id="c1P-s5-F8o"/>
+                                </constraints>
                             </view>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="请输入消息" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="HM0-O9-jmg">
-                                <rect key="frame" x="0.0" y="192" width="375" height="177"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="请输入消息" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="HM0-O9-jmg">
+                                <rect key="frame" x="0.0" y="151" width="375" height="177"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="177" id="rga-pk-YtB"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                         </subviews>
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="HM0-O9-jmg" firstAttribute="top" secondItem="e3q-tJ-2kP" secondAttribute="bottom" constant="1" id="GjK-ac-KWb"/>
+                            <constraint firstAttribute="trailing" secondItem="HM0-O9-jmg" secondAttribute="trailing" id="NJB-Zj-zsl"/>
+                            <constraint firstItem="HM0-O9-jmg" firstAttribute="leading" secondItem="y1c-lC-HRC" secondAttribute="leading" id="QQg-1r-QRh"/>
+                            <constraint firstItem="e3q-tJ-2kP" firstAttribute="top" secondItem="I5f-ig-SBL" secondAttribute="bottom" id="nU4-rz-xJQ"/>
+                            <constraint firstItem="e3q-tJ-2kP" firstAttribute="leading" secondItem="y1c-lC-HRC" secondAttribute="leading" id="riC-oK-bAe"/>
+                            <constraint firstAttribute="trailing" secondItem="e3q-tJ-2kP" secondAttribute="trailing" id="yco-8p-RZE"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="UILabelNumber" destination="0mQ-VC-ELO" id="QK4-Us-CGz"/>

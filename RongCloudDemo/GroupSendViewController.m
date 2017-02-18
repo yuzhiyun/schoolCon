@@ -85,7 +85,13 @@
     cell.UILabelRemark.text = model.introduction;
     cell.UIImgAvatar.layer.masksToBounds = YES;
     cell.UIImgAvatar.layer.cornerRadius = cell.UIImgAvatar.frame.size.height / 2 ;
-    [cell.UIImgAvatar sd_setImageWithURL:model.picUrl placeholderImage:[UIImage imageNamed:@"favorites.png"]];
+    
+    AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
+    
+    NSString *picUrl=[NSString stringWithFormat:@"%@%@",myDelegate.ipString,model.picUrl];
+    [cell.UIImgAvatar sd_setImageWithURL:picUrl placeholderImage:[UIImage imageNamed:@"icon_tx.png"]];
+    
+   
     
     
     NSString *index=[indexOfSelectedUser objectAtIndex:indexPath.row];
