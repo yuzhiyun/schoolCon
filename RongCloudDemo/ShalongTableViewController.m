@@ -176,10 +176,12 @@
     if([@"ylsl" isEqualToString:type])
         
     urlString= [NSString stringWithFormat:@"%@/api/cms/activity/getList",myDelegate.ipString];
-    else
+    else if([@"xlhd" isEqualToString:type])
         
        urlString= [NSString stringWithFormat:@"%@/api/psy/activity/getList",myDelegate.ipString];
-    
+    else
+        
+        urlString= [NSString stringWithFormat:@"%@/api/rcd/activity/getMyJoin",myDelegate.ipString];
     
     //创建数据请求的对象，不是单例
     AFHTTPRequestOperationManager *manager=[AFHTTPRequestOperationManager manager];
@@ -192,7 +194,8 @@
                                   @"appSecret":@"b4a01f5a7dd4416c",
                                   @"channelType":type,
                                   @"pageNumber":[NSString stringWithFormat:@"%d",pageIndex],
-                                  @"token":token
+                                  @"token":token,
+                                  @"activityType":type
                                   };
     
     [manager POST:urlString parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {

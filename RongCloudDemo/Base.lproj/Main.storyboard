@@ -2578,10 +2578,10 @@
             </objects>
             <point key="canvasLocation" x="7932" y="1998"/>
         </scene>
-        <!--View Controller-->
+        <!--My Activity View Controller-->
         <scene sceneID="wkD-mQ-WSZ">
             <objects>
-                <viewController id="KFG-kd-ZgG" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MyActivityViewController" id="KFG-kd-ZgG" customClass="MyActivityViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Qrw-Ok-t2y"/>
                         <viewControllerLayoutGuide type="bottom" id="zig-rs-zKq"/>

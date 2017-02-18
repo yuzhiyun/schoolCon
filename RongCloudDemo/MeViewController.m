@@ -27,7 +27,7 @@
 #import "MyCollectViewController.h"
 #import "QiniuSDK.h"
 #import "zxGenarateToken.h"
-
+#import "MyActivityViewController.h"
 
 #define AK @"Pgclum_hLBU2FKsYZbRijZgZ8p2PpwlsfloLTGrP"
 #define SK @"GUF391mp5WDKRtxnSFQ0X1qBuXEEkXPHYZ2Q8x2f"
@@ -443,9 +443,9 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
     if(2==indexPath.row){
         //显示顶部导航
         self.navigationController.navigationBarHidden=NO;
-        ShalongTableViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"ShalongTableViewController"];
+        MyActivityViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"MyActivityViewController"];
         nextPage.hidesBottomBarWhenPushed=YES;
-        nextPage->type=@"ylsl";
+        //nextPage->type=@"ylsl";
         [self.navigationController pushViewController:nextPage animated:YES];
     }
     

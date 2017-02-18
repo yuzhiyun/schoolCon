@@ -27,6 +27,7 @@
 }
 
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
     _mUILabelTitle.text=title;
     _mUILabelHost.text=host;
@@ -35,7 +36,7 @@
     _mUILabelPrice.text=price;
     //默认是一个人
     joinNum=1;
-    
+    _mUILabelJoinNum.text=[NSString stringWithFormat:@"%i",joinNum];
     _mUITextFieldPhone.text=[DataBaseNSUserDefaults getData:@"phone"];
     
     //处理软键盘遮挡输入框事件

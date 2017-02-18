@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface MyActivityViewController : UIViewController
+#import "WMPageController.h"
+@interface MyActivityViewController : WMPageController
 
 @end
