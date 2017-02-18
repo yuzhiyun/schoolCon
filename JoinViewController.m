@@ -74,7 +74,6 @@
                                   @"tel":@"12345678901",
                                   @"remarks":@"备注",
                                   @"payType":@"wx"
-
                                   };
     [manager POST:urlString parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
@@ -109,6 +108,9 @@
                  req.package             = [[doc objectForKey:@"data"]objectForKey:@"package"];
                 
                 req.sign                = [[doc objectForKey:@"data"]objectForKey:@"sign"];
+                
+                //存储以便在验证微信支付的时候使用
+                 [DataBaseNSUserDefaults setData: [[doc objectForKey:@"data"]objectForKey:@"orderId"] forkey:@"orderId"];
                 
                 NSLog(req.partnerId);
                 NSLog(req.prepayId);

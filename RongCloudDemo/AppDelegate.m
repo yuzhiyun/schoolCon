@@ -12,6 +12,8 @@
 #import "MBProgressHUD.h"
 #import "DataBaseNSUserDefaults.h"
 #import "JPUSHService.h"
+#import "AFNetworking.h"
+#import "JsonUtil.h"
 // iOS10注册APNs所需头文件
 #ifdef NSFoundationVersionNumber_iOS_9_x_Max
 #import <UserNotifications/UserNotifications.h>
@@ -126,11 +128,13 @@
             case WXSuccess:
                 strMsg = @"支付结果：成功！";
                 NSLog(@"支付成功－PaySuccess，retcode = %d", resp.errCode);
+                [self veriftPayResult];
                 //再次访问服务器，再次确认是否支付成功，如果成功，跳回主页面
                 /*
                 MainViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"MainViewController"];
                 nextPage.hidesBottomBarWhenPushed=YES;
                 [self.navigationController pushViewController:nextPage animated:YES];
+                 
                 
                 */
                 break;
@@ -140,12 +144,90 @@
                 NSLog(@"错误，retcode = %d, retstr = %@", resp.errCode,resp.errStr);
                 break;
         }
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:strTitle message:strMsg delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-        [alert show];
+       // UIAlertView *alert = [[UIAlertView alloc] initWithTitle:strTitle message:strMsg delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+      //  [alert show];
         //[alert release];
     }
     
 }
+
+#pragma mark 验证支付结果
+-(void)veriftPayResult {
+   // MBProgressHUD *hud;
+    //hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    //hud.color = [UIColor colorWithHexString:@"343637" alpha:0.5];
+   // hud.labelText = @" 获取数据...";
+    //[hud show:YES];
+    //获取全局ip地址
+    AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
+    
+    NSString *urlString= [NSString stringWithFormat:@"%@/api/order/activity/isPayed",myDelegate.ipString];
+    
+    
+    //创建数据请求的对象，不是单例
+    AFHTTPRequestOperationManager *manager=[AFHTTPRequestOperationManager manager];
+    //设置响应数据的类型,如果是json数据，会自动帮你解析
+    //注意setWithObjects后面的s不能少
+    manager.responseSerializer.acceptableContentTypes=[NSSet setWithObjects:@"application/json", nil];
+    NSString *token=myDelegate.token;
+    // 请求参数
+    NSDictionary *parameters = @{ @"appId":@"03a8f0ea6a",
+                                  @"appSecret":@"b4a01f5a7dd4416c",
+                                  @"token":token,
+                                  @"orderId":[DataBaseNSUserDefaults getData:@"orderId"]
+                                  };
+    
+    [manager POST:urlString parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        NSString *result=[JsonUtil DataTOjsonString:responseObject];
+        NSLog(@"***************返回结果***********************");
+        NSLog(result);
+        NSData *data=[result dataUsingEncoding:NSUTF8StringEncoding];
+        NSError *error=[[NSError alloc]init];
+        NSDictionary *doc= [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
+        if(doc!=nil){
+            NSLog(@"*****doc不为空***********");
+            if([[doc objectForKey:@"code"] isKindOfClass:[NSNumber class]])
+                NSLog(@"code 是 NSNumber");
+            
+            //NSLog([doc objectForKey:@"code"]);
+            //判断code 是不是0
+            NSNumber *zero=[NSNumber numberWithInt:(0)];
+            NSNumber *code=[doc objectForKey:@"code"];
+            if([zero isEqualToNumber:code])
+            {
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"温馨提示" message:@"恭喜您支付成功" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                [alert show];
+            }
+            else{
+
+                if([@"token invalid" isEqualToString:[doc objectForKey:@"msg"]]){
+                    [AppDelegate reLogin:self];
+                }
+                else{
+                    NSString *msg=[NSString stringWithFormat:@"code是%d ： %@",[doc objectForKey:@"code"],[doc objectForKey:@"msg"]];
+                    [Alert showMessageAlert:msg  view:self];
+                }
+            }
+        }
+        else
+            NSLog(@"*****doc空***********");
+        //        NSLog([self DataTOjsonString:responseObject]);
+        //          NSLog([self convertToJsonData:dic]);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error){
+       // [self.tableView footerEndRefreshing];
+        //[self.tableView headerEndRefreshing];
+        //隐藏圆形进度条
+        //[hud hide:YES];
+        NSString *errorUser=[error.userInfo objectForKey:NSLocalizedDescriptionKey];
+        if(-1009==error.code||-1016==error.code)
+            
+            
+            errorUser=@"主人，似乎没有网络喔！";
+        [Alert showMessageAlert:errorUser view:self];
+    }];
+}
+
 
 //- (void)application:(UIApplication *)application
 //didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
