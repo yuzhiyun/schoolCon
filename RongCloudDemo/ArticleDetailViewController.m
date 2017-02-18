@@ -23,8 +23,6 @@
     //    NSMutableArray *mDataDate;
     NSMutableArray *mDataCommentContent;
     int keyBoardHeight;
-    
-    
 }
 
 @synthesize UIWebViewArticle;

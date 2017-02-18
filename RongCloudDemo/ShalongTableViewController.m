@@ -141,6 +141,13 @@
     nextPage->picurl=model.picUrl;
     nextPage->title=model.title;
     
+
+    nextPage->host=model.publisher;
+    nextPage->date=model.date;
+    nextPage->place=model.place;
+    nextPage->price=model.price;
+    
+    
     NSString *urlString;
     
     if([@"xlhd" isEqualToString:type])

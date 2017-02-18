@@ -1585,8 +1585,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="联系人" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v0e-CI-Obz">
-                                <rect key="frame" x="16" y="273" width="52" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="备注" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v0e-CI-Obz">
+                                <rect key="frame" x="16" y="273" width="35" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -1645,17 +1645,17 @@
                                 <color key="textColor" red="1" green="0.23652616209999999" blue="0.1614098991" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="陈曦" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mml-SV-CCl">
-                                <rect key="frame" x="153" y="273" width="111" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mml-SV-CCl">
+                                <rect key="frame" x="153" y="273" width="156" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="18075156565" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="I0i-mD-j8k">
-                                <rect key="frame" x="153" y="314" width="111" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="I0i-mD-j8k">
+                                <rect key="frame" x="153" y="314" width="156" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1   " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DjW-Em-sPG">
                                 <rect key="frame" x="189" y="360" width="21" height="21"/>
@@ -1669,6 +1669,9 @@
                                 <state key="normal" title="+">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="add:" destination="OJg-Ve-D1O" eventType="touchUpInside" id="Jej-0f-a59"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qGM-k2-y9S">
                                 <rect key="frame" x="153" y="355" width="30" height="30"/>
@@ -1676,6 +1679,9 @@
                                 <state key="normal" title="-">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="minus:" destination="OJg-Ve-D1O" eventType="touchUpInside" id="An7-0v-TGb"/>
+                                </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ljr-P9-Aqg">
                                 <rect key="frame" x="46" y="437" width="283" height="50"/>
@@ -1773,6 +1779,7 @@
                             <constraint firstItem="nLC-3l-L5j" firstAttribute="top" secondItem="Aj7-rx-LjX" secondAttribute="bottom" constant="20" id="rHI-R8-aJm"/>
                             <constraint firstItem="nRl-Mr-gHR" firstAttribute="leading" secondItem="oxz-YZ-r9w" secondAttribute="leading" id="raj-wG-qeh"/>
                             <constraint firstItem="I0i-mD-j8k" firstAttribute="width" secondItem="mml-SV-CCl" secondAttribute="width" id="sLR-Ae-fZL"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="I0i-mD-j8k" secondAttribute="trailing" constant="50" id="tXX-KC-Cj8"/>
                             <constraint firstItem="mK2-Ey-Nt9" firstAttribute="top" secondItem="sEm-HG-njl" secondAttribute="bottom" constant="20" id="uGC-Pj-iyu"/>
                             <constraint firstItem="mml-SV-CCl" firstAttribute="leading" secondItem="c76-LZ-UkH" secondAttribute="leading" id="uir-lR-oRL"/>
                             <constraint firstItem="sEm-HG-njl" firstAttribute="leading" secondItem="oxz-YZ-r9w" secondAttribute="leading" id="vee-Ok-O58"/>
@@ -1781,6 +1788,7 @@
                     <connections>
                         <outlet property="mUILabelDate" destination="a7V-Bt-KmV" id="Xvr-RA-F0y"/>
                         <outlet property="mUILabelHost" destination="TgG-dt-Aas" id="2UM-c3-1zH"/>
+                        <outlet property="mUILabelJoinNum" destination="DjW-Em-sPG" id="YvM-gO-Zv1"/>
                         <outlet property="mUILabelPlace" destination="jOE-O4-oFW" id="K1A-wO-IF7"/>
                         <outlet property="mUILabelPrice" destination="X6V-eP-6kn" id="d35-ut-bQ7"/>
                         <outlet property="mUILabelTitle" destination="1Hs-7H-V0u" id="M7c-v7-1h4"/>

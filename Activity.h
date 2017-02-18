@@ -14,4 +14,6 @@
 @property (nonatomic,copy)NSString *publisher;
 @property (nonatomic,copy)NSString *place;
 @property (nonatomic,copy)NSString *date;
+@property (nonatomic,copy)NSString *price;
+
 @end

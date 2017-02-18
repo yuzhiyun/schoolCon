@@ -67,7 +67,14 @@
     nextPage->activityType=activityType;
     nextPage->activityName=activityName;
     nextPage->picurl=picurl;
+    nextPage->title=title;
+    nextPage->host=host;
+    nextPage->date=date;
+    nextPage->place=place;
+    nextPage->price=price;
+
     
+
     
     nextPage.hidesBottomBarWhenPushed=YES;
     

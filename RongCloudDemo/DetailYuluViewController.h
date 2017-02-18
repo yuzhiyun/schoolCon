@@ -21,13 +21,22 @@
     NSString *picurl;
 
     
-@public
-    NSString *title;
     
 @public
     NSString *pubString;
 @public
     NSString *urlString;
+    
+@public
+    NSString  *title;
+@public
+    NSString  *host;
+@public
+    NSString  *date;
+@public
+    NSString  *place;
+@public
+    NSString  *price;
     
 }
 @property (weak, nonatomic) IBOutlet UIWebView *UIWebViewActivity;

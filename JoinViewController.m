@@ -22,11 +22,27 @@
 
 @end
 
-@implementation JoinViewController
+@implementation JoinViewController{
+    int joinNum;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    _mUILabelTitle.text=title;
+    _mUILabelHost.text=host;
+    _mUILabelDate.text=date;
+    _mUILabelPlace.text=place;
+    _mUILabelPrice.text=price;
+    //默认是一个人
+    joinNum=1;
+    
+    _mUITextFieldPhone.text=[DataBaseNSUserDefaults getData:@"phone"];
+    
+    //处理软键盘遮挡输入框事件
+    _mUITextFieldPhone.delegate=self;
+    _mUITextFieldRemark.delegate=self;
+
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -38,7 +54,11 @@
 - (IBAction)pay:(id)sender {
     
     
-    
+    if(0==_mUITextFieldPhone.text.length||0==_mUITextFieldRemark.text.length){
+        [Alert showMessageAlert:@"请确保输入框不为空" view:self];
+        
+        return;
+    }
     [self getWeXinUnionPayParameters];
     
     
@@ -65,14 +85,13 @@
     NSDictionary *parameters = @{ @"appId":@"03a8f0ea6a",
                                   @"appSecret":@"b4a01f5a7dd4416c",
                                   @"token":token,
-                                  
                                   @"activityId":activityId,
                                   @"activityType":activityType,
                                   @"activityName":activityName,
                                   @"picurl":picurl,
-                                  @"peopleNumber":@"1",
-                                  @"tel":@"12345678901",
-                                  @"remarks":@"备注",
+                                  @"peopleNumber":_mUILabelJoinNum.text,
+                                  @"tel":_mUITextFieldPhone.text,
+                                  @"remarks":_mUITextFieldRemark.text,
                                   @"payType":@"wx"
                                   };
     [manager POST:urlString parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
@@ -147,6 +166,65 @@
             errorUser=@"主人，似乎没有网络喔！";
         [Alert showMessageAlert:errorUser view:self];
     }];
+}
+- (IBAction)minus:(id)sender {
+    if(1==joinNum){
+        [Alert showMessageAlert:@"参加人数不能少于1" view:self];
+        return;
+    }
+        
+    joinNum-=1;
+    _mUILabelJoinNum.text=[NSString stringWithFormat:@"%i",joinNum];
+    
+    
+}
+- (IBAction)add:(id)sender {
+    joinNum+=1;
+    _mUILabelJoinNum.text=[NSString stringWithFormat:@"%i",joinNum];
+}
+//开始编辑输入框的时候，软键盘出现，执行此事件
+-(void)textFieldDidBeginEditing:(UITextField *)textField
+{
+    // 2.模拟2秒后（
+    //dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+    CGRect frame = textField.frame;
+    int offset = frame.origin.y +frame.size.height - (self.view.frame.size.height - 300);//键盘高度270
+    
+    NSTimeInterval animationDuration = 0.30f;
+    [UIView beginAnimations:@"ResizeForKeyboard" context:nil];
+    [UIView setAnimationDuration:animationDuration];
+    
+    //将视图的Y坐标向上移动offset个单位，以使下面腾出地方用于软键盘的显示
+    if(offset > 0)
+        self.view.frame = CGRectMake(0.0f, -offset, self.view.frame.size.width, self.view.frame.size.height);
+    [UIView commitAnimations];
+    
+    
+    // });
+    
+    
+}
+//当键盘出现或改变时调用
+- (void)keyboardWillShow:(NSNotification *)aNotification
+{
+    //获取键盘的高度
+    NSDictionary *userInfo = [aNotification userInfo];
+    NSValue *aValue = [userInfo objectForKey:UIKeyboardFrameEndUserInfoKey];
+    CGRect keyboardRect = [aValue CGRectValue];
+ //   keyBoardHeight = keyboardRect.size.height;
+   // NSLog(@"%i",keyBoardHeight);
+}
+//当用户按下return键或者按回车键，keyboard消失
+-(BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    return YES;
+}
+
+//输入框编辑完成以后，将视图恢复到原始状态
+-(void)textFieldDidEndEditing:(UITextField *)textField
+{
+    self.view.frame =CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
 }
 
 @end
