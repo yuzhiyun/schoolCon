@@ -115,6 +115,7 @@
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
     return [WXApi handleOpenURL:url delegate:self];
 }
+
 #pragma mark - WXApiDelegate
 - (void)onResp:(BaseResp *)resp {
      if([resp isKindOfClass:[PayResp class]]){
@@ -125,6 +126,13 @@
             case WXSuccess:
                 strMsg = @"支付结果：成功！";
                 NSLog(@"支付成功－PaySuccess，retcode = %d", resp.errCode);
+                //再次访问服务器，再次确认是否支付成功，如果成功，跳回主页面
+                /*
+                MainViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"MainViewController"];
+                nextPage.hidesBottomBarWhenPushed=YES;
+                [self.navigationController pushViewController:nextPage animated:YES];
+                
+                */
                 break;
                 
             default:

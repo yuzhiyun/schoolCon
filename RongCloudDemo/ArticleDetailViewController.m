@@ -60,6 +60,10 @@
 }
 - (IBAction)sendComment:(id)sender {
     
+    if([@"xlzs" isEqualToString:type]||[@"xinli" isEqualToString:type]){
+        [Alert showMessageAlert:@"暂未开放评论" view:self];
+    }
+    
     if(0==_mUITextFieldCommnet.text.length){
         //输入框没有获取焦点的时候（点击软键盘的“完成”，就会失去焦点），可以弹出Toast，但是获取焦点后，弹不出 toast，这里我建议采用其他方法处理，比如当输入框为空的时候，设置按钮为不可点击状态, 最后我改成了用Alert提示用户，这样就搞定了。
         

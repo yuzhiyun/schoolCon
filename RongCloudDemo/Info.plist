@@ -26,10 +26,10 @@
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
 			<key>CFBundleURLName</key>
-			<string></string>
+			<string>weixin</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>wxb4ba3c02aa476ea1</string>
+				<string>wx0158a94b751f8f2b</string>
 			</array>
 		</dict>
 	</array>

@@ -141,7 +141,7 @@
             
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             NSString *errorUser=[error.userInfo objectForKey:NSLocalizedDescriptionKey];
-            if(error.code==-1009)
+            if(-1009==error.code||-1016==error.code)
                 errorUser=@"主人，似乎没有网络喔！";
             [Alert showMessageAlert:errorUser view:self];
         }];

@@ -151,13 +151,72 @@ _articleUrlArray=@[@"http://mp.weixin.qq.com/s/m3y2dvyWLxHoFskyX5aWPQ",@"http://
 
 - (IBAction)classGroup:(id)sender {
     
+    AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
+    NSString *urlString= [NSString stringWithFormat:@"%@/api/sys/user/validateVip",myDelegate.ipString];
+    AFHTTPRequestOperationManager *manager=[AFHTTPRequestOperationManager manager];
+    manager.responseSerializer.acceptableContentTypes=[NSSet setWithObjects:@"application/json", nil];
+    NSString *token=myDelegate.token;
+    // 请求参数
+    NSDictionary *parameters = @{ @"appId":@"03a8f0ea6a",
+                                  @"appSecret":@"b4a01f5a7dd4416c",
+                                  @"token":token
+                                  };
+    [manager POST:urlString parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        
+        
+        NSString *result=[JsonUtil DataTOjsonString:responseObject];
+        NSLog(@"***************返回结果***********************");
+        NSLog(result);
+        NSData *data=[result dataUsingEncoding:NSUTF8StringEncoding];
+        NSError *error=[[NSError alloc]init];
+        NSDictionary *doc= [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
+        if(doc!=nil){
+            NSLog(@"*****doc不为空***********");
+            //判断code 是不是0
+            NSNumber *zero=[NSNumber numberWithInt:(0)];
+            NSNumber *code=[doc objectForKey:@"code"];
+            if([zero isEqualToNumber:code])
+            {
+                [self enterGroup];
+            }
+            else{
+                if([@"token invalid" isEqualToString:[doc objectForKey:@"msg"]]){
+                    [AppDelegate reLogin:self];
+                }
+                else{
+                    NSString *msg=[NSString stringWithFormat:@"code是%d ： %@",[doc objectForKey:@"code"],[doc objectForKey:@"msg"]];
+                    NSNumber *zero=[NSNumber numberWithInt:(0)];
+                    if([[NSNumber numberWithInt:(-2)] isEqualToNumber:[doc objectForKey:@"code"]]){
+                        [Alert showMessageAlert:@"抱歉，您不是会员或会员已到期，无法进行此操作，请在“我的会员”页面中进行充值"  view:self];
+                    }
+                }
+            }
+        }
+        else
+            NSLog(@"*****doc空***********");
+        
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSString *errorUser=[error.userInfo objectForKey:NSLocalizedDescriptionKey];
+         if(-1009==error.code||-1016==error.code)
+            errorUser=@"主人，似乎没有网络喔！";
+        [Alert showMessageAlert:errorUser view:self];
+    }];
+
+    
+    
     
 
+    
+}
+
+-(void) enterGroup{
     if(0==[mDataGroups count])
         [Alert  showMessageAlert:@"你还没有班群" view:self];
     else if (1==[mDataGroups count]){
         Notification *model=[mDataGroups objectAtIndex:0];
-
+        
         LinkMan *group=[[LinkMan alloc]init];
         group.type=@"group";
         group.LinkmanId=model.articleId;
@@ -175,7 +234,7 @@ _articleUrlArray=@[@"http://mp.weixin.qq.com/s/m3y2dvyWLxHoFskyX5aWPQ",@"http://
         //显示聊天会话界面
         [self.navigationController pushViewController:chat animated:YES];
         
-
+        
     }
     else{
         //弹出对话框
@@ -192,7 +251,8 @@ _articleUrlArray=@[@"http://mp.weixin.qq.com/s/m3y2dvyWLxHoFskyX5aWPQ",@"http://
     }
     
     
-   
+
+    
 }
 //UIActionSheet对话框选择监听事件
 -(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
