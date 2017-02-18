@@ -17,6 +17,7 @@
 #import "JsonUtil.h"
 #import "WXApi.h"
 #import "WXApiObject.h"
+#import "MBProgressHUD.h"
 @interface JoinViewController ()
 
 @end
@@ -45,6 +46,13 @@
 
 //获取服务器端访问微信统一接口之后的参数，以便用于吊起微信支付
 -(void) getWeXinUnionPayParameters{
+    
+    MBProgressHUD *hud;
+    hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    //hud.color = [UIColor colorWithHexString:@"343637" alpha:0.5];
+    hud.labelText = @"正在跳转...";
+    [hud show:YES];
+    
     AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
     NSString *urlString= [NSString stringWithFormat:@"%@/api/order/activity/orderStart",myDelegate.ipString];
     AFHTTPRequestOperationManager *manager=[AFHTTPRequestOperationManager manager];
@@ -70,7 +78,7 @@
                                   };
     [manager POST:urlString parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
-        
+        [hud hide:YES];
         
         NSString *result=[JsonUtil DataTOjsonString:responseObject];
         NSLog(@"***************返回结果*******获取服务器端访问微信统一接口之后的参数，以便用于吊起微信支付****************");
@@ -88,16 +96,26 @@
                 //调起微信支付
                 PayReq* req              = [[PayReq alloc] init];
                 //商户号
-                req.partnerId           = [[doc objectForKey:@"data"]objectForKey:@"mch_id"];
+                req.partnerId           = [[doc objectForKey:@"data"]objectForKey:@"partnerid"];
                 
                 req.prepayId            = [[doc objectForKey:@"data"]objectForKey:@"prepayid"];
                 
                 req.nonceStr            = [[doc objectForKey:@"data"]objectForKey:@"noncestr"];
                 
-                req.timeStamp           = [[doc objectForKey:@"data"]objectForKey:@"timestamp"];
+                NSString *timeStamp     = [[doc objectForKey:@"data"]objectForKey:@"timestamp"];
+                //[UInt32
+                req.timeStamp           =timeStamp.intValue;
+                 
+                 req.package             = [[doc objectForKey:@"data"]objectForKey:@"package"];
                 
-                req.package             = [[doc objectForKey:@"data"]objectForKey:@"package"];
                 req.sign                = [[doc objectForKey:@"data"]objectForKey:@"sign"];
+                
+                NSLog(req.partnerId);
+                NSLog(req.prepayId);
+                NSLog(req.nonceStr);
+               // NSLog(@"%@", req.timeStamp);
+                NSLog(req.package);
+                NSLog(req.sign);
                 [WXApi sendReq:req];
                 
                
@@ -118,8 +136,12 @@
         
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        
+        [hud hide:YES];
+        
         NSString *errorUser=[error.userInfo objectForKey:NSLocalizedDescriptionKey];
-        if(error.code==-1009)
+        if(-1009==error.code||-1016==error.code)
+            
             errorUser=@"主人，似乎没有网络喔！";
         [Alert showMessageAlert:errorUser view:self];
     }];

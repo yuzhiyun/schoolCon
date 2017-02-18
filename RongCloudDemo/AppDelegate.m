@@ -104,7 +104,7 @@
     //登陆融云
     //[self loginRongCloud];
     //注册微信
-    [WXApi registerApp:@"wxb4ba3c02aa476ea1" withDescription:@"测试--yuzhiyun"];
+    [WXApi registerApp:@"wx0158a94b751f8f2b" withDescription:@"测试--yuzhiyun"];
     return YES;
 }
 
