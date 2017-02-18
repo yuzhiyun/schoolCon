@@ -41,9 +41,9 @@
 
 @implementation HomePageViewController{
 
-    NSMutableArray *recipes;
+    NSMutableArray *mNotification;
     NSMutableArray *mDataGroups;
-    
+    UITableView *mUITableView;
 
     
     
@@ -86,12 +86,14 @@ _articleUrlArray=@[@"http://mp.weixin.qq.com/s/m3y2dvyWLxHoFskyX5aWPQ",@"http://
     [self.view addSubview:_scrollView];
 
 
-    recipes=[[NSMutableArray alloc]init];
-    mDataGroups=[[NSMutableArray alloc]init];
+    mNotification=[[NSMutableArray alloc]init];
     
+    mDataGroups=[[NSMutableArray alloc]init];
+    /*
     [recipes addObject:@"明天开运动会"];
     [recipes addObject:@"系统升级"];
     [recipes addObject:@"今晚不用上课"];
+    */
 //    recipes = [NSArray arrayWithObjects:@"Egg Benedict",@"Ham and Cheese Panini","yuzhiyun",nil];
     // Do any additional setup after loading the view.
     
@@ -327,12 +329,7 @@ _articleUrlArray=@[@"http://mp.weixin.qq.com/s/m3y2dvyWLxHoFskyX5aWPQ",@"http://
     [self.navigationController pushViewController:nextPage animated:YES];
 }
 
-
-
-
-
 - (IBAction)physicalTest:(id)sender {
-    
     
     PsychologyTableViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"PsychologyTableViewController"];
     nextPage.hidesBottomBarWhenPushed=YES;
@@ -373,8 +370,8 @@ _articleUrlArray=@[@"http://mp.weixin.qq.com/s/m3y2dvyWLxHoFskyX5aWPQ",@"http://
 */
 -(NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
 
-    
-    return [recipes count];
+    mUITableView=tableView;
+    return [mNotification count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -390,10 +387,12 @@ _articleUrlArray=@[@"http://mp.weixin.qq.com/s/m3y2dvyWLxHoFskyX5aWPQ",@"http://
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:simpleTableIdentifier];
     }
     
+    Notification *model=[mNotification objectAtIndex:indexPath.row];
+    
     cell.imageView.image=[UIImage imageNamed:@"notice1.png"];
-    cell.detailTextLabel.text=@"2017/12/21";
+    cell.detailTextLabel.text=model.publishat;
 //    cell.tes
-    NSString * title=[recipes objectAtIndex:indexPath.row];
+    NSString * title=model.title;
     //截取字符串
     if(title.length>8){
         title=[title substringToIndex:8];
@@ -405,15 +404,19 @@ _articleUrlArray=@[@"http://mp.weixin.qq.com/s/m3y2dvyWLxHoFskyX5aWPQ",@"http://
 
 -(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
+    Notification *model=[mNotification objectAtIndex:indexPath.row];
     
     
     //根据storyboard id来获取目标页面
     DetailNotificationViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"DetailNotificationViewController"];
     
     
-    //    传值
-    nextPage->pubString=[recipes objectAtIndex:indexPath.row];
-    //UITabBarController和的UINavigationController结合使用,进入新的页面的时候，隐藏主页tabbarController的底部栏
+    AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
+    NSString *urlString=[NSString stringWithFormat:@"%@/api/sys/notice/getObject",myDelegate.ipString];
+   
+    
+    nextPage->urlString=urlString;
+    nextPage->articleId=model.articleId;
     nextPage.hidesBottomBarWhenPushed=YES;
     
     //跳转
@@ -433,14 +436,6 @@ _articleUrlArray=@[@"http://mp.weixin.qq.com/s/m3y2dvyWLxHoFskyX5aWPQ",@"http://
 }
 
 -(void ) getRotateAndNotification{
-    
-    
-
-    
-    
-    
-    
-    
     //获取全局ip地址
     AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
     NSString *urlString;
@@ -483,7 +478,7 @@ _articleUrlArray=@[@"http://mp.weixin.qq.com/s/m3y2dvyWLxHoFskyX5aWPQ",@"http://
                         [Alert showMessageAlert:@"抱歉,没有更多数据了" view:self];
                     }
                     else{
-                        
+                        //群组
                         for(NSDictionary *item in  [[doc objectForKey:@"data"] objectForKey:@"groups" ]){
                             //使用这个类暂时代替一下group类
                             Notification *model=[[Notification alloc]init];
@@ -493,12 +488,42 @@ _articleUrlArray=@[@"http://mp.weixin.qq.com/s/m3y2dvyWLxHoFskyX5aWPQ",@"http://
                             
                             
                         }
+                        //通知
+                        for(NSDictionary *item in  [[doc objectForKey:@"data"] objectForKey:@"notices" ]){
+                            //使用这个类暂时代替一下group类
+                            Notification *model=[[Notification alloc]init];
+                            model.title=item[@"title"];
+                            model.articleId=item[@"id"];
+                            
+                            /**
+                             *把时间搓NSNumber 转成用户看得懂的时间
+                             */
+                            NSNumber *date=item [@"publishat"];
+                            NSString *timeStamp2 =date.stringValue;
+                            long long int date1 = (long long int)[timeStamp2 intValue];
+                            NSDate *date2 = [NSDate dateWithTimeIntervalSince1970:date1];
+                            //用于格式化NSDate对象
+                            NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+                            //设置格式：zzz表示时区
+                            [dateFormatter setDateFormat:@"yyyy-MM-dd"];
+                            //NSDate转NSString
+                            NSString *currentDateString = [dateFormatter stringFromDate:date2];
+                            
+                            model.publishat=currentDateString;
+                            
+                            
+                            [mNotification addObject:model];
+                            
+                            
+                        }
+
                         //NSLog(@"mDataArticle项数为%i",[allDataFromServer count]);
                         NSLog(@"//更新界面");
                         //更新界面
-                        //[mTableView reloadData];
+                        
+                        [mUITableView reloadData];
                     }
-                    //            }
+                  
                 }
                 else
                 {

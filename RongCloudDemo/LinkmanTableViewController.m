@@ -221,10 +221,6 @@
             errorUser=@"主人，似乎没有网络喔！";
         [Alert showMessageAlert:errorUser view:self];
     }];
-    
-    
-    
-    
 }
 
 #pragma mark 加载联系人列表
@@ -288,6 +284,7 @@
                     else{
                         //单聊联系人信息
                         NSArray *contactsArray=[[doc objectForKey:@"data"] objectForKey:@"contacts"];
+                        allDataFromServer=[[NSMutableArray alloc]init];
                         [allDataFromServer removeAllObjects];
                         for(NSDictionary *item in  contactsArray ){
                             LinkMan *model=[[LinkMan alloc]init];
