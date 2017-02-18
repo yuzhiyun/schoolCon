@@ -95,6 +95,7 @@
     if(![[NSNumber numberWithInt:(0)] isEqualToNumber:userType]){
         [mDataImg addObject:@"vip.png"];
     }
+    
     [mDataImg addObject:@"callect.png"];
     [mDataImg addObject:@"exit.png"];
     

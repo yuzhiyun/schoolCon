@@ -27,6 +27,7 @@
 #import "AppDelegate.h"
 #import "AFNetworking.h"
 #import "JsonUtil.h"
+#import "DataBaseNSUserDefaults.h"
 #import "Alert.h"
 #import "Notification.h"
 @interface HomePageViewController ()
@@ -69,6 +70,7 @@
     /**
      *添加轮播图组件
      */
+    
     _imageArray = @[@"1",@"2",@"3",@"4"];
     
 _articleUrlArray=@[@"http://mp.weixin.qq.com/s/m3y2dvyWLxHoFskyX5aWPQ",@"http://mp.weixin.qq.com/s/m3y2dvyWLxHoFskyX5aWPQ",@"http://mp.weixin.qq.com/s/m3y2dvyWLxHoFskyX5aWPQ",@"http://mp.weixin.qq.com/s/m3y2dvyWLxHoFskyX5aWPQ"];
@@ -94,6 +96,14 @@ _articleUrlArray=@[@"http://mp.weixin.qq.com/s/m3y2dvyWLxHoFskyX5aWPQ",@"http://
     // Do any additional setup after loading the view.
     
     [self getRotateAndNotification];
+    
+    NSNumber *userType=[DataBaseNSUserDefaults getData:@"userType"];
+    if([[NSNumber numberWithInt:(0)] isEqualToNumber: userType]){
+        [_mUILabelVip setHidden:YES];
+        [_mUIButtonVip setHidden:YES];
+        
+        
+    }
 }
 //轮播图数量
 - (NSInteger)numberOfPages
@@ -302,29 +312,23 @@ _articleUrlArray=@[@"http://mp.weixin.qq.com/s/m3y2dvyWLxHoFskyX5aWPQ",@"http://
     //跳转
     [self.navigationController pushViewController:nextPage animated:YES];
 }
-
-- (IBAction)vip:(id)sender {
+- (IBAction)enterVip:(id)sender {
     VipViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"VipViewController"];
     nextPage.hidesBottomBarWhenPushed=YES;
     [self.navigationController pushViewController:nextPage animated:YES];
-    
 }
 
 
 
-- (IBAction)schoolMoments:(id)sender {
-    /*
-    SchoolMomentsTableViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"SchoolMomentsTableViewController"];
-    nextPage.hidesBottomBarWhenPushed=YES;
-    [self.navigationController pushViewController:nextPage animated:YES];
-    */
-    
+- (IBAction)enterSchoolMoments:(id)sender {
     NotificationTableViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"NotificationTableViewController"];
     nextPage->type=@"schoolMoments";
     nextPage.hidesBottomBarWhenPushed=YES;
     [self.navigationController pushViewController:nextPage animated:YES];
-
 }
+
+
+
 
 
 - (IBAction)physicalTest:(id)sender {
