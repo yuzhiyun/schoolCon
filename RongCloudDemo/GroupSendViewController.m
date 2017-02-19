@@ -65,7 +65,6 @@
 
 #pragma mark - Table view data source
 -(NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    
     mTableView=tableView;
     return [allDataFromServer count];
 }
@@ -79,6 +78,7 @@
     if (cell == nil) {
         cell = [[GroupSendTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
     }
+    
     LinkMan *model=[allDataFromServer objectAtIndex:indexPath.row];
     
     cell.UILabelName.text = model.name;
@@ -89,7 +89,7 @@
     AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
     
     NSString *picUrl=[NSString stringWithFormat:@"%@%@",myDelegate.ipString,model.picUrl];
-    [cell.UIImgAvatar sd_setImageWithURL:picUrl placeholderImage:[UIImage imageNamed:@"icon_tx.png"]];
+    [cell.UIImgAvatar sd_setImageWithURL:picUrl placeholderImage:[UIImage imageNamed:myDelegate.defaultAvatar]];
     
    
     
@@ -113,17 +113,18 @@
         [indexOfSelectedUser insertObject:@"yes" atIndex:indexPath.row];
         [indexOfSelectedUser removeObjectAtIndex: indexPath.row+1];
     }
+    
     else
-    {  [indexOfSelectedUser insertObject:@"no" atIndex:indexPath.row];
-        [indexOfSelectedUser removeObjectAtIndex: indexPath.row+1];
         
+    {
+        [indexOfSelectedUser insertObject:@"no" atIndex:indexPath.row];
+        [indexOfSelectedUser removeObjectAtIndex: indexPath.row+1];
     }
     
     [mTableView reloadData];
     NSLog(@"点击事件");
-    
 }
-
+//366  183
 
 /**
  *  重载右边导航按钮的事件

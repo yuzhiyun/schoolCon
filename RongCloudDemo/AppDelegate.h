@@ -29,6 +29,7 @@
     NSString *pwd;
     //当加载内容的时候，如果网络状况不好，显示这张默认图片
     NSString *loadingImg;
+    NSString *defaultAvatar;
     
     UIColor *navigationBarColor;
     
@@ -50,7 +51,10 @@
 @property (nonatomic,strong)NSString *userName;
 @property (nonatomic,strong)NSString *phone;
 @property (nonatomic,strong)NSString *pwd;
+
 @property (nonatomic,strong)NSString *loadingImg;
+@property (nonatomic,strong)NSString *defaultAvatar;
+
 @property (nonatomic,strong)NSMutableArray *linkManArray;
 @property (nonatomic,strong)UIColor *navigationBarColor;
 +(void)loginRongCloud :(NSString *) token;

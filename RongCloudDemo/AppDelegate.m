@@ -73,6 +73,8 @@
     myDelegate.appId=@"03a8f0ea6a";
     myDelegate.appSecret=@"b4a01f5a7dd4416c";
     myDelegate.loadingImg=@"loading.gif";
+    myDelegate.defaultAvatar=@"icon_tx.png";
+    
     myDelegate.navigationBarColor=[UIColor colorWithRed:44/255.0 green:191/255.0 blue:242/255.0 alpha:1.0];
     //初始化融云SDK
     [[RCIM sharedRCIM] initWithAppKey:RONGCLOUD_IM_APPKEY];
@@ -162,9 +164,13 @@
     //获取全局ip地址
     AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
     
-    NSString *urlString= [NSString stringWithFormat:@"%@/api/order/activity/isPayed",myDelegate.ipString];
+    NSString *urlString;
+    if([@"activity" isEqualToString: [DataBaseNSUserDefaults getData:@"orderType"]])
     
-    
+        urlString= [NSString stringWithFormat:@"%@/api/order/activity/isPayed",myDelegate.ipString];
+    else if([@"vip" isEqualToString: [DataBaseNSUserDefaults getData:@"orderType"]])
+        urlString= [NSString stringWithFormat:@"%@/api/order/vip/isPayed",myDelegate.ipString];
+    NSLog(urlString);
     //创建数据请求的对象，不是单例
     AFHTTPRequestOperationManager *manager=[AFHTTPRequestOperationManager manager];
     //设置响应数据的类型,如果是json数据，会自动帮你解析

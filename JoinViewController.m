@@ -128,6 +128,7 @@
                 
                 //存储以便在验证微信支付的时候使用
                  [DataBaseNSUserDefaults setData: [[doc objectForKey:@"data"]objectForKey:@"orderId"] forkey:@"orderId"];
+                [DataBaseNSUserDefaults setData: @"activity" forkey:@"orderType"];
                 
                 NSLog(req.partnerId);
                 NSLog(req.prepayId);

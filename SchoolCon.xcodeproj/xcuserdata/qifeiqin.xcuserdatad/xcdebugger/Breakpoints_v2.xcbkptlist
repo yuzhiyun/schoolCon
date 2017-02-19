@@ -100,11 +100,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RongCloudDemo/VipViewController.m"
-            timestampString = "508858261.433926"
+            timestampString = "509183318.65465"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "67"
-            endingLineNumber = "67"
+            startingLineNumber = "173"
+            endingLineNumber = "173"
             landmarkName = "-wechatPay"
             landmarkType = "7">
          </BreakpointContent>
@@ -200,6 +200,22 @@
             startingLineNumber = "393"
             endingLineNumber = "393"
             landmarkName = "-tableView:cellForRowAtIndexPath:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "JoinViewController.m"
+            timestampString = "509181611.307436"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "68"
+            endingLineNumber = "68"
+            landmarkName = "-getWeXinUnionPayParameters"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

@@ -118,6 +118,14 @@
     cell.UILabelDate.text=model.date;
     cell.UILabelPlace.text=model.place;
     cell.UILabelPublisher.text=model.publisher;
+    
+    if([@"jiaoyu" isEqualToString:type]||[@"xinli" isEqualToString:type]){
+    
+        cell.mUILabelPlaceKey.text=@"报名费:";
+        cell.mUILabelPublisherKey.text=@"参与人数:";
+        cell.UILabelPlace.text=model.price;
+        
+    }
     //    cell.UIImgCover.image=[UIImage imageNamed:[mImg objectAtIndex:indexPath.row]];
     //        加载图片,如果加载不到图片，就显示favorites.png
     
@@ -238,17 +246,35 @@
                         
                         for(NSDictionary *item in  articleArray ){
                             Activity *model=[[Activity alloc]init];
+                            
+                            
                             model.activityId=item [@"id"];
                             model.picUrl=item [@"picurl"];
                             model.title=item [@"title"];
                             model.publisher=item [@"author"];
                             model.place=item[@"place"];
                             
+                            NSNumber *date=item [@"starttime"];
+                            
+                            if([@"jiaoyu" isEqualToString:type]||[@"xinli" isEqualToString:type]){
+                              model.activityId=item [@"activityid"];
+                                model.picUrl=item [@"picurl"];
+                                model.title=item [@"activityname"];
+                                
+                                //用活动列表页面主办方控件显示我的活动的参与人数
+                                NSNumber *peoplenumber=item [@"peoplenumber"];
+                                model.publisher=peoplenumber.stringValue;
+                                //用活动列表页面地点控件显示我的活动的费用
+                                NSNumber *price=item [@"fee"];
+                                model.price=price.stringValue;
+                                date=item [@"signupdate"];
+                                
+                            }
                             
                          /**
                                 *把时间搓NSNumber 转成用户看得懂的时间
                                 */
-                            NSNumber *date=item [@"starttime"];
+                            
                             NSString *timeStamp2 =date.stringValue;
                             long long int date1 = (long long int)[timeStamp2 intValue];
                             NSDate *date2 = [NSDate dateWithTimeIntervalSince1970:date1];

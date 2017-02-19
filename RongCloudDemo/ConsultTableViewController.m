@@ -137,16 +137,11 @@
         
         UIImageView  *mUIImageView=(UIImageView *)[cell viewWithTag:5];
         AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
-        [mUIImageView sd_setImageWithURL:[NSString stringWithFormat:@"%@%@",myDelegate.ipString,model.picUrl] placeholderImage:[UIImage imageNamed:@"icon_tx.png"]];
+        [mUIImageView sd_setImageWithURL:[NSString stringWithFormat:@"%@%@",myDelegate.ipString,model.picUrl] placeholderImage:[UIImage imageNamed:myDelegate.defaultAvatar]];
 //    mUILabelSpecialty.text=[mDataConsult objectAtIndex:indexPath.row];
         
     }
     else{
-        
-        
-        
-        
-        
         UILabel *mUILabelName=(UILabel *)[cell viewWithTag:1];
         mUILabelName.text=@"心理热线";
         UILabel *mUILabelTitle=(UILabel *)[cell viewWithTag:2];

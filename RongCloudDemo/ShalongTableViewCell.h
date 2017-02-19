@@ -10,6 +10,10 @@
 
 @interface ShalongTableViewCell : UITableViewCell
 
+@property (weak, nonatomic) IBOutlet UILabel *mUILabelPublisherKey;
+@property (weak, nonatomic) IBOutlet UILabel *mUILabelPlaceKey;
+
+
 @property (weak, nonatomic) IBOutlet UIImageView *UIImgCover;
 @property (weak, nonatomic) IBOutlet UILabel *UILabelTitle;
 @property (weak, nonatomic) IBOutlet UILabel *UILabelPublisher;
