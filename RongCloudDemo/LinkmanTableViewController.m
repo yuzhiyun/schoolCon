@@ -19,6 +19,7 @@
 #import "MBProgressHUD.h"
 #import "Alert.h"
 #import "MJRefresh.h"
+#import "DataBaseNSUserDefaults.h"
 @interface LinkmanTableViewController ()
 
 @end
@@ -133,7 +134,55 @@
 }
 -(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
+    
+    
+    
+    
     AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
+    
+    //是老师
+    if([AppDelegate isTeacher]){
+        LinkMan *model=[allDataFromServer objectAtIndex:indexPath.row];
+        if([@"private" isEqualToString: model.type]){
+            //新建一个聊天会话View Controller对象
+            RCConversationViewController *chat = [[RCConversationViewController alloc]init];
+            //设置会话的类型，如单聊、讨论组、群聊、聊天室、客服、公众服务会话等
+            chat.conversationType = ConversationType_PRIVATE;
+            //设置会话的目标会话ID。（单聊、客服、公众服务会话为对方的ID，讨论组、群聊、聊天室为会话的ID）
+            chat.targetId =model.LinkmanId;
+            //设置聊天会话界面要显示的标题
+            chat.title = model.name;
+            //设置隐藏底部栏
+            chat.hidesBottomBarWhenPushed=YES;
+            //显示聊天会话界面
+            [self.navigationController pushViewController:chat animated:YES];
+        }
+        else{
+            //        LinkMan *group=[[LinkMan alloc]init];
+            //        group.type=@"group";
+            //        group.LinkmanId=@"1";
+            //        group.picUrl=@"http://img05.tooopen.com/images/20150202/sy_80219211654.jpg";
+            //        group.name=@"初二3班班群";
+            //        group.introduction=@"";
+            NSLog(@"群聊");
+            //新建一个聊天会话View Controller对象
+            RCConversationViewController *chat = [[RCConversationViewController alloc]init];
+            //设置会话的类型，如单聊、讨论组、群聊、聊天室、客服、公众服务会话等
+            chat.conversationType = ConversationType_GROUP;
+            //设置会话的目标会话ID。（单聊、客服、公众服务会话为对方的ID，讨论组、群聊、聊天室为会话的ID）
+            chat.targetId = model.LinkmanId;
+            //设置聊天会话界面要显示的标题
+            chat.title = model.name;
+            //设置隐藏底部栏
+            chat.hidesBottomBarWhenPushed=YES;
+            //显示聊天会话界面
+            [self.navigationController pushViewController:chat animated:YES];
+        }
+        
+        return;
+
+    }
+    
     NSString *urlString= [NSString stringWithFormat:@"%@/api/sys/user/validateVip",myDelegate.ipString];
     AFHTTPRequestOperationManager *manager=[AFHTTPRequestOperationManager manager];
     manager.responseSerializer.acceptableContentTypes=[NSSet setWithObjects:@"application/json", nil];

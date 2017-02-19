@@ -60,5 +60,7 @@
 +(void)loginRongCloud :(NSString *) token;
 //token失效重新登录
 +(void)reLogin :(UIViewController *)viewController;
+//判断是不是老师
++(Boolean) isTeacher;
 @end
 

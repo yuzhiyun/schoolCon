@@ -357,5 +357,13 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
-
++(Boolean) isTeacher{
+    AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
+    NSNumber *userType=[DataBaseNSUserDefaults getData:@"userType"];
+    //是老师
+    if([[NSNumber numberWithInt:(0)] isEqualToNumber:userType])
+        return true;
+    else
+        return false;
+}
 @end

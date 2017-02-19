@@ -83,6 +83,19 @@
 -(void)rightBarButtonItemPressed:(id)sender
 {
     AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
+    
+    
+    if([AppDelegate isTeacher]){
+        
+        //根据storyboard id来获取目标页面
+        GroupSendViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"GroupSendViewController"];
+        //UITabBarController和的UINavigationController结合使用,进入新的页面的时候，隐藏主页tabbarController的底部栏
+        nextPage.hidesBottomBarWhenPushed=YES;
+        //跳转
+        [self.navigationController pushViewController:nextPage animated:YES];
+        return;
+    }
+    
     if(0==[myDelegate.linkManArray count]){
         [Alert showMessageAlert:@"尚无联系人信息，请先在联系人页面下拉刷新，然后再次点击群发" view:self];
     }

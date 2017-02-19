@@ -78,9 +78,7 @@
     [mDataKey addObject:@"修改密码"];
     [mDataKey addObject:@"我的活动"];
     [mDataKey addObject:@"我的测试"];
-    //不是老师
-    if(![[NSNumber numberWithInt:(0)] isEqualToNumber:userType]){
-        
+    if(![AppDelegate isTeacher]){
         [mDataKey addObject:@"我的会员"];
     }
     [mDataKey addObject:@"我的收藏"];
@@ -91,8 +89,7 @@
     [mDataImg addObject:@"me_pwd.png"];
     [mDataImg addObject:@"coffee_little.png"];
     [mDataImg addObject:@"test_litttle.png"];
-    //不是老师
-    if(![[NSNumber numberWithInt:(0)] isEqualToNumber:userType]){
+    if(![AppDelegate isTeacher]){
         [mDataImg addObject:@"vip.png"];
     }
     

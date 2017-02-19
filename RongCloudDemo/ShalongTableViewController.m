@@ -124,12 +124,8 @@
         cell.mUILabelPlaceKey.text=@"报名费:";
         cell.mUILabelPublisherKey.text=@"参与人数:";
         cell.UILabelPlace.text=model.price;
-        
     }
-    //    cell.UIImgCover.image=[UIImage imageNamed:[mImg objectAtIndex:indexPath.row]];
-    //        加载图片,如果加载不到图片，就显示favorites.png
-    
-    AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
+        AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
     [cell.UIImgCover sd_setImageWithURL: [NSString stringWithFormat:@"%@%@",myDelegate.ipString,model.picUrl] placeholderImage:[UIImage imageNamed:myDelegate.loadingImg]];//favorites.png
     return cell;
 }

@@ -13,6 +13,7 @@
 #import "MBProgressHUD.h"
 #import "LinkMan.h"
 #import "Alert.h"
+#import "DataBaseNSUserDefaults.h"
 @interface MessageViewController ()
 
 @end
@@ -135,6 +136,23 @@
     
     
     AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
+    if([AppDelegate isTeacher]){
+        //修改未读消息红色圆点的数字大小（我指的是在手机桌面上的圆点）
+        [UIApplication sharedApplication].applicationIconBadgeNumber =
+        [UIApplication sharedApplication].applicationIconBadgeNumber -   model.unreadMessageCount;
+        
+        RCConversationViewController *conversationVC = [[RCConversationViewController alloc]init];
+        conversationVC.conversationType = model.conversationType;
+        conversationVC.targetId = model.targetId;
+        conversationVC.title = model.conversationTitle;
+        //设置隐藏底部栏
+        conversationVC.hidesBottomBarWhenPushed=YES;
+        [self.navigationController pushViewController:conversationVC animated:YES];
+        
+        
+        return;
+    
+    }
     NSString *urlString= [NSString stringWithFormat:@"%@/api/sys/user/validateVip",myDelegate.ipString];
     AFHTTPRequestOperationManager *manager=[AFHTTPRequestOperationManager manager];
     manager.responseSerializer.acceptableContentTypes=[NSSet setWithObjects:@"application/json", nil];
@@ -172,25 +190,7 @@
                 //设置隐藏底部栏
                 conversationVC.hidesBottomBarWhenPushed=YES;
                 [self.navigationController pushViewController:conversationVC animated:YES];
-                ////我重写会话列表的点击事件是为了让聊天界面不显示底部栏。
-                //    NSLog(@"targetId 是会话目标id   %@",model.targetId );
-                ////     senderUserId是会话中最后一条消息的发送者用户ID
-                //    NSLog( @"senderUserId是会话中最后一条消息的发送者用户ID,那么单聊的话就是 发送者id   %@",model.senderUserId );
-                //    if(conversationModelType==ConversationType_PRIVATE){
-                //    //新建一个聊天会话View Controller对象
-                //    RCConversationViewController *chat = [[RCConversationViewController alloc]init];
-                //    //设置会话的类型，如单聊、讨论组、群聊、聊天室、客服、公众服务会话等
-                //    chat.conversationType = ConversationType_PRIVATE;
-                //    //设置会话的目标会话ID。（单聊、客服、公众服务会话为对方的ID，讨论组、群聊、聊天室为会话的ID）
-                //    chat.targetId = model.senderUserId;
-                //    //设置聊天会话界面要显示的标题
-                //    chat.title = model.senderUserId;
-                //    //设置隐藏底部栏
-                //    chat.hidesBottomBarWhenPushed=YES;
-                //    //显示聊天会话界面
-                //    [self.navigationController pushViewController:chat animated:YES];
-                //    }
-
+               
                 
             }
             else{
