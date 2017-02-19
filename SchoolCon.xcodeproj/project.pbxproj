@@ -1106,7 +1106,6 @@
 				CD7FFDA41E3776AF003DE455 /* changePwd */,
 				CD3F24781E223DCD0083293D /* editPhone */,
 				CD3F24741E223D540083293D /* vip */,
-				CDDE85511E20E3BA00E5F03B /* myFavorite */,
 				CD2DCB811E03CAB3000C03E1 /* MeViewController.h */,
 				CD2DCB821E03CAB3000C03E1 /* MeViewController.m */,
 				CD2DCB841E03CC6C000C03E1 /* MeTableViewCell.h */,
@@ -1839,13 +1838,6 @@
 			name = join;
 			path = /IOSProjects/FrameForSchoolCon/FrameForSchoolCon;
 			sourceTree = "<absolute>";
-		};
-		CDDE85511E20E3BA00E5F03B /* myFavorite */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = myFavorite;
-			sourceTree = "<group>";
 		};
 		CDE5AEAC1E1008E50059D310 /* main */ = {
 			isa = PBXGroup;

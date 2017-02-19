@@ -458,10 +458,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
         [self.navigationController pushViewController:nextPage animated:YES];
     }
     
-    NSNumber *userType=[DataBaseNSUserDefaults getData:@"userType"];
-    
-    //不是老师
-    if(![[NSNumber numberWithInt:(0)] isEqualToNumber:userType]){
+   if(![AppDelegate isTeacher]){
         //我的会员
         if(4==indexPath.row){
             //显示顶部导航

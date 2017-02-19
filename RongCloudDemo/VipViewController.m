@@ -30,6 +30,8 @@
     [data addObject:@"一个学年¥120"];
     //[data addObject:@"自定义时间"];
     // Do any additional setup after loading the view.
+    
+    [self getVipInfo];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -139,9 +141,7 @@
                 NSLog(req.package);
                 NSLog(req.sign);
                 [WXApi sendReq:req];
-                
-                
-                
+
             }
             else{
                 if([@"token invalid" isEqualToString:[doc objectForKey:@"msg"]]){
@@ -169,62 +169,76 @@
     }];
 }
 
--(void) wechatPay{
-    //============================================================
-    // V3&V4支付流程实现
-    // 注意:参数配置请查看服务器端Demo
-    // 更新时间：2015年11月20日
-    //============================================================
-    NSString *urlString   = @"http://wxpay.weixin.qq.com/pub_v2/app/app_pay.php?plat=ios";
-    //解析服务端返回json数据
-    NSError *error;
-    //加载一个NSURL对象
-    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:urlString]];
-    //将请求的url数据放到NSData对象中
-    NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
-    if ( response != nil) {
-        NSMutableDictionary *dict = NULL;
-        //IOS5自带解析类NSJSONSerialization从response中解析出数据放到字典中
-        dict = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
+//获取用户vip信息
+-(void) getVipInfo{
+    AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
+    NSString *urlString= [NSString stringWithFormat:@"%@/api/sys/user/myVip",myDelegate.ipString];
+    
+    AFHTTPRequestOperationManager *manager=[AFHTTPRequestOperationManager manager];
+    
+    manager.responseSerializer.acceptableContentTypes=[NSSet setWithObjects:@"application/json", nil];
+    NSString *token=myDelegate.token;
+    // 请求参数
+    NSDictionary *parameters = @{ @"appId":@"03a8f0ea6a",
+                                  @"appSecret":@"b4a01f5a7dd4416c",
+                                  @"token":token
+                                  };
+    [manager POST:urlString parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
-        NSLog(@"url:%@",urlString);
-        if(dict != nil){
-            NSMutableString *retcode = [dict objectForKey:@"retcode"];
-            if (retcode.intValue == 0){
-                NSMutableString *stamp  = [dict objectForKey:@"timestamp"];
-                //调起微信支付
-                PayReq* req             = [[PayReq alloc] init];
-                req.partnerId           = [dict objectForKey:@"partnerid"];
-                req.prepayId            = [dict objectForKey:@"prepayid"];
-                req.nonceStr            = [dict objectForKey:@"noncestr"];
-                req.timeStamp           = stamp.intValue;
-                req.package             = [dict objectForKey:@"package"];
-                req.sign                = [dict objectForKey:@"sign"];
-                [WXApi sendReq:req];
-                //日志输出
-                NSLog(@"appid=%@\npartid=%@\nprepayid=%@\nnoncestr=%@\ntimestamp=%ld\npackage=%@\nsign=%@",[dict objectForKey:@"appid"],req.partnerId,req.prepayId,req.nonceStr,(long)req.timeStamp,req.package,req.sign );
-                /*
-                partnerid
-                prepayid
-                noncestr
-                timestamp
-                package
-                sign
-                 */
-                //return @"";
-            }else{
-                NSLog( [dict objectForKey:@"retmsg"]);
-               // return [dict objectForKey:@"retmsg"];
+        
+        
+        NSString *result=[JsonUtil DataTOjsonString:responseObject];
+        NSLog(@"***************返回结果***********************");
+        NSLog(result);
+        NSData *data=[result dataUsingEncoding:NSUTF8StringEncoding];
+        NSError *error=[[NSError alloc]init];
+        NSDictionary *doc= [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
+        if(doc!=nil){
+            NSLog(@"*****doc不为空***********");
+            //判断code 是不是0
+            NSNumber *zero=[NSNumber numberWithInt:(0)];
+            NSNumber *code=[doc objectForKey:@"code"];
+            if([zero isEqualToNumber:code])
+            {
+                _mUILabelWelcome.text=[[doc objectForKey:@"data"]objectForKey:@"nickname"];
+                
+                BOOL *isVip=[[[doc objectForKey:@"data"]objectForKey:@"isVip"] boolValue];
+                
+                //NSLog([[doc objectForKey:@"data"]objectForKey:@"isVip"]);
+                if(!isVip){
+                    _mUILabelExpireDate.text=@"已到期";
+                    _mUILabelExpireDaysNum=@"0 天";
+                }
+                
             }
-        }else{
-            NSLog(@"服务器返回错误，未获取到json对象");
-            //return @"服务器返回错误，未获取到json对象";
+            else{
+                if([@"token invalid" isEqualToString:[doc objectForKey:@"msg"]]){
+                    [AppDelegate reLogin:self];
+                }
+                else{
+                    NSString *msg=[NSString stringWithFormat:@"code是%d ： %@",[doc objectForKey:@"code"],[doc objectForKey:@"msg"]];
+                    [Alert showMessageAlert:msg  view:self];
+                }
+            }
         }
-    }else{
-        NSLog(@"服务器返回错误");
-       // return @"服务器返回错误";
-    }
-
+        else
+            NSLog(@"*****doc空***********");
+        
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSString *errorUser=[error.userInfo objectForKey:NSLocalizedDescriptionKey];
+        if(-1009==error.code||-1016==error.code)
+            errorUser=@"主人，似乎没有网络喔！";
+        [Alert showMessageAlert:errorUser view:self];
+    }];
+    
+    
 }
+
+
+
+
+
+
 
 @end
