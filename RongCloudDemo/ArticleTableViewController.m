@@ -287,7 +287,7 @@
     cell.UILabelAuthor.text= model.author;
     
     AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
-    [cell.UIImgCover sd_setImageWithURL:[NSString stringWithFormat:@"%@%@",myDelegate.ipString,model.picUrl] placeholderImage:[UIImage imageNamed:@"favorites.png"]];
+    [cell.UIImgCover sd_setImageWithURL:[NSString stringWithFormat:@"%@%@",myDelegate.ipString,model.picUrl] placeholderImage:[UIImage imageNamed:myDelegate.loadingImg]];
     //    [cell.UIImgCover sd_setImageWithURL:model.picUrl placeholderImage:[UIImage imageNamed:@"favorites.png"]];
     return cell;
 }

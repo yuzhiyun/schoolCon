@@ -48,7 +48,6 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 
@@ -61,8 +60,6 @@
         return;
     }
     [self getWeXinUnionPayParameters];
-    
-    
 }
 
 //获取服务器端访问微信统一接口之后的参数，以便用于吊起微信支付

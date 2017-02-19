@@ -149,7 +149,7 @@
     NSString *picUrl=[NSString stringWithFormat:@"%@%@",myDelegate.ipString,model.picUrl];
     
     NSLog(picUrl);
-    [cell.UIImageViewCover sd_setImageWithURL: picUrl placeholderImage:[UIImage imageNamed:@"favorites.png"]];
+    [cell.UIImageViewCover sd_setImageWithURL: picUrl placeholderImage:[UIImage imageNamed:myDelegate.loadingImg]];
     
     
     return cell;

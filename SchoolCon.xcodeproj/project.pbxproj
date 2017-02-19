@@ -241,6 +241,7 @@
 		CDF2F12C1E56101E00A499AE /* UIProgressView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = CDF2F1171E56101E00A499AE /* UIProgressView+AFNetworking.m */; };
 		CDF2F12D1E56101E00A499AE /* UIRefreshControl+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = CDF2F1191E56101E00A499AE /* UIRefreshControl+AFNetworking.m */; };
 		CDF2F12E1E56101E00A499AE /* UIWebView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = CDF2F11B1E56101E00A499AE /* UIWebView+AFNetworking.m */; };
+		CDF2F1691E59365E00A499AE /* loading.gif in Resources */ = {isa = PBXBuildFile; fileRef = CDF2F1681E59365E00A499AE /* loading.gif */; };
 		CDF8EBCF1E2F497A00BFD5EA /* home04.png in Resources */ = {isa = PBXBuildFile; fileRef = CDF8EBCA1E2F497A00BFD5EA /* home04.png */; };
 		CDF8EBD01E2F497A00BFD5EA /* home03.png in Resources */ = {isa = PBXBuildFile; fileRef = CDF8EBCB1E2F497A00BFD5EA /* home03.png */; };
 		CDF8EBD11E2F497A00BFD5EA /* home05.png in Resources */ = {isa = PBXBuildFile; fileRef = CDF8EBCC1E2F497A00BFD5EA /* home05.png */; };
@@ -716,6 +717,7 @@
 		CDF2F1191E56101E00A499AE /* UIRefreshControl+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIRefreshControl+AFNetworking.m"; sourceTree = "<group>"; };
 		CDF2F11A1E56101E00A499AE /* UIWebView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWebView+AFNetworking.h"; sourceTree = "<group>"; };
 		CDF2F11B1E56101E00A499AE /* UIWebView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWebView+AFNetworking.m"; sourceTree = "<group>"; };
+		CDF2F1681E59365E00A499AE /* loading.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = loading.gif; sourceTree = "<group>"; };
 		CDF8EBCA1E2F497A00BFD5EA /* home04.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = home04.png; path = "../Users/qifeiqin/Downloads/图标/home04.png"; sourceTree = "<group>"; };
 		CDF8EBCB1E2F497A00BFD5EA /* home03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = home03.png; path = "../Users/qifeiqin/Downloads/图标/home03.png"; sourceTree = "<group>"; };
 		CDF8EBCC1E2F497A00BFD5EA /* home05.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = home05.png; path = "../Users/qifeiqin/Downloads/图标/home05.png"; sourceTree = "<group>"; };
@@ -957,6 +959,7 @@
 		CD028F001E40D4F80083EA43 /* other */ = {
 			isa = PBXGroup;
 			children = (
+				CDF2F1681E59365E00A499AE /* loading.gif */,
 				CD028F031E40D56A0083EA43 /* background */,
 				CD028F021E40D53D0083EA43 /* avatar */,
 				CD028F011E40D5240083EA43 /* vip */,
@@ -2339,6 +2342,7 @@
 				CDF2EF611E5488D100A499AE /* README.txt in Resources */,
 				CDF8EBD31E2F497A00BFD5EA /* home01.png in Resources */,
 				CDF8EC061E2FB10E00BFD5EA /* daxue@2x.png in Resources */,
+				CDF2F1691E59365E00A499AE /* loading.gif in Resources */,
 				CDF8EC131E2FB10E00BFD5EA /* wode@3x.png in Resources */,
 				CDF8EC111E2FB10E00BFD5EA /* wode_1@3x.png in Resources */,
 				CDF8EC081E2FB10E00BFD5EA /* pengyou_1@2x.png in Resources */,

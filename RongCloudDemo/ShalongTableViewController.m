@@ -122,7 +122,7 @@
     //        加载图片,如果加载不到图片，就显示favorites.png
     
     AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
-    [cell.UIImgCover sd_setImageWithURL: [NSString stringWithFormat:@"%@%@",myDelegate.ipString,model.picUrl] placeholderImage:[UIImage imageNamed:@"favorites.png"]];
+    [cell.UIImgCover sd_setImageWithURL: [NSString stringWithFormat:@"%@%@",myDelegate.ipString,model.picUrl] placeholderImage:[UIImage imageNamed:myDelegate.loadingImg]];//favorites.png
     return cell;
 }
 
