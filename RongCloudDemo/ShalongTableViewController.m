@@ -48,7 +48,7 @@
     //   navigationBar背景
     AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
     [self.navigationController.navigationBar setBarTintColor:myDelegate.navigationBarColor];
-
+    
     [self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor],UITextAttributeTextColor,nil]];
     //    修改下一个界面返回按钮的title，注意这行代码每个页面都要写一遍，不是全局的
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:nil action:nil];
@@ -88,16 +88,16 @@
 }
 
 - (void)footerRereshing
-{  self.tableView.footerRefreshingText = @"正在为您刷新。。。";
-    
+{
+    self.tableView.footerRefreshingText = @"正在为您刷新。。。";
     pageIndex++;
     [self loadData:pageIndex orientation:@"up"];
 }
 
 
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
@@ -105,6 +105,8 @@
 #warning Incomplete implementation, return the number of rows
     return [allDataFromServer count];
 }
+
+
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     ShalongTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
@@ -120,12 +122,12 @@
     cell.UILabelPublisher.text=model.publisher;
     
     if([@"jiaoyu" isEqualToString:type]||[@"xinli" isEqualToString:type]){
-    
+        
         cell.mUILabelPlaceKey.text=@"报名费:";
         cell.mUILabelPublisherKey.text=@"参与人数:";
         cell.UILabelPlace.text=model.price;
     }
-        AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
+    AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
     [cell.UIImgCover sd_setImageWithURL: [NSString stringWithFormat:@"%@%@",myDelegate.ipString,model.picUrl] placeholderImage:[UIImage imageNamed:myDelegate.loadingImg]];//favorites.png
     return cell;
 }
@@ -145,7 +147,7 @@
     nextPage->picurl=model.picUrl;
     nextPage->title=model.title;
     
-
+    
     nextPage->host=model.publisher;
     nextPage->date=model.date;
     nextPage->place=model.place;
@@ -179,10 +181,10 @@
     NSString *urlString;
     if([@"ylsl" isEqualToString:type])
         
-    urlString= [NSString stringWithFormat:@"%@/api/cms/activity/getList",myDelegate.ipString];
+        urlString= [NSString stringWithFormat:@"%@/api/cms/activity/getList",myDelegate.ipString];
     else if([@"xlhd" isEqualToString:type])
         
-       urlString= [NSString stringWithFormat:@"%@/api/psy/activity/getList",myDelegate.ipString];
+        urlString= [NSString stringWithFormat:@"%@/api/psy/activity/getList",myDelegate.ipString];
     else
         
         urlString= [NSString stringWithFormat:@"%@/api/rcd/activity/getMyJoin",myDelegate.ipString];
@@ -253,7 +255,7 @@
                             NSNumber *date=item [@"starttime"];
                             
                             if([@"jiaoyu" isEqualToString:type]||[@"xinli" isEqualToString:type]){
-                              model.activityId=item [@"activityid"];
+                                model.activityId=item [@"activityid"];
                                 model.picUrl=item [@"picurl"];
                                 model.title=item [@"activityname"];
                                 
@@ -267,9 +269,9 @@
                                 
                             }
                             
-                         /**
-                                *把时间搓NSNumber 转成用户看得懂的时间
-                                */
+                            /**
+                             *把时间搓NSNumber 转成用户看得懂的时间
+                             */
                             
                             NSString *timeStamp2 =date.stringValue;
                             long long int date1 = (long long int)[timeStamp2 intValue];
@@ -291,15 +293,15 @@
                 }
                 else
                 {
-                     [Alert showMessageAlert:@"抱歉，尚无数据" view:self];
+                    [Alert showMessageAlert:@"抱歉，尚无数据" view:self];
                 }
             }
             else{
                 //判断code 是不是-1,(-2的情况也出现过,还是用msg来判断吧，虽然不规范),如果是那么token失效，需要让用户重新登录
-               // if([[NSNumber numberWithInt:(-1)] isEqualToNumber:[doc objectForKey:@"code"]]
-                   
-                   
-                   if([@"token invalid" isEqualToString:[doc objectForKey:@"msg"]]){
+                // if([[NSNumber numberWithInt:(-1)] isEqualToNumber:[doc objectForKey:@"code"]]
+                
+                
+                if([@"token invalid" isEqualToString:[doc objectForKey:@"msg"]]){
                     [AppDelegate reLogin:self];
                 }
                 else{
@@ -319,8 +321,8 @@
         [hud hide:YES];
         NSString *errorUser=[error.userInfo objectForKey:NSLocalizedDescriptionKey];
         if(-1009==error.code||-1016==error.code)
-           
-
+            
+            
             errorUser=@"主人，似乎没有网络喔！";
         [Alert showMessageAlert:errorUser view:self];
     }];

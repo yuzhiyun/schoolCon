@@ -207,8 +207,36 @@
                 //NSLog([[doc objectForKey:@"data"]objectForKey:@"isVip"]);
                 if(!isVip){
                     _mUILabelExpireDate.text=@"已到期";
-                    _mUILabelExpireDaysNum=@"0 天";
+                    _mUILabelExpireDaysNum.text=@"0 天";
+                }else{
+                    /**
+                     *把时间搓NSNumber 转成用户看得懂的时间
+                     */
+                    NSNumber *date=[[doc objectForKey:@"data"]objectForKey:@"vipEndTime"];
+                    NSString *timeStamp2 =date.stringValue;
+                    long long int date1 = (long long int)[timeStamp2 intValue];
+                    NSDate *date2 = [NSDate dateWithTimeIntervalSince1970:date1];
+                    //用于格式化NSDate对象
+                    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+                    //设置格式：zzz表示时区
+                    [dateFormatter setDateFormat:@"yyyy-MM-dd"];
+                    //NSDate转NSString
+                    NSString *currentDateString = [dateFormatter stringFromDate:date2];
+                    _mUILabelExpireDate.text=currentDateString;
+                    
+                    
+                   NSDate *datenow = [NSDate date];//现在时间,你可以输出来看下是什么格式
+                    //NSNumber *nDataNow=[datenow timeIntervalSince1970];
+                    NSLog(@"%i",(int)[datenow timeIntervalSince1970]);
+                    int expiresDays=(date.intValue -(int)[datenow timeIntervalSince1970])/(24*60*60);
+                    _mUILabelExpireDaysNum.text=[NSString stringWithFormat:@"%i 天",expiresDays ];
+                    
+                    
+                    
                 }
+                
+                
+                
                 
             }
             else{
@@ -223,22 +251,11 @@
         }
         else
             NSLog(@"*****doc空***********");
-        
-        
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSString *errorUser=[error.userInfo objectForKey:NSLocalizedDescriptionKey];
         if(-1009==error.code||-1016==error.code)
             errorUser=@"主人，似乎没有网络喔！";
         [Alert showMessageAlert:errorUser view:self];
     }];
-    
-    
 }
-
-
-
-
-
-
-
 @end

@@ -40,6 +40,7 @@
     
 }
 @property (weak, nonatomic) IBOutlet UIWebView *UIWebViewActivity;
+@property (weak, nonatomic) IBOutlet UIButton *mUIButtonJoinIn;
 
 
 @end
