@@ -43,9 +43,8 @@
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:nil action:nil];
 
     //按钮修改为已经报名
-    if(![@"ylsl" isEqualToString:activityType]||[@"xlhd" isEqualToString:activityType]){
+     if(!([@"ylsl" isEqualToString:activityType]||[@"xlhd" isEqualToString:activityType])){
         [_mUIButtonJoinIn setTitle:@"已报名" forState:UIControlStateNormal];
-        
     }
     // Do any additional setup after loading the view.
 }
@@ -65,12 +64,9 @@
 }
 */
 - (IBAction)join:(id)sender {
-    if(![@"ylsl" isEqualToString:activityType]||[@"xlhd" isEqualToString:activityType]){
-        
-        
+    if(!([@"ylsl" isEqualToString:activityType]||[@"xlhd" isEqualToString:activityType])){
         [Alert showMessageAlert:@"您已经报名过了" view:self];
         return;
-        
     }
     //根据storyboard id来获取目标页面
     JoinViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"JoinViewController"];

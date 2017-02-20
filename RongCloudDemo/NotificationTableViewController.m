@@ -71,9 +71,7 @@
                                   @"pageNumber":[NSString stringWithFormat:@"%d",pageIndex],
                                   @"token":token
                                   };
-    
-    
-    
+
     [manager POST:urlString parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         // (最好在刷新表格后调用)调用endRefreshing可以结束刷新状态
         [self.tableView footerEndRefreshing];
@@ -217,7 +215,7 @@
     UILabel *mUILabelDate=[cell viewWithTag:2];
     
     
-    image.image=[UIImage imageNamed:@"notice1.png"];
+    //image.image=[UIImage imageNamed:@"notice1.png"];
     mUILabelTitle.text = model.title;
     
     mUILabelDate.text=model.publishat;

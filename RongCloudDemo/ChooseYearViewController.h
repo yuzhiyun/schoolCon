@@ -10,5 +10,6 @@
 
 @interface ChooseYearViewController : UIViewController<UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UIButton *mUIButtonSelect;
+@property (weak, nonatomic) IBOutlet UIButton *mUIButtonSelectClass;
 
 @end

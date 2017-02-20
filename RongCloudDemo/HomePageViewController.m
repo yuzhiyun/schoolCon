@@ -331,22 +331,22 @@ _articleUrlArray=@[@"http://mp.weixin.qq.com/s/m3y2dvyWLxHoFskyX5aWPQ",@"http://
 - (IBAction)physicalTest:(id)sender {
     
     PsychologyTableViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"PsychologyTableViewController"];
+    nextPage->type=@"xlcs";
     nextPage.hidesBottomBarWhenPushed=YES;
     [self.navigationController pushViewController:nextPage animated:YES];
+    
+    
+    
 }
 
 - (IBAction)enterQueryGrade:(id)sender {
-//    弹出对话框选择年级
-//    UIActionSheet *actionSheet = [[UIActionSheet alloc]
-//                                  initWithTitle:@"请选择年级"
-//                                  delegate:self
-//                                  cancelButtonTitle:@"取消"
-//                                  destructiveButtonTitle:nil
-//                                  otherButtonTitles:@"2016学年", @"2015学年",@"2014学年",nil];
-//    actionSheet.actionSheetStyle = UIBarStyleDefault;
-//    [actionSheet showInView:self.view];
+    
+    ChooseYearViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"ChooseYearViewController"];
+    nextPage.hidesBottomBarWhenPushed=YES;
+    [self.navigationController pushViewController:nextPage animated:YES];
+    /*
     AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
-    if([AppDelegate isTeacher]){
+    if(![AppDelegate isTeacher]){
         [Alert showMessageAlert:@"抱歉，您不是会员或会员已到期，无法进行此操作，请在“我的会员”页面中进行充值"  view:self];
         return;
     }
@@ -408,7 +408,7 @@ _articleUrlArray=@[@"http://mp.weixin.qq.com/s/m3y2dvyWLxHoFskyX5aWPQ",@"http://
     }];
 
     
-    
+    */
     
     
 }

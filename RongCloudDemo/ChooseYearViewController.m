@@ -25,10 +25,12 @@
     
     NSMutableArray *mDataExam;
     NSMutableArray *mDataSemester;
+    NSMutableArray *mDataClass;
     //NSInteger *semesterIndex;
     NSString *semester;
+    NSString *class;
     UITableView *mTableView;
-    
+    NSString *selectType;
 }
 
 - (void)viewDidLoad {
@@ -42,13 +44,17 @@
     
     mDataExam=[[NSMutableArray alloc]init];
     mDataSemester=[[NSMutableArray alloc]init];
+    mDataClass=[[NSMutableArray alloc]init];
     
     //[mDataExam addObject:@"尚未获得考试列表信息"];
     
     [self loadSemesters];
     
     
-    [_mUIButtonSelect setTitle:@"尚未获取到学期信息" forState:UIControlStateNormal];
+    [_mUIButtonSelect setTitle:@"尚未获取到" forState:UIControlStateNormal];
+    [_mUIButtonSelectClass setTitle:@"尚未获取到" forState:UIControlStateNormal];
+    
+    class=@"";
 }
 /**
  *  重载右边导航按钮的事件
@@ -70,13 +76,12 @@
 
 
 - (IBAction)query:(id)sender {
-    //NSLog(@"semesterIndex是%i",semesterIndex);
-    //NSLog(@"semesterIndex-1是%i",semesterIndex-1);
+    
     if(0==[mDataSemester count])
         [Alert  showMessageAlert:@"尚未选择学年" view:self];
     else{
-        NSLog(semester);
-       // NSLog([mDataSemester objectAtIndex:semesterIndex-1]);
+        
+        // NSLog([mDataSemester objectAtIndex:semesterIndex-1]);
         MBProgressHUD *hud;
         hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
         //hud.color = [UIColor colorWithHexString:@"343637" alpha:0.5];
@@ -93,12 +98,28 @@
         //注意setWithObjects后面的s不能少
         manager.responseSerializer.acceptableContentTypes=[NSSet setWithObjects:@"application/json", nil];
         NSString *token=myDelegate.token;
+        
+        NSDictionary *parameters;
+        //服务器是通过我是否传递了classId来判断是否是老师
+        if([AppDelegate isTeacher]){
         // 请求参数
-        NSDictionary *parameters = @{ @"appId":@"03a8f0ea6a",
+        parameters = @{ @"appId":@"03a8f0ea6a",
                                       @"appSecret":@"b4a01f5a7dd4416c",
                                       @"token":token,
-                                      @"semester":semester
+                                      @"semester":semester,
+                                      @"classId":class
                                       };
+        }else{
+            // 请求参数
+            parameters = @{ @"appId":@"03a8f0ea6a",
+                                          @"appSecret":@"b4a01f5a7dd4416c",
+                                          @"token":token,
+                                          @"semester":semester
+                                         
+                                          };
+        }
+        NSLog(class);
+        NSLog(semester);
         
         [manager POST:urlString parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
             // (最好在刷新表格后调用)调用endRefreshing可以结束刷新状态
@@ -143,14 +164,14 @@
                                 model.articleId=item [@"id"];
                                 model.title=item [@"name"];
                                 model.publishat=item [@"date"];
-                               
+                                
                                 [mDataExam addObject:model];
                             }
                             NSLog(@"mDataExam项数为%i",[mDataExam count]);
                             NSLog(@"//更新界面");
                             //更新界面
                             [mTableView reloadData];
-                        
+                            
                         }
                     }
                     else
@@ -186,11 +207,33 @@
                 errorUser=@"主人，似乎没有网络喔！";
             [Alert showMessageAlert:errorUser view:self];
         }];
-
+        
     }
     
 }
+- (IBAction)selectClass:(id)sender {
+    
+    selectType=@"class";
+    
+    UIActionSheet *actionSheet = [[UIActionSheet alloc]
+                                  initWithTitle:@"请选择班级"
+                                  delegate:self
+                                  cancelButtonTitle:@"取消"
+                                  destructiveButtonTitle:nil
+                                  otherButtonTitles:nil];
+    actionSheet.actionSheetStyle = UIBarStyleDefault;
+    
+    //Notification *model=
+    for(Notification *item in mDataClass)
+        [actionSheet addButtonWithTitle:item.title];
+    
+    [actionSheet showInView:self.view];
+}
+
 - (IBAction)select:(id)sender {
+    
+    selectType=@"grade";
+    
     UIActionSheet *actionSheet = [[UIActionSheet alloc]
                                   initWithTitle:@"请选择学年"
                                   delegate:self
@@ -198,7 +241,6 @@
                                   destructiveButtonTitle:nil
                                   otherButtonTitles:nil];
     actionSheet.actionSheetStyle = UIBarStyleDefault;
-    
     
     for(NSString *item in mDataSemester)
         [actionSheet addButtonWithTitle:item];
@@ -213,15 +255,22 @@
 //UIActionSheet对话框选择监听事件
 -(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    NSLog(@"选择年级对话框监听事件,您选择了%i",buttonIndex);
+    
+    
+    NSLog(@"选择对话框监听事件,您选择了%i",buttonIndex);
     
     //NSLog([grade objectAtIndex:buttonIndex]);
     //if(buttonIndex!=[mDataSemester count]-1)
     if(buttonIndex!=0){
         // 添加文字
-        [_mUIButtonSelect setTitle:[mDataSemester objectAtIndex:buttonIndex-1] forState:UIControlStateNormal];
+        if([@"grade" isEqualToString:selectType]){
+            [_mUIButtonSelect setTitle:[mDataSemester objectAtIndex:buttonIndex-1] forState:UIControlStateNormal];
+            
+        }else{
+            Notification *model=[mDataClass objectAtIndex:buttonIndex-1] ;
+            [_mUIButtonSelectClass setTitle:model.title forState:UIControlStateNormal];
+        }
         //semesterIndex=buttonIndex;
-        
     }
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -242,7 +291,6 @@
     }
     
     Notification *model=[mDataExam objectAtIndex:indexPath.row];
-    
     
     cell.imageView.image=[UIImage imageNamed:@"exam1.png"];
     cell.detailTextLabel.text=model.publishat;
@@ -321,6 +369,31 @@
                         NSLog(@"//更新界面");
                         //更新界面
                         //[mTableView reloadData];
+                    }
+                    if(![@"parent" isEqualToString: [[doc objectForKey:@"data"]objectForKey:@"type"]]){
+                        //班级
+                        NSArray *arrayClass=[[doc objectForKey:@"data"]objectForKey:@"class"];
+                        if(0==[arrayClass count]){
+                            [Alert showMessageAlert:@"亲，没有更多数据了" view:self];
+                        }
+                        else{
+                            for(NSDictionary *item in  arrayClass ){
+                                
+                                Notification *model=[[Notification alloc]init];
+                                model.articleId=item[@"id"];
+                                model.title=item[@"name"];
+                                [mDataClass addObject:model];
+                            }
+                            if([mDataClass count]!=0){
+                                
+                                Notification *model=[mDataClass objectAtIndex:0];
+                                [_mUIButtonSelectClass setTitle:model.title forState:UIControlStateNormal];
+                                class =model.articleId;
+                            }
+                            NSLog(@"//更新界面");
+                            //更新界面
+                            //[mTableView reloadData];
+                        }
                     }
                 }
                 else

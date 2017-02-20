@@ -71,6 +71,8 @@
     else
       [self getWeXinUnionPayParameters:@"366"];
     //[self wechatPay];
+    
+    
 }
 //获取服务器端访问微信统一接口之后的参数，以便用于吊起微信支付
 -(void) getWeXinUnionPayParameters:(NSString *)continueDays{
@@ -113,6 +115,8 @@
             NSNumber *code=[doc objectForKey:@"code"];
             if([zero isEqualToNumber:code])
             {
+                
+                
                 //调起微信支付
                 PayReq* req              = [[PayReq alloc] init];
                 //商户号
@@ -141,7 +145,6 @@
                 NSLog(req.package);
                 NSLog(req.sign);
                 [WXApi sendReq:req];
-
             }
             else{
                 if([@"token invalid" isEqualToString:[doc objectForKey:@"msg"]]){

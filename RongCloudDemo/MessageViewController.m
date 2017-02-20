@@ -20,10 +20,15 @@
 
 @implementation MessageViewController{
     NSMutableArray *allDataFromServer;
+    NSString *selfPic;
+    NSString *selfUserId;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    selfPic=@"";
+    selfUserId=@"";
     
     /**由于防止用户未进入联系人页面就直接点击群发，这样在群发页面就没有联系人信息了
      * 所以我在消息页面就把联系人信息获取下来
@@ -66,8 +71,11 @@
     NSLog(@"getUserInfoWithUserId被调用几次");
     //这个是本人
     
-    if([@"2466bc07e8d74e1db6ac2b80cfeb0bb3" isEqualToString:userId]){
-        RCUserInfo *userInfo=[[RCUserInfo alloc]initWithUserId:userId name:@"本人" portrait:@"http://img05.tooopen.com/images/20150202/sy_80219211654.jpg"];
+    if([userId isEqualToString:selfUserId]){
+        AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
+        NSString *picUrl=[NSString stringWithFormat:@"%@%@",myDelegate.ipString,selfPic];
+        
+        RCUserInfo *userInfo=[[RCUserInfo alloc]initWithUserId:userId name:@"本人" portrait:picUrl];
         completion(userInfo);
         
     }
@@ -252,6 +260,7 @@
     [manager POST:urlString parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         //隐藏圆形进度条
        // [hud hide:YES];
+       // NSLog(responseObject);
         NSString *result=[JsonUtil DataTOjsonString:responseObject];
         NSLog(@"***************返回结果***********************");
         NSLog(result);
@@ -273,6 +282,17 @@
                         [Alert showMessageAlert:@"抱歉,没有数据" view:self];
                     }
                     else{
+                        
+                        //自己信息
+                        NSDictionary *selfInfo=[[doc objectForKey:@"data"] objectForKey:@"self"];
+                        //NSLog(selfInfo);
+                        selfPic=selfInfo[@"picurl"];
+                        selfUserId=selfInfo[@"useId"];
+                        
+                        NSLog(selfPic);
+                        NSLog(selfUserId);
+                        
+                        
                         //单聊联系人信息
                         NSArray *contactsArray=[[doc objectForKey:@"data"] objectForKey:@"contacts"];
                         for(NSDictionary *item in  contactsArray ){
