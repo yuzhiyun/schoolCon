@@ -36,7 +36,7 @@
 @public
     NSString  *place;
 @public
-    NSString  *price;
+    NSNumber  *price;
     
 }
 @property (weak, nonatomic) IBOutlet UIWebView *UIWebViewActivity;

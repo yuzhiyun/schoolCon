@@ -16,6 +16,8 @@
 @property (nonatomic,copy)NSString *date;
 @property (nonatomic,copy)NSString *price;
 
+@property (nonatomic,copy)NSNumber *NSNumprice;
+
 //@property (nonatomic,copy)NSString *price;
 
 @end

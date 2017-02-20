@@ -151,12 +151,14 @@
     nextPage->host=model.publisher;
     nextPage->date=model.date;
     nextPage->place=model.place;
-    nextPage->price=model.price;
+    nextPage->price=model.NSNumprice;
+    
+    
     
     
     NSString *urlString;
     
-    if([@"xlhd" isEqualToString:type])
+    if([@"xlhd" isEqualToString:type]||[@"xinli" isEqualToString:type])
         urlString=[NSString stringWithFormat:@"%@/api/psy/activity/getObject",myDelegate.ipString];
     else
         urlString=[NSString stringWithFormat:@"%@/api/cms/activity/getObject",myDelegate.ipString];
@@ -251,6 +253,9 @@
                             model.title=item [@"title"];
                             model.publisher=item [@"author"];
                             model.place=item[@"place"];
+                            
+                            //NSNumber *price=item[@"fee"];
+                            model.NSNumprice=item[@"fee"];
                             
                             NSNumber *date=item [@"starttime"];
                             

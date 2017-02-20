@@ -33,7 +33,7 @@
     _mUILabelHost.text=host;
     _mUILabelDate.text=date;
     _mUILabelPlace.text=place;
-    _mUILabelPrice.text=price;
+    _mUILabelPrice.text=price.stringValue;
     //默认是一个人
     joinNum=1;
     _mUILabelJoinNum.text=[NSString stringWithFormat:@"%i",joinNum];
@@ -175,11 +175,18 @@
     joinNum-=1;
     _mUILabelJoinNum.text=[NSString stringWithFormat:@"%i",joinNum];
     
+    NSNumber *nPrice=[NSNumber numberWithDouble:( [NSNumber numberWithInt:(joinNum)].doubleValue *price.doubleValue)];
     
+    _mUILabelPrice.text=nPrice.stringValue;
 }
 - (IBAction)add:(id)sender {
     joinNum+=1;
     _mUILabelJoinNum.text=[NSString stringWithFormat:@"%i",joinNum];
+    
+    NSNumber *nPrice=[NSNumber numberWithDouble:( [NSNumber numberWithInt:(joinNum)].doubleValue *price.doubleValue)];
+    
+    _mUILabelPrice.text=nPrice.stringValue;
+    
 }
 //开始编辑输入框的时候，软键盘出现，执行此事件
 -(void)textFieldDidBeginEditing:(UITextField *)textField
