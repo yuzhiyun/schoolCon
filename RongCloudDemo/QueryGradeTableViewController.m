@@ -17,6 +17,7 @@
 #import "Alert.h"
 #import "AppDelegate.h"
 #import "Subject.h"
+#import "LineChartViewController.h"
 @interface QueryGradeTableViewController ()
 
 @end
@@ -92,18 +93,13 @@
     return cell;
 }
 -(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    
-    
+    Subject *model=[mDataSubject objectAtIndex:indexPath.row];
     //根据storyboard id来获取目标页面
-    ParentsViewController *nextPageGradeChange= [self.storyboard instantiateViewControllerWithIdentifier:@"ParentsViewController"];
-    nextPageGradeChange.hidesBottomBarWhenPushed=YES;
+    LineChartViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"LineChartViewController"];
+    nextPage.hidesBottomBarWhenPushed=YES;
+    nextPage->typeId=model.typeId;
     //跳转
-    [self.navigationController pushViewController:nextPageGradeChange animated:YES];
-
-    
-    
-    
-    
+    [self.navigationController pushViewController:nextPage animated:YES];
 }
 
 -(void)loadData{

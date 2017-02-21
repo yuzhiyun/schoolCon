@@ -139,40 +139,26 @@
     
     cell.UILabelPrice.text= model.money.stringValue;
     
-//    cell.UILabelNumOfTest.text=[NSString stringWithFormat:@"%i",  model.testNumber];
 
-//    cell.UIImageViewCover.image=[UIImage imageNamed:[mImg objectAtIndex:indexPath.row]];
-//    
-
-    
     AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
     NSString *picUrl=[NSString stringWithFormat:@"%@%@",myDelegate.ipString,model.picUrl];
     
     NSLog(picUrl);
     [cell.UIImageViewCover sd_setImageWithURL: picUrl placeholderImage:[UIImage imageNamed:myDelegate.loadingImg]];
-    
-    
     return cell;
 }
 -(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
     Test *model=[allDataFromServer objectAtIndex:indexPath.row];
-    
-    
-    
-        
-    //
-        
-    
     if([@"xlcs" isEqualToString:type]){
-    
-
     //根据storyboard id来获取目标页面
     TestIntroductionViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"TestIntroductionViewController"];
-//    //    传值
+//     传值
     nextPage->testId=model.testId;
     nextPage->testName=model.title;
     nextPage->picUrl=model.picUrl;
+    nextPage->money=model.money;
+        
     
 //    nextPage->pubString=[mDataNotification objectAtIndex:indexPath.row];
     //UITabBarController和的UINavigationController结合使用,进入新的页面的时候，隐藏主页tabbarController的底部栏

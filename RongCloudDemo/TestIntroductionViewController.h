@@ -16,9 +16,12 @@
     NSString *testName;
 @public
     NSString *picUrl;
+@public
+    NSNumber *money;
     
 
 }
 @property (weak, nonatomic) IBOutlet UIWebView *UIWebViewtest;
+@property (weak, nonatomic) IBOutlet UIButton *mUIButtonPay;
 
 @end

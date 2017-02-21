@@ -595,7 +595,9 @@ _articleUrlArray=@[@"http://mp.weixin.qq.com/s/m3y2dvyWLxHoFskyX5aWPQ",@"http://
                     [AppDelegate reLogin:self];
                 }
                 else{
-                    NSString *msg=[NSString stringWithFormat:@"code是%d ： %@",[doc objectForKey:@"code"],[doc objectForKey:@"msg"]];
+                    
+                    NSNumber *code=[doc objectForKey:@"code"];
+                    NSString *msg=[NSString stringWithFormat:@"code是%@ ： %@",code.stringValue,[doc objectForKey:@"msg"]];
                     [Alert showMessageAlert:msg  view:self];
                 }
             }

@@ -252,7 +252,6 @@
     
     [[RCIM sharedRCIM] connectWithToken:token success:^(NSString *userId) {
         
-
         NSLog(@"登录成功登录成功登录成功登录成功登录成功登录成功登录成功登录成功Login successfully with userId: %@.", userId);
     } error:^(RCConnectErrorCode status) {
         

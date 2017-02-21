@@ -12,4 +12,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *mUIButtonSelect;
 @property (weak, nonatomic) IBOutlet UIButton *mUIButtonSelectClass;
 
+@property (weak, nonatomic) IBOutlet UILabel *mUILabelSelectClassKey;
+
+
 @end

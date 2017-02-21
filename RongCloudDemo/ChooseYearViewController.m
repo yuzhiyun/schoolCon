@@ -17,6 +17,7 @@
 #import "Alert.h"
 #import "MBProgressHUD.h"
 #import "Notification.h"
+#import "ClassGradeTableViewController.h"
 @interface ChooseYearViewController ()
 @property (nonatomic, strong) CCZTableButton *tableButton;
 @end
@@ -29,12 +30,24 @@
     //NSInteger *semesterIndex;
     NSString *semester;
     NSString *class;
+   // NSString *classId;
+    
     UITableView *mTableView;
     NSString *selectType;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    
+    if(![AppDelegate isTeacher]){
+        [_mUIButtonSelectClass setHidden:YES];
+        [_mUILabelSelectClassKey setHidden:YES];
+    }
+    //@property (weak, nonatomic) IBOutlet UIButton *mUIButtonSelectClass;
+    
+    //@property (weak, nonatomic) IBOutlet UILabel *mUILabelSelectClassKey;
+    
     
     //自定义导航左右按钮
     UIBarButtonItem *rightButton = [[UIBarButtonItem alloc]initWithTitle:@"成绩趋势" style:UIBarButtonItemStylePlain target:self action:@selector(rightBarButtonItemPressed:)];
@@ -55,6 +68,7 @@
     [_mUIButtonSelectClass setTitle:@"尚未获取到" forState:UIControlStateNormal];
     
     class=@"";
+    //classId=@"";
 }
 /**
  *  重载右边导航按钮的事件
@@ -97,8 +111,9 @@
         //设置响应数据的类型,如果是json数据，会自动帮你解析
         //注意setWithObjects后面的s不能少
         manager.responseSerializer.acceptableContentTypes=[NSSet setWithObjects:@"application/json", nil];
+        //避免乱码
+        [manager.requestSerializer setValue:@"application/x-www-form-urlencoded; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
         NSString *token=myDelegate.token;
-        
         NSDictionary *parameters;
         //服务器是通过我是否传递了classId来判断是否是老师
         if([AppDelegate isTeacher]){
@@ -115,7 +130,6 @@
                                           @"appSecret":@"b4a01f5a7dd4416c",
                                           @"token":token,
                                           @"semester":semester
-                                         
                                           };
         }
         NSLog(class);
@@ -269,6 +283,9 @@
         }else{
             Notification *model=[mDataClass objectAtIndex:buttonIndex-1] ;
             [_mUIButtonSelectClass setTitle:model.title forState:UIControlStateNormal];
+            
+           // classId=model.articleId;
+            
         }
         //semesterIndex=buttonIndex;
     }
@@ -299,14 +316,22 @@
 }
 -(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    
+    if(![AppDelegate isTeacher]){
     Notification *model=[mDataExam objectAtIndex:indexPath.row];
     TeacherNotUseCollectionViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"TeacherNotUseCollectionViewController"];
     nextPage->mExamId=model.articleId;
     nextPage.hidesBottomBarWhenPushed=YES;
     [self.navigationController pushViewController:nextPage animated:YES];
+    }else{
     
-    
+        Notification *model=[mDataExam objectAtIndex:indexPath.row];
+        ClassGradeTableViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"ClassGradeTableViewController"];
+        nextPage->mExamId=model.articleId;
+        nextPage->mClassId=class;
+        nextPage.hidesBottomBarWhenPushed=YES;
+        [self.navigationController pushViewController:nextPage animated:YES];
+
+    }
     
 }
 
@@ -389,6 +414,7 @@
                                 Notification *model=[mDataClass objectAtIndex:0];
                                 [_mUIButtonSelectClass setTitle:model.title forState:UIControlStateNormal];
                                 class =model.articleId;
+                                
                             }
                             NSLog(@"//更新界面");
                             //更新界面

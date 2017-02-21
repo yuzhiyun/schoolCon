@@ -242,6 +242,9 @@
 		CDF2F12D1E56101E00A499AE /* UIRefreshControl+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = CDF2F1191E56101E00A499AE /* UIRefreshControl+AFNetworking.m */; };
 		CDF2F12E1E56101E00A499AE /* UIWebView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = CDF2F11B1E56101E00A499AE /* UIWebView+AFNetworking.m */; };
 		CDF2F1691E59365E00A499AE /* loading.gif in Resources */ = {isa = PBXBuildFile; fileRef = CDF2F1681E59365E00A499AE /* loading.gif */; };
+		CDF2F16D1E5B261C00A499AE /* LineChartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDF2F16C1E5B261C00A499AE /* LineChartViewController.m */; };
+		CDF2F1711E5B39BD00A499AE /* ClassGradeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDF2F1701E5B39BD00A499AE /* ClassGradeTableViewController.m */; };
+		CDF2F1741E5B402B00A499AE /* StudentRank.m in Sources */ = {isa = PBXBuildFile; fileRef = CDF2F1731E5B402B00A499AE /* StudentRank.m */; };
 		CDF8EBCF1E2F497A00BFD5EA /* home04.png in Resources */ = {isa = PBXBuildFile; fileRef = CDF8EBCA1E2F497A00BFD5EA /* home04.png */; };
 		CDF8EBD01E2F497A00BFD5EA /* home03.png in Resources */ = {isa = PBXBuildFile; fileRef = CDF8EBCB1E2F497A00BFD5EA /* home03.png */; };
 		CDF8EBD11E2F497A00BFD5EA /* home05.png in Resources */ = {isa = PBXBuildFile; fileRef = CDF8EBCC1E2F497A00BFD5EA /* home05.png */; };
@@ -718,6 +721,12 @@
 		CDF2F11A1E56101E00A499AE /* UIWebView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWebView+AFNetworking.h"; sourceTree = "<group>"; };
 		CDF2F11B1E56101E00A499AE /* UIWebView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWebView+AFNetworking.m"; sourceTree = "<group>"; };
 		CDF2F1681E59365E00A499AE /* loading.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = loading.gif; sourceTree = "<group>"; };
+		CDF2F16B1E5B261C00A499AE /* LineChartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LineChartViewController.h; sourceTree = "<group>"; };
+		CDF2F16C1E5B261C00A499AE /* LineChartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LineChartViewController.m; sourceTree = "<group>"; };
+		CDF2F16F1E5B39BD00A499AE /* ClassGradeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassGradeTableViewController.h; sourceTree = "<group>"; };
+		CDF2F1701E5B39BD00A499AE /* ClassGradeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassGradeTableViewController.m; sourceTree = "<group>"; };
+		CDF2F1731E5B402B00A499AE /* StudentRank.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StudentRank.m; sourceTree = "<group>"; };
+		CDF2F1751E5B403600A499AE /* StudentRank.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StudentRank.h; sourceTree = "<group>"; };
 		CDF8EBCA1E2F497A00BFD5EA /* home04.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = home04.png; path = "../Users/qifeiqin/Downloads/图标/home04.png"; sourceTree = "<group>"; };
 		CDF8EBCB1E2F497A00BFD5EA /* home03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = home03.png; path = "../Users/qifeiqin/Downloads/图标/home03.png"; sourceTree = "<group>"; };
 		CDF8EBCC1E2F497A00BFD5EA /* home05.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = home05.png; path = "../Users/qifeiqin/Downloads/图标/home05.png"; sourceTree = "<group>"; };
@@ -1389,6 +1398,8 @@
 		CD2DCCAC1E0A6F86000C03E1 /* queryGrade */ = {
 			isa = PBXGroup;
 			children = (
+				CDF2F16E1E5B399E00A499AE /* class */,
+				CDF2F16A1E5B257000A499AE /* lineChart */,
 				CD7D5F021E50BE3B0082CF37 /* selectSubject */,
 				CD7D5EFE1E4F6BB90082CF37 /* studentGrade */,
 				CDC26A091E2B4E120093B804 /* chooseYear */,
@@ -2180,6 +2191,34 @@
 			path = "UIKit+AFNetworking";
 			sourceTree = "<group>";
 		};
+		CDF2F16A1E5B257000A499AE /* lineChart */ = {
+			isa = PBXGroup;
+			children = (
+				CDF2F16B1E5B261C00A499AE /* LineChartViewController.h */,
+				CDF2F16C1E5B261C00A499AE /* LineChartViewController.m */,
+			);
+			name = lineChart;
+			sourceTree = "<group>";
+		};
+		CDF2F16E1E5B399E00A499AE /* class */ = {
+			isa = PBXGroup;
+			children = (
+				CDF2F1721E5B3FD800A499AE /* studentRank */,
+				CDF2F16F1E5B39BD00A499AE /* ClassGradeTableViewController.h */,
+				CDF2F1701E5B39BD00A499AE /* ClassGradeTableViewController.m */,
+			);
+			name = class;
+			sourceTree = "<group>";
+		};
+		CDF2F1721E5B3FD800A499AE /* studentRank */ = {
+			isa = PBXGroup;
+			children = (
+				CDF2F1731E5B402B00A499AE /* StudentRank.m */,
+				CDF2F1751E5B403600A499AE /* StudentRank.h */,
+			);
+			name = studentRank;
+			sourceTree = "<group>";
+		};
 		CDF8EBC91E2F496C00BFD5EA /* homePage */ = {
 			isa = PBXGroup;
 			children = (
@@ -2433,6 +2472,7 @@
 				CD3F24931E2273D00083293D /* TBActivityView.m in Sources */,
 				CDF2F0491E5603FB00A499AE /* QNResolver.m in Sources */,
 				CD2DCB941E04ED7B000C03E1 /* DetailNotificationViewController.m in Sources */,
+				CDF2F1711E5B39BD00A499AE /* ClassGradeTableViewController.m in Sources */,
 				CD3F24771E223D9D0083293D /* VipViewController.m in Sources */,
 				CDE5AED21E1FC2330059D310 /* EducationViewController.m in Sources */,
 				CD6EACFE1E2784D6009EC3A0 /* PhysicalTest.m in Sources */,
@@ -2551,6 +2591,7 @@
 				CD2DCC8C1E09305D000C03E1 /* UIImageView+WebCache.m in Sources */,
 				CD6EAD011E279AF5009EC3A0 /* Activity.m in Sources */,
 				CD71A36E1E29C48000396746 /* SendMessageViewController.m in Sources */,
+				CDF2F16D1E5B261C00A499AE /* LineChartViewController.m in Sources */,
 				CD7FFDA71E3776E7003DE455 /* ChangePwdViewController.m in Sources */,
 				CD7D5F001E4F6BD80082CF37 /* StudentGrade.m in Sources */,
 				CDF2F1241E56101E00A499AE /* AFURLSessionManager.m in Sources */,
@@ -2579,6 +2620,7 @@
 				CDF2F0A41E56042300A499AE /* QNUserAgent.m in Sources */,
 				CDE5AED61E1FCC990059D310 /* ParentsViewController.m in Sources */,
 				CDC26A101E2B51050093B804 /* CCZTableButton.m in Sources */,
+				CDF2F1741E5B402B00A499AE /* StudentRank.m in Sources */,
 				CD2DCC7F1E09305D000C03E1 /* SDImageCache.m in Sources */,
 				CD7D5EFA1E4F3D610082CF37 /* MyCollectViewController.m in Sources */,
 				CDF2F1261E56101E00A499AE /* README.md in Sources */,
