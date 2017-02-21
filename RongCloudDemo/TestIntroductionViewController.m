@@ -19,7 +19,11 @@
 #import "WXApi.h"
 #import "WXApiObject.h"
 #import "MBProgressHUD.h"
-@interface TestIntroductionViewController ()
+@interface TestIntroductionViewController (){
+    
+//    NSString *isPaySuccess;
+
+}
 
 @end
 
@@ -27,6 +31,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+//   isPaySuccess=@"0";
+    
     //    修改下一个界面返回按钮的title，注意这行代码每个页面都要写一遍，不是全局的
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:nil action:nil];
     /**
@@ -43,20 +50,34 @@
     [_UIWebViewtest loadRequest: request];
  
     //如果金额为0，无需支付
-    if([money isEqualToNumber:[NSNumber numberWithInt:(0)]]){
-        
-        
-        [_mUIButtonPay setTitle:@"开始测试" forState:UIControlStateNormal];
-    }
+//    if([money isEqualToNumber:[NSNumber numberWithInt:(0)]]){
     
-
-    // Do any additional setup after loading the view.
+        
+       // [_mUIButtonPay setTitle:@"开始测试" forState:UIControlStateNormal];
+//    }
+    [_mUIButtonPay setTitle:@"开始测试" forState:UIControlStateNormal];
+    
+//    [DataBaseNSUserDefaults setData: @"testId" forkey:@"testId"];
+//    [DataBaseNSUserDefaults setData: @"testName" forkey:@"testName"];
+//    [DataBaseNSUserDefaults setData: @"picUrl" forkey:@"picUrl"];
+//
+//    // Do any additional setup after loading the view.
+    
+    [DataBaseNSUserDefaults setData: @"0" forkey:@"isPaySuccess"];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+//-(void)afterPaySuccess{
+//    
+//    NSLog(@"afterPaySuccess被调用了afterPaySuccess被调用了afterPaySuccess被调用了");
+//    [_mUIButtonPay setTitle:@"开始测试" forState:UIControlStateNormal];
+//    isPaySuccess=true;
+//}
+
 
 - (IBAction)startTest:(id)sender {
     
@@ -76,7 +97,18 @@
     nextPage.hidesBottomBarWhenPushed=YES;
     [self.navigationController pushViewController:nextPage animated:YES];
     }else{
+        if([@"1" isEqualToString:[DataBaseNSUserDefaults getData:@"isPaySuccess"]]){
+            TestViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"TestViewController"];
+            //nextPage->testId=testId;
+            nextPage->testId=testId;
+            nextPage->testName=testName;
+            nextPage->picUrl=picUrl;
+            nextPage.hidesBottomBarWhenPushed=YES;
+            [self.navigationController pushViewController:nextPage animated:YES];
+        }else
         [self getWeXinUnionPayParameters];
+        
+        
     }
 }
 
@@ -142,7 +174,7 @@
                 
                 //存储以便在验证微信支付的时候使用
                 [DataBaseNSUserDefaults setData: [[doc objectForKey:@"data"]objectForKey:@"orderId"] forkey:@"orderId"];
-                [DataBaseNSUserDefaults setData: @"activity" forkey:@"orderType"];
+                [DataBaseNSUserDefaults setData: @"xinli" forkey:@"orderType"];
                 
                 NSLog(req.partnerId);
                 NSLog(req.prepayId);
@@ -180,5 +212,7 @@
         [Alert showMessageAlert:errorUser view:self];
     }];
 }
+
+
 
 @end

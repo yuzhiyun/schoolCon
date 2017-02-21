@@ -11,6 +11,8 @@
 @interface TeacherNotUseCollectionViewController : UIViewController<UITableViewDelegate, UITableViewDataSource>{
     
 @public NSString *mExamId;
+@public NSString *mStudentId;
+    
 }
 
 

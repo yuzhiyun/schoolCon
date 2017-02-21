@@ -18,6 +18,8 @@
 #ifdef NSFoundationVersionNumber_iOS_9_x_Max
 #import <UserNotifications/UserNotifications.h>
 #import "WXApi.h"
+#import "TestIntroductionViewController.h"
+#import "TestViewController.h"
 #endif
 
 #define RONGCLOUD_IM_APPKEY @"qd46yzrf47sjf" //请换成您的appkey
@@ -89,6 +91,11 @@
                                                                   UIUserNotificationTypeSound |
                                                                   UIUserNotificationTypeAlert)
                                                 categories:nil];
+        
+        
+        
+        
+
         [application registerUserNotificationSettings:settings];
     } else {
         UIRemoteNotificationType myTypes = UIRemoteNotificationTypeBadge |
@@ -121,7 +128,7 @@
     return [WXApi handleOpenURL:url delegate:self];
 }
 
-#pragma mark - WXApiDelegate
+#pragma mark - 微信支付回调
 - (void)onResp:(BaseResp *)resp {
      if([resp isKindOfClass:[PayResp class]]){
         //支付返回结果，实际支付结果需要去微信服务器端查询
@@ -170,6 +177,8 @@
         urlString= [NSString stringWithFormat:@"%@/api/order/activity/isPayed",myDelegate.ipString];
     else if([@"vip" isEqualToString: [DataBaseNSUserDefaults getData:@"orderType"]])
         urlString= [NSString stringWithFormat:@"%@/api/order/vip/isPayed",myDelegate.ipString];
+    else if  ([@"xinli" isEqualToString: [DataBaseNSUserDefaults getData:@"orderType"]])
+        urlString= [NSString stringWithFormat:@"%@/api/order/test/isPayed",myDelegate.ipString];
     NSLog(urlString);
     //创建数据请求的对象，不是单例
     AFHTTPRequestOperationManager *manager=[AFHTTPRequestOperationManager manager];
@@ -205,6 +214,19 @@
             {
                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"温馨提示" message:@"恭喜您支付成功" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
                 [alert show];
+                //如果是心理测试，更换测试介绍页面的按钮文字，以及更换点击按钮后的跳转逻辑
+                if  ([@"xinli" isEqualToString: [DataBaseNSUserDefaults getData:@"orderType"]]){
+                    
+                    [DataBaseNSUserDefaults setData: @"1" forkey:@"isPaySuccess"];
+                    //TestIntroductionViewController *model=[[TestIntroductionViewController alloc]init];
+                    //NSLog(@"************TestIntroductionViewController *model*************");
+                    //[model afterPaySuccess];
+
+                    
+                }
+                
+                
+                
             }
             else{
 
@@ -234,7 +256,35 @@
         [Alert showMessageAlert:errorUser view:self];
     }];
 }
-
+//获取当前屏幕显示的viewcontroller
+- (UIViewController *)getCurrentVC
+{
+    UIViewController *result = nil;
+    
+    UIWindow * window = [[UIApplication sharedApplication] keyWindow];
+    if (window.windowLevel != UIWindowLevelNormal)
+    {
+        NSArray *windows = [[UIApplication sharedApplication] windows];
+        for(UIWindow * tmpWin in windows)
+        {
+            if (tmpWin.windowLevel == UIWindowLevelNormal)
+            {
+                window = tmpWin;
+                break;
+            }
+        }
+    }
+    
+    UIView *frontView = [[window subviews] objectAtIndex:0];
+    id nextResponder = [frontView nextResponder];
+    
+    if ([nextResponder isKindOfClass:[UIViewController class]])
+        result = nextResponder;
+    else
+        result = window.rootViewController;
+    
+    return result;
+}
 
 //- (void)application:(UIApplication *)application
 //didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {

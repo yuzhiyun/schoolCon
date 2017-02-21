@@ -23,5 +23,5 @@
 }
 @property (weak, nonatomic) IBOutlet UIWebView *UIWebViewtest;
 @property (weak, nonatomic) IBOutlet UIButton *mUIButtonPay;
-
+-(void)afterPaySuccess;
 @end

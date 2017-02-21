@@ -12,6 +12,7 @@
 #import "AFNetworking.h"
 #import "Alert.h"
 #import "AppDelegate.h"
+#import "TeacherNotUseCollectionViewController.h"
 
 #import "StudentRank.h"
 @interface ClassGradeTableViewController (){
@@ -121,27 +122,14 @@
 }
 -(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
-//    Notification *model= [allDataFromServer objectAtIndex:indexPath.row];
-//    
-//    
-//    DetailNotificationViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"DetailNotificationViewController"];
-//    //nextPage->pubString=[allDataFromServer objectAtIndex:indexPath.row];
-//    
-//    AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
-//    NSString *urlString;
-//    
-//    if([@"notice" isEqualToString:type])
-//        urlString=[NSString stringWithFormat:@"%@/api/sys/notice/getObject",myDelegate.ipString];
-//    else
-//        urlString=[NSString stringWithFormat:@"%@/api/sch/event/getObject",myDelegate.ipString];
-//    
-//    nextPage->urlString=urlString;
-//    nextPage->articleId=model.articleId;
-//    
-//    
-//    
-//    nextPage.hidesBottomBarWhenPushed=YES;
-//    [self.navigationController pushViewController:nextPage animated:YES];
+    
+    StudentRank *model=[mAllData objectAtIndex:indexPath.row-1];
+    TeacherNotUseCollectionViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"TeacherNotUseCollectionViewController"];
+    nextPage->mExamId=mExamId;
+    nextPage->mStudentId=model.studentId;
+    nextPage.hidesBottomBarWhenPushed=YES;
+    [self.navigationController pushViewController:nextPage animated:YES];
+
 }
 
 

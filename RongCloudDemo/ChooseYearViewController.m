@@ -30,7 +30,7 @@
     //NSInteger *semesterIndex;
     NSString *semester;
     NSString *class;
-   // NSString *classId;
+    // NSString *classId;
     
     UITableView *mTableView;
     NSString *selectType;
@@ -117,20 +117,20 @@
         NSDictionary *parameters;
         //服务器是通过我是否传递了classId来判断是否是老师
         if([AppDelegate isTeacher]){
-        // 请求参数
-        parameters = @{ @"appId":@"03a8f0ea6a",
-                                      @"appSecret":@"b4a01f5a7dd4416c",
-                                      @"token":token,
-                                      @"semester":semester,
-                                      @"classId":class
-                                      };
+            // 请求参数
+            parameters = @{ @"appId":@"03a8f0ea6a",
+                            @"appSecret":@"b4a01f5a7dd4416c",
+                            @"token":token,
+                            @"semester":semester,
+                            @"classId":class
+                            };
         }else{
             // 请求参数
             parameters = @{ @"appId":@"03a8f0ea6a",
-                                          @"appSecret":@"b4a01f5a7dd4416c",
-                                          @"token":token,
-                                          @"semester":semester
-                                          };
+                            @"appSecret":@"b4a01f5a7dd4416c",
+                            @"token":token,
+                            @"semester":semester
+                            };
         }
         NSLog(class);
         NSLog(semester);
@@ -284,7 +284,7 @@
             Notification *model=[mDataClass objectAtIndex:buttonIndex-1] ;
             [_mUIButtonSelectClass setTitle:model.title forState:UIControlStateNormal];
             
-           // classId=model.articleId;
+            // classId=model.articleId;
             
         }
         //semesterIndex=buttonIndex;
@@ -317,20 +317,19 @@
 -(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
     if(![AppDelegate isTeacher]){
-    Notification *model=[mDataExam objectAtIndex:indexPath.row];
-    TeacherNotUseCollectionViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"TeacherNotUseCollectionViewController"];
-    nextPage->mExamId=model.articleId;
-    nextPage.hidesBottomBarWhenPushed=YES;
-    [self.navigationController pushViewController:nextPage animated:YES];
+        Notification *model=[mDataExam objectAtIndex:indexPath.row];
+        TeacherNotUseCollectionViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"TeacherNotUseCollectionViewController"];
+        nextPage->mExamId=model.articleId;
+        nextPage.hidesBottomBarWhenPushed=YES;
+        [self.navigationController pushViewController:nextPage animated:YES];
     }else{
-    
         Notification *model=[mDataExam objectAtIndex:indexPath.row];
         ClassGradeTableViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"ClassGradeTableViewController"];
         nextPage->mExamId=model.articleId;
         nextPage->mClassId=class;
         nextPage.hidesBottomBarWhenPushed=YES;
         [self.navigationController pushViewController:nextPage animated:YES];
-
+        
     }
     
 }

@@ -47,7 +47,7 @@
     [allData addObject:dataInOnerow];
     [allData addObject:dataInOnerow2];
     */
-    
+    //mStudentId=@"";
     
     [self loadData];
 }
@@ -139,12 +139,29 @@
     //注意setWithObjects后面的s不能少
     manager.responseSerializer.acceptableContentTypes=[NSSet setWithObjects:@"application/json", nil];
     NSString *token=myDelegate.token;
+    NSDictionary *parameters;
+    if(mStudentId==nil){
     // 请求参数
-    NSDictionary *parameters = @{ @"appId":@"03a8f0ea6a",
+    parameters = @{ @"appId":@"03a8f0ea6a",
                                   @"appSecret":@"b4a01f5a7dd4416c",
                                   @"token":token,
                                   @"examId":mExamId
                                   };
+        NSLog(@"没有传参数mStudentId");
+    }
+
+
+    else{
+        parameters = @{ @"appId":@"03a8f0ea6a",
+                        @"appSecret":@"b4a01f5a7dd4416c",
+                        @"token":token,
+                        @"examId":mExamId,
+                        @"studentId":mStudentId
+                        
+                        };
+        
+        NSLog(@"mStudentId=%@",mStudentId);
+    }
     
     
     [manager POST:urlString parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
