@@ -14,6 +14,11 @@
 @public NSString *mStudentId;
     
 }
+@property (weak, nonatomic) IBOutlet UILabel *mUILabelTotal;
+@property (weak, nonatomic) IBOutlet UILabel *mUILabelCmean;
+@property (weak, nonatomic) IBOutlet UILabel *mUILabelCrank;
+@property (weak, nonatomic) IBOutlet UILabel *mUILabelGmean;
+@property (weak, nonatomic) IBOutlet UILabel *mUILabelGrank;
 
 
 @end

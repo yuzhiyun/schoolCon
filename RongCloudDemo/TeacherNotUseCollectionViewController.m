@@ -189,6 +189,15 @@
             {
                 if(nil!=[doc allKeys]){
                     
+                    
+
+                    
+                    _mUILabelTotal.text=[[doc objectForKey:@"data"]objectForKey:@"total"];
+                    _mUILabelCmean.text=[[doc objectForKey:@"data"]objectForKey:@"tcmean"];
+                    _mUILabelCrank.text=[[doc objectForKey:@"data"]objectForKey:@"tcrank"];
+                    _mUILabelGmean.text=[[doc objectForKey:@"data"]objectForKey:@"tgmean"];
+                    _mUILabelGrank.text=[[doc objectForKey:@"data"]objectForKey:@"tgrank"];
+                    
                     NSArray *array=[[doc objectForKey:@"data"]objectForKey:@"scores"];
                     
                     if(0==[array count]){
