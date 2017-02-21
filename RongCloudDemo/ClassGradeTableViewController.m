@@ -121,15 +121,12 @@
     return cell;
 }
 -(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    
-    
     StudentRank *model=[mAllData objectAtIndex:indexPath.row-1];
     TeacherNotUseCollectionViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"TeacherNotUseCollectionViewController"];
     nextPage->mExamId=mExamId;
-    nextPage->mStudentId=model.studentId;
+    nextPage->mStudentId=model.gradeId;
     nextPage.hidesBottomBarWhenPushed=YES;
     [self.navigationController pushViewController:nextPage animated:YES];
-
 }
 
 
@@ -150,6 +147,7 @@
     //注意setWithObjects后面的s不能少
     manager.responseSerializer.acceptableContentTypes=[NSSet setWithObjects:@"application/json", nil];
     NSString *token=myDelegate.token;
+    
     // 请求参数
     NSDictionary *parameters = @{ @"appId":@"03a8f0ea6a",
                                   @"appSecret":@"b4a01f5a7dd4416c",
@@ -158,11 +156,7 @@
                                   @"classId":mClassId
                                   };
     
-    
     [manager POST:urlString parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        // (最好在刷新表格后调用)调用endRefreshing可以结束刷新状态
-        //[self.tableView footerEndRefreshing];
-        //[self.tableView headerEndRefreshing];
         //隐藏圆形进度条
         [hud hide:YES];
         NSString *result=[JsonUtil DataTOjsonString:responseObject];

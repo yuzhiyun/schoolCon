@@ -13,6 +13,7 @@
 #import "Alert.h"
 #import "AppDelegate.h"
 #import "StudentGrade.h"
+#import "QueryGradeTableViewController.h"
 @interface TeacherNotUseCollectionViewController ()
 
 @end
@@ -30,26 +31,27 @@
     [super viewDidLoad];
     mAllData=[[NSMutableArray alloc]init];
     
+    //自定义导航左右按钮
+    UIBarButtonItem *rightButton = [[UIBarButtonItem alloc]initWithTitle:@"成绩趋势" style:UIBarButtonItemStylePlain target:self action:@selector(rightBarButtonItemPressed:)];
     
-     /*
-    dataInOnerow=[[NSMutableArray alloc]init];
-    [dataInOnerow addObject:@"数学"];
-    [dataInOnerow addObject:@"98"];
-    [dataInOnerow addObject:@"90分/2"];
-    [dataInOnerow addObject:@"86分/30"];
+    [rightButton setTitleTextAttributes: [NSDictionary dictionaryWithObjectsAndKeys:[UIFont systemFontOfSize:17], UITextAttributeFont, [UIColor whiteColor], UITextAttributeTextColor, nil] forState:UIControlStateNormal];
+    self.navigationItem.rightBarButtonItem=rightButton;
+
     
-    dataInOnerow2=[[NSMutableArray alloc]init];
-    [dataInOnerow2 addObject:@"英语"];
-    [dataInOnerow2 addObject:@"80"];
-    [dataInOnerow2 addObject:@"90分/3"];
-    [dataInOnerow2 addObject:@"86分/20"];
-    
-    [allData addObject:dataInOnerow];
-    [allData addObject:dataInOnerow2];
-    */
-    //mStudentId=@"";
     
     [self loadData];
+}
+/**
+ *  重载右边导航按钮的事件
+ *
+ *  @param sender
+ */
+-(void)rightBarButtonItemPressed:(id)sender
+{
+    QueryGradeTableViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"QueryGradeTableViewController"];
+    nextPage.hidesBottomBarWhenPushed=YES;
+    [self.navigationController pushViewController:nextPage animated:YES];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -159,7 +161,7 @@
                         @"studentId":mStudentId
                         
                         };
-        
+        NSLog(@"mExamId=%@",mExamId);
         NSLog(@"mStudentId=%@",mStudentId);
     }
     

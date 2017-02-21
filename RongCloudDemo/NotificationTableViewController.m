@@ -66,11 +66,15 @@
     manager.responseSerializer.acceptableContentTypes=[NSSet setWithObjects:@"application/json", nil];
     NSString *token=myDelegate.token;
     // 请求参数
-    NSDictionary *parameters = @{ @"appId":@"03a8f0ea6a",
+    NSDictionary *parameters = @{   @"appId":@"03a8f0ea6a",
                                   @"appSecret":@"b4a01f5a7dd4416c",
                                   @"pageNumber":[NSString stringWithFormat:@"%d",pageIndex],
                                   @"token":token
-                                  };
+                            };
+
+    
+    
+    
 
     [manager POST:urlString parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         // (最好在刷新表格后调用)调用endRefreshing可以结束刷新状态

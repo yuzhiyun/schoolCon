@@ -49,12 +49,7 @@
     //@property (weak, nonatomic) IBOutlet UILabel *mUILabelSelectClassKey;
     
     
-    //自定义导航左右按钮
-    UIBarButtonItem *rightButton = [[UIBarButtonItem alloc]initWithTitle:@"成绩趋势" style:UIBarButtonItemStylePlain target:self action:@selector(rightBarButtonItemPressed:)];
-    
-    [rightButton setTitleTextAttributes: [NSDictionary dictionaryWithObjectsAndKeys:[UIFont systemFontOfSize:17], UITextAttributeFont, [UIColor whiteColor], UITextAttributeTextColor, nil] forState:UIControlStateNormal];
-    self.navigationItem.rightBarButtonItem=rightButton;
-    
+        
     mDataExam=[[NSMutableArray alloc]init];
     mDataSemester=[[NSMutableArray alloc]init];
     mDataClass=[[NSMutableArray alloc]init];
@@ -69,18 +64,6 @@
     
     class=@"";
     //classId=@"";
-}
-/**
- *  重载右边导航按钮的事件
- *
- *  @param sender <#sender description#>
- */
--(void)rightBarButtonItemPressed:(id)sender
-{
-    QueryGradeTableViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"QueryGradeTableViewController"];
-    nextPage.hidesBottomBarWhenPushed=YES;
-    [self.navigationController pushViewController:nextPage animated:YES];
-    
 }
 
 
@@ -283,9 +266,6 @@
         }else{
             Notification *model=[mDataClass objectAtIndex:buttonIndex-1] ;
             [_mUIButtonSelectClass setTitle:model.title forState:UIControlStateNormal];
-            
-            // classId=model.articleId;
-            
         }
         //semesterIndex=buttonIndex;
     }
