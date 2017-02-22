@@ -9,6 +9,11 @@
 #import <UIKit/UIKit.h>
 
 @interface LineChartViewController : UIViewController{
+    
+    
+    //student  teacher 分为学生查看和老师查看
+    //@public NSString *type;
+    @public NSString *studentId;
     @public NSString *typeId;
 }
 

@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface QueryGradeTableViewController : UITableViewController
+@interface QueryGradeTableViewController : UITableViewController{
+@public NSString *studentId;
+
+}
 
 @end

@@ -49,9 +49,12 @@
 -(void)rightBarButtonItemPressed:(id)sender
 {
     QueryGradeTableViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"QueryGradeTableViewController"];
+    
+    nextPage->studentId=mStudentId;
+    
+    
     nextPage.hidesBottomBarWhenPushed=YES;
     [self.navigationController pushViewController:nextPage animated:YES];
-    
 }
 
 - (void)didReceiveMemoryWarning {

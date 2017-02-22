@@ -124,7 +124,11 @@
     StudentRank *model=[mAllData objectAtIndex:indexPath.row-1];
     TeacherNotUseCollectionViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"TeacherNotUseCollectionViewController"];
     nextPage->mExamId=mExamId;
+    
+    
     nextPage->mStudentId=model.gradeId;
+    
+   // nextPage->type=@"teacher";
     nextPage.hidesBottomBarWhenPushed=YES;
     [self.navigationController pushViewController:nextPage animated:YES];
 }
@@ -155,7 +159,6 @@
                                   @"examId":mExamId,
                                   @"classId":mClassId
                                   };
-    
     [manager POST:urlString parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         //隐藏圆形进度条
         [hud hide:YES];

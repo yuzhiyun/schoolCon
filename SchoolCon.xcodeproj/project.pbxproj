@@ -299,7 +299,7 @@
 /* Begin PBXFileReference section */
 		461708771BF03D9C0081819C /* libopencore-amrnb.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libopencore-amrnb.a"; path = "framework/libopencore-amrnb.a"; sourceTree = "<group>"; };
 		461B27831B82DD7D00107001 /* Emoji.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Emoji.plist; path = ../framework/Emoji.plist; sourceTree = "<group>"; };
-		461B27841B82DD7D00107001 /* RongCloud.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = RongCloud.bundle; path = framework/RongCloud.bundle; sourceTree = "<group>"; };
+		461B27841B82DD7D00107001 /* RongCloud.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = RongCloud.bundle; path = ../framework/RongCloud.bundle; sourceTree = "<group>"; };
 		461B27881B82DDA000107001 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = framework/en.lproj/RongCloudKit.strings; sourceTree = SOURCE_ROOT; };
 		461B278A1B82DDAE00107001 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "framework/zh-Hans.lproj/RongCloudKit.strings"; sourceTree = SOURCE_ROOT; };
 		46973E081AE698C9007BE79E /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
@@ -830,7 +830,6 @@
 				CDC26A0F1E2B51040093B804 /* CCZTableButton */,
 				CD79C22D1E27240000A9889F /* MJRefresh */,
 				CD2DCC501E09305D000C03E1 /* SDWebImage */,
-				461B27841B82DD7D00107001 /* RongCloud.bundle */,
 				4698CBCD1AE232FF0006330E /* Frameworks */,
 				4698CBC91AE230600006330E /* Resouce */,
 				4698CB9E1AE22FCA0006330E /* schoolCon */,
@@ -1310,6 +1309,7 @@
 		CD2DCC501E09305D000C03E1 /* SDWebImage */ = {
 			isa = PBXGroup;
 			children = (
+				461B27841B82DD7D00107001 /* RongCloud.bundle */,
 				CD2DCC8F1E0938AE000C03E1 /* FLAnimatedImage.h */,
 				CD2DCC901E0938AE000C03E1 /* FLAnimatedImage.m */,
 				CD2DCC911E0938AE000C03E1 /* FLAnimatedImageView.h */,

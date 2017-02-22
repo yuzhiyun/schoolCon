@@ -12,7 +12,7 @@
     
 @public NSString *mExamId;
 @public NSString *mStudentId;
-    
+@public NSString *type;
 }
 @property (weak, nonatomic) IBOutlet UILabel *mUILabelTotal;
 @property (weak, nonatomic) IBOutlet UILabel *mUILabelCmean;
