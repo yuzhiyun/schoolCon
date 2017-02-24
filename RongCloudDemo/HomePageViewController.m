@@ -438,7 +438,7 @@ _articleUrlArray=@[@"http://mp.weixin.qq.com/s/m3y2dvyWLxHoFskyX5aWPQ",@"http://
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *simpleTableIdentifier = @"SimpleTableCell";
+    static NSString *simpleTableIdentifier = @"cell";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
     
@@ -446,21 +446,25 @@ _articleUrlArray=@[@"http://mp.weixin.qq.com/s/m3y2dvyWLxHoFskyX5aWPQ",@"http://
 //        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
 //    }
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:simpleTableIdentifier];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
     }
     
     Notification *model=[mNotification objectAtIndex:indexPath.row];
     
-    cell.imageView.image=[UIImage imageNamed:@"notice1.png"];
-    cell.detailTextLabel.text=model.publishat;
+    UIImageView *mUIImageViewIcon=[cell viewWithTag:1];
+    UILabel *mUILabelTitle=[cell viewWithTag:2];
+    UILabel *mUILabelDate=[cell viewWithTag:3];
+
+    mUIImageViewIcon.image=[UIImage imageNamed:@"notice1.png"];
+    mUILabelDate.text=model.publishat;
 //    cell.tes
     NSString * title=model.title;
     //截取字符串
-    if(title.length>8){
-        title=[title substringToIndex:8];
-        title=[NSString stringWithFormat:@"%@...",title];
-    }
-    cell.textLabel.text =title;
+//    if(title.length>8){
+//        title=[title substringToIndex:8];
+//        title=[NSString stringWithFormat:@"%@...",title];
+//    }
+    mUILabelTitle.text =title;
     return cell;
 }
 
