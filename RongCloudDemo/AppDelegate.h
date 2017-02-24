@@ -57,6 +57,11 @@
 
 @property (nonatomic,strong)NSMutableArray *linkManArray;
 @property (nonatomic,strong)UIColor *navigationBarColor;
+@property(nonatomic,assign)BOOL allowRotation;//是否允许转向
+
+
+
+
 +(void)loginRongCloud :(NSString *) token;
 //token失效重新登录
 +(void)reLogin :(UIViewController *)viewController;

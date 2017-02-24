@@ -341,13 +341,15 @@ _articleUrlArray=@[@"http://mp.weixin.qq.com/s/m3y2dvyWLxHoFskyX5aWPQ",@"http://
 
 - (IBAction)enterQueryGrade:(id)sender {
     
-    ChooseYearViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"ChooseYearViewController"];
-    nextPage.hidesBottomBarWhenPushed=YES;
-    [self.navigationController pushViewController:nextPage animated:YES];
-    /*
+
+    
     AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
-    if(![AppDelegate isTeacher]){
-        [Alert showMessageAlert:@"抱歉，您不是会员或会员已到期，无法进行此操作，请在“我的会员”页面中进行充值"  view:self];
+    if([AppDelegate isTeacher]){
+            ChooseYearViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"ChooseYearViewController"];
+            nextPage.hidesBottomBarWhenPushed=YES;
+            [self.navigationController pushViewController:nextPage animated:YES];
+        //[Alert showMessageAlert:@"抱歉，您不是会员或会员已到期，无法进行此操作，请在“我的会员”页面中进行充值"  view:self];
+        
         return;
     }
     
@@ -408,7 +410,7 @@ _articleUrlArray=@[@"http://mp.weixin.qq.com/s/m3y2dvyWLxHoFskyX5aWPQ",@"http://
     }];
 
     
-    */
+    
     
     
 }

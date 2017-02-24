@@ -14,6 +14,8 @@
 #import "LinkMan.h"
 #import "Alert.h"
 #import "DataBaseNSUserDefaults.h"
+
+
 @interface MessageViewController ()
 
 @end
@@ -21,14 +23,17 @@
 @implementation MessageViewController{
     NSMutableArray *allDataFromServer;
     NSString *selfPic;
+    NSString *selfName;
     NSString *selfUserId;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    //MyLog(@"");
     selfPic=@"";
     selfUserId=@"";
+    selfName=@"";
     
     /**由于防止用户未进入联系人页面就直接点击群发，这样在群发页面就没有联系人信息了
      * 所以我在消息页面就把联系人信息获取下来
@@ -70,14 +75,11 @@
     
     NSLog(@"getUserInfoWithUserId被调用几次");
     //这个是本人
-    
     if([userId isEqualToString:selfUserId]){
         AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
         NSString *picUrl=[NSString stringWithFormat:@"%@%@",myDelegate.ipString,selfPic];
-        
-        RCUserInfo *userInfo=[[RCUserInfo alloc]initWithUserId:userId name:@"本人" portrait:picUrl];
+        RCUserInfo *userInfo=[[RCUserInfo alloc]initWithUserId:userId name:selfName portrait:picUrl];
         completion(userInfo);
-        
     }
     /*
     if([@"321" isEqualToString:userId]){
@@ -110,11 +112,11 @@
 - (void)getGroupInfoWithGroupId:(NSString *)groupId
                      completion:(void (^)(RCGroup *groupInfo))completion{
     
-    //我自己建的群id就是1，所以
-    if([@"1" isEqualToString:groupId]){
-        RCGroup *groupInfo =[[RCGroup alloc] initWithGroupId:@"1" groupName:@"初二3班班群" portraitUri:@"http://img.blog.csdn.net/20170113192304511?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQveXV6aGl5dW4zNTM2/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast"];
-        completion(groupInfo);
-    }
+//    //我自己建的群id就是1，所以
+//    if([@"1" isEqualToString:groupId]){
+//        RCGroup *groupInfo =[[RCGroup alloc] initWithGroupId:@"1" groupName:@"初二3班班群" portraitUri:@"http://img.blog.csdn.net/20170113192304511?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQveXV6aGl5dW4zNTM2/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast"];
+//        completion(groupInfo);
+//    }
     
     AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
     
@@ -282,17 +284,15 @@
                         [Alert showMessageAlert:@"抱歉,没有数据" view:self];
                     }
                     else{
-                        
                         //自己信息
                         NSDictionary *selfInfo=[[doc objectForKey:@"data"] objectForKey:@"self"];
                         //NSLog(selfInfo);
                         selfPic=selfInfo[@"picurl"];
                         selfUserId=selfInfo[@"useId"];
-                        
+                        //selfName=selfInfo[@"name"];
                         NSLog(selfPic);
                         NSLog(selfUserId);
-                        
-                        
+                        //NSLog(selfName);
                         //单聊联系人信息
                         NSArray *contactsArray=[[doc objectForKey:@"data"] objectForKey:@"contacts"];
                         for(NSDictionary *item in  contactsArray ){
@@ -327,7 +327,7 @@
                         
                         // [mTableView reloadData];
                     }
-                    //            }
+                    
                 }
                 else
                 {

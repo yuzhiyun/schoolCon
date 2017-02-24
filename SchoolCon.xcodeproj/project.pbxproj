@@ -41,7 +41,6 @@
 		4698CBFB1AE236EA0006330E /* RongIMKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4698CBFA1AE236EA0006330E /* RongIMKit.framework */; };
 		4698CBFD1AE237AB0006330E /* RongIMLib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4698CBFC1AE237AB0006330E /* RongIMLib.framework */; };
 		4698CC041AE245940006330E /* ChatListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4698CC031AE245940006330E /* ChatListViewController.m */; };
-		CD028F051E40DDDB0083EA43 /* icon2-20@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = CD028F041E40DDDB0083EA43 /* icon2-20@3x.png */; };
 		CD0DCF8B1E422B10002A3869 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD0DCF8A1E422B10002A3869 /* CoreFoundation.framework */; };
 		CD0DCF8D1E422B37002A3869 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD0DCF8C1E422B37002A3869 /* Foundation.framework */; };
 		CD0DCF8F1E422B52002A3869 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD0DCF8E1E422B52002A3869 /* Security.framework */; };
@@ -339,7 +338,6 @@
 		4698CBFC1AE237AB0006330E /* RongIMLib.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RongIMLib.framework; path = framework/RongIMLib.framework; sourceTree = "<group>"; };
 		4698CC021AE245940006330E /* ChatListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatListViewController.h; sourceTree = "<group>"; };
 		4698CC031AE245940006330E /* ChatListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatListViewController.m; sourceTree = "<group>"; };
-		CD028F041E40DDDB0083EA43 /* icon2-20@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon2-20@3x.png"; sourceTree = "<group>"; };
 		CD0DCF861E421D8D002A3869 /* JPUSHService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPUSHService.h; sourceTree = "<group>"; };
 		CD0DCF8A1E422B10002A3869 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 		CD0DCF8C1E422B37002A3869 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -1768,7 +1766,6 @@
 		CDC26A131E2CD5710093B804 /* appIcon */ = {
 			isa = PBXGroup;
 			children = (
-				CD028F041E40DDDB0083EA43 /* icon2-20@3x.png */,
 			);
 			name = appIcon;
 			sourceTree = "<group>";
@@ -2380,7 +2377,6 @@
 				CDF8EC0C1E2FB10E00BFD5EA /* shequ_1@2x.png in Resources */,
 				CDF8EC1F1E3062AD00BFD5EA /* me_pwd.png in Resources */,
 				CDF8EC281E3074C500BFD5EA /* 3.png in Resources */,
-				CD028F051E40DDDB0083EA43 /* icon2-20@3x.png in Resources */,
 				CD112A741E0E1CB5004519B9 /* exam1.png in Resources */,
 				CDF8EC041E2FB10E00BFD5EA /* daxue_1@2x.png in Resources */,
 				CD3CF6961E0C1502003599F5 /* info.png in Resources */,

@@ -44,6 +44,7 @@
     
     [self loadData:pageIndex orientation:@"up"];
 }
+
 #pragma mark 加载通知列表
 -(void)loadData:(int)pageIndex orientation:(NSString *) orientation {
     MBProgressHUD *hud;
@@ -55,7 +56,7 @@
     AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
     NSString *urlString;
     if([@"notice" isEqualToString:type])
-        urlString= [NSString stringWithFormat:@"%@/api/sch/notice/getList",myDelegate.ipString];
+        urlString= [NSString stringWithFormat:@"%@/api/sys/notice/getList",myDelegate.ipString];
     else
          urlString= [NSString stringWithFormat:@"%@/api/sch/event/getList",myDelegate.ipString];
         
@@ -109,14 +110,12 @@
                         [Alert showMessageAlert:@"抱歉,没有更多数据了" view:self];
                     }
                     else{
-                        
                         for(NSDictionary *item in  array ){
                             Notification *model=[[Notification alloc]init];
                             model.articleId=item [@"id"];
                             model.title=item [@"title"];
                             model.author=item [@"author"];
                             model.type=item [@"type"];
-                            
                             /**
                                   *把时间搓NSNumber 转成用户看得懂的时间
                                   */

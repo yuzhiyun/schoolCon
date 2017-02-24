@@ -415,4 +415,20 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
     else
         return false;
 }
+//如果属性值为YES,仅允许屏幕向左旋转,否则仅允许竖屏
+//- (UIInterfaceOrientationMask)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(nullable UIWindow *)window
+//
+//{
+//    
+//    if (_allowRotation == YES) {
+//        
+//        return UIInterfaceOrientationMaskLandscapeLeft;
+//        
+//    }else{
+//        
+//        return (UIInterfaceOrientationMaskPortrait);
+//        
+//    }
+//    
+//}
 @end
