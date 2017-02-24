@@ -289,7 +289,7 @@
                         //NSLog(selfInfo);
                         selfPic=selfInfo[@"picurl"];
                         selfUserId=selfInfo[@"useId"];
-                        //selfName=selfInfo[@"name"];
+                        selfName=selfInfo[@"name"];
                         NSLog(selfPic);
                         NSLog(selfUserId);
                         //NSLog(selfName);
