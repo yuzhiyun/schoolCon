@@ -105,8 +105,27 @@
             nextPage->picUrl=picUrl;
             nextPage.hidesBottomBarWhenPushed=YES;
             [self.navigationController pushViewController:nextPage animated:YES];
-        }else
-        [self getWeXinUnionPayParameters];
+        }else{
+            
+            
+            UIAlertController *alert=[UIAlertController alertControllerWithTitle:nil message:@"使用微信支付付费" preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction *ok=[UIAlertAction actionWithTitle:@"确认"
+                                                       style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){
+                                                           [self getWeXinUnionPayParameters];
+                                                           
+                                                       }];
+            UIAlertAction *cancel=[UIAlertAction actionWithTitle:@"取消"
+                                                           style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){
+                                                               
+                                                               [alert dismissViewControllerAnimated:YES completion:nil];
+                                                           }];
+            //        信息框添加按键
+            [alert addAction:ok];
+            [alert addAction:cancel];
+            [self presentViewController:alert animated:YES completion:nil];
+            
+        
+        }
         
         
     }

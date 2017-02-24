@@ -139,6 +139,11 @@
             
             myDelegate.rtoken=[[doc objectForKey:@"data"]objectForKey:@"rtoken"];
             
+            NSString *name=[[doc objectForKey:@"data"]objectForKey:@"name"];
+            
+            //存储name
+            [DataBaseNSUserDefaults setData: name forkey:@"name"];
+
             NSLog(@"登录之后存储token%@",myDelegate.token);
             [DataBaseNSUserDefaults setData: myDelegate.token forkey:@"token"];
             NSLog(@"登录之后存储rtoken%@",myDelegate.rtoken);

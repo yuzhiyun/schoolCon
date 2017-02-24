@@ -52,6 +52,8 @@
     
     [super viewDidLoad];
     self.title=@"我 的";
+    
+    _mUILabelUname.text=[DataBaseNSUserDefaults getData:@"name"];
     //[self QiNiuUploadImage:nil];
     //   navigationBar背景
     AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
