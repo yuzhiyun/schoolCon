@@ -1924,14 +1924,14 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="mUILabelDate" destination="a7V-Bt-KmV" id="Xvr-RA-F0y"/>
-                        <outlet property="mUILabelHost" destination="TgG-dt-Aas" id="2UM-c3-1zH"/>
-                        <outlet property="mUILabelJoinNum" destination="DjW-Em-sPG" id="YvM-gO-Zv1"/>
-                        <outlet property="mUILabelPlace" destination="jOE-O4-oFW" id="K1A-wO-IF7"/>
-                        <outlet property="mUILabelPrice" destination="X6V-eP-6kn" id="d35-ut-bQ7"/>
-                        <outlet property="mUILabelTitle" destination="1Hs-7H-V0u" id="M7c-v7-1h4"/>
-                        <outlet property="mUITextFieldPhone" destination="I0i-mD-j8k" id="F8d-Pn-Lsp"/>
-                        <outlet property="mUITextFieldRemark" destination="mml-SV-CCl" id="qaE-fM-UWA"/>
+                        <outlet property="mUILabelDate" destination="a7V-Bt-KmV" id="eLj-kk-l8I"/>
+                        <outlet property="mUILabelHost" destination="TgG-dt-Aas" id="ltB-qH-81B"/>
+                        <outlet property="mUILabelJoinNum" destination="DjW-Em-sPG" id="b9d-Ut-lqk"/>
+                        <outlet property="mUILabelPlace" destination="jOE-O4-oFW" id="vBU-P6-70N"/>
+                        <outlet property="mUILabelPrice" destination="X6V-eP-6kn" id="j7H-hJ-jtw"/>
+                        <outlet property="mUILabelTitle" destination="1Hs-7H-V0u" id="R3E-e7-KEF"/>
+                        <outlet property="mUITextFieldPhone" destination="I0i-mD-j8k" id="UOD-bR-4FE"/>
+                        <outlet property="mUITextFieldRemark" destination="mml-SV-CCl" id="qA9-Ih-fXr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vdx-I2-V2O" userLabel="First Responder" sceneMemberID="firstResponder"/>

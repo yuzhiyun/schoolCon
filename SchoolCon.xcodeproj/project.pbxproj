@@ -2323,7 +2323,7 @@
 					4698CB9B1AE22FCA0006330E = {
 						CreatedOnToolsVersion = 6.2;
 						DevelopmentTeam = 4YFU9633V4;
-						ProvisioningStyle = Manual;
+						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Push = {
 								enabled = 1;
@@ -2754,7 +2754,7 @@
 				CODE_SIGN_ENTITLEMENTS = SchoolCon.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development IOS Push Services: com.sukclub.school";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 4YFU9633V4;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2779,8 +2779,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.sukclub.school;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "d8590b7b-ddf6-4ecd-89a4-d8f541f6ee17";
-				PROVISIONING_PROFILE_SPECIFIER = "4YFU9633V4.com.sukclub.school-develop";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				"PROVISIONING_PROFILE_SPECIFIER[sdk=*]" = "";
 			};
 			name = Debug;
@@ -2791,7 +2791,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = SchoolCon.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 4YFU9633V4;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2816,7 +2816,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.sukclub.school;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "fb775aa7-8554-435c-83fe-5028c6917a99";
+				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Release;
