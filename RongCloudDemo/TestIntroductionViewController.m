@@ -111,7 +111,16 @@
             UIAlertController *alert=[UIAlertController alertControllerWithTitle:nil message:@"使用微信支付付费" preferredStyle:UIAlertControllerStyleAlert];
             UIAlertAction *ok=[UIAlertAction actionWithTitle:@"确认"
                                                        style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){
-                                                           [self getWeXinUnionPayParameters];
+                                                           
+                                                           if([WXApi isWXAppInstalled]){
+                                                               
+                                                              [self getWeXinUnionPayParameters];
+                                                           }
+                                                           else
+                                                           {
+                                                               [Alert showMessageAlert:@"抱歉，您的手机还没有安装微信，无法使用微信支付" view:self];
+                                                           }
+                                                           
                                                            
                                                        }];
             UIAlertAction *cancel=[UIAlertAction actionWithTitle:@"取消"

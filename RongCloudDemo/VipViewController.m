@@ -49,30 +49,41 @@
     static NSString *simpleTableIdentifier = @"cell";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
-
+    
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:simpleTableIdentifier];
     }
     
     UILabel *mUILabel=(UILabel*)[cell viewWithTag:1];
     mUILabel.text=[data objectAtIndex:indexPath.row];
-//    cell.imageView.image=[UIImage imageNamed:@"notice1.png"];
-//    cell.detailTextLabel.text=@"2017/12/21";
-//    //    cell.tes
-//    
-//    cell.textLabel.text = [recipes objectAtIndex:indexPath.row];
+    //    cell.imageView.image=[UIImage imageNamed:@"notice1.png"];
+    //    cell.detailTextLabel.text=@"2017/12/21";
+    //    //    cell.tes
+    //
+    //    cell.textLabel.text = [recipes objectAtIndex:indexPath.row];
     
     return cell;
 }
 
 -(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    UIAlertController *alert=[UIAlertController alertControllerWithTitle:nil message:@"使用微信支付付费" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertController *alert=[UIAlertController alertControllerWithTitle:nil message:@"请确保您安装了微信，并使用微信支付付费" preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction *ok=[UIAlertAction actionWithTitle:@"确认"
                                                style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){
-                                                   if(0==indexPath.row)
-                                                       [self getWeXinUnionPayParameters:@"183"];
+                                                   
+                                                   
+                                                   if([WXApi isWXAppInstalled]){
+                                                   
+                                                       
+                                                       if(0==indexPath.row)
+                                                           [self getWeXinUnionPayParameters:@"183"];
+                                                       else
+                                                           [self getWeXinUnionPayParameters:@"366"];
+                                                   }
                                                    else
-                                                       [self getWeXinUnionPayParameters:@"366"];
+                                                   {
+                                                       [Alert showMessageAlert:@"抱歉，您的手机还没有安装微信，无法使用微信支付" view:self];
+                                                   }
+                                                   
                                                    
                                                }];
     UIAlertAction *cancel=[UIAlertAction actionWithTitle:@"取消"
@@ -85,7 +96,7 @@
     [alert addAction:cancel];
     [self presentViewController:alert animated:YES completion:nil];
     
-
+    
     
 }
 //获取服务器端访问微信统一接口之后的参数，以便用于吊起微信支付
@@ -242,7 +253,7 @@
                     _mUILabelExpireDate.text=currentDateString;
                     
                     
-                   NSDate *datenow = [NSDate date];//现在时间,你可以输出来看下是什么格式
+                    NSDate *datenow = [NSDate date];//现在时间,你可以输出来看下是什么格式
                     //NSNumber *nDataNow=[datenow timeIntervalSince1970];
                     NSLog(@"%i",(int)[datenow timeIntervalSince1970]);
                     int expiresDays=(date.intValue -(int)[datenow timeIntervalSince1970])/(24*60*60);

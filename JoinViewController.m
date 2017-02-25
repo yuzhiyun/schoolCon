@@ -59,7 +59,16 @@
         
         return;
     }
-    [self getWeXinUnionPayParameters];
+    
+    if([WXApi isWXAppInstalled]){
+        
+        [self getWeXinUnionPayParameters];
+    }
+    else
+    {
+        [Alert showMessageAlert:@"抱歉，您的手机还没有安装微信，无法使用微信支付" view:self];
+    }
+    //[self getWeXinUnionPayParameters];
 }
 
 //获取服务器端访问微信统一接口之后的参数，以便用于吊起微信支付
