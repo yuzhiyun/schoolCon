@@ -34,6 +34,12 @@
     _mUILabelDate.text=date;
     _mUILabelPlace.text=place;
     _mUILabelPrice.text=price.stringValue;
+    _mUILabelHostPhone.text=hostPhone;
+    
+    NSLog(hostPhone);
+    
+    _mUITextFieldRemark.text=[DataBaseNSUserDefaults getData:@"name"];
+    
     //默认是一个人
     joinNum=1;
     _mUILabelJoinNum.text=[NSString stringWithFormat:@"%i",joinNum];

@@ -146,7 +146,7 @@
     nextPage->activityName=model.title;
     nextPage->picurl=model.picUrl;
     nextPage->title=model.title;
-    
+    nextPage->hostPhone=model.tel;
     
     nextPage->host=model.publisher;
     nextPage->date=model.date;
@@ -253,6 +253,7 @@
                             model.title=item [@"title"];
                             model.publisher=item [@"author"];
                             model.place=item[@"place"];
+                            model.tel=item[@"tel"];
                             
                             //NSNumber *price=item[@"fee"];
                             model.NSNumprice=item[@"fee"];

@@ -80,6 +80,8 @@
     nextPage->date=date;
     nextPage->place=place;
     nextPage->price=price;
+    
+    nextPage->hostPhone=hostPhone;
 
     
 

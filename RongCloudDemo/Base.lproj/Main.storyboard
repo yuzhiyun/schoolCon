@@ -1926,6 +1926,7 @@
                     <connections>
                         <outlet property="mUILabelDate" destination="a7V-Bt-KmV" id="eLj-kk-l8I"/>
                         <outlet property="mUILabelHost" destination="TgG-dt-Aas" id="ltB-qH-81B"/>
+                        <outlet property="mUILabelHostPhone" destination="c76-LZ-UkH" id="dVT-vK-Fvc"/>
                         <outlet property="mUILabelJoinNum" destination="DjW-Em-sPG" id="b9d-Ut-lqk"/>
                         <outlet property="mUILabelPlace" destination="jOE-O4-oFW" id="vBU-P6-70N"/>
                         <outlet property="mUILabelPrice" destination="X6V-eP-6kn" id="j7H-hJ-jtw"/>
