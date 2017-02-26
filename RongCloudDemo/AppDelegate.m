@@ -14,6 +14,7 @@
 #import "JPUSHService.h"
 #import "AFNetworking.h"
 #import "JsonUtil.h"
+#import "VipViewController.h"
 // iOS10注册APNs所需头文件
 #ifdef NSFoundationVersionNumber_iOS_9_x_Max
 #import <UserNotifications/UserNotifications.h>
@@ -173,7 +174,6 @@
     
     NSString *urlString;
     if([@"activity" isEqualToString: [DataBaseNSUserDefaults getData:@"orderType"]])
-    
         urlString= [NSString stringWithFormat:@"%@/api/order/activity/isPayed",myDelegate.ipString];
     else if([@"vip" isEqualToString: [DataBaseNSUserDefaults getData:@"orderType"]])
         urlString= [NSString stringWithFormat:@"%@/api/order/vip/isPayed",myDelegate.ipString];
@@ -415,13 +415,35 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
     else
         return false;
 }
++(void) goToVip: (UIViewController *)viewController{
+    UIAlertController *alert=[UIAlertController alertControllerWithTitle:nil message:@"抱歉，您不是会员或会员已到期，点击确认即可开始充值" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *ok=[UIAlertAction actionWithTitle:@"确认"
+                                               style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){
+                                                   VipViewController *nextPage= [viewController.storyboard instantiateViewControllerWithIdentifier:@"VipViewController"];
+                                                   nextPage.hidesBottomBarWhenPushed=YES;
+                                                   [viewController.navigationController pushViewController:nextPage animated:YES];
+                                                   
+                                                   
+                                               }];
+    
+    UIAlertAction *cancel=[UIAlertAction actionWithTitle:@"取消"
+                                                   style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){
+                                                       
+                                                       [alert dismissViewControllerAnimated:YES completion:nil];
+                                                   }];
+    //        信息框添加按键
+    [alert addAction:ok];
+    [alert addAction:cancel];
+    [viewController presentViewController:alert animated:YES completion:nil];
+
+}
 //如果属性值为YES,仅允许屏幕向左旋转,否则仅允许竖屏
 //- (UIInterfaceOrientationMask)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(nullable UIWindow *)window
 //
 //{
-//    
+//
 //    if (_allowRotation == YES) {
-//        
+//
 //        return UIInterfaceOrientationMaskLandscapeLeft;
 //        
 //    }else{

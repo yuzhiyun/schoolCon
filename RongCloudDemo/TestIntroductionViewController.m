@@ -216,7 +216,22 @@
                     NSNumber *code=[doc objectForKey:@"code"];
                     if([isAlreadyPayed isEqualToNumber:code]){
                     
-                        [self jumpToTestViewController];
+                        UIAlertController *alert=[UIAlertController alertControllerWithTitle:nil message:@"查询到您已经付费过了，点击确认即可开始再次测试，" preferredStyle:UIAlertControllerStyleAlert];
+                        UIAlertAction *ok=[UIAlertAction actionWithTitle:@"确认"
+                                                                   style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){
+                                                                     [self jumpToTestViewController];
+                                                                   }];
+                        
+                        UIAlertAction *cancel=[UIAlertAction actionWithTitle:@"取消"
+                                                                       style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){
+                                                                           
+                                                                           [alert dismissViewControllerAnimated:YES completion:nil];
+                                                                       }];
+                        //        信息框添加按键
+                        [alert addAction:ok];
+                        [alert addAction:cancel];
+                        [self presentViewController:alert animated:YES completion:nil];
+                        
                         return ;
                     }
                     NSString *msg=[NSString stringWithFormat:@"code是%d ： %@",[doc objectForKey:@"code"],[doc objectForKey:@"msg"]];

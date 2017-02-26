@@ -254,7 +254,7 @@
                     NSString *msg=[NSString stringWithFormat:@"code是%d ： %@",[doc objectForKey:@"code"],[doc objectForKey:@"msg"]];
                     NSNumber *zero=[NSNumber numberWithInt:(0)];
                     if([[NSNumber numberWithInt:(-2)] isEqualToNumber:[doc objectForKey:@"code"]]){
-                        [Alert showMessageAlert:@"抱歉，您不是会员或会员已到期，无法进行此操作，请在“我的会员”页面中进行充值"  view:self];
+                            [AppDelegate goToVip:self];
                     }
                     
                 }

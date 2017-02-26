@@ -8,9 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@interface VipViewController : UIViewController<UITableViewDelegate, UITableViewDataSource>
-@property (weak, nonatomic) IBOutlet UILabel *mUILabelExpireDate;
+@interface VipViewController : UIViewController<UITableViewDelegate, UITableViewDataSource>{
+
+}
+@property (weak, nonatomic) IBOutlet  UILabel *mUILabelExpireDate;
 @property (weak, nonatomic) IBOutlet UILabel *mUILabelExpireDaysNum;
 @property (weak, nonatomic) IBOutlet UILabel *mUILabelWelcome;
+
+//+(void) getVipInfo;
 
 @end

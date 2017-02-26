@@ -67,5 +67,6 @@
 +(void)reLogin :(UIViewController *)viewController;
 //判断是不是老师
 +(Boolean) isTeacher;
++(void) goToVip: (UIViewController *)viewController;
 @end
 
