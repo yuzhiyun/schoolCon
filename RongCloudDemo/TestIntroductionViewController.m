@@ -78,17 +78,7 @@
 //    isPaySuccess=true;
 //}
 
-
-- (IBAction)startTest:(id)sender {
-    
-    
-    
-    //如果金额为0，无需支付
-    if([money isEqualToNumber:[NSNumber numberWithInt:(0)]]){
-        
-    
-    //[_mUIButtonPay setTitle:@"开始测试" forState:UIControlStateNormal];
-    
+-(void) jumpToTestViewController{
     TestViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"TestViewController"];
     //nextPage->testId=testId;
     nextPage->testId=testId;
@@ -96,18 +86,18 @@
     nextPage->picUrl=picUrl;
     nextPage.hidesBottomBarWhenPushed=YES;
     [self.navigationController pushViewController:nextPage animated:YES];
+}
+- (IBAction)startTest:(id)sender {
+    
+    
+    
+    //如果金额为0，无需支付
+    if([money isEqualToNumber:[NSNumber numberWithInt:(0)]]){
+        [self jumpToTestViewController];
     }else{
         if([@"1" isEqualToString:[DataBaseNSUserDefaults getData:@"isPaySuccess"]]){
-            TestViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"TestViewController"];
-            //nextPage->testId=testId;
-            nextPage->testId=testId;
-            nextPage->testName=testName;
-            nextPage->picUrl=picUrl;
-            nextPage.hidesBottomBarWhenPushed=YES;
-            [self.navigationController pushViewController:nextPage animated:YES];
+            [self jumpToTestViewController];
         }else{
-            
-            
             UIAlertController *alert=[UIAlertController alertControllerWithTitle:nil message:@"使用微信支付付费" preferredStyle:UIAlertControllerStyleAlert];
             UIAlertAction *ok=[UIAlertAction actionWithTitle:@"确认"
                                                        style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){
@@ -220,8 +210,19 @@
                     [AppDelegate reLogin:self];
                 }
                 else{
+                    
+                    
+                    NSNumber *isAlreadyPayed=[NSNumber numberWithInt:(101)];
+                    NSNumber *code=[doc objectForKey:@"code"];
+                    if([isAlreadyPayed isEqualToNumber:code]){
+                    
+                        [self jumpToTestViewController];
+                        return ;
+                    }
                     NSString *msg=[NSString stringWithFormat:@"code是%d ： %@",[doc objectForKey:@"code"],[doc objectForKey:@"msg"]];
                     [Alert showMessageAlert:msg  view:self];
+                    
+                    //[self jumpToTestViewController];
                 }
             }
         }

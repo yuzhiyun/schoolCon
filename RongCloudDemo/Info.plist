@@ -17,7 +17,7 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.0</string>
+	<string>1.01</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleURLTypes</key>
@@ -35,6 +35,8 @@
 	</array>
 	<key>CFBundleVersion</key>
 	<string>1</string>
+	<key>LSApplicationCategoryType</key>
+	<string></string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>weixin</string>
@@ -49,6 +51,8 @@
 	</dict>
 	<key>NSCameraUsageDescription</key>
 	<string>授予使用相机权限</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>授予使用麦克风权限</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>授予读取相册权限</string>
 	<key>UILaunchStoryboardName</key>

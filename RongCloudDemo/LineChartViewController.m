@@ -35,8 +35,15 @@
     
     NSString *body;
     
-    if(![AppDelegate isTeacher])
+    if(![AppDelegate isTeacher]){
+        
+        NSLog(typeId);
+        NSLog(myDelegate.token);
+        NSLog(myDelegate.appId);
+        NSLog(myDelegate.appSecret);
+        
         body = [NSString stringWithFormat: @"typeId=%@&token=%@&appId=%@&appSecret=%@", typeId,myDelegate.token,myDelegate.appId,myDelegate.appSecret];
+    }
     else{
         
         NSLog(@"%教师选择studentId@",studentId);
