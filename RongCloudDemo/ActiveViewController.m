@@ -204,6 +204,12 @@
             myDelegate.phone=_UITextFieldPhone.text;
             myDelegate.pwd=_UITextFieldPwd.text;
             
+            NSString *name=[[doc objectForKey:@"data"]objectForKey:@"name"];
+            
+            //存储name
+            [DataBaseNSUserDefaults setData: name forkey:@"name"];
+
+            
             NSLog(@"激活之后存储token%@",myDelegate.token);
             [DataBaseNSUserDefaults setData: myDelegate.token forkey:@"token"];
             NSLog(@"激活之后存储rtoken%@",myDelegate.rtoken);
