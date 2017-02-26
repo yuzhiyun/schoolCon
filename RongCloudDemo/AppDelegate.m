@@ -68,8 +68,8 @@
     indexOnlineReadinng=0;
      AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
     myDelegate.ipString=@"https://school.sukclub.com";
-//    myDelegate.ipString=@"172.27.35.7";
-//    myDelegate.ipString=@"172.27.35.6";
+//    myDelegate.ipString=@"http://192.168.0.126:8080/schoolCon";
+
     myDelegate.token=@"";
 //    172.27.35.7
     myDelegate.appId=@"03a8f0ea6a";

@@ -12,4 +12,8 @@
 @property (weak, nonatomic) IBOutlet UITextField *mUITextFieldNewPhone;
 @property (weak, nonatomic) IBOutlet UITextField *mUITextFieldVCode;
 
+@property (weak, nonatomic) IBOutlet UIButton *mUIButtonOk;
+
+@property (weak, nonatomic) IBOutlet UIButton *mUIButtonGetCode;
+
 @end

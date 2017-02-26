@@ -26,6 +26,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    [self.mUIButtonGetCode.layer setMasksToBounds:YES];
+    
+    
+    [self.mUIButtonGetCode.layer setCornerRadius:4.0]; //设置圆角，数学不好，数值越小越不明显，自己找一个合适的值
+   
+    
+    [self.mUIButtonGetCode.layer setBorderWidth:0.8];//设置边框的宽度
+    
+    [self.mUIButtonGetCode.layer setBorderColor:[[UIColor colorWithRed:3/255.0 green:121/255.0 blue:251/255.0 alpha:1.0] CGColor]];//设置颜色
 }
 
 - (void)didReceiveMemoryWarning {
@@ -44,6 +54,7 @@
         [Toast showToast:@"请确保输入框不为空" view:self.view];
         return;
     }
+    
     MBProgressHUD *hud;
     hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     //hud.color = [UIColor colorWithHexString:@"343637" alpha:0.5];
@@ -87,6 +98,11 @@
             {
                 //陈涛 15084731465  64785
                 [Alert showMessageAlert:@"验证码短信已经发送到你的手机" view:self];
+                
+                
+                
+                
+                
             }
             else{
                 [Alert showMessageAlert:[doc objectForKey:@"msg"] view:self];

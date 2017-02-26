@@ -339,8 +339,7 @@
                                   };
     
     [manager POST:urlString parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        
-        
+
         NSString *result=[JsonUtil DataTOjsonString:responseObject];
         NSLog(@"***************返回结果***********************");
         NSLog(result);

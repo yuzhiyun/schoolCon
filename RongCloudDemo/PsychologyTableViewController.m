@@ -83,7 +83,9 @@
 - (void)headerRereshing
 {
     self.tableView.headerRefreshingText = @"正在为您刷新。。。";
-    pageIndex++;
+    
+    pageIndex=1;
+    
     [self loadData:pageIndex orientation:@"down"];
     
 }
