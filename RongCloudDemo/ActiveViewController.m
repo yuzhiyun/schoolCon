@@ -20,7 +20,12 @@
 
 @end
 
-@implementation ActiveViewController
+@implementation ActiveViewController{
+    //用于计算验证码等待秒数
+    int count;
+    NSTimer *countDownTimer;
+
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -33,6 +38,17 @@
     _UITextFieldPhone.delegate=self;
     _UITextFieldPwd.delegate=self;
     _UITextFieldVerifyCode.delegate=self;
+    
+    
+    [self.mUIButtonGetCode.layer setMasksToBounds:YES];
+    
+    
+    [self.mUIButtonGetCode.layer setCornerRadius:4.0]; //设置圆角，数学不好，数值越小越不明显，自己找一个合适的值
+    
+    
+    [self.mUIButtonGetCode.layer setBorderWidth:0.8];//设置边框的宽度
+    
+    [self.mUIButtonGetCode.layer setBorderColor:[[UIColor colorWithRed:3/255.0 green:121/255.0 blue:251/255.0 alpha:1.0] CGColor]];//设置颜色
 }
 
 - (void)didReceiveMemoryWarning {
@@ -108,6 +124,7 @@
         if([zero isEqualToNumber:code])
         {
             [Toast showToast:@"验证码发送成功" view:self.view];
+            [self setSixtySecond ];
         }
         else{
             
@@ -245,7 +262,27 @@
     }];
 }
 
-
+-(void)setSixtySecond{
+    
+    
+    //开始倒计时
+    countDownTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(timeFireMethod) userInfo:nil repeats:YES]; //启动倒计时后会每秒钟调用一次方法 timeFireMethod
+    
+    
+}
+-(void)timeFireMethod{
+    //倒计时-1
+    count--;
+    //修改倒计时标签现实内容
+    [_mUIButtonGetCode setTitle:[NSString stringWithFormat:@"%d S",count] forState:UIControlStateNormal];
+    //labelText.text=[NSString stringWithFormat:@"%d",secondsCountDown];
+    //当倒计时到0时，做需要的操作，比如验证码过期不能提交
+    if(count==0){
+        [countDownTimer invalidate];
+        count=60;
+        [_mUIButtonGetCode setTitle:@"获取验证码" forState:UIControlStateNormal];
+    }
+}
 - (IBAction)getCode:(id)sender {
     if(_UITextFieldPhone.text.length == 0){
         [Toast showToast:@"手机号不能为空" view:self.view];

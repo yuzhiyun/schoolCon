@@ -12,5 +12,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *UITextFieldPhone;
 @property (weak, nonatomic) IBOutlet UITextField *UITextFieldVerifyCode;
 @property (weak, nonatomic) IBOutlet UITextField *UITextFieldPwd;
+@property (weak, nonatomic) IBOutlet UIButton *mUIButtonGetCode;
+
 
 @end

@@ -20,17 +20,33 @@
 
 @end
 
-@implementation ForgetPwdViewController
+@implementation ForgetPwdViewController{
+    //用于计算验证码等待秒数
+    int count;
+    NSTimer *countDownTimer;
+
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title=@"忘记密码";
     
-    
+     count=60;
     //处理软键盘遮挡输入框事件
     _UITextFieldPhone.delegate=self;
     _UITextFieldNewPwd.delegate=self;
     _UITextFieldVerifyCode.delegate=self;
+    
+    
+    [self.mUIButtonGetCode.layer setMasksToBounds:YES];
+    
+    
+    [self.mUIButtonGetCode.layer setCornerRadius:4.0]; //设置圆角，数学不好，数值越小越不明显，自己找一个合适的值
+    
+    
+    [self.mUIButtonGetCode.layer setBorderWidth:0.8];//设置边框的宽度
+    
+    [self.mUIButtonGetCode.layer setBorderColor:[[UIColor colorWithRed:3/255.0 green:121/255.0 blue:251/255.0 alpha:1.0] CGColor]];//设置颜色
 }
 
 - (void)didReceiveMemoryWarning {
@@ -185,6 +201,7 @@
         {
 
             [Toast showToast:@"短信已经发送" view:self.view];
+            [self setSixtySecond ];
         }
         else{
              [Alert showMessageAlert:[doc objectForKey:@"msg"] view:self];
@@ -197,6 +214,27 @@
             errorUser=@"主人，似乎没有网络喔！";
         [Alert showMessageAlert:errorUser view:self];
     }];
+}
+-(void)setSixtySecond{
+    
+    
+    //开始倒计时
+    countDownTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(timeFireMethod) userInfo:nil repeats:YES]; //启动倒计时后会每秒钟调用一次方法 timeFireMethod
+    
+    
+}
+-(void)timeFireMethod{
+    //倒计时-1
+    count--;
+    //修改倒计时标签现实内容
+    [_mUIButtonGetCode setTitle:[NSString stringWithFormat:@"%d S",count] forState:UIControlStateNormal];
+    //labelText.text=[NSString stringWithFormat:@"%d",secondsCountDown];
+    //当倒计时到0时，做需要的操作，比如验证码过期不能提交
+    if(count==0){
+        [countDownTimer invalidate];
+        count=60;
+        [_mUIButtonGetCode setTitle:@"获取验证码" forState:UIControlStateNormal];
+    }
 }
 
 //开始编辑输入框的时候，软键盘出现，执行此事件

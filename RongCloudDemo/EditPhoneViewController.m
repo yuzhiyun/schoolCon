@@ -161,7 +161,6 @@
     //当倒计时到0时，做需要的操作，比如验证码过期不能提交
     if(count==0){
         [countDownTimer invalidate];
-        
         count=60;
         [_mUIButtonGetCode setTitle:@"获取验证码" forState:UIControlStateNormal];
     }

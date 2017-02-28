@@ -13,4 +13,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *UITextFieldVerifyCode;
 @property (weak, nonatomic) IBOutlet UITextField *UITextFieldNewPwd;
 
+@property (weak, nonatomic) IBOutlet UIButton *mUIButtonGetCode;
+
+
 @end
