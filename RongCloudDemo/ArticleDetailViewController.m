@@ -69,6 +69,7 @@
         [Alert showMessageAlert:@"评论不能为空" view:self];
         NSLog(@"显示toast");
     }else{
+
         AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
         NSString *urlString= [NSString stringWithFormat:@"%@//api/cms/comment/postObject",myDelegate.ipString];
         AFHTTPRequestOperationManager *manager=[AFHTTPRequestOperationManager manager];

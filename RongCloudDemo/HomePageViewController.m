@@ -396,7 +396,6 @@ _articleUrlArray=@[@"http://mp.weixin.qq.com/s/m3y2dvyWLxHoFskyX5aWPQ",@"http://
                     if([[NSNumber numberWithInt:(-2)] isEqualToNumber:[doc objectForKey:@"code"]]){
                         [AppDelegate goToVip:self];
                     }
-                    
                 }
             }
         }
