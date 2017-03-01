@@ -32,11 +32,7 @@
     // Do any additional setup after loading the view.
     
     [self getVipInfo];
-//    //dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-//        
-//       [self getVipInfo];
-//        
-//    });
+
 
     
 }
@@ -173,6 +169,7 @@
                 [DataBaseNSUserDefaults setData: [[doc objectForKey:@"data"]objectForKey:@"orderId"] forkey:@"orderId"];
                 
                 [DataBaseNSUserDefaults setData: @"vip" forkey:@"orderType"];
+                myDelegate.mController=self;
                 NSLog(req.partnerId);
                 NSLog(req.prepayId);
                 NSLog(req.nonceStr);
@@ -209,6 +206,8 @@
 
 //获取用户vip信息
 -(void) getVipInfo{
+    
+    NSLog(@"*******************getVipInfo*********************");
     AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
     NSString *urlString= [NSString stringWithFormat:@"%@/api/sys/user/myVip",myDelegate.ipString];
     

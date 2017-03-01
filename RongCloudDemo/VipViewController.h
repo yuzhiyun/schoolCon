@@ -16,5 +16,5 @@
 @property (weak, nonatomic) IBOutlet UILabel *mUILabelWelcome;
 
 //+(void) getVipInfo;
-
+-(void) getVipInfo;
 @end

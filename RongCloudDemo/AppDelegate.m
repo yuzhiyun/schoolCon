@@ -226,6 +226,19 @@
                     
                 }
                 
+                //刷新vip页面的信息
+                else if  ([@"vip" isEqualToString: [DataBaseNSUserDefaults getData:@"orderType"]]){
+                    
+                        AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
+                    
+                    
+                    NSLog(@"*******AppDelegate 刷新vip页面的信息*********");
+                    [myDelegate.mController getVipInfo];
+                    
+                    
+                }
+                
+                
                 
                 
             }

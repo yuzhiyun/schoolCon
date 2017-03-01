@@ -8,6 +8,7 @@
 #import <UIKit/UIKit.h>
 #import <RongIMLib/RongIMLib.h>
 #import <RongIMKit/RongIMKit.h>
+#import "VipViewController.h"
 #import "JPUSHService.h"
 @interface AppDelegate : UIResponder <UIApplicationDelegate,RCIMConnectionStatusDelegate,JPUSHRegisterDelegate>
 {
@@ -59,7 +60,8 @@
 @property (nonatomic,strong)UIColor *navigationBarColor;
 @property(nonatomic,assign)BOOL allowRotation;//是否允许转向
 
-
+@property (nonatomic, strong) VipViewController *mController;
+//@synthesize mController;
 
 
 +(void)loginRongCloud :(NSString *) token;
