@@ -161,7 +161,7 @@
     nextPage->picUrl=model.picUrl;
     nextPage->money=model.money;
         
-    
+   // nextPage->type
 //    nextPage->pubString=[mDataNotification objectAtIndex:indexPath.row];
     //UITabBarController和的UINavigationController结合使用,进入新的页面的时候，隐藏主页tabbarController的底部栏
     nextPage.hidesBottomBarWhenPushed=YES;
@@ -175,13 +175,13 @@
         nextPage->testName=model.title;
         nextPage->picUrl=model.picUrl;
         
+        nextPage->type=@"myTest";
         
         nextPage->score=model.money;
         
         nextPage.hidesBottomBarWhenPushed=YES;
         [self.navigationController pushViewController:nextPage animated:YES];
     }
-    
 }
 #pragma mark 加载活动列表
 -(void)loadData:(int)pageIndex orientation:(NSString *) orientation {

@@ -9,7 +9,9 @@
 #import <RongIMLib/RongIMLib.h>
 #import <RongIMKit/RongIMKit.h>
 #import "VipViewController.h"
+#import "JoinViewController.h"
 #import "JPUSHService.h"
+
 @interface AppDelegate : UIResponder <UIApplicationDelegate,RCIMConnectionStatusDelegate,JPUSHRegisterDelegate>
 {
 //   全局变量  在线学习的viewpager的上部导航栏title
@@ -61,6 +63,7 @@
 @property(nonatomic,assign)BOOL allowRotation;//是否允许转向
 
 @property (nonatomic, strong) VipViewController *mController;
+@property (nonatomic, strong) JoinViewController *mJoinViewController;
 //@synthesize mController;
 
 

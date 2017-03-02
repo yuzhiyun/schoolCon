@@ -47,8 +47,11 @@
     
     NSString *urlString= [NSString stringWithFormat:@"%@/api/psy/test/getResult",myDelegate.ipString];
 
+    if([@"myTest" isEqualToString:type])
+        urlString= [NSString stringWithFormat:@"%@/api/psy/test/getOldResult",myDelegate.ipString];
     
-    
+  //  /api/psy/test/getOldResult
+
     //创建数据请求的对象，不是单例
     AFHTTPRequestOperationManager *manager=[AFHTTPRequestOperationManager manager];
     //设置响应数据的类型,如果是json数据，会自动帮你解析
@@ -105,7 +108,9 @@
                         UILabel *mUILabelResult=[self.view viewWithTag:1];
                         mUILabelResult.text=[[[doc objectForKey:@"data"]objectForKey:@"psy_grading"]objectForKey:@"result"];
                         
-
+                        if([@"myTest" isEqualToString:type]){
+                                mUILabelResult.text=[[doc objectForKey:@"data"]objectForKey:@"result"];
+                        }
                         NSLog(@"//更新界面");
 
                     }
@@ -118,7 +123,6 @@
         }
         else
             NSLog(@"*****doc空***********");
-        
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
 //        [self.tableView footerEndRefreshing];
 //        [self.tableView headerEndRefreshing];
@@ -127,7 +131,6 @@
         NSString *errorUser=[error.userInfo objectForKey:NSLocalizedDescriptionKey];
         if(error.code==-1009)
             errorUser=@"主人，似乎没有网络喔！";
-        
         [Alert showMessageAlert:errorUser view:self];
     }];
 }

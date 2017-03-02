@@ -23,7 +23,7 @@
 #import "TestViewController.h"
 #endif
 
-#define RONGCLOUD_IM_APPKEY @"qd46yzrf47sjf" //请换成您的appkey
+#define RONGCLOUD_IM_APPKEY @"6tnym1br6gbx7" //请换成您的appkey
 #define JIGUANG_APPKEY @"231493d9ae846acdb1d69c9c"
 @interface AppDelegate ()<WXApiDelegate>
 
@@ -213,17 +213,34 @@
             NSNumber *code=[doc objectForKey:@"code"];
             if([zero isEqualToNumber:code])
             {
+                
+                
+                
+               
+                
+                 if  ([@"activity" isEqualToString: [DataBaseNSUserDefaults getData:@"orderType"]]){
+                     
+                      AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
+                     [myDelegate.mJoinViewController jumpToMain];
+                     
+                     return ;
+                     
+                     
+                 }
+                
                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"温馨提示" message:@"恭喜您支付成功" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
                 [alert show];
+
+                
+                
+                
                 //如果是心理测试，更换测试介绍页面的按钮文字，以及更换点击按钮后的跳转逻辑
                 if  ([@"xinli" isEqualToString: [DataBaseNSUserDefaults getData:@"orderType"]]){
                     
                     [DataBaseNSUserDefaults setData: @"1" forkey:@"isPaySuccess"];
                     //TestIntroductionViewController *model=[[TestIntroductionViewController alloc]init];
                     //NSLog(@"************TestIntroductionViewController *model*************");
-                    //[model afterPaySuccess];
-
-                    
+                    //[model afterPaySuccess]；
                 }
                 
                 //刷新vip页面的信息

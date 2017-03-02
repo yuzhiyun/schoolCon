@@ -18,6 +18,7 @@
 #import "WXApi.h"
 #import "WXApiObject.h"
 #import "MBProgressHUD.h"
+#import "MainViewController.h"
 @interface JoinViewController ()
 
 @end
@@ -48,7 +49,7 @@
     //处理软键盘遮挡输入框事件
     _mUITextFieldPhone.delegate=self;
     _mUITextFieldRemark.delegate=self;
-
+    
     
 }
 
@@ -136,24 +137,27 @@
                 NSString *timeStamp     = [[doc objectForKey:@"data"]objectForKey:@"timestamp"];
                 //[UInt32
                 req.timeStamp           =timeStamp.intValue;
-                 
-                 req.package             = [[doc objectForKey:@"data"]objectForKey:@"package"];
+                
+                req.package             = [[doc objectForKey:@"data"]objectForKey:@"package"];
                 
                 req.sign                = [[doc objectForKey:@"data"]objectForKey:@"sign"];
                 
                 //存储以便在验证微信支付的时候使用
-                 [DataBaseNSUserDefaults setData: [[doc objectForKey:@"data"]objectForKey:@"orderId"] forkey:@"orderId"];
+                [DataBaseNSUserDefaults setData: [[doc objectForKey:@"data"]objectForKey:@"orderId"] forkey:@"orderId"];
                 [DataBaseNSUserDefaults setData: @"activity" forkey:@"orderType"];
                 
-                NSLog(req.partnerId);
-                NSLog(req.prepayId);
-                NSLog(req.nonceStr);
-               // NSLog(@"%@", req.timeStamp);
-                NSLog(req.package);
-                NSLog(req.sign);
+                myDelegate.mJoinViewController=self;
+                
+//                
+//                NSLog(req.partnerId);
+//                NSLog(req.prepayId);
+//                NSLog(req.nonceStr);
+//                // NSLog(@"%@", req.timeStamp);
+//                NSLog(req.package);
+//                NSLog(req.sign);
                 [WXApi sendReq:req];
                 
-               
+                
                 
             }
             else{
@@ -186,7 +190,7 @@
         [Alert showMessageAlert:@"参加人数不能少于1" view:self];
         return;
     }
-        
+    
     joinNum-=1;
     _mUILabelJoinNum.text=[NSString stringWithFormat:@"%i",joinNum];
     
@@ -225,6 +229,18 @@
     
     
 }
+
+-(void)jumpToMain{
+    UIAlertController *alert=[UIAlertController alertControllerWithTitle:nil message:@"报名成功,点击确认回到主页" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *ok=[UIAlertAction actionWithTitle:@"确认"
+                                               style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){
+                                                   MainViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"MainViewController"];
+                                                   [self.navigationController pushViewController:nextPage animated:YES];
+                                               }];
+    //        信息框添加按键
+    [alert addAction:ok];
+    [self presentViewController:alert animated:YES completion:nil];
+}
 //当键盘出现或改变时调用
 - (void)keyboardWillShow:(NSNotification *)aNotification
 {
@@ -232,8 +248,8 @@
     NSDictionary *userInfo = [aNotification userInfo];
     NSValue *aValue = [userInfo objectForKey:UIKeyboardFrameEndUserInfoKey];
     CGRect keyboardRect = [aValue CGRectValue];
- //   keyBoardHeight = keyboardRect.size.height;
-   // NSLog(@"%i",keyBoardHeight);
+    //   keyBoardHeight = keyboardRect.size.height;
+    // NSLog(@"%i",keyBoardHeight);
 }
 //当用户按下return键或者按回车键，keyboard消失
 -(BOOL)textFieldShouldReturn:(UITextField *)textField
