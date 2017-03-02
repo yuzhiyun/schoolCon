@@ -2453,7 +2453,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BPL-mf-SdC">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="140"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avarta.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="jZ3-or-ruq">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jZ3-or-ruq">
                                                 <rect key="frame" x="47" y="30" width="77" height="75"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="75" id="G6y-x5-Bh6"/>
@@ -2466,23 +2466,20 @@
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rr1-dz-B7d">
-                                                <rect key="frame" x="0.0" y="132" width="375" height="10"/>
-                                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="10" id="Re7-3c-PDD"/>
-                                                </constraints>
-                                            </view>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="me_back.png" translatesAutoresizingMaskIntoConstraints="NO" id="qBF-63-f1g">
+                                                <rect key="frame" x="0.0" y="115" width="375" height="25"/>
+                                            </imageView>
                                         </subviews>
-                                        <color key="backgroundColor" red="0.19807185059999999" green="0.66129513610000001" blue="0.98470920319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.28446114754173257" green="0.66417304460776905" blue="0.98470920319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
+                                            <constraint firstItem="qBF-63-f1g" firstAttribute="leading" secondItem="BPL-mf-SdC" secondAttribute="leading" id="2U6-zX-q7X"/>
                                             <constraint firstItem="jZ3-or-ruq" firstAttribute="leading" secondItem="BPL-mf-SdC" secondAttribute="leading" constant="47" id="9CH-O5-avx"/>
-                                            <constraint firstItem="rr1-dz-B7d" firstAttribute="top" secondItem="jZ3-or-ruq" secondAttribute="bottom" constant="27" id="9s4-Rk-OP6"/>
                                             <constraint firstItem="eiv-G1-wbz" firstAttribute="centerY" secondItem="jZ3-or-ruq" secondAttribute="centerY" id="SfW-3B-KaL"/>
-                                            <constraint firstAttribute="trailing" secondItem="rr1-dz-B7d" secondAttribute="trailing" id="Y6M-gz-4Rd"/>
                                             <constraint firstItem="eiv-G1-wbz" firstAttribute="leading" secondItem="jZ3-or-ruq" secondAttribute="trailing" constant="50" id="dlB-gj-41K"/>
-                                            <constraint firstItem="rr1-dz-B7d" firstAttribute="leading" secondItem="BPL-mf-SdC" secondAttribute="leading" id="h32-dZ-0aM"/>
+                                            <constraint firstAttribute="trailing" secondItem="qBF-63-f1g" secondAttribute="trailing" id="oyT-Jp-0IK"/>
+                                            <constraint firstItem="qBF-63-f1g" firstAttribute="top" secondItem="jZ3-or-ruq" secondAttribute="bottom" constant="10" id="qIM-9Q-ZAi"/>
                                             <constraint firstAttribute="height" constant="140" id="reo-yB-ke4"/>
+                                            <constraint firstAttribute="bottom" secondItem="qBF-63-f1g" secondAttribute="bottom" id="rsZ-Kv-dE4"/>
                                             <constraint firstItem="jZ3-or-ruq" firstAttribute="top" secondItem="BPL-mf-SdC" secondAttribute="top" constant="30" id="vph-NO-d5r"/>
                                         </constraints>
                                     </view>
@@ -2642,7 +2639,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VKG-wi-6TQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7932" y="1047"/>
+            <point key="canvasLocation" x="7932" y="1046.6266866566718"/>
         </scene>
         <!--Change Pwd View Controller-->
         <scene sceneID="bFG-Wh-q5c">
@@ -3662,7 +3659,7 @@
         <image name="4.jpg" width="290" height="174"/>
         <image name="avarta.jpg" width="121" height="121"/>
         <image name="bg.jpg" width="416" height="667"/>
-        <image name="daxue.png" width="60" height="60"/>
+        <image name="daxue.png" width="30" height="30"/>
         <image name="daxue_1.png" width="60" height="60"/>
         <image name="home01.png" width="84" height="84"/>
         <image name="home02.png" width="84" height="84"/>
@@ -3671,6 +3668,7 @@
         <image name="home05.png" width="84" height="84"/>
         <image name="icon_tx.png" width="40" height="40"/>
         <image name="info.png" width="16" height="16"/>
+        <image name="me_back.png" width="750" height="46"/>
         <image name="pengyou.png" width="60" height="60"/>
         <image name="pengyou_1.png" width="60" height="60"/>
         <image name="rank2.png" width="128" height="128"/>
