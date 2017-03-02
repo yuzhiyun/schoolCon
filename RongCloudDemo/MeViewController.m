@@ -40,6 +40,8 @@
     //UIImage *image;
     //上传头像进度条，就是一个劲旋转的进度
     MBProgressHUD *hud;
+    
+    NSString  *avatarImgUrl;
 }
 //@property (weak, nonatomic) IBOutlet UIImageView *UIImageViewAvatar;
 @property (weak, nonatomic) IBOutlet UIImageView *UIImageViewAvatar;
@@ -87,15 +89,15 @@
     [mDataKey addObject:@"退出登录"];
     
     mDataImg=[[NSMutableArray alloc]init];
-    [mDataImg addObject:@"phone.png"];
+    [mDataImg addObject:@"my_phone.png"];
     [mDataImg addObject:@"me_pwd.png"];
-    [mDataImg addObject:@"coffee_little.png"];
-    [mDataImg addObject:@"test_litttle.png"];
+    [mDataImg addObject:@"my_activity.png"];
+    [mDataImg addObject:@"my_test.png"];
     if(![AppDelegate isTeacher]){
-        [mDataImg addObject:@"vip.png"];
+        [mDataImg addObject:@"my_vip.png"];
     }
     
-    [mDataImg addObject:@"callect.png"];
+    [mDataImg addObject:@"my_collect.png"];
     [mDataImg addObject:@"exit.png"];
     
     
@@ -374,16 +376,20 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    static NSString *simpleTableIdentifier = @"inforCell";
+    static NSString *simpleTableIdentifier = @"cell";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
     
     if (cell == nil) {
         cell = [[MeTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
     }
-    cell.textLabel.text=[mDataKey objectAtIndex:indexPath.row];
     
-    cell.imageView.image=[UIImage imageNamed:[mDataImg objectAtIndex:indexPath.row]];
+    UIImageView *mUIImageViewIcon=[cell viewWithTag:1];
+    UILabel *mUILabelTitle=[cell viewWithTag:2];
+    
+    mUILabelTitle.text=[mDataKey objectAtIndex:indexPath.row];
+    
+    mUIImageViewIcon.image=[UIImage imageNamed:[mDataImg objectAtIndex:indexPath.row]];
     
     
     return cell;
@@ -466,6 +472,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
             //显示顶部导航
             self.navigationController.navigationBarHidden=NO;
             VipViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"VipViewController"];
+            nextPage->avatarImgUrl=avatarImgUrl;
             nextPage.hidesBottomBarWhenPushed=YES;
             [self.navigationController pushViewController:nextPage animated:YES];
             
@@ -532,8 +539,12 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
                 _mUILabelSchool.text=[[doc objectForKey:@"data"] objectForKey:@"school"];
                 _mUILabelUname.text=[[doc objectForKey:@"data"] objectForKey:@"name"];
                 
+                
+                avatarImgUrl=[[doc objectForKey:@"data"] objectForKey:@"purl"];
                 //头像
-                NSString *picUrl=[NSString stringWithFormat:@"%@%@",myDelegate.ipString,[[doc objectForKey:@"data"] objectForKey:@"purl"]];
+                NSString *picUrl=[NSString stringWithFormat:@"%@%@",myDelegate.ipString,avatarImgUrl];
+                
+                
                 [self.UIImageViewAvatar sd_setImageWithURL:picUrl placeholderImage:[UIImage imageNamed:@"favorites.png"]];
                 
             }

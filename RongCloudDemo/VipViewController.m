@@ -15,29 +15,61 @@
 #import "JsonUtil.h"
 #import "DataBaseNSUserDefaults.h"
 #import "AppDelegate.h"
+#import "Toast.h"
+#import "UIImageView+WebCache.h"
 @interface VipViewController ()
 
 @end
 
 @implementation VipViewController{
-    NSMutableArray  *data;
+    //存储tableView信息
+    NSMutableArray  *mArrayDate;
+    NSMutableArray  *mArrayPrice;
+    NSMutableArray  *mArrayImage;
+    //    struct ReCharge {
+    //        NSString *year;
+    //        NSString *month;
+    //        int day;
+    //    };
+    int vipIndex;
+    
+    
+    UITableView *mUITableView;
+    
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    data=[[NSMutableArray alloc]init];
-    [data addObject:@"一个学期¥60"];
-    [data addObject:@"一个学年¥120"];
-    //[data addObject:@"自定义时间"];
-    // Do any additional setup after loading the view.
+    vipIndex=-1;
     
+    mArrayDate=[[NSMutableArray alloc]init];
+    mArrayPrice=[[NSMutableArray alloc]init];
+    mArrayImage=[[NSMutableArray alloc]init];
+    
+    
+    
+    [mArrayDate addObject:@"一个学期"];
+    [mArrayDate addObject:@"一个学年"];
+    
+    [mArrayPrice addObject:@"¥ 60"];
+    [mArrayPrice addObject:@"¥ 120"];
+    
+    [mArrayImage addObject:@"0"];
+    [mArrayImage addObject:@"0"];
+    
+     AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
+    
+    NSString *picUrl=[NSString stringWithFormat:@"%@%@",myDelegate.ipString,avatarImgUrl];
+    [self.mUIImageViewAvatar sd_setImageWithURL:picUrl placeholderImage:[UIImage imageNamed:@"icon_tx.png"]];
     [self getVipInfo];
-
-
+    
+    self.mUIImageViewAvatar.layer.masksToBounds = YES;
+    self.mUIImageViewAvatar.layer.cornerRadius = self.mUIImageViewAvatar.frame.size.height / 2 ;
+    
     
 }
 -(void)viewDidAppear:(BOOL)animated{
-     [self getVipInfo];
+    [self getVipInfo];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -46,8 +78,9 @@
 }
 
 -(NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    mUITableView=tableView;
     //366  183
-    return [data count];
+    return [mArrayDate count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -61,47 +94,45 @@
     }
     
     UILabel *mUILabel=(UILabel*)[cell viewWithTag:1];
-    mUILabel.text=[data objectAtIndex:indexPath.row];
-    //    cell.imageView.image=[UIImage imageNamed:@"notice1.png"];
-    //    cell.detailTextLabel.text=@"2017/12/21";
-    //    //    cell.tes
-    //
-    //    cell.textLabel.text = [recipes objectAtIndex:indexPath.row];
+    mUILabel.text=[mArrayDate objectAtIndex:indexPath.row];
+    
+    UILabel *mUILabelPrice=(UILabel*)[cell viewWithTag:2];
+    mUILabelPrice.text=[mArrayPrice objectAtIndex:indexPath.row];
+    
+    
+    UIImageView *mImage=[cell viewWithTag:3];
+    if([@"0" isEqualToString:[mArrayImage objectAtIndex:indexPath.row]])
+        
+        mImage.image=[UIImage imageNamed:@"vip_unselect"];
+    else
+        mImage.image=[UIImage imageNamed:@"vip_select"];
     
     return cell;
 }
 
 -(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    UIAlertController *alert=[UIAlertController alertControllerWithTitle:nil message:@"请确保您安装了微信，并使用微信支付付费" preferredStyle:UIAlertControllerStyleAlert];
-    UIAlertAction *ok=[UIAlertAction actionWithTitle:@"确认"
-                                               style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){
-                                                   
-                                                   
-                                                   if([WXApi isWXAppInstalled]){
-                                                   
-                                                       
-                                                       if(0==indexPath.row)
-                                                           [self getWeXinUnionPayParameters:@"183"];
-                                                       else
-                                                           [self getWeXinUnionPayParameters:@"366"];
-                                                   }
-                                                   else
-                                                   {
-                                                       [Alert showMessageAlert:@"抱歉，您的手机还没有安装微信，无法使用微信支付" view:self];
-                                                   }
-                                                   
-                                                   
-                                               }];
-    UIAlertAction *cancel=[UIAlertAction actionWithTitle:@"取消"
-                                                   style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){
-                                                       
-                                                       [alert dismissViewControllerAnimated:YES completion:nil];
-                                                   }];
-    //        信息框添加按键
-    [alert addAction:ok];
-    [alert addAction:cancel];
-    [self presentViewController:alert animated:YES completion:nil];
     
+    vipIndex=indexPath.row;
+    
+    //long *index=indexPath.row;
+    
+    int *count=[mArrayImage count];
+    [mArrayImage removeAllObjects];
+    for(int i=0;i <count;i++){
+        
+        if(i==indexPath.row)
+            [ mArrayImage addObject:@"1"];
+        else
+            [ mArrayImage addObject:@"0"];
+    }
+    [mUITableView reloadData];
+    
+    //[mArrayImage objectAtIndex:indexPath.row]=@"";
+    
+    /*
+     
+     
+     */
     
     
 }
@@ -245,6 +276,8 @@
                 if(!isVip){
                     _mUILabelExpireDate.text=@"已到期";
                     _mUILabelExpireDaysNum.text=@"0 天";
+                    _mUILabelIsVip.text=@"普通用户";
+                    _mUIImageViewIsVip.image=[UIImage imageNamed:@"vip0.png"];
                 }else{
                     /**
                      *把时间搓NSNumber 转成用户看得懂的时间
@@ -266,8 +299,11 @@
                     //NSNumber *nDataNow=[datenow timeIntervalSince1970];
                     NSLog(@"%i",(int)[datenow timeIntervalSince1970]);
                     int expiresDays=(date.intValue -(int)[datenow timeIntervalSince1970])/(24*60*60);
-                    _mUILabelExpireDaysNum.text=[NSString stringWithFormat:@"%i 天",expiresDays ];
+                    _mUILabelExpireDaysNum.text=[NSString stringWithFormat:@"距离到期时间还有%i 天",expiresDays ];
                     
+                    
+                    _mUILabelIsVip.text=@"会员";
+                    _mUIImageViewIsVip.image=[UIImage imageNamed:@"vip1.png"];
                     
                     
                 }
@@ -295,4 +331,54 @@
         [Alert showMessageAlert:errorUser view:self];
     }];
 }
+
+- (IBAction)openVip:(id)sender {
+    
+    if(-1==vipIndex){
+        [Toast showToast:@"请选择VIP时间选项" view:self.view];
+    }else{
+        UIAlertController *alert=[UIAlertController alertControllerWithTitle:nil message:@"请确保您安装了微信，并使用微信支付付费" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *ok=[UIAlertAction actionWithTitle:@"确认"
+                                                   style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){
+                                                       
+                                                       
+                                                       if([WXApi isWXAppInstalled]){
+                                                           
+                                                           
+                                                           if(0==vipIndex)
+                                                               [self getWeXinUnionPayParameters:@"183"];
+                                                           else
+                                                               [self getWeXinUnionPayParameters:@"366"];
+                                                       }
+                                                       else
+                                                       {
+                                                           [Alert showMessageAlert:@"抱歉，您的手机还没有安装微信，无法使用微信支付" view:self];
+                                                       }
+                                                       
+                                                       
+                                                   }];
+        UIAlertAction *cancel=[UIAlertAction actionWithTitle:@"取消"
+                                                       style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){
+                                                           
+                                                           [alert dismissViewControllerAnimated:YES completion:nil];
+                                                       }];
+        //        信息框添加按键
+        [alert addAction:ok];
+        [alert addAction:cancel];
+        [self presentViewController:alert animated:YES completion:nil];
+    
+    }
+    
+}
+
+
+
+
+
+
+
+
+
+
+
 @end

@@ -9,11 +9,19 @@
 #import <UIKit/UIKit.h>
 
 @interface VipViewController : UIViewController<UITableViewDelegate, UITableViewDataSource>{
+    
+@public NSString *avatarImgUrl;
 
 }
+
+
+@property (weak, nonatomic) IBOutlet UIImageView *mUIImageViewAvatar;
+
 @property (weak, nonatomic) IBOutlet  UILabel *mUILabelExpireDate;
 @property (weak, nonatomic) IBOutlet UILabel *mUILabelExpireDaysNum;
 @property (weak, nonatomic) IBOutlet UILabel *mUILabelWelcome;
+@property (weak, nonatomic) IBOutlet UILabel *mUILabelIsVip;
+@property (weak, nonatomic) IBOutlet UIImageView *mUIImageViewIsVip;
 
 //+(void) getVipInfo;
 -(void) getVipInfo;
