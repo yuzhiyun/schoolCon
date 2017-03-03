@@ -160,6 +160,7 @@
 		CD54BF061E684E4800ABCB6C /* vip_unselect.png in Resources */ = {isa = PBXBuildFile; fileRef = CD54BF051E684E4800ABCB6C /* vip_unselect.png */; };
 		CD54BF081E684E5700ABCB6C /* vip_select.png in Resources */ = {isa = PBXBuildFile; fileRef = CD54BF071E684E5700ABCB6C /* vip_select.png */; };
 		CD54BF0A1E698CBC00ABCB6C /* notice1.png in Resources */ = {isa = PBXBuildFile; fileRef = CD54BF091E698CBC00ABCB6C /* notice1.png */; };
+		CD54BF0C1E69B8D000ABCB6C /* enter.png in Resources */ = {isa = PBXBuildFile; fileRef = CD54BF0B1E69B8D000ABCB6C /* enter.png */; };
 		CD6EACF21E2765A2009EC3A0 /* Toast.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6EACF11E2765A2009EC3A0 /* Toast.m */; };
 		CD6EACF61E276D5C009EC3A0 /* DataBaseNSUserDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6EACF51E276D5C009EC3A0 /* DataBaseNSUserDefaults.m */; };
 		CD6EACF91E276FB3009EC3A0 /* JsonUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6EACF81E276FB3009EC3A0 /* JsonUtil.m */; };
@@ -531,6 +532,7 @@
 		CD54BF051E684E4800ABCB6C /* vip_unselect.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = vip_unselect.png; sourceTree = "<group>"; };
 		CD54BF071E684E5700ABCB6C /* vip_select.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = vip_select.png; sourceTree = "<group>"; };
 		CD54BF091E698CBC00ABCB6C /* notice1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = notice1.png; sourceTree = "<group>"; };
+		CD54BF0B1E69B8D000ABCB6C /* enter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = enter.png; sourceTree = "<group>"; };
 		CD6EACF01E276546009EC3A0 /* Toast.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Toast.h; sourceTree = "<group>"; };
 		CD6EACF11E2765A2009EC3A0 /* Toast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Toast.m; sourceTree = "<group>"; };
 		CD6EACF41E276D51009EC3A0 /* DataBaseNSUserDefaults.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DataBaseNSUserDefaults.h; sourceTree = "<group>"; };
@@ -2263,6 +2265,7 @@
 			children = (
 				CD54BED61E681D8900ABCB6C /* home01.png */,
 				CD54BED71E681D8900ABCB6C /* home02.png */,
+				CD54BF0B1E69B8D000ABCB6C /* enter.png */,
 				CD54BED81E681D8900ABCB6C /* home03.png */,
 				CD54BED91E681D8900ABCB6C /* home04.png */,
 				CD54BEDA1E681D8900ABCB6C /* home05.png */,
@@ -2399,6 +2402,7 @@
 				CDF8EC291E3074C500BFD5EA /* 1.png in Resources */,
 				CDC26A191E2CF5D40093B804 /* icon_tx@3x.png in Resources */,
 				CD54BEE91E683B7200ABCB6C /* phone.png in Resources */,
+				CD54BF0C1E69B8D000ABCB6C /* enter.png in Resources */,
 				CD2DCAF11DFD9051000C03E1 /* avarta.jpg in Resources */,
 				CD54BF031E6846C200ABCB6C /* vip_article.png in Resources */,
 				CDF2EF611E5488D100A499AE /* README.txt in Resources */,
