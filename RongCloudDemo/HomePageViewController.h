@@ -18,5 +18,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *mUILabelVip;
 
 
+@property (weak, nonatomic) IBOutlet UIScrollView *mUIScrollView;
 
 @end

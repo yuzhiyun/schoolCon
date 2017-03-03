@@ -75,15 +75,15 @@
     
 _articleUrlArray=@[@"http://mp.weixin.qq.com/s/m3y2dvyWLxHoFskyX5aWPQ",@"http://mp.weixin.qq.com/s/m3y2dvyWLxHoFskyX5aWPQ",@"http://mp.weixin.qq.com/s/m3y2dvyWLxHoFskyX5aWPQ",@"http://mp.weixin.qq.com/s/m3y2dvyWLxHoFskyX5aWPQ"];
     
-    double statusHeoght= self.navigationController.navigationBar.bounds.size.height+[[UIApplication sharedApplication] statusBarFrame].size.height;
+    double statusHeight= self.navigationController.navigationBar.bounds.size.height+[[UIApplication sharedApplication] statusBarFrame].size.height;
 //    
 //    _scrollView = [[CycleScrollView alloc]initWithFrame:CGRectMake(0, statusHeoght, [[UIScreen mainScreen]bounds].size.width , _mUIViewContainer.frame.size.height)];
     
-    _scrollView = [[CycleScrollView alloc]initWithFrame:CGRectMake(0, statusHeoght, [[UIScreen mainScreen]bounds].size.width , 0.27* [[UIScreen mainScreen] bounds].size.height)];
+    _scrollView = [[CycleScrollView alloc]initWithFrame:CGRectMake(0, 0, [[UIScreen mainScreen]bounds].size.width , 0.27* [[UIScreen mainScreen] bounds].size.height)];
         _scrollView.delegate = self;
     _scrollView.datasource = self;
     _scrollView.animationDuration = 4;
-    [self.view addSubview:_scrollView];
+    [self.mUIScrollView addSubview:_scrollView];
 
 
     mNotification=[[NSMutableArray alloc]init];
@@ -489,6 +489,8 @@ _articleUrlArray=@[@"http://mp.weixin.qq.com/s/m3y2dvyWLxHoFskyX5aWPQ",@"http://
     //跳转
     [self.navigationController pushViewController:nextPage animated:YES];
     
+    
+    //要去除uitableview的被选中高亮效果，只需要在didSelectRowAtIndexPath中加入[tableView reloadData]; 即可
     [tableView reloadData];
     
     
