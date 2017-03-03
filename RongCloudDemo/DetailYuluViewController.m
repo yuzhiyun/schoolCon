@@ -10,6 +10,7 @@
 #import "JoinViewController.h"
 #import "AppDelegate.h"
 #import "Alert.h"
+#import "JoinInfoViewController.h"
 @interface DetailYuluViewController ()
 
 @end
@@ -44,7 +45,7 @@
 
     //按钮修改为已经报名
      if(!([@"ylsl" isEqualToString:activityType]||[@"xlhd" isEqualToString:activityType])){
-        [_mUIButtonJoinIn setTitle:@"已报名" forState:UIControlStateNormal];
+        [_mUIButtonJoinIn setTitle:@"查看报名详情" forState:UIControlStateNormal];
     }
     // Do any additional setup after loading the view.
 }
@@ -65,7 +66,12 @@
 */
 - (IBAction)join:(id)sender {
     if(!([@"ylsl" isEqualToString:activityType]||[@"xlhd" isEqualToString:activityType])){
-        [Alert showMessageAlert:@"您已经报名过了" view:self];
+//        [Alert showMessageAlert:@"您已经报名过了" view:self];
+        
+        
+        JoinInfoViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"JoinInfoViewController"];
+        nextPage.hidesBottomBarWhenPushed=YES;
+        [self.navigationController pushViewController:nextPage animated:YES];
         return;
     }
     //根据storyboard id来获取目标页面
