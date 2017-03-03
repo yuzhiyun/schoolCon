@@ -26,6 +26,10 @@
 //    [self forceO
     UIWebView *mUIWebView=[self.view viewWithTag:1];
     
+    //避免出现一团黑
+    [mUIWebView setBackgroundColor:[UIColor clearColor]];
+    //设置透明
+    [mUIWebView setOpaque:NO];
     /**
      * 显示网页
      */
