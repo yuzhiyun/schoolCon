@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface JoinInfoViewController : UIViewController
+@interface JoinInfoViewController : UIViewController{
+    @public NSString *myActivityOrderId;
+}
 
 @end

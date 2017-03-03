@@ -55,22 +55,14 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 - (IBAction)join:(id)sender {
+    
+    //我的模块
     if(!([@"ylsl" isEqualToString:activityType]||[@"xlhd" isEqualToString:activityType])){
-//        [Alert showMessageAlert:@"您已经报名过了" view:self];
-        
-        
         JoinInfoViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"JoinInfoViewController"];
         nextPage.hidesBottomBarWhenPushed=YES;
+        nextPage->myActivityOrderId=myActivityOrderId;
         [self.navigationController pushViewController:nextPage animated:YES];
         return;
     }

@@ -19,6 +19,8 @@
 
 @property (nonatomic,copy)NSNumber *NSNumprice;
 
+@property (nonatomic,copy)NSString *myActivityOrderId;
+
 //@property (nonatomic,copy)NSString *price;
 
 @end

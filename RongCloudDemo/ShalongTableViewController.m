@@ -153,7 +153,7 @@
     nextPage->place=model.place;
     nextPage->price=model.NSNumprice;
     
-    
+    nextPage->myActivityOrderId=model.myActivityOrderId;
     
     
     NSString *urlString;
@@ -259,7 +259,7 @@
                             model.NSNumprice=item[@"fee"];
                             
                             NSNumber *date=item [@"starttime"];
-                            
+                            //我的模块
                             if([@"jiaoyu" isEqualToString:type]||[@"xinli" isEqualToString:type]){
                                 model.activityId=item [@"activityid"];
                                 model.picUrl=item [@"picurl"];
@@ -273,9 +273,10 @@
                                 model.price=price.stringValue;
                                 date=item [@"signupdate"];
                                 
+                                model.myActivityOrderId=item [@"orderid"];
                             }
                             
-                            /**
+                        /**
                              *把时间搓NSNumber 转成用户看得懂的时间
                              */
                             
