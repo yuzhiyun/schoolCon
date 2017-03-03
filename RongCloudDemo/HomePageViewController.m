@@ -489,7 +489,7 @@ _articleUrlArray=@[@"http://mp.weixin.qq.com/s/m3y2dvyWLxHoFskyX5aWPQ",@"http://
     //跳转
     [self.navigationController pushViewController:nextPage animated:YES];
     
-    
+    [tableView reloadData];
     
     
     
