@@ -484,4 +484,20 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
 //    }
 //    
 //}
+
++(NSString* )unicodedateToString:(NSNumber* )date {
+    
+    NSString *timeStamp2 =date.stringValue;
+    long long int date1 = (long long int)[timeStamp2 intValue];
+    NSDate *date2 = [NSDate dateWithTimeIntervalSince1970:date1];
+    //用于格式化NSDate对象
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    //设置格式：zzz表示时区
+    [dateFormatter setDateFormat:@"yyyy-MM-dd"];
+    //NSDate转NSString
+    NSString *currentDateString = [dateFormatter stringFromDate:date2];
+    return currentDateString;
+    //model.date=currentDateString;
+
+}
 @end

@@ -72,6 +72,39 @@
             if([zero isEqualToNumber:code])
             {
                 
+                NSDictionary *dicOrder=[[doc objectForKey:@"data"] objectForKey:@"order"];
+                
+                NSDictionary *dicActivity=[[doc objectForKey:@"data"] objectForKey:@"activity"];
+                
+                
+                
+                self.mUILabelTitle.text=dicActivity[@"title"];
+                self.mUILabelPublisher.text=dicActivity[@"author"];
+                self.mUILabelPlace.text=dicActivity[@"place"];
+                self.mUILabelPubPhone.text=dicActivity[@"tel"];
+                NSNumber *startTime=dicActivity[@"startTime"];
+                
+                self.mUILabelDate.text=[ AppDelegate unicodedateToString:startTime];
+                
+                
+                
+                self.mUILabelPhone.text=dicOrder[@"tel"];
+                NSNumber *joinNum=dicOrder[@"peopleNumber"];
+                self.mUILabelJoinNumber.text=joinNum.stringValue;
+                self.mUILabelPhone.text=dicOrder[@"tel"];
+                self.mUILabelName.text=dicOrder[@"remarks"];
+                
+                NSNumber *fee=dicOrder[@"fee"];
+                self.mUILabelFee.text=fee.stringValue;
+
+                
+                
+                
+                
+                
+                
+                
+                
                 
             }
             else{

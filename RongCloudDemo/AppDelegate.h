@@ -73,5 +73,6 @@
 //判断是不是老师
 +(Boolean) isTeacher;
 +(void) goToVip: (UIViewController *)viewController;
++(NSString* )unicodedateToString:(NSNumber* )date ;
 @end
 

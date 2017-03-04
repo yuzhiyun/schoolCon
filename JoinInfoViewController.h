@@ -11,5 +11,18 @@
 @interface JoinInfoViewController : UIViewController{
     @public NSString *myActivityOrderId;
 }
+@property (weak, nonatomic) IBOutlet UILabel *mUILabelTitle;
+
+@property (weak, nonatomic) IBOutlet UILabel *mUILabelPublisher;
+@property (weak, nonatomic) IBOutlet UILabel *mUILabelDate;
+
+@property (weak, nonatomic) IBOutlet UILabel *mUILabelPlace;
+@property (weak, nonatomic) IBOutlet UILabel *mUILabelPubPhone;
+
+@property (weak, nonatomic) IBOutlet UILabel *mUILabelName;
+
+@property (weak, nonatomic) IBOutlet UILabel *mUILabelPhone;
+@property (weak, nonatomic) IBOutlet UILabel *mUILabelJoinNumber;
+@property (weak, nonatomic) IBOutlet UILabel *mUILabelFee;
 
 @end
