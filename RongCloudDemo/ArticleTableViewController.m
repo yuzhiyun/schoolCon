@@ -271,19 +271,9 @@
     cell.UILabelTitle.text=model.title;
     NSLog(@"model.title;");
     cell.UILabelTitle.numberOfLines=2;
-    /**
-     *NSNumber 转成用户看得懂的时间
-     */
-    NSString *timeStamp2 = model.date.stringValue;
-    long long int date1 = (long long int)[timeStamp2 intValue];
-    NSDate *date2 = [NSDate dateWithTimeIntervalSince1970:date1];
-    //用于格式化NSDate对象
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    //设置格式：zzz表示时区
-    [dateFormatter setDateFormat:@"yyyy-MM-dd"];
-    //NSDate转NSString
-    NSString *currentDateString = [dateFormatter stringFromDate:date2];
-    cell.UILabelDate.text=currentDateString;
+    
+    
+    cell.UILabelDate.text=[AppDelegate unicodedateToString:model.date];
     cell.UILabelAuthor.text= model.author;
     
     AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];

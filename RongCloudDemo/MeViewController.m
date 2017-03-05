@@ -545,7 +545,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
                 NSString *picUrl=[NSString stringWithFormat:@"%@%@",myDelegate.ipString,avatarImgUrl];
                 
                 
-                [self.UIImageViewAvatar sd_setImageWithURL:picUrl placeholderImage:[UIImage imageNamed:@"favorites.png"]];
+                [self.UIImageViewAvatar sd_setImageWithURL:picUrl placeholderImage:[UIImage imageNamed:myDelegate.defaultAvatar]];
                 
             }
             else{

@@ -275,21 +275,7 @@
                                 
                                 model.myActivityOrderId=item [@"orderid"];
                             }
-                            
-                        /**
-                             *把时间搓NSNumber 转成用户看得懂的时间
-                             */
-                            
-                            NSString *timeStamp2 =date.stringValue;
-                            long long int date1 = (long long int)[timeStamp2 intValue];
-                            NSDate *date2 = [NSDate dateWithTimeIntervalSince1970:date1];
-                            //用于格式化NSDate对象
-                            NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-                            //设置格式：zzz表示时区
-                            [dateFormatter setDateFormat:@"yyyy-MM-dd"];
-                            //NSDate转NSString
-                            NSString *currentDateString = [dateFormatter stringFromDate:date2];
-                            model.date=currentDateString;
+                            model.date=[AppDelegate unicodedateToString:date];
                             [allDataFromServer addObject:model];
                         }
                         NSLog(@"mDataArticle项数为%i",[allDataFromServer count]);
@@ -306,8 +292,6 @@
             else{
                 //判断code 是不是-1,(-2的情况也出现过,还是用msg来判断吧，虽然不规范),如果是那么token失效，需要让用户重新登录
                 // if([[NSNumber numberWithInt:(-1)] isEqualToNumber:[doc objectForKey:@"code"]]
-                
-                
                 if([@"token invalid" isEqualToString:[doc objectForKey:@"msg"]]){
                     [AppDelegate reLogin:self];
                 }

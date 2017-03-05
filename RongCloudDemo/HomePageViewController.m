@@ -554,8 +554,6 @@ _articleUrlArray=@[@"http://mp.weixin.qq.com/s/m3y2dvyWLxHoFskyX5aWPQ",@"http://
                             model.title=item[@"name"];
                             model.articleId=item[@"id"];
                             [mDataGroups addObject:model];
-                            
-                            
                         }
                         //通知
                         for(NSDictionary *item in  [[doc objectForKey:@"data"] objectForKey:@"notices" ]){
@@ -563,33 +561,12 @@ _articleUrlArray=@[@"http://mp.weixin.qq.com/s/m3y2dvyWLxHoFskyX5aWPQ",@"http://
                             Notification *model=[[Notification alloc]init];
                             model.title=item[@"title"];
                             model.articleId=item[@"id"];
-                            
-                            /**
-                             *把时间搓NSNumber 转成用户看得懂的时间
-                             */
-                            NSNumber *date=item [@"publishat"];
-                            NSString *timeStamp2 =date.stringValue;
-                            long long int date1 = (long long int)[timeStamp2 intValue];
-                            NSDate *date2 = [NSDate dateWithTimeIntervalSince1970:date1];
-                            //用于格式化NSDate对象
-                            NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-                            //设置格式：zzz表示时区
-                            [dateFormatter setDateFormat:@"yyyy-MM-dd"];
-                            //NSDate转NSString
-                            NSString *currentDateString = [dateFormatter stringFromDate:date2];
-                            
-                            model.publishat=currentDateString;
-                            
-                            
+                            model.publishat=[AppDelegate unicodedateToString:item [@"publishat"]];
                             [mNotification addObject:model];
-                            
-                            
                         }
-
                         //NSLog(@"mDataArticle项数为%i",[allDataFromServer count]);
                         NSLog(@"//更新界面");
                         //更新界面
-                        
                         [mUITableView reloadData];
                     }
                   
@@ -613,17 +590,12 @@ _articleUrlArray=@[@"http://mp.weixin.qq.com/s/m3y2dvyWLxHoFskyX5aWPQ",@"http://
         }
         else
             NSLog(@"*****doc空***********");
-        //        NSLog([self DataTOjsonString:responseObject]);
-        //          NSLog([self convertToJsonData:dic]);
-        
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         ;
         //NSLog(error);
         NSString *errorUser=[error.userInfo objectForKey:NSLocalizedDescriptionKey];
         if(-1009==error.code||-1016==error.code)
             errorUser=@"主人，似乎没有网络喔！";
-        
-        
         NSLog(errorUser);
         NSLog(@"%i",error.code);
         [Alert showMessageAlert:errorUser view:self];

@@ -60,13 +60,10 @@
      AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
     
     NSString *picUrl=[NSString stringWithFormat:@"%@%@",myDelegate.ipString,avatarImgUrl];
-    [self.mUIImageViewAvatar sd_setImageWithURL:picUrl placeholderImage:[UIImage imageNamed:@"icon_tx.png"]];
+    [self.mUIImageViewAvatar sd_setImageWithURL:picUrl placeholderImage:[UIImage imageNamed:myDelegate.defaultAvatar]];
     [self getVipInfo];
-    
     self.mUIImageViewAvatar.layer.masksToBounds = YES;
     self.mUIImageViewAvatar.layer.cornerRadius = self.mUIImageViewAvatar.frame.size.height / 2 ;
-    
-    
 }
 -(void)viewDidAppear:(BOOL)animated{
     [self getVipInfo];
@@ -74,7 +71,6 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 -(NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{

@@ -116,21 +116,11 @@
                             model.title=item [@"title"];
                             model.author=item [@"author"];
                             model.type=item [@"type"];
-                            /**
-                                  *把时间搓NSNumber 转成用户看得懂的时间
-                                  */
-                            NSNumber *date=item [@"publishat"];
-                           NSString *timeStamp2 =date.stringValue;
-                            long long int date1 = (long long int)[timeStamp2 intValue];
-                            NSDate *date2 = [NSDate dateWithTimeIntervalSince1970:date1];
-                            //用于格式化NSDate对象
-                            NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-                            //设置格式：zzz表示时区
-                            [dateFormatter setDateFormat:@"yyyy-MM-dd"];
-                            //NSDate转NSString
-                            NSString *currentDateString = [dateFormatter stringFromDate:date2];
                             
-                            model.publishat=currentDateString;
+                           
+
+                            
+                            model.publishat= [AppDelegate unicodedateToString:item [@"publishat"]];
                             
                             
                             if([orientation isEqualToString:@"up"])
