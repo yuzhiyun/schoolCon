@@ -2704,7 +2704,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Te4-H4-W9P">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="718"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="818"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BPL-mf-SdC">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="140"/>
@@ -2740,10 +2740,10 @@
                                         </constraints>
                                     </view>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="vvs-OF-I96">
-                                        <rect key="frame" x="0.0" y="260" width="375" height="400"/>
+                                        <rect key="frame" x="0.0" y="260" width="375" height="270"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="400" id="Tcw-oP-fW3"/>
+                                            <constraint firstAttribute="height" constant="270" id="Tcw-oP-fW3"/>
                                         </constraints>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="4HJ-7f-2xF">
@@ -2873,17 +2873,34 @@
                                             <constraint firstAttribute="height" constant="10" id="iv0-FA-N0P"/>
                                         </constraints>
                                     </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S9L-jg-Lwh">
+                                        <rect key="frame" x="0.0" y="540" width="375" height="40"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="SPf-m8-M99"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <state key="normal" title="退 出 登 录">
+                                            <color key="titleColor" red="1" green="0.23652616209999999" blue="0.1614098991" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="logOut:" destination="QVT-ha-nuJ" eventType="touchUpInside" id="CCA-A7-Ya3"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="rzE-BM-wkw" secondAttribute="trailing" id="24N-B0-rcY"/>
                                     <constraint firstItem="YlB-UE-RXE" firstAttribute="top" secondItem="rzE-BM-wkw" secondAttribute="bottom" id="D7R-cs-1Ob"/>
                                     <constraint firstItem="BPL-mf-SdC" firstAttribute="width" secondItem="Te4-H4-W9P" secondAttribute="width" id="FWH-L2-hlq"/>
+                                    <constraint firstItem="S9L-jg-Lwh" firstAttribute="top" secondItem="vvs-OF-I96" secondAttribute="bottom" constant="10" id="HKa-WU-53Q"/>
                                     <constraint firstItem="vvs-OF-I96" firstAttribute="top" secondItem="rzE-BM-wkw" secondAttribute="bottom" id="MWW-59-Jjo"/>
                                     <constraint firstItem="BPL-mf-SdC" firstAttribute="leading" secondItem="Te4-H4-W9P" secondAttribute="leading" id="P6O-4O-9BA"/>
                                     <constraint firstAttribute="trailing" secondItem="BPL-mf-SdC" secondAttribute="trailing" id="TQj-Bd-tvp"/>
                                     <constraint firstItem="rzE-BM-wkw" firstAttribute="top" secondItem="BPL-mf-SdC" secondAttribute="bottom" id="WdE-rg-otj"/>
                                     <constraint firstItem="YlB-UE-RXE" firstAttribute="leading" secondItem="Te4-H4-W9P" secondAttribute="leading" id="fHp-pm-Sor"/>
-                                    <constraint firstAttribute="bottom" secondItem="vvs-OF-I96" secondAttribute="bottom" id="pTu-0Q-t0q"/>
+                                    <constraint firstAttribute="trailing" secondItem="S9L-jg-Lwh" secondAttribute="trailing" id="iKL-MT-d4t"/>
+                                    <constraint firstItem="S9L-jg-Lwh" firstAttribute="leading" secondItem="Te4-H4-W9P" secondAttribute="leading" id="mYq-rv-jQK"/>
+                                    <constraint firstAttribute="bottom" secondItem="vvs-OF-I96" secondAttribute="bottom" constant="50" id="pTu-0Q-t0q"/>
                                     <constraint firstItem="BPL-mf-SdC" firstAttribute="top" secondItem="Te4-H4-W9P" secondAttribute="top" id="qiU-z8-6dx"/>
                                     <constraint firstAttribute="trailing" secondItem="YlB-UE-RXE" secondAttribute="trailing" id="syP-nj-CFM"/>
                                     <constraint firstAttribute="trailing" secondItem="vvs-OF-I96" secondAttribute="trailing" id="w0h-a5-2cO"/>
@@ -2892,10 +2909,10 @@
                                 </constraints>
                             </scrollView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="Te4-H4-W9P" secondAttribute="trailing" id="feU-LK-rDr"/>
-                            <constraint firstItem="NoJ-7X-JWQ" firstAttribute="top" secondItem="Te4-H4-W9P" secondAttribute="bottom" constant="-100" id="gp9-gY-ab3"/>
+                            <constraint firstItem="NoJ-7X-JWQ" firstAttribute="top" secondItem="Te4-H4-W9P" secondAttribute="bottom" constant="-200" id="gp9-gY-ab3"/>
                             <constraint firstItem="Te4-H4-W9P" firstAttribute="top" secondItem="4M0-1O-46g" secondAttribute="top" id="hjd-cg-f6z"/>
                             <constraint firstItem="Te4-H4-W9P" firstAttribute="leading" secondItem="4M0-1O-46g" secondAttribute="leading" id="hrr-4Q-XAv"/>
                         </constraints>

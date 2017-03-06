@@ -86,7 +86,7 @@
         [mDataKey addObject:@"我的会员"];
     }
     [mDataKey addObject:@"我的收藏"];
-    [mDataKey addObject:@"退出登录"];
+    //[mDataKey addObject:@"退出登录"];
     
     mDataImg=[[NSMutableArray alloc]init];
     [mDataImg addObject:@"my_phone.png"];
@@ -98,7 +98,7 @@
     }
     
     [mDataImg addObject:@"my_collect.png"];
-    [mDataImg addObject:@"exit.png"];
+    //[mDataImg addObject:@"exit.png"];
     
     
     
@@ -396,36 +396,9 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
 }
 -(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     //判断是不是退出登录
-    if([mDataKey count]-1==indexPath.row){
-        UIAlertController *alert=[UIAlertController alertControllerWithTitle:nil message:@"确定退出吗？" preferredStyle:UIAlertControllerStyleAlert];
-        UIAlertAction *ok=[UIAlertAction actionWithTitle:@"确认"
-                                                   style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){
-                                                       
-                                                       //清除token
-                                                       [DataBaseNSUserDefaults removeData:@"token"];
-                                                       
-                                                       //                                                       NSLog(@"退出登录");
-                                                       
-                                                       //桌面图标右上角红点设置为0
-                                                       [UIApplication sharedApplication].applicationIconBadgeNumber =0;
-                                                       //根据storyboard id来获取目标页面
-                                                       EntranceViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"EntranceViewController"];
-                                                       nextPage.hidesBottomBarWhenPushed=YES;
-                                                       //跳转
-                                                       [self.navigationController pushViewController:nextPage animated:YES];
-                                                   }];
-        
-        UIAlertAction *cancel=[UIAlertAction actionWithTitle:@"取消"
-                                                       style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){
-                                                           
-                                                           [alert dismissViewControllerAnimated:YES completion:nil];
-                                                       }];
-        //        信息框添加按键
-        [alert addAction:ok];
-        [alert addAction:cancel];
-        [self presentViewController:alert animated:YES completion:nil];
-    }
-    
+//    if([mDataKey count]-1==indexPath.row){
+//    }
+//    
     //修改电话
     if(0==indexPath.row){
         //显示顶部导航
@@ -479,7 +452,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
         }
     }
     //我的收藏
-    if([mDataKey count]-2==indexPath.row){
+    if([mDataKey count]-1==indexPath.row){
         //显示顶部导航
         self.navigationController.navigationBarHidden=NO;
         MyCollectViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"MyCollectViewController"];
@@ -572,6 +545,37 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
     
 }
 
+- (IBAction)logOut:(id)sender {
+            UIAlertController *alert=[UIAlertController alertControllerWithTitle:nil message:@"确定退出吗？" preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction *ok=[UIAlertAction actionWithTitle:@"确认"
+                                                       style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){
+    
+                                                           //清除token
+                                                           [DataBaseNSUserDefaults removeData:@"token"];
+    
+                                                           //                                                       NSLog(@"退出登录");
+    
+                                                           //桌面图标右上角红点设置为0
+                                                           [UIApplication sharedApplication].applicationIconBadgeNumber =0;
+                                                           //根据storyboard id来获取目标页面
+                                                           EntranceViewController *nextPage= [self.storyboard instantiateViewControllerWithIdentifier:@"EntranceViewController"];
+                                                           nextPage.hidesBottomBarWhenPushed=YES;
+                                                           //跳转
+                                                           [self.navigationController pushViewController:nextPage animated:YES];
+                                                       }];
+    
+            UIAlertAction *cancel=[UIAlertAction actionWithTitle:@"取消"
+                                                           style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){
+    
+                                                               [alert dismissViewControllerAnimated:YES completion:nil];
+                                                           }];
+            //        信息框添加按键
+            [alert addAction:ok];
+            [alert addAction:cancel];
+            [self presentViewController:alert animated:YES completion:nil];
+
+    
+}
 
 
 
