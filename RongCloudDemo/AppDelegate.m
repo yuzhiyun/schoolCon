@@ -33,10 +33,6 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    
-    
-    
-    
     /**
      *JPush
      *
@@ -62,9 +58,6 @@
                  apsForProduction:false
             advertisingIdentifier:nil];
     
-    
-    
-    
     //初始化全局变量
     onlineReadinngTitle=[[NSMutableArray alloc]init];
     indexOnlineReadinng=0;
@@ -76,8 +69,8 @@
 //    172.27.35.7
     myDelegate.appId=@"03a8f0ea6a";
     myDelegate.appSecret=@"b4a01f5a7dd4416c";
-    myDelegate.loadingImg=@"loading.gif";
-    myDelegate.defaultAvatar=@"icon_tx.png";
+    myDelegate.loadingImg=@"loading.png";
+    myDelegate.defaultAvatar=@"avatar.png";
     
     myDelegate.navigationBarColor=[UIColor colorWithRed:44/255.0 green:191/255.0 blue:242/255.0 alpha:1.0];
     //初始化融云SDK

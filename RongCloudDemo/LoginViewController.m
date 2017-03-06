@@ -26,6 +26,8 @@
     //    头像圆形
     self.UIImageViewAvatar.layer.masksToBounds = YES;
     self.UIImageViewAvatar.layer.cornerRadius = self.UIImageViewAvatar.frame.size.height / 2 ;
+    AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
+    self.UIImageViewAvatar.image=[UIImage imageNamed:myDelegate.defaultAvatar];
     //    隐藏返回按钮navigationController的navigationBar
     //    self.navigationController.navigationBarHidden=YES;
     //    [self loadData];

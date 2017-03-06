@@ -102,8 +102,9 @@
     
     
     
+    self.UIImageViewAvatar.image=[UIImage imageNamed:myDelegate.defaultAvatar];
     //    加载图片,如果加载不到图片，就显示favorites.png
-    [self.UIImageViewAvatar sd_setImageWithURL:@"http://img05.tooopen.com/images/20150202/sy_80219211654.jpg" placeholderImage:[UIImage imageNamed:myDelegate.defaultAvatar]];
+    //[self.UIImageViewAvatar sd_setImageWithURL:@"http://img05.tooopen.com/images/20150202/sy_80219211654.jpg" placeholderImage:[UIImage imageNamed:myDelegate.defaultAvatar]];
     //设置图片为圆形
     /*
      *View都有一个layer的属性，我们正是通过layer的一些设置来达到圆角的目的，因此诸如UIImageView、UIButton
@@ -133,9 +134,20 @@
     
     //这是老师
     if([[NSNumber numberWithInt:(0)] isEqualToNumber:userType]){
-        _mUILabelKeyStudentName.text=@"";
-        _mUILabelKeyClass.text=@"";
-        _mUILabelKeyHeadTeacher.text=@"教学学科:";
+        //_mUILabelKeyStudentName.text=@"";
+        
+        //_mUILabelKeyClass.text=@"";
+        
+        [self.mUILabelKeyStudentName setHidden:YES];
+        [self.mUILabelKeyClass setHidden:YES];
+        self.mUILabelKeyHeadTeacher.text=@"教学学科:";
+        
+        //把四个label变大一点，因为老师只显示两行信息，字体小就会显得很丑
+        //self.mUILabelKeyHeadTeacher.font=[UIFont systemFontOfSize:14];
+        self.mUILabelKeySchool.font=[UIFont systemFontOfSize:14];
+        self.mUILabelSchool.font=[UIFont systemFontOfSize:14];
+        self.mUILabelKeyHeadTeacher.font=[UIFont systemFontOfSize:14];
+        self.mUILabelHeadTeacher.font=[UIFont systemFontOfSize:14];
     }
 }
 

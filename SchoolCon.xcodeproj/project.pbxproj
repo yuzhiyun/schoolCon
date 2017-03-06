@@ -161,6 +161,8 @@
 		CD54BF241E6AE45300ABCB6C /* wode@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CD54BF1A1E6AE45300ABCB6C /* wode@2x.png */; };
 		CD54BF251E6AE45300ABCB6C /* xiaoyuan_1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CD54BF1B1E6AE45300ABCB6C /* xiaoyuan_1@2x.png */; };
 		CD54BF261E6AE45300ABCB6C /* xiaoyuan@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CD54BF1C1E6AE45300ABCB6C /* xiaoyuan@2x.png */; };
+		CD54BF6F1E6D9A6100ABCB6C /* avatar.png in Resources */ = {isa = PBXBuildFile; fileRef = CD54BF6E1E6D9A6100ABCB6C /* avatar.png */; };
+		CD54BF711E6D9A6A00ABCB6C /* loading.png in Resources */ = {isa = PBXBuildFile; fileRef = CD54BF701E6D9A6A00ABCB6C /* loading.png */; };
 		CD6EACF21E2765A2009EC3A0 /* Toast.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6EACF11E2765A2009EC3A0 /* Toast.m */; };
 		CD6EACF61E276D5C009EC3A0 /* DataBaseNSUserDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6EACF51E276D5C009EC3A0 /* DataBaseNSUserDefaults.m */; };
 		CD6EACF91E276FB3009EC3A0 /* JsonUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6EACF81E276FB3009EC3A0 /* JsonUtil.m */; };
@@ -533,6 +535,8 @@
 		CD54BF1A1E6AE45300ABCB6C /* wode@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wode@2x.png"; sourceTree = "<group>"; };
 		CD54BF1B1E6AE45300ABCB6C /* xiaoyuan_1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "xiaoyuan_1@2x.png"; sourceTree = "<group>"; };
 		CD54BF1C1E6AE45300ABCB6C /* xiaoyuan@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "xiaoyuan@2x.png"; sourceTree = "<group>"; };
+		CD54BF6E1E6D9A6100ABCB6C /* avatar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = avatar.png; sourceTree = "<group>"; };
+		CD54BF701E6D9A6A00ABCB6C /* loading.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loading.png; sourceTree = "<group>"; };
 		CD6EACF01E276546009EC3A0 /* Toast.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Toast.h; sourceTree = "<group>"; };
 		CD6EACF11E2765A2009EC3A0 /* Toast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Toast.m; sourceTree = "<group>"; };
 		CD6EACF41E276D51009EC3A0 /* DataBaseNSUserDefaults.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DataBaseNSUserDefaults.h; sourceTree = "<group>"; };
@@ -1000,7 +1004,9 @@
 		CD028F021E40D53D0083EA43 /* avatar */ = {
 			isa = PBXGroup;
 			children = (
+				CD54BF6E1E6D9A6100ABCB6C /* avatar.png */,
 				CD2DCAEA1DFD9051000C03E1 /* avarta.jpg */,
+				CD54BF701E6D9A6A00ABCB6C /* loading.png */,
 				CDC26A161E2CF5D40093B804 /* icon_tx@2x.png */,
 				CDC26A171E2CF5D40093B804 /* icon_tx@3x.png */,
 			);
@@ -2410,6 +2416,7 @@
 				CDF8EC1F1E3062AD00BFD5EA /* me_pwd.png in Resources */,
 				CD54BEF51E683CBC00ABCB6C /* my_info.png in Resources */,
 				CDF8EC281E3074C500BFD5EA /* 3.png in Resources */,
+				CD54BF6F1E6D9A6100ABCB6C /* avatar.png in Resources */,
 				CD54BF081E684E5700ABCB6C /* vip_select.png in Resources */,
 				CD112A741E0E1CB5004519B9 /* exam1.png in Resources */,
 				CD3CF6961E0C1502003599F5 /* info.png in Resources */,
@@ -2431,6 +2438,7 @@
 				CD54BEE71E683A5600ABCB6C /* me_back.png in Resources */,
 				CD3CF6951E0C1502003599F5 /* exit.png in Resources */,
 				CD79C22E1E27240000A9889F /* MJRefresh.bundle in Resources */,
+				CD54BF711E6D9A6A00ABCB6C /* loading.png in Resources */,
 				CD3CF6931E0C1502003599F5 /* callect.png in Resources */,
 				CDF2F1251E56101E00A499AE /* LICENSE in Resources */,
 				CDF8EC191E2FB68C00BFD5EA /* Classroom.png in Resources */,
